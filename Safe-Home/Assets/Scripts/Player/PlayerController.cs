@@ -19,8 +19,7 @@ public class PlayerController : MonoBehaviour {
 
 	// Tick
 	void Update () {
-		Debug.DrawRay ((Vector2)transform.position, Vector2.down, Color.black, 1, false);
-		
+		//Debug.DrawLine (transform.position, transform.position + Vector3.down * 3, Color.cyan, 1, false);
 	}
 
 	public void SetVertSpeed (float vSpeed){
@@ -36,9 +35,8 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public bool IsGrounded(){
-		RaycastHit2D hit = Physics2D.Raycast ((Vector2)transform.position, Vector2.down, 5.1f, LayerMask.NameToLayer("Default"));
-
+		RaycastHit2D hit = Physics2D.Raycast ((Vector2)transform.position+Vector2.down, Vector2.down, 0.01f);
 		Debug.Log (hit.collider);
-		return true;
+		return hit.collider != null;
 	}
 }
