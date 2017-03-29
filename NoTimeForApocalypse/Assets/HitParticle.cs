@@ -9,6 +9,7 @@ public class HitParticle : MonoBehaviour {
 	public float speed = 5;
 
 	private float lifetime;
+	LinkedList<Health> punched = new LinkedList<Health>();
 
 	// Use this for initialization
 	void Start () {
@@ -27,6 +28,10 @@ public class HitParticle : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D coll) {
-		//TODO punch stuff
+		Health hp = coll.GetComponent<Health>();
+		if (hp == null || punched.Contains(hp))
+			return;
+		punched.AddLast (hp);
+		hp.hurt (gameObject);
 	}
 }

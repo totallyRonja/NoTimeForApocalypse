@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	private void Movement() {
-		Vector2 velocity = new Vector2 (Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * walkSpeed;
+		Vector2 velocity = new Vector2 (Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")*0.666f) * walkSpeed;
 		rigid.velocity = velocity;
 
 		if (velocity != Vector2.zero) {
