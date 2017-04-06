@@ -1,74 +1,85 @@
-Shader "Unlit/NewUnlitShader"
-{
-    Properties
-    {
-        _MainTex ("Texture", 2D) = "white" {}
-		_SubTexR ("Red Replace Texture", 2D) = "white" {}
-		_SubTexG ("Green Replace Texture", 2D) = "white" {}
-		_SubTexB ("Blue Replace Texture", 2D) = "white" {}
-    }
-    SubShader
-    {
-        Tags { "RenderType"="Opaque" }
-        LOD 100
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
 
-        Pass
-        {
-            CGPROGRAM
-            #pragma vertex vert
-            #pragma fragment frag
-            
-            #include "UnityCG.cginc"
+Shader "2D/Texture Blend"
+ {  
+     Properties
+     {
+        [PerRendererData]_MainTex ("Sprite Texture", 2D) = "white" {}
+        _SubTexR ("Sprite Texture", 2D) = "red" {}
+        _SubTexG ("Sprite Texture", 2D) = "green" {}
+        _SubTexB ("Sprite Texture", 2D) = "blue" {}
+     }
+     SubShader
+     {
+         Tags 
+         { 
+             "RenderType" = "Opaque" 
+             "Queue" = "Transparent" 
+         }
+ 
+         Pass
+         {
+             ZWrite Off
+             Blend SrcAlpha OneMinusSrcAlpha 
+  
+             CGPROGRAM
+             #include "UnityCG.cginc"
 
-            struct appdata
-            {
-                float4 vertex : POSITION;
-                float2 uv : TEXCOORD0;
-            };
+             #pragma vertex vert
+             #pragma fragment frag
+             #pragma multi_compile DUMMY PIXELSNAP_ON
+  
+             sampler2D _MainTex;
+             sampler2D _SubTexR;
+             sampler2D _SubTexG;
+             sampler2D _SubTexB;
 
-            struct v2f
-            {
-                float2 uv : TEXCOORD0;
-				float2 uvr : TEXCOORD1;
-				float2 uvg : TEXCOORD2;
-				float2 uvb : TEXCOORD3;
-                
-                float4 vertex : SV_POSITION;
-            };
-
-            sampler2D _MainTex;
-			sampler2D _SubTexR;
-			sampler2D _SubTexG;
-			sampler2D _SubTexB;
-            float4 _MainTex_ST;
-			float4 _SubTexR_ST;
-			float4 _SubTexG_ST;
-			float4 _SubTexB_ST;
-            
-            v2f vert (appdata v)
-            {
-                v2f o;
-                o.vertex = UnityObjectToClipPos(v.vertex);
-                o.uv = TRANSFORM_TEX(v.uv, _MainTex);
-				o.uvr = TRANSFORM_TEX(v.uv, _SubTexR);
-				o.uvg = TRANSFORM_TEX(v.uv, _SubTexG);
-				o.uvb = TRANSFORM_TEX(v.uv, _SubTexB);
-                return o;
-            }
-            
-            fixed3 frag (v2f i) : SV_Target
-            {
-                // sample the texture
-                fixed3 map = tex2D(_MainTex, i.uv).rgb;
-				normalize(map);
-
-				fixed3 col = map.r * tex2D(_SubTexR, i.uvr).rgb;
-				col += map.g * tex2D(_SubTexG, i.uvg).rgb;
-				col += map.b * tex2D(_SubTexB, i.uvb).rgb;
-				
-                return col;
-            }
-            ENDCG
-        }
-    }
-}
+             float4 _SubTexR_ST;
+             float4 _SubTexG_ST;
+             float4 _SubTexB_ST;
+ 
+             struct Vertex
+             {
+                 float4 vertex : POSITION;
+                 float2 uv_MainTex : TEXCOORD0;
+             };
+     
+             struct Fragment
+             {
+                 float4 vertex : POSITION;
+                 float2 uv_MainTex : TEXCOORD0;
+                 float2 uvr : TEXCOORD1;
+                 float2 uvg : TEXCOORD2;
+                 float2 uvb : TEXCOORD3;
+             };
+  
+             Fragment vert(Vertex v)
+             {
+                 Fragment o;
+     
+                 o.vertex = UnityObjectToClipPos(v.vertex);
+                 o.uv_MainTex = v.uv_MainTex;
+                 o.uvr = TRANSFORM_TEX(v.uv_MainTex, _SubTexR);
+                 o.uvg = TRANSFORM_TEX(v.uv_MainTex, _SubTexG);
+                 o.uvb = TRANSFORM_TEX(v.uv_MainTex, _SubTexB);
+     
+                 return o;
+             }
+                                                     
+             float4 frag(Fragment IN) : COLOR
+             {
+                 half4 map = tex2D (_MainTex, IN.uv_MainTex);
+                 normalize(map);
+                 float4 o = float4(0, 0, 0, 0);
+                 o += map.r * tex2D (_SubTexR, IN.uvr);
+                 o += map.g * tex2D (_SubTexG, IN.uvg);
+                 o += map.b * tex2D (_SubTexB, IN.uvb);
+                 o.a = map.a;
+                     
+                 return o;
+             }
+ 
+             ENDCG
+         }
+     }
+ }
