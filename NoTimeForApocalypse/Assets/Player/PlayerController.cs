@@ -9,21 +9,25 @@ public class PlayerController : MonoBehaviour {
 	public GameObject hitOrigin;
 
 	Rigidbody2D rigid;
-	Transform visualization;
+	SpriteRenderer sprite;
 
 	float direction = 0;
 	float hitCooldown = 0;
 
+	Animator anim;
+
 	// Use this for initialization
 	void Awake () {
 		rigid = GetComponent<Rigidbody2D> ();
-		visualization = transform.FindChild ("Sprite");
+		sprite = transform.GetComponentInChildren<SpriteRenderer>();
+		anim = GetComponentInChildren<Animator>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		Movement();
 		Punch();
+		Anim();
 	}
 
 	private void Movement() {
@@ -33,12 +37,6 @@ public class PlayerController : MonoBehaviour {
 		if (velocity != Vector2.zero) {
 			direction = Mathf.Atan2 (-velocity.x, velocity.y);
 			//Debug.Log (direction);
-
-			if (velocity.x > 0) {
-				visualization.localScale = new Vector3 (1, 1, 1);
-			} else if (velocity.x < 0) {
-				visualization.localScale = new Vector3 (-1, 1, 1);
-			}
 		}
 	}
 
@@ -49,5 +47,10 @@ public class PlayerController : MonoBehaviour {
 			newHit.GetComponent<HitParticle>().add_speed(rigid.velocity);
 			hitCooldown = 0.4f;
 		}
+	}
+	private void Anim(){
+		anim.SetFloat("speed_x", rigid.velocity.normalized.x);
+		anim.SetFloat("speed_y", rigid.velocity.normalized.y);
+		sprite.flipX = rigid.velocity.x < 0;
 	}
 }

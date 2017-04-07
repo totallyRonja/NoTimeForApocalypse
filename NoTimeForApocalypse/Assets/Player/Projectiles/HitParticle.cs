@@ -11,7 +11,7 @@ public class HitParticle : MonoBehaviour {
 	private Vector2 speed = Vector2.zero;
 
 	private float lifetime;
-	LinkedList<Health> punched = new LinkedList<Health>();
+	List<Hitable> punched = new List<Hitable>();
 
 	private SpriteRenderer sprite;
 
@@ -20,6 +20,7 @@ public class HitParticle : MonoBehaviour {
 		lifetime = initLifetime;
 		add_speed(transform.up * base_speed);
 		sprite = GetComponent<SpriteRenderer>();
+		transform.localScale = Vector3.zero;
 	}
 	
 	// Update is called once per frame
@@ -38,15 +39,15 @@ public class HitParticle : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D coll) {
-		Health hp = coll.GetComponent<Health>();
+		Hitable hp = coll.GetComponent<Hitable>();
+		print("hit"+(hp==null));
 		if (hp == null || punched.Contains(hp))
 			return;
-		punched.AddLast (hp);
-		hp.hurt (gameObject);
+		punched.Add(hp);
+		hp.hit(gameObject, 1, transform.rotation.z);
 	}
 
 	public void add_speed(Vector2 speed){
 		this.speed += speed;
-		print("accellerate to " + this.speed);
 	}
 }
