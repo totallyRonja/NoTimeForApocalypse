@@ -45,7 +45,8 @@ public class PlayerController : MonoBehaviour {
 	private void Punch() {
 		hitCooldown -= Time.deltaTime;
 		if (Input.GetButtonDown ("Fire1") && hitCooldown < 0) {
-			GameObject newHit = Instantiate(hitPrefab, hitOrigin.transform.position, Quaternion.AngleAxis(direction * Mathf.Rad2Deg, Vector3.forward), transform);
+			GameObject newHit = Instantiate(hitPrefab, hitOrigin.transform.position, Quaternion.AngleAxis(direction * Mathf.Rad2Deg, Vector3.forward));
+			newHit.GetComponent<HitParticle>().add_speed(rigid.velocity);
 			hitCooldown = 0.4f;
 		}
 	}

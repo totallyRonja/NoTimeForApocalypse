@@ -58,16 +58,16 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SubTexB:
-        m_Texture: {fileID: 2800000, guid: 2571fda0ed7d84523a8d693d51e43b6e, type: 3}
-        m_Scale: {x: 20, y: 20}
+        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+        m_Scale: {x: 200, y: 200}
         m_Offset: {x: 0, y: 0}
     - _SubTexG:
-        m_Texture: {fileID: 2800000, guid: ab35025848baf49538814c87e6b3abef, type: 3}
-        m_Scale: {x: 20, y: 20}
+        m_Texture: {fileID: 2800000, guid: 2571fda0ed7d84523a8d693d51e43b6e, type: 3}
+        m_Scale: {x: 50, y: 50}
         m_Offset: {x: 0, y: 0}
     - _SubTexR:
-        m_Texture: {fileID: 2800000, guid: 2571fda0ed7d84523a8d693d51e43b6e, type: 3}
-        m_Scale: {x: 20, y: 20}
+        m_Texture: {fileID: 2800000, guid: ab35025848baf49538814c87e6b3abef, type: 3}
+        m_Scale: {x: 50, y: 50}
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - PixelSnap: 0
