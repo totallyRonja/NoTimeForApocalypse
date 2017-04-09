@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ public class PlayerController : MonoBehaviour {
 	public float walkSpeed = 1;
 	public GameObject hitPrefab;
 	public GameObject hitOrigin;
+    [NonSerialized] public bool slowed = false;
 
 	Rigidbody2D rigid;
 	SpriteRenderer sprite;
@@ -30,9 +32,13 @@ public class PlayerController : MonoBehaviour {
 		Anim();
 	}
 
-	private void Movement() {
+    private void FixedUpdate(){
+        slowed = false;
+    }
+
+    private void Movement() {
 		Vector2 velocity = new Vector2 (Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")*0.666f) * walkSpeed;
-		rigid.velocity = velocity;
+		rigid.velocity = slowed?velocity*0.25f:velocity;
 
 		if (velocity != Vector2.zero) {
 			direction = Mathf.Atan2 (-velocity.x, velocity.y);

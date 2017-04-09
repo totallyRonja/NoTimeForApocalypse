@@ -40,7 +40,6 @@ public class HitParticle : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D coll) {
 		Hitable hp = coll.GetComponent<Hitable>();
-		print("hit"+(hp==null));
 		if (hp == null || punched.Contains(hp))
 			return;
 		punched.Add(hp);

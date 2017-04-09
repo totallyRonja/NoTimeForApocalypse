@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4033978160489670}
   - component: {fileID: 70945169007144398}
   - component: {fileID: 114100710423240950}
-  - component: {fileID: 50285468401120324}
+  - component: {fileID: 50238241621622708}
   m_Layer: 0
   m_Name: Pestilence
   m_TagString: Untagged
@@ -51,8 +51,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1480443715554948}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.99, y: 291.49, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.11, y: 6.73, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4651945927472378}
@@ -72,7 +72,7 @@ Transform:
   m_Father: {fileID: 4033978160489670}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50285468401120324
+--- !u!50 &50238241621622708
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
@@ -86,7 +86,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -118,6 +118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64784765f0a0c4e109da511b13f9199a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  puddleSpawner: {fileID: 0}
+  puddleDelay: 5
 --- !u!212 &212908604537924604
 SpriteRenderer:
   m_ObjectHideFlags: 1

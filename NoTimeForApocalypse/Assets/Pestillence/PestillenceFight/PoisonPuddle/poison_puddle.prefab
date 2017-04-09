@@ -1,0 +1,174 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1192275856619608}
+  m_IsPrefabParent: 1
+--- !u!1 &1192275856619608
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4179138228911818}
+  - component: {fileID: 212495676714645926}
+  - component: {fileID: 114731315948362518}
+  - component: {fileID: 60962101173031348}
+  m_Layer: 0
+  m_Name: poison_puddle
+  m_TagString: slow
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4179138228911818
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1192275856619608}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 6.854649, y: 282.70557, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &60962101173031348
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1192275856619608}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.12, y: 5.12}
+    newSize: {x: 5.12, y: 5.12}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 2.56, y: -0.0000012207031}
+      - {x: 2.1968508, y: -0.8059267}
+      - {x: 1.2799994, y: -1.4403507}
+      - {x: -0.020173797, y: -1.6723719}
+      - {x: -1.21948, y: -1.5210439}
+      - {x: -2.1262448, y: -1.0076596}
+      - {x: -2.56, y: -0.00000015258789}
+      - {x: -2.217025, y: 1.2231058}
+      - {x: -1.2515527, y: 1.8946234}
+      - {x: -0.009482422, y: 2.057433}
+      - {x: 1.2705191, y: 1.904105}
+      - {x: 2.0630767, y: 1.188428}
+--- !u!114 &114731315948362518
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1192275856619608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c16121573e4cd74883119a1a135e291, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  expansionTime: 20
+  size:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 4.6547565
+      outSlope: 4.6547565
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.08206798
+      value: 0.26989356
+      inSlope: 2.2521968
+      outSlope: 2.2521968
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.80012596
+      value: 1.0043042
+      inSlope: -0.015231856
+      outSlope: -0.016784038
+      tangentMode: 1
+    - serializedVersion: 2
+      time: 0.87501794
+      value: 0.60202444
+      inSlope: 0.71070075
+      outSlope: 0.71070075
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.9392198
+      value: 0.2976972
+      inSlope: 0.7676605
+      outSlope: 0.7676605
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: -0.0035642385
+      inSlope: -0.006688036
+      outSlope: -0.006688036
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!212 &212495676714645926
+SpriteRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1192275856619608}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 986575965
+  m_SortingLayer: -1
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: d2f90c107a64c7345bd400aaa7ef1b37, type: 3}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 5.12, y: 5.12}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
