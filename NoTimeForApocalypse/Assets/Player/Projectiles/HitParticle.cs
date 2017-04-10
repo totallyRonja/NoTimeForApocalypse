@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,9 +15,10 @@ public class HitParticle : MonoBehaviour {
 	List<Hitable> punched = new List<Hitable>();
 
 	private SpriteRenderer sprite;
+    [NonSerialized] public GameObject source;
 
-	// Use this for initialization
-	void Awake () {
+    // Use this for initialization
+    void Awake () {
 		lifetime = initLifetime;
 		add_speed(transform.up * base_speed);
 		sprite = GetComponent<SpriteRenderer>();
@@ -39,11 +41,14 @@ public class HitParticle : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D coll) {
+        if (coll.gameObject == source)
+            return;
 		Hitable hp = coll.GetComponent<Hitable>();
 		if (hp == null || punched.Contains(hp))
 			return;
 		punched.Add(hp);
-		hp.hit(gameObject, 1, transform.rotation.z);
+		hp.hit(source, 1, transform.rotation.z);
+        Destroy(gameObject);
 	}
 
 	public void add_speed(Vector2 speed){

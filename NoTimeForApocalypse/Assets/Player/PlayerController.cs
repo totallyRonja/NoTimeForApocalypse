@@ -2,8 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : Hitable {
 
 	public float walkSpeed = 1;
 	public GameObject hitPrefab;
@@ -17,6 +18,9 @@ public class PlayerController : MonoBehaviour {
 	float hitCooldown = 0;
 
 	Animator anim;
+
+    public Text hpDisplay;
+    public int hp = 7;
 
 	// Use this for initialization
 	void Awake () {
@@ -37,8 +41,12 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void Movement() {
-		Vector2 velocity = new Vector2 (Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")*0.666f) * walkSpeed;
-		rigid.velocity = slowed?velocity*0.25f:velocity;
+        Vector2 input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        if (input.magnitude > 1)
+            input.Normalize();
+        input.Scale(new Vector2(1, 2f/3f));
+		Vector2 velocity = input * walkSpeed;
+		rigid.velocity = slowed?velocity*0.4f:velocity;
 
 		if (velocity != Vector2.zero) {
 			direction = Mathf.Atan2 (-velocity.x, velocity.y);
@@ -51,6 +59,7 @@ public class PlayerController : MonoBehaviour {
 		if (Input.GetButtonDown ("Fire1") && hitCooldown < 0) {
 			GameObject newHit = Instantiate(hitPrefab, hitOrigin.transform.position, Quaternion.AngleAxis(direction * Mathf.Rad2Deg, Vector3.forward));
 			newHit.GetComponent<HitParticle>().add_speed(rigid.velocity);
+            newHit.GetComponent<HitParticle>().source = gameObject;
 			hitCooldown = 0.4f;
 		}
 	}
@@ -59,4 +68,9 @@ public class PlayerController : MonoBehaviour {
 		anim.SetFloat("speed_y", rigid.velocity.normalized.y);
 		sprite.flipX = rigid.velocity.x < 0;
 	}
+
+    public override void hit(GameObject source, float damage = 0, float directionAngle = 0) {
+        hp -= (int)damage;
+        hpDisplay.text = hp + "HP";
+    }
 }
