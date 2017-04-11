@@ -55,7 +55,7 @@ public class Tumor : Hitable {
         Destroy(gameObject);
     }
 
-    void OnCollisionEnter2D(Collision2D collision) {
+    void OnCollisionStay2D(Collision2D collision) {
         GameObject go = collision.gameObject;
         Hitable hit = go.GetComponent<Hitable>();
         if (hit == null || go.tag != "Player")
