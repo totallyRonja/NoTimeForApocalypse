@@ -430,10 +430,10 @@ RectTransform:
   m_Father: {fileID: 1323606184}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 5, y: 102}
-  m_SizeDelta: {x: 305, y: 82}
+  m_AnchorMin: {x: 0.26166475, y: 0.26336306}
+  m_AnchorMax: {x: 0.75721955, y: 0.62567425}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &832835326
 MonoBehaviour:
@@ -461,11 +461,11 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 300
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 7 HP
 --- !u!222 &832835327
@@ -829,11 +829,11 @@ RectTransform:
   m_Father: {fileID: 1746586011}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -111}
-  m_SizeDelta: {x: 463, y: 226}
-  m_Pivot: {x: 0.5, y: -0.49}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0.4}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1323606185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1160,6 +1160,11 @@ Prefab:
       propertyPath: puddleSpawner
       value: 
       objectReference: {fileID: 108804683}
+    - target: {fileID: 114100710423240950, guid: 590f13e1b5c91432795870f624deee74,
+        type: 2}
+      propertyPath: max_hp
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 590f13e1b5c91432795870f624deee74, type: 2}
   m_IsPrefabParent: 0
