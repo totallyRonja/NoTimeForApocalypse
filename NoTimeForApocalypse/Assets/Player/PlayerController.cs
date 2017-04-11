@@ -20,13 +20,20 @@ public class PlayerController : Hitable {
 	Animator anim;
 
     public Text hpDisplay;
-    public int hp = 7;
+    public int maxHp = 7;
+    private int hp = -1;
+    public float iFrames = 1; //actually in seconds but y'know
+    private float iTimer;
 
 	// Use this for initialization
 	void Awake () {
 		rigid = GetComponent<Rigidbody2D> ();
 		sprite = transform.GetComponentInChildren<SpriteRenderer>();
 		anim = GetComponentInChildren<Animator>();
+
+        if (hp < 0)
+            hp = maxHp;
+
 	}
 	
 	// Update is called once per frame
@@ -34,6 +41,8 @@ public class PlayerController : Hitable {
 		Movement();
 		Punch();
 		Anim();
+
+        iTimer -= Time.deltaTime;
 	}
 
     private void FixedUpdate(){
@@ -70,7 +79,10 @@ public class PlayerController : Hitable {
 	}
 
     public override void hit(GameObject source, float damage = 0, float directionAngle = 0) {
-        hp -= (int)damage;
-        hpDisplay.text = hp + "HP";
+        if (iTimer < 0) {
+            iTimer = iFrames;
+            hp -= (int)damage;
+            hpDisplay.text = hp + "HP";
+        }
     }
 }
