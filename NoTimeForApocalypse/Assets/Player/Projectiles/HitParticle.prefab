@@ -117,7 +117,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 0
   initLifetime: 0.5
-  base_speed: 5
+  base_speed: 10
 --- !u!212 &212236796731749632
 SpriteRenderer:
   m_ObjectHideFlags: 1
