@@ -65,7 +65,7 @@ public class PlayerController : Hitable {
 		}
 
         if (!land.OverlapPoint(transform.position)) {
-            Die();
+            Die("you drowned");
         }
 	}
 
@@ -120,9 +120,9 @@ public class PlayerController : Hitable {
         return ang;
     }
 
-    public void Die() {
+    public void Die(string deathMessage = "you died") {
         print("played died");
-        hpDisplay.text = "u ded lol";
+        hpDisplay.text = deathMessage;
         Time.timeScale = 0.0f;
     }
 }
