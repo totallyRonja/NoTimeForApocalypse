@@ -25,6 +25,8 @@ public class PlayerController : Hitable {
     public float iFrames = 1; //actually in seconds but y'know
     private float iTimer;
 
+    public Collider2D land;
+
 	// Use this for initialization
 	void Awake () {
 		rigid = GetComponent<Rigidbody2D> ();
@@ -61,13 +63,18 @@ public class PlayerController : Hitable {
 			direction = Mathf.Atan2 (-velocity.x, velocity.y);
 			//Debug.Log (direction);
 		}
+
+        if (!land.OverlapPoint(transform.position)) {
+            Die();
+        }
 	}
 
 	private void Punch() {
 		hitCooldown -= Time.deltaTime;
 		if (Input.GetButtonDown ("Fire1") && hitCooldown < 0) {
-			GameObject newHit = Instantiate(hitPrefab, hitOrigin.transform.position, Quaternion.AngleAxis(direction * Mathf.Rad2Deg, Vector3.forward));
-			newHit.GetComponent<HitParticle>().add_speed(rigid.velocity);
+            Vector2 direction = getClosestWithTag("Enemy").transform.position - transform.position;
+            float angle = getAngle(direction);
+			GameObject newHit = Instantiate(hitPrefab, hitOrigin.transform.position, Quaternion.AngleAxis(angle, Vector3.forward));
             newHit.GetComponent<HitParticle>().source = gameObject;
 			hitCooldown = 0.4f;
 		}
@@ -84,5 +91,38 @@ public class PlayerController : Hitable {
             hp -= (int)damage;
             hpDisplay.text = hp + "HP";
         }
+        if (hp < 0)
+            Die();
+    }
+
+    public GameObject getClosestWithTag(string tag) {
+        GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag(tag);
+        GameObject closest = null;
+        float distance = -1;
+        foreach(GameObject go in objectsWithTag) {
+            if(closest == null || (go.transform.position - transform.position).magnitude < distance) {
+                closest = go;
+                distance = (go.transform.position - transform.position).magnitude;
+            }
+        }
+        return closest;
+    }
+
+    float getAngle(Vector2 fromVector2) {
+        Vector2 toVector2 = new Vector2(0, 1);
+
+        float ang = Vector2.Angle(fromVector2, toVector2);
+        Vector3 cross = Vector3.Cross(fromVector2, toVector2);
+
+        if (cross.z > 0)
+            ang = 360 - ang;
+
+        return ang;
+    }
+
+    public void Die() {
+        print("played died");
+        hpDisplay.text = "u ded lol";
+        Time.timeScale = 0.0f;
     }
 }
