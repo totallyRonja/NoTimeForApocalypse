@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 124514373063660084}
   - component: {fileID: 81670287841938970}
   - component: {fileID: 114422943175968396}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlayerCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4571032388681622}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PointOfAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 70579027198421886}
   - component: {fileID: 50154549042059124}
   - component: {fileID: 114467699455215164}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 4064536338883984}
   - component: {fileID: 212834215256372062}
   - component: {fileID: 95166128337367316}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -266,7 +266,9 @@ MonoBehaviour:
   hitPrefab: {fileID: 1903814844163502, guid: 7acce8229ae5b450a9c6c352e7a12454, type: 2}
   hitOrigin: {fileID: 1413334045136568}
   hpDisplay: {fileID: 0}
-  hp: 7
+  maxHp: 7
+  iFrames: 1
+  land: {fileID: 0}
 --- !u!124 &124514373063660084
 Behaviour:
   m_ObjectHideFlags: 1

@@ -18,7 +18,7 @@ public class Tumor : Hitable {
         victim = GameObject.FindGameObjectWithTag("Player");
         rigid = GetComponent<Rigidbody2D>();
         transform.localScale = Vector3.one * (2 /(recursion + 2f));
-        Debug.Log(recursion + 1);
+        //Debug.Log(recursion + 1);
 	}
 	
 	// Update is called once per frame
@@ -37,7 +37,7 @@ public class Tumor : Hitable {
 
         transform.rotation = Quaternion.Euler(0, 0, ang);
         //transform.Translate(Vector3.up * Time.deltaTime * speed);
-        Vector2 randomness = new Vector2(Random.Range(-1, 1), Random.Range(-1, 1)).normalized;
+        Vector2 randomness = new Vector2(Random.Range(-1, 1), Random.Range(-1, 1)) * 0.8f;
         rigid.AddForce(((Vector2)transform.up + randomness) * speed, ForceMode2D.Force);
     }
     
@@ -50,13 +50,13 @@ public class Tumor : Hitable {
             for (int i = 0; i < 2; i++) {
                 GameObject child = Instantiate(gameObject);
                 child.GetComponent<Tumor>().recursion = recursion + 1;
-                child.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-speed, speed), Random.Range(-speed, speed)), ForceMode2D.Impulse);
+                child.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-1, 1), Random.Range(-1, 1)).normalized * 10, ForceMode2D.Impulse);
             }
         }
         Destroy(gameObject);
     }
 
-    void OnTriggerStay2D(Collider2D collision) {
+    void OnCollisionStay2D(Collision2D collision) {
         GameObject go = collision.gameObject;
         Hitable hit = go.GetComponent<Hitable>();
         if (hit == null || go.tag != "Player")

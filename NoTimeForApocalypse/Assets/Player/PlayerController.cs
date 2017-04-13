@@ -14,7 +14,7 @@ public class PlayerController : Hitable {
 	Rigidbody2D rigid;
 	SpriteRenderer sprite;
 
-	float direction = 0;
+	//float direction = 0;
 	float hitCooldown = 0;
 
 	Animator anim;
@@ -59,10 +59,10 @@ public class PlayerController : Hitable {
 		Vector2 velocity = input * walkSpeed;
 		rigid.velocity = slowed?velocity*0.4f:velocity;
 
-		if (velocity != Vector2.zero) {
+		/*if (velocity != Vector2.zero) { //this used to drive the hit direction
 			direction = Mathf.Atan2 (-velocity.x, velocity.y);
 			//Debug.Log (direction);
-		}
+		}*/
 
         if (!land.OverlapPoint(transform.position)) {
             Die("you drowned");

@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4024511242678412}
   - component: {fileID: 212171917554671016}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tumor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 58241975659803176}
   - component: {fileID: 114346100306556458}
   - component: {fileID: 50642953098612596}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tumor
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 5
+  m_LinearDrag: 4
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -101,7 +101,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

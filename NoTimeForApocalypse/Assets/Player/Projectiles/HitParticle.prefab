@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212236796731749632}
   - component: {fileID: 58833480354197322}
   - component: {fileID: 114404883092658960}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HitParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
