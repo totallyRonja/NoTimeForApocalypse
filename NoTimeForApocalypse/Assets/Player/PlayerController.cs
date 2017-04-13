@@ -109,15 +109,7 @@ public class PlayerController : Hitable {
     }
 
     float getAngle(Vector2 fromVector2) {
-        Vector2 toVector2 = new Vector2(0, 1);
-
-        float ang = Vector2.Angle(fromVector2, toVector2);
-        Vector3 cross = Vector3.Cross(fromVector2, toVector2);
-
-        if (cross.z > 0)
-            ang = 360 - ang;
-
-        return ang;
+        return Mathf.Atan2(-fromVector2.x, fromVector2.y) * Mathf.Rad2Deg ;
     }
 
     public void Die(string deathMessage = "you died") {
