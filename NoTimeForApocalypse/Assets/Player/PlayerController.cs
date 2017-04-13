@@ -72,7 +72,7 @@ public class PlayerController : Hitable {
 	private void Punch() {
 		hitCooldown -= Time.deltaTime;
 		if (Input.GetButtonDown ("Fire1") && hitCooldown < 0) {
-            Vector2 direction = getClosestWithTag("Enemy").transform.position - transform.position;
+            Vector2 direction = getClosestWithTag("Enemy").transform.position - hitOrigin.transform.position;
             float angle = getAngle(direction);
 			GameObject newHit = Instantiate(hitPrefab, hitOrigin.transform.position, Quaternion.AngleAxis(angle, Vector3.forward));
             newHit.GetComponent<HitParticle>().source = gameObject;
