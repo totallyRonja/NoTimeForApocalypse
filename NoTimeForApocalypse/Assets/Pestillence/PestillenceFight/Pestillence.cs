@@ -39,7 +39,7 @@ public class Pestillence : Hitable {
 
         if (hp <= max_hp * (stages - stage - 1) / (stages)) {
             stage++;
-            GameObject newTumor = Instantiate(tumor, transform.position + (Vector3.down * 5), transform.rotation);
+            GameObject newTumor = Instantiate(tumor, transform.position, transform.rotation);
             newTumor.GetComponent<Tumor>().maxRecursion = stage;
             print("stage " + stage + "at" + hp + " hp");
         }

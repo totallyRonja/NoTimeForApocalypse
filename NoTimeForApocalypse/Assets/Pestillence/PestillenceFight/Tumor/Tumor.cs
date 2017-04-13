@@ -37,7 +37,8 @@ public class Tumor : Hitable {
 
         transform.rotation = Quaternion.Euler(0, 0, ang);
         //transform.Translate(Vector3.up * Time.deltaTime * speed);
-        rigid.AddForce(transform.up * speed, ForceMode2D.Force);
+        Vector2 randomness = new Vector2(Random.Range(-1, 1), Random.Range(-1, 1)).normalized;
+        rigid.AddForce(((Vector2)transform.up + randomness) * speed, ForceMode2D.Force);
     }
     
     public override void hit(GameObject source, float damage = 0, float directionAngle = 0) {
