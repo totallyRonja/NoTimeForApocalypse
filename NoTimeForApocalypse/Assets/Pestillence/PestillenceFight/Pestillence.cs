@@ -37,17 +37,18 @@ public class Pestillence : Hitable {
 	public override void hit(GameObject source, float damage = 0, float directionAngle = 0){
         hp -= (int)damage;
 
-        if (hp <= max_hp * (stages - stage - 1) / (stages)) {
-            stage++;
-            GameObject newTumor = Instantiate(tumor, transform.position, transform.rotation);
-            newTumor.GetComponent<Tumor>().maxRecursion = stage;
-            print("stage " + stage + "at" + hp + " hp");
-        }
-
         if (hp <= 0) {
             print("YOU WON");
             Time.timeScale = 0;
             Destroy(gameObject);
+            return;
+        }
+
+        if (hp <= max_hp * (stages - stage - 1) / (stages)) {
+            stage++;
+            GameObject newTumor = Instantiate(tumor, transform.position, transform.rotation);
+            newTumor.GetComponent<Tumor>().recursion = 4 - stage; //ugly hack, if I ever touch this script again please fix this!!
+            print("stage " + stage + "at" + hp + " hp");
         }
 	}
 }
