@@ -27,6 +27,8 @@ public class PlayerController : Hitable {
 
     public Collider2D land;
 
+    public PauseMenu pause;
+
 	// Use this for initialization
 	void Awake () {
 		rigid = GetComponent<Rigidbody2D> ();
@@ -35,7 +37,6 @@ public class PlayerController : Hitable {
 
         if (hp < 0)
             hp = maxHp;
-
 	}
 	
 	// Update is called once per frame
@@ -65,7 +66,7 @@ public class PlayerController : Hitable {
 		}*/
 
         if (!land.OverlapPoint(transform.position)) {
-            Die("you drowned");
+            hit(gameObject, 1);
         }
 	}
 
@@ -115,6 +116,6 @@ public class PlayerController : Hitable {
     public void Die(string deathMessage = "you died") {
         print("played died");
         hpDisplay.text = deathMessage;
-        Time.timeScale = 0.0f;
+        pause.Pause();
     }
 }
