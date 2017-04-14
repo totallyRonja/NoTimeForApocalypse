@@ -66,7 +66,7 @@ public class PlayerController : Hitable {
 		}*/
 
         if (!land.OverlapPoint(transform.position)) {
-            hit(gameObject, 1);
+            Die();
         }
 	}
 
