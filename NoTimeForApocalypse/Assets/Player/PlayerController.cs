@@ -87,7 +87,7 @@ public class PlayerController : Hitable {
 		sprite.flipX = rigid.velocity.x < 0;
 	}
 
-    public override void hit(GameObject source, float damage = 0, float directionAngle = 0) {
+    public override void Hit(GameObject source, float damage = 0, float directionAngle = 0) {
         if (iTimer < 0) {
             iTimer = iFrames;
             hp -= (int)damage;

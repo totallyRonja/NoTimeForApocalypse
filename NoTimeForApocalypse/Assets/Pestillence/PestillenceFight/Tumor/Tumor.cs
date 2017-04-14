@@ -37,11 +37,11 @@ public class Tumor : Hitable {
 
         transform.rotation = Quaternion.Euler(0, 0, ang);
         //transform.Translate(Vector3.up * Time.deltaTime * speed);
-        Vector2 randomness = new Vector2(Random.Range(-1, 1), Random.Range(-1, 1)) * 0.8f;
+        Vector2 randomness = new Vector2(Random.Range(-1, 1), Random.Range(-1, 1)) * 0.5f;
         rigid.AddForce(((Vector2)transform.up + randomness) * speed, ForceMode2D.Force);
     }
     
-    public override void hit(GameObject source, float damage = 0, float directionAngle = 0) {
+    public override void Hit(GameObject source, float damage = 0, float directionAngle = 0) {
         split();
     }
 
@@ -61,6 +61,6 @@ public class Tumor : Hitable {
         Hitable hit = go.GetComponent<Hitable>();
         if (hit == null || go.tag != "Player")
             return;
-        hit.hit(gameObject, 1, transform.eulerAngles.z);
+        hit.Hit(gameObject, 1, transform.eulerAngles.z);
     }
 }

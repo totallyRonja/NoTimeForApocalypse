@@ -34,7 +34,7 @@ public class Pestillence : Hitable {
         }
     }
 
-	public override void hit(GameObject source, float damage = 0, float directionAngle = 0){
+	public override void Hit(GameObject source, float damage = 0, float directionAngle = 0){
         hp -= (int)damage;
 
         if (hp <= 0) {
