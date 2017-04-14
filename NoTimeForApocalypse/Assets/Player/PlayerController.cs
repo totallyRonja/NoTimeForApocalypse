@@ -14,7 +14,7 @@ public class PlayerController : Hitable {
 	Rigidbody2D rigid;
 	SpriteRenderer sprite;
 
-	//float direction = 0;
+	float direction = 0;
 	float hitCooldown = 0;
 
 	Animator anim;
@@ -60,10 +60,10 @@ public class PlayerController : Hitable {
 		Vector2 velocity = input * walkSpeed;
 		rigid.velocity = slowed?velocity*0.4f:velocity;
 
-		/*if (velocity != Vector2.zero) { //this used to drive the hit direction
+		if (velocity != Vector2.zero) { //this used to drive the hit direction
 			direction = Mathf.Atan2 (-velocity.x, velocity.y);
 			//Debug.Log (direction);
-		}*/
+		}
 
         if (!land.OverlapPoint(transform.position)) {
             Die();
@@ -73,8 +73,9 @@ public class PlayerController : Hitable {
 	private void Punch() {
 		hitCooldown -= Time.deltaTime;
 		if (Input.GetButtonDown ("Fire1") && hitCooldown < 0) {
-            Vector2 direction = getClosestWithTag("Enemy").transform.position - hitOrigin.transform.position;
-            float angle = getAngle(direction);
+            GameObject closest = getClosestWithTag("Enemy");
+            Vector2 direction = closest==null ? Vector2.zero : (Vector2)(closest.transform.position - hitOrigin.transform.position);
+            float angle = direction==Vector2.zero?this.direction*Mathf.Rad2Deg:getAngle(direction);
 			GameObject newHit = Instantiate(hitPrefab, hitOrigin.transform.position, Quaternion.AngleAxis(angle, Vector3.forward));
             newHit.GetComponent<HitParticle>().source = gameObject;
 			hitCooldown = 0.4f;
@@ -106,7 +107,7 @@ public class PlayerController : Hitable {
                 distance = (go.transform.position - transform.position).magnitude;
             }
         }
-        return closest;
+        return distance<20?closest:null;
     }
 
     float getAngle(Vector2 fromVector2) {
