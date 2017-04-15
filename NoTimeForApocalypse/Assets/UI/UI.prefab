@@ -191,7 +191,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1191405659729440}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -215,9 +215,12 @@ MonoBehaviour:
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: ' We are <size=50>largely</size> unaffected.'
+  m_Text: '<size=30><b>Caption</b></size>
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+    incididunt ut labore et dolore magna aliqua.'
 --- !u!114 &114073173088048132
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -594,7 +597,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 394, y: 482.5}
-  m_SizeDelta: {x: 160, y: 132.3}
+  m_SizeDelta: {x: 308, y: 102.400024}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!224 &224634057232052834
 RectTransform:

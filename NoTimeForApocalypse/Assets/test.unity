@@ -890,34 +890,6 @@ Prefab:
       propertyPath: m_AnchoredPosition.y
       value: 1.5999947
       objectReference: {fileID: 0}
-    - target: {fileID: 114054170395311516, guid: 03ee8a6ce27823344bb2b7c0698cf420,
-        type: 2}
-      propertyPath: m_Text
-      value: '<size=30><b>Caption</b></size>
-
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-        incididunt ut labore et dolore magna aliqua.'
-      objectReference: {fileID: 0}
-    - target: {fileID: 224539880466701610, guid: 03ee8a6ce27823344bb2b7c0698cf420,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 141.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 114054170395311516, guid: 03ee8a6ce27823344bb2b7c0698cf420,
-        type: 2}
-      propertyPath: m_FontData.m_VerticalOverflow
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224539880466701610, guid: 03ee8a6ce27823344bb2b7c0698cf420,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 394
-      objectReference: {fileID: 0}
-    - target: {fileID: 224539880466701610, guid: 03ee8a6ce27823344bb2b7c0698cf420,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 308
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 03ee8a6ce27823344bb2b7c0698cf420, type: 2}
   m_IsPrefabParent: 0

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class NPC : MonoBehaviour {
@@ -15,10 +16,8 @@ public class NPC : MonoBehaviour {
             GetComponent<NpcUi>();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	void Start () {
+    }
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if(collision.tag == "Player") {

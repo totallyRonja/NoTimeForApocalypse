@@ -40,12 +40,12 @@ public class NpcUi : MonoBehaviour {
     public void SetActive(Transform tr, bool setActive) {
         if (setActive) {
             active = tr;
-            gameObject.SetActive(true);
+            textComponent.enabled = true;
             Apply();
         } else {
             if(tr == active) {
                 active = null;
-                gameObject.SetActive(false);
+                textComponent.enabled = false;
             }
         }
     }
