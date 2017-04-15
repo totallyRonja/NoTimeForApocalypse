@@ -52,6 +52,12 @@ public class PlayerController : Hitable {
         slowed = false;
     }
 
+    private void OnDisable() {
+        anim.SetFloat("speed_x", 0);
+        anim.SetFloat("speed_y", 0);
+        rigid.velocity = Vector2.zero;
+    }
+
     private void Movement() {
         Vector2 input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         if (input.magnitude > 1)

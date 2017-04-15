@@ -15,6 +15,8 @@ public class Pestillence : Hitable {
     public int stages = 5;
     private int stage = 0;
 
+    public Sprite[] sprites;
+
 	// Use this for initialization
 	void Start () {
         hp = max_hp;
@@ -23,7 +25,6 @@ public class Pestillence : Hitable {
 	// Update is called once per frame
 	void Update () {
         PuddleLogic();
-
     }
 
     void PuddleLogic(){
@@ -40,7 +41,8 @@ public class Pestillence : Hitable {
         if (hp <= 0) {
             print("YOU WON");
             Time.timeScale = 0;
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            GetComponentInChildren<SpriteRenderer>().sprite = sprites[5];
             return;
         }
 
@@ -49,6 +51,8 @@ public class Pestillence : Hitable {
             GameObject newTumor = Instantiate(tumor, transform.position, transform.rotation);
             newTumor.GetComponent<Tumor>().recursion = 4 - stage; //ugly hack, if I ever touch this script again please fix this!!
             print("stage " + stage + "at" + hp + " hp");
+
+            GetComponentInChildren<SpriteRenderer>().sprite = sprites[stage];
         }
 	}
 }

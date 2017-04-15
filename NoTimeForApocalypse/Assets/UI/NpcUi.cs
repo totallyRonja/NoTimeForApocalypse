@@ -50,7 +50,7 @@ public class NpcUi : MonoBehaviour {
         }
     }
 
-    void Apply() {
+    public void Apply() {
         textComponent.text = "<size=" + captionSize + "><b>" + caption + "</b></size> \n" + content;
     }
 }
