@@ -5,9 +5,10 @@ using UnityEngine;
 using Inklewriter;
 using Inklewriter.Player;
 using Inklewriter.Unity;
+using System;
 
 //namespace Inklewriter.Unity {
-public class NPC : MonoBehaviour {
+public class NPC : MonoBehaviour, IOptionHolder {
 
     public Transform textAnchor;
 
@@ -20,6 +21,7 @@ public class NPC : MonoBehaviour {
     private PlayChunk chunk = null;
     private int chunkProgress = 0;
     private bool inControl = false;
+    private bool isChoosing = false;
 
     void Awake() {
         ui = GameObject.
@@ -43,30 +45,39 @@ public class NPC : MonoBehaviour {
         if (Input.GetButtonDown("Fire1") && inRange != null) {
             if (inControl) {
                 chunkProgress++;
-                ui.caption = "";
-                ui.content = chunk.Paragraphs[chunkProgress].Text;
-                ui.Apply();
+                if (chunkProgress >= chunk.Paragraphs.Count) {
+                    if (chunk.IsEnd) {
+                        Release();
+                    } else {
+                        List<BlockContent<Option>> o = chunk.Options;
+                        string[] sOptions = new string[o.Count];
+                        for(int i=0;i<o.Count;i++) {
+                            sOptions[i] = o[i].Content.Text;
+                        }
+                        ui.Connect(this);
+                        ui.ShowOptions(sOptions);
+                        isChoosing = true;
+                    }
+                } else {
+                    ui.Show("", chunk.Paragraphs[chunkProgress].Text);
+                }
             } else {
                 inRange.GetComponent<PlayerController>().enabled = false;
                 inControl = true;
                 chunk = player.CreateFirstChunk();
                 chunkProgress = 0;
-                ui.caption = "";
-                ui.content = chunk.Paragraphs[chunkProgress].Text;
-                ui.Apply();
+                ui.Show("", chunk.Paragraphs[chunkProgress].Text);
             }
         }
 
         if (Input.GetButtonDown("Cancel") && inRange != null) {
-            inRange.GetComponent<PlayerController>().enabled = true;
-            inControl = false;
+            Release();
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.tag == "Player") {
-            ui.caption = "[action]";
-            ui.content = "";
+            ui.Show("[Action]", "");
             ui.SetActive(textAnchor == null ? transform : textAnchor, true);
             inRange = collision.gameObject;
         }
@@ -78,5 +89,20 @@ public class NPC : MonoBehaviour {
             inRange = null;
         }
     }
+
+    void Release() {
+        inRange.GetComponent<PlayerController>().enabled = true;
+        inControl = false;
+        ui.Show("[Action]", "");
+    }
+
+    public void ChooseOption(int index) {
+        if (!isChoosing)
+            return;
+
+        chunk = player.CreateChunkForOption(chunk.Options[index].Content);
+        isChoosing = false;
+        chunkProgress = 0;
+        ui.Show("", chunk.Paragraphs[chunkProgress].Text);
+    }
 }
-//}
