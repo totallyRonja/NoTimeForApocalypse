@@ -1,0 +1,8 @@
+graphics: Laura Greve, Karolin Hofmann
+programming: Ronja Böhringer
+design: Ronja Böhringer
+
+music:
+	Devastation and Revenge Kevin MacLeod (incompetech.com)
+	Licensed under Creative Commons: By Attribution 3.0 License
+	http://creativecommons.org/licenses/by/3.0/
