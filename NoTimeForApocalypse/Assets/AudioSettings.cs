@@ -13,6 +13,9 @@ public class AudioSettings : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (Input.GetButtonDown("Mute")) {
+            volume = volume == 0 ? 1 : 0;
+        }
         AudioListener.volume = volume;
 	}
 }
