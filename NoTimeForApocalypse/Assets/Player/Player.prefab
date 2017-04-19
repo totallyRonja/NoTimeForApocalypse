@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 124514373063660084}
   - component: {fileID: 81670287841938970}
   - component: {fileID: 114422943175968396}
+  - component: {fileID: 114089683139920536}
   m_Layer: 8
   m_Name: PlayerCamera
   m_TagString: MainCamera
@@ -57,6 +58,7 @@ GameObject:
   - component: {fileID: 70579027198421886}
   - component: {fileID: 50154549042059124}
   - component: {fileID: 114467699455215164}
+  - component: {fileID: 210341304738266174}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -88,7 +90,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1664358471104594}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.9, z: 0}
+  m_LocalPosition: {x: 0, y: 1.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4613852072180962}
@@ -127,7 +129,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1641179743581418}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 54.86, y: -31.62, z: 0}
+  m_LocalPosition: {x: 3.68, y: -31.56, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4064536338883984}
@@ -204,7 +206,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.25}
   m_Size: {x: 1.2, y: 0.5}
   m_Direction: 1
 --- !u!81 &81670287841938970
@@ -238,6 +240,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114089683139920536
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1052026162157638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7634d2eab0c8a164aa12470cbd692ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volume: 1
 --- !u!114 &114422943175968396
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -277,6 +291,16 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1052026162157638}
   m_Enabled: 1
+--- !u!210 &210341304738266174
+SortingGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1641179743581418}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!212 &212834215256372062
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -309,7 +333,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300004, guid: 7a3e0cc708715407c882e9a788195c0f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c049f4db934b84275b593c3addb5f221, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
