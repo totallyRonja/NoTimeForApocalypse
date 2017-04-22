@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - NPCDialogueBox
   - PauseMenu
+  - InfoTags
+  - HpDisplay
   layers:
   - Default
   - TransparentFX

@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 281282866}
   m_Layer: 0
   m_Name: GlobalTagInformation
-  m_TagString: Untagged
+  m_TagString: InfoTags
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1121,6 +1121,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114059450721453488, guid: 03ee8a6ce27823344bb2b7c0698cf420,
+        type: 2}
+      propertyPath: stages.Array.size
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 224591901070281874, guid: 03ee8a6ce27823344bb2b7c0698cf420,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -1214,12 +1219,70 @@ Prefab:
     - target: {fileID: 224276186142204028, guid: 03ee8a6ce27823344bb2b7c0698cf420,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 1.5999985
+      value: 1.5999947
+      objectReference: {fileID: 0}
+    - target: {fileID: 114059450721453488, guid: 03ee8a6ce27823344bb2b7c0698cf420,
+        type: 2}
+      propertyPath: stages.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 14b2e8f993e4cae44b1a8dd7857f4b45,
+        type: 3}
+    - target: {fileID: 114059450721453488, guid: 03ee8a6ce27823344bb2b7c0698cf420,
+        type: 2}
+      propertyPath: stages.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 1235e69662f96554a84e1020f05551e4,
+        type: 3}
+    - target: {fileID: 114059450721453488, guid: 03ee8a6ce27823344bb2b7c0698cf420,
+        type: 2}
+      propertyPath: stages.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: ab6f2fcfaee817e4fb982de6650135aa,
+        type: 3}
+    - target: {fileID: 114059450721453488, guid: 03ee8a6ce27823344bb2b7c0698cf420,
+        type: 2}
+      propertyPath: stages.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 17b94bda1d5276f4ab0ab8184a1ab447,
+        type: 3}
+    - target: {fileID: 114059450721453488, guid: 03ee8a6ce27823344bb2b7c0698cf420,
+        type: 2}
+      propertyPath: stages.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ead00c1db255e742b58bff18e43d817,
+        type: 3}
+    - target: {fileID: 114059450721453488, guid: 03ee8a6ce27823344bb2b7c0698cf420,
+        type: 2}
+      propertyPath: stages.Array.data[5]
+      value: 
+      objectReference: {fileID: 21300000, guid: 9f7d114e2fcd19246a297de8a4894377,
+        type: 3}
+    - target: {fileID: 114059450721453488, guid: 03ee8a6ce27823344bb2b7c0698cf420,
+        type: 2}
+      propertyPath: stages.Array.data[6]
+      value: 
+      objectReference: {fileID: 21300000, guid: e581cab2e0660b14096a255c05b15423,
+        type: 3}
+    - target: {fileID: 114059450721453488, guid: 03ee8a6ce27823344bb2b7c0698cf420,
+        type: 2}
+      propertyPath: stages.Array.data[7]
+      value: 
+      objectReference: {fileID: 21300000, guid: 6b07c3dcbad835e45b34c9b503629349,
+        type: 3}
+    - target: {fileID: 114911107606008088, guid: 03ee8a6ce27823344bb2b7c0698cf420,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 14b2e8f993e4cae44b1a8dd7857f4b45,
+        type: 3}
+    - target: {fileID: 1056809959412222, guid: 03ee8a6ce27823344bb2b7c0698cf420, type: 2}
+      propertyPath: m_TagString
+      value: HpDisplay
       objectReference: {fileID: 0}
     - target: {fileID: 224865219181555746, guid: 03ee8a6ce27823344bb2b7c0698cf420,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0.601
+      value: 0.6401849
       objectReference: {fileID: 0}
     - target: {fileID: 224865219181555746, guid: 03ee8a6ce27823344bb2b7c0698cf420,
         type: 2}
@@ -1229,46 +1292,52 @@ Prefab:
     - target: {fileID: 224865219181555746, guid: 03ee8a6ce27823344bb2b7c0698cf420,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 234
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224865219181555746, guid: 03ee8a6ce27823344bb2b7c0698cf420,
         type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 0.65016997
+      propertyPath: m_AnchorMin.y
+      value: 0.11633987
       objectReference: {fileID: 0}
     - target: {fileID: 224865219181555746, guid: 03ee8a6ce27823344bb2b7c0698cf420,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -2.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224865219181555746, guid: 03ee8a6ce27823344bb2b7c0698cf420,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: -5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224865219181555746, guid: 03ee8a6ce27823344bb2b7c0698cf420,
         type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0.39412996
+      value: 0.36200002
+      objectReference: {fileID: 0}
+    - target: {fileID: 224865219181555746, guid: 03ee8a6ce27823344bb2b7c0698cf420,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0.52450985
       objectReference: {fileID: 0}
     - target: {fileID: 114738635800438152, guid: 03ee8a6ce27823344bb2b7c0698cf420,
         type: 2}
-      propertyPath: m_Text
-      value: 10:00
+      propertyPath: m_FontData.m_BestFit
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114738635800438152, guid: 03ee8a6ce27823344bb2b7c0698cf420,
-        type: 2}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 114738635800438152, guid: 03ee8a6ce27823344bb2b7c0698cf420,
         type: 2}
       propertyPath: m_FontData.m_FontSize
-      value: 40
+      value: 49
       objectReference: {fileID: 0}
-    - target: {fileID: 1856744202534138, guid: 03ee8a6ce27823344bb2b7c0698cf420, type: 2}
-      propertyPath: m_TagString
-      value: PauseMenu
+    - target: {fileID: 114738635800438152, guid: 03ee8a6ce27823344bb2b7c0698cf420,
+        type: 2}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114738635800438152, guid: 03ee8a6ce27823344bb2b7c0698cf420,
+        type: 2}
+      propertyPath: m_FontData.m_VerticalOverflow
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 03ee8a6ce27823344bb2b7c0698cf420, type: 2}

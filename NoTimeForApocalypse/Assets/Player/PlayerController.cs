@@ -19,7 +19,7 @@ public class PlayerController : Hitable {
 
 	Animator anim;
 
-    public Text hpDisplay;
+    private HpDisplay hpDisplay;
     public int maxHp = 7;
     private int hp = -1;
     public float iFrames = 1; //actually in seconds but y'know
@@ -34,6 +34,7 @@ public class PlayerController : Hitable {
 		rigid = GetComponent<Rigidbody2D> ();
 		sprite = transform.GetComponentInChildren<SpriteRenderer>();
 		anim = GetComponentInChildren<Animator>();
+        hpDisplay = GameObject.FindWithTag("HpDisplay").GetComponent<HpDisplay>();
 
         if (hp < 0)
             hp = maxHp;
@@ -98,9 +99,9 @@ public class PlayerController : Hitable {
         if (iTimer < 0) {
             iTimer = iFrames;
             hp -= (int)damage;
-            hpDisplay.text = hp + "HP";
+            hpDisplay.setHP(hp);
         }
-        if (hp < 0)
+        if (hp <= 0)
             Die();
     }
 
@@ -124,7 +125,7 @@ public class PlayerController : Hitable {
     public void Die(string deathMessage = "you died") {
         hp = -1;
         print("played died");
-        hpDisplay.text = deathMessage;
+        hpDisplay.setHP(0);
         pause.Pause();
     }
 }
