@@ -20,7 +20,7 @@ public class SetSortMode : MonoBehaviour {
     private void Update() {
         
             cam = Camera.allCameras;
-            print("camera:" + cam);
+            //print("camera:" + cam);
             foreach(Camera c in cam) {
                 c.transparencySortMode = mode;
                 c.transparencySortAxis = axis;

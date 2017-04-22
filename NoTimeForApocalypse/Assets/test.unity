@@ -872,7 +872,7 @@ Prefab:
     - target: {fileID: 114174503782423272, guid: 55f560b340f30bc41b090dc566ad1479,
         type: 2}
       propertyPath: dialogueFile
-      value: musgraveritual
+      value: Pestilence_Peter
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 55f560b340f30bc41b090dc566ad1479, type: 2}
