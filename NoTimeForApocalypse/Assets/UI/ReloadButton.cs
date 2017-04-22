@@ -17,6 +17,7 @@ public class ReloadButton : MonoBehaviour {
 	}
 
     void OnClick() {
+        GameObject.FindWithTag("PauseMenu").GetComponent<PauseMenu>().Unpause();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

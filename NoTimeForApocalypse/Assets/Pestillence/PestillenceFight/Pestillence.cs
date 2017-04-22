@@ -40,7 +40,6 @@ public class Pestillence : Hitable {
 
         if (hp <= 0) {
             print("YOU WON");
-            Time.timeScale = 0;
             //Destroy(gameObject);
             GetComponentInChildren<SpriteRenderer>().sprite = sprites[5];
             return;

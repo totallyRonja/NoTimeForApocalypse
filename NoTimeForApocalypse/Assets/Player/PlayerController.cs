@@ -71,7 +71,7 @@ public class PlayerController : Hitable {
 			//Debug.Log (direction);
 		}
 
-        if (!land.OverlapPoint(transform.position)) {
+        if (!land.OverlapPoint(transform.position) && hp >= 0) {
             Die();
         }
 	}
@@ -94,6 +94,7 @@ public class PlayerController : Hitable {
 	}
 
     public override void Hit(GameObject source, float damage = 0, float directionAngle = 0) {
+        if (hp < 0) return;
         if (iTimer < 0) {
             iTimer = iFrames;
             hp -= (int)damage;
@@ -121,6 +122,7 @@ public class PlayerController : Hitable {
     }
 
     public void Die(string deathMessage = "you died") {
+        hp = -1;
         print("played died");
         hpDisplay.text = deathMessage;
         pause.Pause();
