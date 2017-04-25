@@ -1,0 +1,189 @@
+{
+    "updated_at": "2017-04-24T15:08:18Z",
+    "url_key": "znbm",
+    "title": "Pestilence Dialogues - Technician",
+    "data": {
+        "stitches": {
+            "ohHowWonderfulTh": {
+                "content": [
+                    "Oh, how wonderful! Thanks a lot!",
+                    {
+                        "divert": "ohStopLyingToMe"
+                    },
+                    {
+                        "flagName": "hascore"
+                    },
+                    {
+                        "ifCondition": "hascore"
+                    }
+                ]
+            },
+            "ohStopLyingToMe": {
+                "content": [
+                    "Oh, stop lying to me."
+                ]
+            },
+            "thePathIsSaidToB": {
+                "content": [
+                    "The path is said to be... deadly.",
+                    {
+                        "divert": "butYouSeemToBeAD"
+                    }
+                ]
+            },
+            "ohThatsAPityThen": {
+                "content": [
+                    "Oh, that's a pity. Then I'll have to work around it. ",
+                    {
+                        "divert": "endDialogue"
+                    }
+                ]
+            },
+            "exitDialogue": {
+                "content": [
+                    "Exit dialogue"
+                ]
+            },
+            "wouldYouDoItForT": {
+                "content": [
+                    "Would you do it for the sake of all people living here?",
+                    {
+                        "ifConditions": null,
+                        "option": "I'm on my way.",
+                        "linkPath": "exitDialogue",
+                        "notIfConditions": null
+                    },
+                    {
+                        "ifConditions": null,
+                        "option": "No, thanks.",
+                        "linkPath": "ohThatsAPityThen",
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "toReachTheChestI": {
+                "content": [
+                    "To reach the chest it is hidden in is a pretty dangerous undertaking, though.",
+                    {
+                        "divert": "thePathIsSaidToB"
+                    }
+                ]
+            },
+            "noImFine": {
+                "content": [
+                    "No. I'm fine.",
+                    {
+                        "divert": "punctuatedStitch"
+                    }
+                ]
+            },
+            "mumbleMumble": {
+                "content": [
+                    "*mumble mumble*",
+                    {
+                        "ifConditions": null,
+                        "option": "Um, hello?",
+                        "linkPath": "noTimeToTalk",
+                        "notIfConditions": null
+                    },
+                    {
+                        "pageNum": 1
+                    }
+                ]
+            },
+            "itsAPowerCoreSai": {
+                "content": [
+                    "It's a *-Power Core-* said to give a lot of energy to machinery.",
+                    {
+                        "divert": "toReachTheChestI"
+                    }
+                ]
+            },
+            "wellNowThatIThin": {
+                "content": [
+                    "Well, now that I think about it. Theres a *-treasure -*to the *-east-*.",
+                    {
+                        "divert": "itsAPowerCoreSai"
+                    }
+                ]
+            },
+            "iAmWorkingOnAMac": {
+                "content": [
+                    "I am working on a machine and I'm just missing a few parts!",
+                    {
+                        "ifConditions": null,
+                        "option": "Can I help?",
+                        "linkPath": "noImFine",
+                        "notIfConditions": null
+                    },
+                    {
+                        "ifConditions": null,
+                        "option": "I got the core!",
+                        "linkPath": "ohHowWonderfulTh",
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "itIsSupposedToCl": {
+                "content": [
+                    "It is supposed to clear the disease spreading from the north. ",
+                    {
+                        "divert": "youHaveProbablyS"
+                    }
+                ]
+            },
+            "butYouSeemToBeAD": {
+                "content": [
+                    "But you seem to be a dexterious adventurer, I believe you can do it.",
+                    {
+                        "divert": "wouldYouDoItForT"
+                    }
+                ]
+            },
+            "punctuatedStitch": {
+                "content": [
+                    "...",
+                    {
+                        "divert": "wellNowThatIThin"
+                    }
+                ]
+            },
+            "theApocalypseIsN": {
+                "content": [
+                    "The apocalypse is nearing and I'm trying to figure out how to stop it!",
+                    {
+                        "divert": "iAmWorkingOnAMac"
+                    }
+                ]
+            },
+            "endDialogue": {
+                "content": [
+                    "End dialogue. "
+                ]
+            },
+            "noTimeToTalk": {
+                "content": [
+                    "No time to talk!",
+                    {
+                        "divert": "theApocalypseIsN"
+                    }
+                ]
+            },
+            "youHaveProbablyS": {
+                "content": [
+                    "You have probably seen the disgusting discoloration in the ground."
+                ]
+            }
+        },
+        "editorData": {
+            "playPoint": "ohStopLyingToMe",
+            "libraryVisible": false,
+            "textSize": 0,
+            "authorName": "Anonymous"
+        },
+        "initial": "mumbleMumble",
+        "optionMirroring": true,
+        "allowCheckpoints": false
+    },
+    "created_at": "2017-04-23T13:08:10Z"
+}

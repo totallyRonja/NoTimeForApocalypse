@@ -1,0 +1,118 @@
+{
+    "updated_at": "2017-04-24T15:07:29Z",
+    "url_key": "d83n",
+    "title": "Pestilence Dialogues - Farmer",
+    "data": {
+        "stitches": {
+            "thankYouDearYouA": {
+                "content": [
+                    "Thank you, dear! You are a true darling.",
+                    {
+                        "flagName": "has cowthornrose"
+                    }
+                ]
+            },
+            "youFindItInTheEa": {
+                "content": [
+                    "You find it in the east inside of the forest. My bones are too sore to go myself.",
+                    {
+                        "ifConditions": null,
+                        "option": "I'm on my way.",
+                        "linkPath": "endDialogue1",
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "iHopeYouCouldHel": {
+                "content": [
+                    "I hope you could help me out a little.",
+                    {
+                        "ifConditions": null,
+                        "option": "Sure!",
+                        "linkPath": "oldBettyHereGotA",
+                        "notIfConditions": null
+                    },
+                    {
+                        "ifConditions": null,
+                        "option": "I don't see why.",
+                        "linkPath": "ohThatsAPity",
+                        "notIfConditions": null
+                    },
+                    {
+                        "ifConditions": null,
+                        "option": "I got mail for you!",
+                        "linkPath": "ohThankYou",
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "helloDear": {
+                "content": [
+                    "Hello dear!",
+                    {
+                        "divert": "iHopeYouCouldHel"
+                    },
+                    {
+                        "pageNum": 1
+                    },
+                    {
+                        "pageLabel": " Farmer"
+                    }
+                ]
+            },
+            "ohThankYou": {
+                "content": [
+                    "Oh thank you! ",
+                    {
+                        "flagName": "if_mailquest_active_mail>0"
+                    }
+                ]
+            },
+            "oldBettyHereGotA": {
+                "content": [
+                    "Old Betty here got a nasty illness. I have heard about a *-Cowthorn Rose. -*I'm sure I could try to cure her using it in her medicine.",
+                    {
+                        "ifConditions": null,
+                        "option": "Where do I find it?",
+                        "linkPath": "youFindItInTheEa",
+                        "notIfConditions": null
+                    },
+                    {
+                        "ifConditions": null,
+                        "option": "Here you go.",
+                        "linkPath": "thankYouDearYouA",
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "endDialogue1": {
+                "content": [
+                    "End Dialogue"
+                ]
+            },
+            "ohThatsAPity": {
+                "content": [
+                    "Oh that's a pity.",
+                    {
+                        "divert": "endDialogue"
+                    }
+                ]
+            },
+            "endDialogue": {
+                "content": [
+                    "End dialogue"
+                ]
+            }
+        },
+        "editorData": {
+            "playPoint": "thankYouDearYouA",
+            "libraryVisible": true,
+            "textSize": 0,
+            "authorName": "No Time for Apocalypse"
+        },
+        "initial": "helloDear",
+        "optionMirroring": true,
+        "allowCheckpoints": false
+    },
+    "created_at": "2017-04-22T15:40:36Z"
+}
