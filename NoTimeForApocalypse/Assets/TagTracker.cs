@@ -8,7 +8,7 @@ public class TagTracker : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+        
 	}
 	
 	// Update is called once per frame
@@ -21,6 +21,9 @@ public class TagTracker : MonoBehaviour {
     }
 
     public void setTag(string tag) {
-        activeTags.Add(tag);
+        if(tag.StartsWith("-"))
+            activeTags.Remove(tag.Substring(1));
+        else
+            activeTags.Add(tag);
     }
 }

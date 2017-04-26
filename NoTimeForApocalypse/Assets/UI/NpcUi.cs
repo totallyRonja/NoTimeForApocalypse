@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class NpcUi : MonoBehaviour {
 
@@ -79,6 +80,7 @@ public class NpcUi : MonoBehaviour {
             buttons[i].SetActive(true);
             buttons[i].GetComponentInChildren<Text>().text = options[i];
         }
+        EventSystem.current.SetSelectedGameObject(buttons[0]);
         GetComponent<RectTransform>().sizeDelta = new Vector2(300, 30 * options.Length);
     }
 
