@@ -59,7 +59,7 @@ public class NpcUi : MonoBehaviour {
     }
 
     public void Apply() {
-        textComponent.text = "<size=" + captionSize + "><b>" + caption + "</b></size> \n" + content;
+        textComponent.text = "<size=" + captionSize + "><b>" + caption + "</b></size> \n<b>" + content + "</b>";
     }
 
     public void Show(string caption, string content) {
@@ -79,7 +79,7 @@ public class NpcUi : MonoBehaviour {
             buttons[i].SetActive(true);
             buttons[i].GetComponentInChildren<Text>().text = options[i];
         }
-        GetComponent<RectTransform>().sizeDelta = new Vector2(300, 50 * options.Length);
+        GetComponent<RectTransform>().sizeDelta = new Vector2(300, 30 * options.Length);
     }
 
     public void Connect(IOptionHolder OptionChooseMethod) {

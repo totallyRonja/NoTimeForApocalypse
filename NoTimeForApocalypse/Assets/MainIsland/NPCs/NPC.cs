@@ -13,6 +13,7 @@ public class NPC : MonoBehaviour, IOptionHolder {
     public Transform textAnchor;
 
     private NpcUi ui;
+    private TagTracker tags;
 
     public string dialogueFile;
 
@@ -27,6 +28,7 @@ public class NPC : MonoBehaviour, IOptionHolder {
         ui = GameObject.
             FindGameObjectWithTag("NPCDialogueBox").
             GetComponent<NpcUi>();
+        tags = GameObject.FindWithTag("InfoTags").GetComponent<TagTracker>();
     }
 
     void Start() {
@@ -50,6 +52,15 @@ public class NPC : MonoBehaviour, IOptionHolder {
                         Release();
                     } else {
                         List<BlockContent<Option>> o = chunk.Options;
+                        foreach(BlockContent<Option> i in o) {
+                            List<string> con = i.Content.IfConditions;
+                            foreach(string c in con) {
+                                if (!tags.isTag(c)) {
+                                    o.Remove(i);
+                                    break;
+                                }
+                            }
+                        }
                         string[] sOptions = new string[o.Count];
                         for(int i=0;i<o.Count;i++) {
                             sOptions[i] = o[i].Content.Text;

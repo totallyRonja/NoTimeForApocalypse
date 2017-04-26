@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 1e1871ec83a0b4eea98ce9d43f05ac80
-timeCreated: 1490814159
+guid: 1c9eb0b271f7d5443839d4fdcd5506d0
+timeCreated: 1493198863
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}
@@ -27,20 +27,20 @@ TextureImporter:
   textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: 2
+    filterMode: -1
     aniso: -1
     mipBias: -1
-    wrapMode: 0
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
+  alignment: 7
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 8
+  spritePixelsToUnits: 80
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -51,59 +51,27 @@ TextureImporter:
   textureFormatSet: 0
   platformSettings:
   - buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     textureFormat: -1
-    textureCompression: 3
-    compressionQuality: 0
-    crunchedCompression: 1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: Standalone
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     textureFormat: -1
-    textureCompression: 3
-    compressionQuality: 0
-    crunchedCompression: 1
-    allowsAlphaSplitting: 0
-    overridden: 0
-  - buildTarget: iPhone
-    maxTextureSize: 512
-    textureFormat: -1
-    textureCompression: 3
-    compressionQuality: 0
-    crunchedCompression: 1
-    allowsAlphaSplitting: 0
-    overridden: 0
-  - buildTarget: Android
-    maxTextureSize: 512
-    textureFormat: -1
-    textureCompression: 3
-    compressionQuality: 0
-    crunchedCompression: 1
-    allowsAlphaSplitting: 0
-    overridden: 0
-  - buildTarget: Tizen
-    maxTextureSize: 512
-    textureFormat: -1
-    textureCompression: 3
-    compressionQuality: 0
-    crunchedCompression: 1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: WebGL
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     textureFormat: -1
-    textureCompression: 3
-    compressionQuality: 0
-    crunchedCompression: 1
-    allowsAlphaSplitting: 0
-    overridden: 0
-  - buildTarget: Samsung TV
-    maxTextureSize: 512
-    textureFormat: -1
-    textureCompression: 3
-    compressionQuality: 0
-    crunchedCompression: 1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
   spriteSheet:
