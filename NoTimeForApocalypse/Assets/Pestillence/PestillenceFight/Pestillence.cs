@@ -41,7 +41,7 @@ public class Pestillence : Hitable {
         if (hp <= 0) {
             print("YOU WON");
             //Destroy(gameObject);
-            GetComponentInChildren<SpriteRenderer>().sprite = sprites[5];
+            GetComponentInChildren<Animator>().Play("5");
             return;
         }
 
@@ -51,7 +51,8 @@ public class Pestillence : Hitable {
             newTumor.GetComponent<Tumor>().recursion = 4 - stage; //ugly hack, if I ever touch this script again please fix this!!
             print("stage " + stage + "at" + hp + " hp");
 
-            GetComponentInChildren<SpriteRenderer>().sprite = sprites[stage];
+            GetComponentInChildren<Animator>().Play(""+stage);
+            //GetComponentInChildren<SpriteRenderer>().sprite = sprites[stage];
         }
 	}
 }
