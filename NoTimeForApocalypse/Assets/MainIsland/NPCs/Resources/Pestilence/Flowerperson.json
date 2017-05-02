@@ -1,17 +1,46 @@
 {
-    "updated_at": "2017-04-24T15:12:56Z",
+    "created_at": "2017-04-22T15:40:56Z",
     "url_key": "vd5j",
     "title": "Pestilence Dialogues - Flowerperson",
+    "updated_at": "2017-04-26T17:42:53Z",
     "data": {
+        "allowCheckpoints": false,
         "stitches": {
-            "youBasicallyCant": {
+            "atLeastNotInThat": {
                 "content": [
-                    "You basically can't miss her.",
+                    "At least not in that sense. ",
                     {
-                        "ifConditions": null,
-                        "option": "Got it!",
-                        "linkPath": "thankYou",
-                        "notIfConditions": null
+                        "divert": "iStillGotADelive"
+                    }
+                ]
+            },
+            "imAfraidNot": {
+                "content": [
+                    "I'm afraid not. ",
+                    {
+                        "divert": "atLeastNotInThat"
+                    }
+                ]
+            },
+            "imCompletelyOutO": {
+                "content": [
+                    "I'm completely out of them.",
+                    {
+                        "linkPath": "imAfraidNot",
+                        "option": "Anything I can do to help?",
+                        "notIfConditions": null,
+                        "ifConditions": null
+                    }
+                ]
+            },
+            "ohHelloWelcomeTo": {
+                "content": [
+                    "Oh hello, welcome to the shop.",
+                    {
+                        "divert": "ifYouCameForMedi"
+                    },
+                    {
+                        "pageNum": 1
                     }
                 ]
             },
@@ -31,22 +60,14 @@
                     }
                 ]
             },
-            "thankYou": {
+            "youBasicallyCant": {
                 "content": [
-                    "Thank you!",
+                    "You basically can't miss her.",
                     {
-                        "flagName": "flowerdelivery_active"
-                    }
-                ]
-            },
-            "ohHelloWelcomeTo": {
-                "content": [
-                    "Oh hello, welcome to the shop.",
-                    {
-                        "divert": "ifYouCameForMedi"
-                    },
-                    {
-                        "pageNum": 1
+                        "linkPath": "thankYou",
+                        "option": "Got it!",
+                        "notIfConditions": null,
+                        "ifConditions": null
                     }
                 ]
             },
@@ -58,6 +79,11 @@
                     }
                 ]
             },
+            "thankYou": {
+                "content": [
+                    "Thank you!"
+                ]
+            },
             "msJunebugExpects": {
                 "content": [
                     "Ms Junebug expects a delivery of her favorite flowers today.",
@@ -65,44 +91,15 @@
                         "divert": "sheLivesJustArou"
                     }
                 ]
-            },
-            "imCompletelyOutO": {
-                "content": [
-                    "I'm completely out of them.",
-                    {
-                        "ifConditions": null,
-                        "option": "Anything I can do to help?",
-                        "linkPath": "imAfraidNot",
-                        "notIfConditions": null
-                    }
-                ]
-            },
-            "imAfraidNot": {
-                "content": [
-                    "I'm afraid not. ",
-                    {
-                        "divert": "atLeastNotInThat"
-                    }
-                ]
-            },
-            "atLeastNotInThat": {
-                "content": [
-                    "At least not in that sense. ",
-                    {
-                        "divert": "iStillGotADelive"
-                    }
-                ]
             }
         },
-        "editorData": {
-            "playPoint": "thankYou",
-            "libraryVisible": false,
-            "textSize": 0,
-            "authorName": "Anonymous"
-        },
-        "initial": "ohHelloWelcomeTo",
         "optionMirroring": true,
-        "allowCheckpoints": false
-    },
-    "created_at": "2017-04-22T15:40:56Z"
+        "initial": "ohHelloWelcomeTo",
+        "editorData": {
+            "authorName": "Anonymous",
+            "libraryVisible": false,
+            "playPoint": "thankYou",
+            "textSize": 0
+        }
+    }
 }

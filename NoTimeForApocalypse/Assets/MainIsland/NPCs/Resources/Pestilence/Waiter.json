@@ -1,42 +1,35 @@
 {
-    "updated_at": "2017-04-24T15:09:58Z",
+    "created_at": "2017-04-23T13:44:11Z",
     "url_key": "pcjx",
     "title": "Pestilence Dialogues - Waiter",
+    "updated_at": "2017-04-26T17:46:31Z",
     "data": {
+        "allowCheckpoints": false,
         "stitches": {
-            "thankYou": {
+            "sorryButIHaveToD": {
                 "content": [
-                    "Thank you!"
-                ]
-            },
-            "itSeemsLikeFever": {
-                "content": [
-                    "It seems like fevers really make you hungry for apple pie.",
+                    "Sorry but I have to disappoint you, we are fresh out of apples.",
                     {
-                        "ifConditions": null,
-                        "option": "What if I brought you apples?",
-                        "linkPath": "ohThenWeCouldGet",
-                        "notIfConditions": null
-                    },
-                    {
-                        "ifConditions": null,
-                        "option": "I got your apples",
-                        "linkPath": "thankYouVeryMuch",
-                        "notIfConditions": null
-                    },
-                    {
-                        "ifConditions": null,
-                        "option": "I got mail for you!",
-                        "linkPath": "ohThankYou",
-                        "notIfConditions": null
+                        "divert": "theConsumationOf"
                     }
                 ]
             },
-            "youCanTryHitting": {
+            "theConsumationOf": {
                 "content": [
-                    "You can try *-hitting the trees-* in the*- south east -*for some delicious fruit.",
+                    "The consumation of apple pie really peaked since all of this has started to happen.",
                     {
-                        "divert": "imGonnaNeedApple"
+                        "divert": "itSeemsLikeFever"
+                    }
+                ]
+            },
+            "imGonnaNeedApple": {
+                "content": [
+                    "I'm gonna need *-5 apples-* for a start.",
+                    {
+                        "linkPath": "thankYou",
+                        "option": "I'm on my way!",
+                        "notIfConditions": null,
+                        "ifConditions": null
                     }
                 ]
             },
@@ -51,6 +44,37 @@
                     }
                 ]
             },
+            "itSeemsLikeFever": {
+                "content": [
+                    "It seems like fevers really make you hungry for apple pie.",
+                    {
+                        "linkPath": "ohThenWeCouldGet",
+                        "option": "What if I brought you apples?",
+                        "notIfConditions": null,
+                        "ifConditions": null
+                    },
+                    {
+                        "linkPath": "thankYouVeryMuch",
+                        "option": "I got your apples",
+                        "notIfConditions": null,
+                        "ifConditions": [
+                            {
+                                "ifCondition": "has apples"
+                            }
+                        ]
+                    },
+                    {
+                        "linkPath": "ohThankYou",
+                        "option": "I got mail for you!",
+                        "notIfConditions": null,
+                        "ifConditions": [
+                            {
+                                "ifCondition": "waiter mail"
+                            }
+                        ]
+                    }
+                ]
+            },
             "ohThenWeCouldGet": {
                 "content": [
                     "Oh, then we could get back to baking.",
@@ -59,59 +83,37 @@
                     }
                 ]
             },
-            "sorryButIHaveToD": {
+            "thankYou": {
                 "content": [
-                    "Sorry but I have to disappoint you, we are fresh out of apples.",
-                    {
-                        "divert": "theConsumationOf"
-                    }
-                ]
-            },
-            "ohThankYou": {
-                "content": [
-                    "Oh thank you!",
-                    {
-                        "flagName": "if_mailquest_active_mail>0"
-                    }
-                ]
-            },
-            "imGonnaNeedApple": {
-                "content": [
-                    "I'm gonna need *-5 apples-* for a start.",
-                    {
-                        "ifConditions": null,
-                        "option": "I'm on my way!",
-                        "linkPath": "thankYou",
-                        "notIfConditions": null
-                    }
+                    "Thank you!"
                 ]
             },
             "thankYouVeryMuch": {
                 "content": [
-                    "Thank you very much!",
-                    {
-                        "flagName": "hasapples(5)"
-                    }
+                    "Thank you very much!"
                 ]
             },
-            "theConsumationOf": {
+            "ohThankYou": {
                 "content": [
-                    "The consumation of apple pie really peaked since all of this has started to happen.",
+                    "Oh thank you!"
+                ]
+            },
+            "youCanTryHitting": {
+                "content": [
+                    "You can try *-hitting the trees-* in the*- south east -*for some delicious fruit.",
                     {
-                        "divert": "itSeemsLikeFever"
+                        "divert": "imGonnaNeedApple"
                     }
                 ]
             }
         },
-        "editorData": {
-            "playPoint": "ohThankYou",
-            "libraryVisible": false,
-            "textSize": 0,
-            "authorName": "Anonymous"
-        },
-        "initial": "didYouComeForOur",
         "optionMirroring": true,
-        "allowCheckpoints": false
-    },
-    "created_at": "2017-04-23T13:44:11Z"
+        "initial": "didYouComeForOur",
+        "editorData": {
+            "authorName": "Anonymous",
+            "libraryVisible": true,
+            "playPoint": "thankYouVeryMuch",
+            "textSize": 0
+        }
+    }
 }

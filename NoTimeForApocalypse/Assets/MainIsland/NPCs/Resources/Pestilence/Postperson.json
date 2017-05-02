@@ -1,22 +1,43 @@
 {
-    "updated_at": "2017-04-24T15:16:52Z",
+    "created_at": "2017-04-22T16:15:01Z",
     "url_key": "99g8",
     "title": "Pestilence Dialogues - Postperson",
+    "updated_at": "2017-04-26T17:40:01Z",
     "data": {
+        "allowCheckpoints": false,
         "stitches": {
-            "iGotFourLettersW": {
+            "myPidgeonsTheyHa": {
                 "content": [
-                    "I got*- four letters-* waiting for their owners.",
+                    "My pidgeons. They have fallen ill.",
                     {
-                        "divert": "oneOfThemSeemsTo"
+                        "divert": "youSeeIAmRespons"
                     }
                 ]
             },
-            "oneOfThemSeemsTo": {
+            "furthermoreThere": {
                 "content": [
-                    "One of them seems to be adressed to a *-Peter-*.",
+                    "Furthermore there are *-two farms-* on the outside of the city.",
                     {
-                        "divert": "furthermoreThere"
+                        "linkPath": "hereYouGo",
+                        "option": "Sure, I can do that!",
+                        "notIfConditions": null,
+                        "ifConditions": null
+                    }
+                ]
+            },
+            "oh": {
+                "content": [
+                    "Oh."
+                ]
+            },
+            "itsInTheMiddleOf": {
+                "content": [
+                    "It's in the middle of the end of the world, but thats no excuse not to do my job!",
+                    {
+                        "linkPath": "ohCouldYouMaybeB",
+                        "option": "I get around a lot...?",
+                        "notIfConditions": null,
+                        "ifConditions": null
                     }
                 ]
             },
@@ -28,50 +49,19 @@
                     }
                 ]
             },
-            "ohNoItsADisaster": {
+            "iGotFourLettersW": {
                 "content": [
-                    "Oh no! It's a disaster!",
+                    "I got*- four letters-* waiting for their owners.",
                     {
-                        "ifConditions": null,
-                        "option": "What's wrong?",
-                        "linkPath": "myPidgeonsTheyHa",
-                        "notIfConditions": null
-                    },
-                    {
-                        "ifConditions": null,
-                        "option": "I've delivered them all!",
-                        "linkPath": "ohThankYou",
-                        "notIfConditions": null
-                    },
-                    {
-                        "pageNum": 1
+                        "divert": "oneOfThemSeemsTo"
                     }
                 ]
             },
-            "itsInTheMiddleOf": {
+            "manyPeopleLiveOu": {
                 "content": [
-                    "It's in the middle of the end of the world, but thats no excuse not to do my job!",
+                    "Many people live out of the city and in these cases pidgeons get there much faster than I do.",
                     {
-                        "ifConditions": null,
-                        "option": "I get around a lot...?",
-                        "linkPath": "ohCouldYouMaybeB",
-                        "notIfConditions": null
-                    }
-                ]
-            },
-            "hereYouGo": {
-                "content": [
-                    "Here you go!",
-                    {
-                        "flagName": "recieve letters(3)"
-                    }
-                ]
-            },
-            "myPidgeonsTheyHa": {
-                "content": [
-                    "My pidgeons. They have fallen ill.",
-                    {
-                        "divert": "youSeeIAmRespons"
+                        "divert": "itsInTheMiddleOf"
                     }
                 ]
             },
@@ -83,14 +73,27 @@
                     }
                 ]
             },
-            "furthermoreThere": {
+            "ohNoItsADisaster": {
                 "content": [
-                    "Furthermore there are *-two farms-* on the outside of the city.",
+                    "Oh no! It's a disaster!",
                     {
-                        "ifConditions": null,
-                        "option": "Sure, I can do that!",
-                        "linkPath": "hereYouGo",
-                        "notIfConditions": null
+                        "linkPath": "myPidgeonsTheyHa",
+                        "option": "What's wrong?",
+                        "notIfConditions": null,
+                        "ifConditions": null
+                    },
+                    {
+                        "linkPath": "ohThankYou",
+                        "option": "I've delivered them all!",
+                        "notIfConditions": null,
+                        "ifConditions": [
+                            {
+                                "ifCondition": "mail finished"
+                            }
+                        ]
+                    },
+                    {
+                        "pageNum": 1
                     }
                 ]
             },
@@ -102,29 +105,27 @@
                     }
                 ]
             },
-            "oh": {
+            "hereYouGo": {
                 "content": [
-                    "Oh."
+                    "Here you go!"
                 ]
             },
-            "manyPeopleLiveOu": {
+            "oneOfThemSeemsTo": {
                 "content": [
-                    "Many people live out of the city and in these cases pidgeons get there much faster than I do.",
+                    "One of them seems to be adressed to a *-Peter-*.",
                     {
-                        "divert": "itsInTheMiddleOf"
+                        "divert": "furthermoreThere"
                     }
                 ]
             }
         },
-        "editorData": {
-            "playPoint": "hereYouGo",
-            "libraryVisible": false,
-            "textSize": 0,
-            "authorName": "Anonymous"
-        },
-        "initial": "ohNoItsADisaster",
         "optionMirroring": true,
-        "allowCheckpoints": false
-    },
-    "created_at": "2017-04-22T16:15:01Z"
+        "initial": "ohNoItsADisaster",
+        "editorData": {
+            "authorName": "Anonymous",
+            "libraryVisible": false,
+            "playPoint": "ohNoItsADisaster",
+            "textSize": 0
+        }
+    }
 }

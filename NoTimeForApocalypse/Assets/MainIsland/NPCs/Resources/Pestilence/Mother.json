@@ -1,54 +1,27 @@
 {
-    "updated_at": "2017-04-24T15:14:23Z",
+    "created_at": "2017-04-23T14:50:16Z",
     "url_key": "vqd3",
     "title": "Pestilence Dialogues - Mother",
+    "updated_at": "2017-04-26T17:47:06Z",
     "data": {
+        "allowCheckpoints": false,
         "stitches": {
-            "couldYouJustTell": {
-                "content": [
-                    "Could you just tell her that we can't manage to come this entire week? ",
-                    {
-                        "ifConditions": null,
-                        "option": "I'll tell her.",
-                        "linkPath": "thanksDear",
-                        "notIfConditions": null
-                    }
-                ]
-            },
-            "butMyDaughterHas": {
-                "content": [
-                    "But my daughter has fallen ill, as have I.",
-                    {
-                        "divert": "couldYouJustTell"
-                    }
-                ]
-            },
-            "soMaybeMyChildAn": {
-                "content": [
-                    "So maybe my child and me can sleep well tonight."
-                ]
-            },
-            "ohHowNice": {
-                "content": [
-                    "Oh! How nice! ",
-                    {
-                        "divert": "theseFlowersAreS"
-                    },
-                    {
-                        "flagName": "if flowerdelivery_active"
-                    }
-                ]
-            },
-            "thanksDear": {
-                "content": [
-                    "Thanks, dear."
-                ]
-            },
             "actuallyYesTheTe": {
                 "content": [
                     "Actually yes. The teacher, Mrs. Daffodil, usually cares for the children of this place.",
                     {
                         "divert": "butMyDaughterHas"
+                    }
+                ]
+            },
+            "couldYouJustTell": {
+                "content": [
+                    "Could you just tell her that we can't manage to come this entire week? ",
+                    {
+                        "linkPath": "thanksDear",
+                        "option": "I'll tell her.",
+                        "notIfConditions": null,
+                        "ifConditions": null
                     }
                 ]
             },
@@ -63,20 +36,29 @@
                     }
                 ]
             },
+            "soMaybeMyChildAn": {
+                "content": [
+                    "So maybe my child and me can sleep well tonight."
+                ]
+            },
             "helloDearWhatCan": {
                 "content": [
                     "Hello dear, what can I do for you? ",
                     {
-                        "ifConditions": null,
-                        "option": "You seem exhausted, is there anything i can do for you?",
                         "linkPath": "actuallyYesTheTe",
-                        "notIfConditions": null
+                        "option": "You seem exhausted, is there anything i can do for you?",
+                        "notIfConditions": null,
+                        "ifConditions": null
                     },
                     {
-                        "ifConditions": null,
-                        "option": "Delivery!",
                         "linkPath": "ohHowNice",
-                        "notIfConditions": null
+                        "option": "Delivery!",
+                        "notIfConditions": null,
+                        "ifConditions": [
+                            {
+                                "ifCondition": "has flowers"
+                            }
+                        ]
                     }
                 ]
             },
@@ -87,17 +69,36 @@
                         "divert": "soMaybeMyChildAn"
                     }
                 ]
+            },
+            "butMyDaughterHas": {
+                "content": [
+                    "But my daughter has fallen ill, as have I.",
+                    {
+                        "divert": "couldYouJustTell"
+                    }
+                ]
+            },
+            "thanksDear": {
+                "content": [
+                    "Thanks, dear."
+                ]
+            },
+            "ohHowNice": {
+                "content": [
+                    "Oh! How nice! ",
+                    {
+                        "divert": "theseFlowersAreS"
+                    }
+                ]
             }
         },
-        "editorData": {
-            "playPoint": "soMaybeMyChildAn",
-            "libraryVisible": false,
-            "textSize": 0,
-            "authorName": "Anonymous"
-        },
-        "initial": "coughs",
         "optionMirroring": true,
-        "allowCheckpoints": false
-    },
-    "created_at": "2017-04-23T14:50:16Z"
+        "initial": "coughs",
+        "editorData": {
+            "authorName": "Anonymous",
+            "libraryVisible": true,
+            "playPoint": "soMaybeMyChildAn",
+            "textSize": 0
+        }
+    }
 }

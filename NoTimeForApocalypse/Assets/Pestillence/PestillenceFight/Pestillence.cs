@@ -37,7 +37,7 @@ public class Pestillence : Hitable {
         if (puddleTimer > puddleDelay) {
             puddleTimer = 0;
             puddleSpawner.SpawnPuddle();
-            if (puddleColl.OverlapPoint(player.transform.position)) {
+            if (puddleColl.OverlapPoint(player.transform.position) && hp > 0) {
                 GameObject newTumor = Instantiate(tumor, transform.position, transform.rotation);
                 newTumor.GetComponent<Tumor>().recursion = 4;
             }
