@@ -18,6 +18,7 @@ public class NPC : MonoBehaviour, IOptionHolder {
     public string dialogueFile;
 
     private GameObject inRange = null;
+    private StoryModel model = null;
     private StoryPlayer player = null;
     private PlayChunk chunk = null;
     private int chunkProgress = 0;
@@ -38,7 +39,7 @@ public class NPC : MonoBehaviour, IOptionHolder {
             return;
         }
         string storyJson = resource.text;
-        StoryModel model = StoryModel.Create(storyJson);
+        model = StoryModel.Create(storyJson);
         player = new StoryPlayer(model, new UnityMarkupConverter());
 
     }
@@ -51,19 +52,35 @@ public class NPC : MonoBehaviour, IOptionHolder {
                     if (chunk.IsEnd) {
                         Release();
                     } else {
-                        List<BlockContent<Option>> o = chunk.Options;
-                        foreach(BlockContent<Option> i in o) {
-                            List<string> con = i.Content.IfConditions;
-                            foreach(string c in con) {
+                        List<Option> o = new List<Option>(chunk.Stitches[chunk.Stitches.Count-1].Content.Options);
+                        List<Option> remove = new List<Option>();
+                        foreach(Option i in o) {
+                            
+                            List<string> con = i.IfConditions;
+                            List<string> nonCon = i.NotIfConditions;
+                            foreach (string c in con) {
+                                print("check for " +c);
                                 if (!tags.isTag(c)) {
-                                    o.Remove(i);
+                                    print("you need "+c);
+                                    remove.Add(i);
+                                    break;
+                                }
+                            }
+                            foreach (string c in nonCon) {
+                                print("check for not " + c);
+                                if (tags.isTag(c)) {
+                                    print("you don't need " + c);
+                                    remove.Add(i);
                                     break;
                                 }
                             }
                         }
+                        foreach(Option i in remove) {
+                            o.Remove(i);
+                        }
                         string[] sOptions = new string[o.Count];
                         for(int i=0;i<o.Count;i++) {
-                            sOptions[i] = o[i].Content.Text;
+                            sOptions[i] = o[i].Text;
                         }
                         ui.Connect(this);
                         ui.ShowOptions(sOptions);
@@ -71,6 +88,10 @@ public class NPC : MonoBehaviour, IOptionHolder {
                     }
                 } else {
                     ui.Show("", chunk.Paragraphs[chunkProgress].Text);
+                    foreach (string flag in chunk.Stitches[chunkProgress].Content.Flags) {
+                        print("set: " + flag);
+                        tags.setTag(flag);
+                    }
                 }
             } else {
                 inRange.GetComponent<PlayerController>().enabled = false;
@@ -78,6 +99,10 @@ public class NPC : MonoBehaviour, IOptionHolder {
                 chunk = player.CreateFirstChunk();
                 chunkProgress = 0;
                 ui.Show("", chunk.Paragraphs[chunkProgress].Text);
+                foreach (string flag in chunk.Stitches[chunkProgress].Content.Flags) {
+                    print("set: " + flag);
+                    tags.setTag(flag);
+                }
             }
         }
 
@@ -111,9 +136,13 @@ public class NPC : MonoBehaviour, IOptionHolder {
         if (!isChoosing)
             return;
 
-        chunk = player.CreateChunkForOption(chunk.Options[index].Content);
+        chunk = player.CreateChunkForOption(chunk.Stitches[Math.Max(chunk.Stitches.Count - 1, 0)].Content.Options[index]);
         isChoosing = false;
         chunkProgress = 0;
         ui.Show("", chunk.Paragraphs[chunkProgress].Text);
+        foreach (string flag in chunk.Stitches[chunkProgress].Content.Flags) {
+            print("set: " + flag);
+            tags.setTag(flag);
+        }
     }
 }

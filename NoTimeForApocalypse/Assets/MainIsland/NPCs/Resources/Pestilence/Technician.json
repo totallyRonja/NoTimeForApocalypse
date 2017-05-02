@@ -1,11 +1,21 @@
 {
     "created_at": "2017-04-23T13:08:10Z",
     "url_key": "znbm",
-    "title": "Pestilence Dialogues - Technician",
-    "updated_at": "2017-04-26T17:45:49Z",
     "data": {
+        "initial": "mumbleMumble",
         "allowCheckpoints": false,
         "stitches": {
+            "wouldYouDoItForT": {
+                "content": [
+                    "Would you do it for the sake of all people living here?",
+                    {
+                        "notIfConditions": null,
+                        "ifConditions": null,
+                        "linkPath": "exitDialogue",
+                        "option": "I'm on my way."
+                    }
+                ]
+            },
             "itsAPowerCoreSai": {
                 "content": [
                     "It's a *-Power Core-* said to give a lot of energy to machinery.",
@@ -14,11 +24,32 @@
                     }
                 ]
             },
-            "itIsSupposedToCl": {
+            "endDialogue": {
                 "content": [
-                    "It is supposed to clear the disease spreading from the north. ",
+                    "End dialogue. "
+                ]
+            },
+            "itIsSupposedToCl1": {
+                "content": [
+                    "It is supposed to clear the disease spreading from the north.",
                     {
-                        "divert": "youHaveProbablyS"
+                        "divert": "wouldYouDoItForT"
+                    }
+                ]
+            },
+            "youHaveProbablyS1": {
+                "content": [
+                    "You have probably seen the disgusting discoloration in the ground.",
+                    {
+                        "divert": "itIsSupposedToCl1"
+                    }
+                ]
+            },
+            "butYouSeemToBeAD": {
+                "content": [
+                    "But you seem to be a dexterious adventurer, I believe you can do it.",
+                    {
+                        "divert": "youHaveProbablyS1"
                     }
                 ]
             },
@@ -30,9 +61,33 @@
                     }
                 ]
             },
-            "exitDialogue": {
+            "punctuatedStitch": {
                 "content": [
-                    "[exit dialogue]"
+                    "...",
+                    {
+                        "divert": "wellNowThatIThin"
+                    }
+                ]
+            },
+            "noTimeToTalk": {
+                "content": [
+                    "No time to talk!",
+                    {
+                        "divert": "theApocalypseIsN"
+                    }
+                ]
+            },
+            "youHaveProbablyS": {
+                "content": [
+                    "You have probably seen the disgusting discoloration in the ground."
+                ]
+            },
+            "ohHowWonderfulTh": {
+                "content": [
+                    "Oh, how wonderful! Thanks a lot!",
+                    {
+                        "flagName": "-core"
+                    }
                 ]
             },
             "toReachTheChestI": {
@@ -43,31 +98,54 @@
                     }
                 ]
             },
-            "punctuatedStitch": {
+            "iAmWorkingOnAMac": {
                 "content": [
-                    "...",
+                    "I am working on a machine and I'm just missing a few parts!",
                     {
-                        "divert": "wellNowThatIThin"
-                    }
-                ]
-            },
-            "itIsSupposedToCl1": {
-                "content": [
-                    "It is supposed to clear the disease spreading from the north.",
-                    {
-                        "divert": "wouldYouDoItForT"
-                    }
-                ]
-            },
-            "wouldYouDoItForT": {
-                "content": [
-                    "Would you do it for the sake of all people living here?",
-                    {
-                        "linkPath": "exitDialogue",
-                        "option": "I'm on my way.",
                         "notIfConditions": null,
-                        "ifConditions": null
+                        "ifConditions": null,
+                        "linkPath": "noImFine",
+                        "option": "Can I help?"
+                    },
+                    {
+                        "notIfConditions": null,
+                        "ifConditions": [
+                            {
+                                "ifCondition": "core"
+                            }
+                        ],
+                        "linkPath": "ohHowWonderfulTh",
+                        "option": "I got the core!"
                     }
+                ]
+            },
+            "itIsSupposedToCl": {
+                "content": [
+                    "It is supposed to clear the disease spreading from the north. ",
+                    {
+                        "divert": "youHaveProbablyS"
+                    }
+                ]
+            },
+            "thePathIsSaidToB": {
+                "content": [
+                    "The path is said to be... deadly.",
+                    {
+                        "divert": "butYouSeemToBeAD"
+                    }
+                ]
+            },
+            "theApocalypseIsN": {
+                "content": [
+                    "The apocalypse is nearing and I'm trying to figure out how to stop it!",
+                    {
+                        "divert": "iAmWorkingOnAMac"
+                    }
+                ]
+            },
+            "exitDialogue": {
+                "content": [
+                    "[exit dialogue]"
                 ]
             },
             "noImFine": {
@@ -82,103 +160,25 @@
                 "content": [
                     "*mumble mumble*",
                     {
-                        "linkPath": "noTimeToTalk",
-                        "option": "Um, hello?",
                         "notIfConditions": null,
-                        "ifConditions": null
+                        "ifConditions": null,
+                        "linkPath": "noTimeToTalk",
+                        "option": "Um, hello?"
                     },
                     {
                         "pageNum": 1
                     }
                 ]
-            },
-            "butYouSeemToBeAD": {
-                "content": [
-                    "But you seem to be a dexterious adventurer, I believe you can do it.",
-                    {
-                        "divert": "youHaveProbablyS1"
-                    }
-                ]
-            },
-            "thePathIsSaidToB": {
-                "content": [
-                    "The path is said to be... deadly.",
-                    {
-                        "divert": "butYouSeemToBeAD"
-                    }
-                ]
-            },
-            "noTimeToTalk": {
-                "content": [
-                    "No time to talk!",
-                    {
-                        "divert": "theApocalypseIsN"
-                    }
-                ]
-            },
-            "endDialogue": {
-                "content": [
-                    "End dialogue. "
-                ]
-            },
-            "ohHowWonderfulTh": {
-                "content": [
-                    "Oh, how wonderful! Thanks a lot!",
-                    {
-                        "ifCondition": "hascore"
-                    }
-                ]
-            },
-            "iAmWorkingOnAMac": {
-                "content": [
-                    "I am working on a machine and I'm just missing a few parts!",
-                    {
-                        "linkPath": "noImFine",
-                        "option": "Can I help?",
-                        "notIfConditions": null,
-                        "ifConditions": null
-                    },
-                    {
-                        "linkPath": "ohHowWonderfulTh",
-                        "option": "I got the core!",
-                        "notIfConditions": null,
-                        "ifConditions": [
-                            {
-                                "ifCondition": "has core"
-                            }
-                        ]
-                    }
-                ]
-            },
-            "youHaveProbablyS1": {
-                "content": [
-                    "You have probably seen the disgusting discoloration in the ground.",
-                    {
-                        "divert": "itIsSupposedToCl1"
-                    }
-                ]
-            },
-            "theApocalypseIsN": {
-                "content": [
-                    "The apocalypse is nearing and I'm trying to figure out how to stop it!",
-                    {
-                        "divert": "iAmWorkingOnAMac"
-                    }
-                ]
-            },
-            "youHaveProbablyS": {
-                "content": [
-                    "You have probably seen the disgusting discoloration in the ground."
-                ]
             }
         },
-        "optionMirroring": true,
-        "initial": "mumbleMumble",
         "editorData": {
-            "authorName": "Anonymous",
+            "textSize": 0,
             "libraryVisible": true,
-            "playPoint": "wouldYouDoItForT",
-            "textSize": 0
-        }
-    }
+            "authorName": "Anonymous",
+            "playPoint": "ohHowWonderfulTh"
+        },
+        "optionMirroring": true
+    },
+    "updated_at": "2017-05-02T19:06:45Z",
+    "title": "Pestilence Dialogues - Technician"
 }

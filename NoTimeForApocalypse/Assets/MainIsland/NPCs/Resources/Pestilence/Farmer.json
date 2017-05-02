@@ -1,81 +1,24 @@
 {
     "created_at": "2017-04-22T15:40:36Z",
     "url_key": "d83n",
-    "title": "Pestilence Dialogues - Farmer",
-    "updated_at": "2017-04-26T17:42:39Z",
     "data": {
+        "initial": "helloDear",
         "allowCheckpoints": false,
         "stitches": {
-            "iHopeYouCouldHel": {
-                "content": [
-                    "I hope you could help me out a little.",
-                    {
-                        "linkPath": "oldBettyHereGotA",
-                        "option": "Sure!",
-                        "notIfConditions": null,
-                        "ifConditions": null
-                    },
-                    {
-                        "linkPath": "ohThatsAPity",
-                        "option": "I don't see why.",
-                        "notIfConditions": null,
-                        "ifConditions": null
-                    },
-                    {
-                        "linkPath": "ohThankYou",
-                        "option": "I got mail for you!",
-                        "notIfConditions": null,
-                        "ifConditions": [
-                            {
-                                "ifCondition": "farmer post"
-                            }
-                        ]
-                    }
-                ]
-            },
             "thankYouDearYouA": {
                 "content": [
                     "Thank you, dear! You are a true darling."
                 ]
             },
-            "ohThatsAPity": {
+            "youFindItInTheEa": {
                 "content": [
-                    "Oh that's a pity.",
+                    "You find it in the east inside of the forest. My bones are too sore to go myself.",
                     {
-                        "divert": "endDialogue"
-                    }
-                ]
-            },
-            "endDialogue1": {
-                "content": [
-                    "End Dialogue"
-                ]
-            },
-            "oldBettyHereGotA": {
-                "content": [
-                    "Old Betty here got a nasty illness. I have heard about a *-Cowthorn Rose. -*I'm sure I could try to cure her using it in her medicine.",
-                    {
-                        "linkPath": "youFindItInTheEa",
-                        "option": "Where do I find it?",
                         "notIfConditions": null,
-                        "ifConditions": null
-                    },
-                    {
-                        "linkPath": "thankYouDearYouA",
-                        "option": "Here you go.",
-                        "notIfConditions": null,
-                        "ifConditions": null
+                        "ifConditions": null,
+                        "linkPath": null,
+                        "option": "I'm on my way."
                     }
-                ]
-            },
-            "endDialogue": {
-                "content": [
-                    "End dialogue"
-                ]
-            },
-            "ohThankYou": {
-                "content": [
-                    "Oh thank you! "
                 ]
             },
             "helloDear": {
@@ -92,25 +35,80 @@
                     }
                 ]
             },
-            "youFindItInTheEa": {
+            "ohThankYou": {
                 "content": [
-                    "You find it in the east inside of the forest. My bones are too sore to go myself.",
+                    "Oh thank you! ",
                     {
-                        "linkPath": "endDialogue1",
-                        "option": "I'm on my way.",
+                        "flagName": "farmer post"
+                    }
+                ]
+            },
+            "ohThatsAPity": {
+                "content": [
+                    "Oh that's a pity."
+                ]
+            },
+            "oldBettyHereGotA": {
+                "content": [
+                    "Old Betty here got a nasty illness. I have heard about a *-Cowthorn Rose. -*I'm sure I could try to cure her using it in her medicine.",
+                    {
                         "notIfConditions": null,
-                        "ifConditions": null
+                        "ifConditions": null,
+                        "linkPath": "youFindItInTheEa",
+                        "option": "Where do I find it?"
+                    },
+                    {
+                        "notIfConditions": null,
+                        "ifConditions": [
+                            {
+                                "ifCondition": "rose"
+                            }
+                        ],
+                        "linkPath": "thankYouDearYouA",
+                        "option": "Here you go."
+                    }
+                ]
+            },
+            "iHopeYouCouldHel": {
+                "content": [
+                    "I hope you could help me out a little.",
+                    {
+                        "notIfConditions": null,
+                        "ifConditions": null,
+                        "linkPath": "oldBettyHereGotA",
+                        "option": "Sure!"
+                    },
+                    {
+                        "notIfConditions": null,
+                        "ifConditions": null,
+                        "linkPath": "ohThatsAPity",
+                        "option": "I don't see why."
+                    },
+                    {
+                        "notIfConditions": [
+                            {
+                                "notIfCondition": "farmer post"
+                            }
+                        ],
+                        "ifConditions": [
+                            {
+                                "ifCondition": "post"
+                            }
+                        ],
+                        "linkPath": "ohThankYou",
+                        "option": "I got mail for you!"
                     }
                 ]
             }
         },
-        "optionMirroring": true,
-        "initial": "helloDear",
         "editorData": {
-            "authorName": "No Time for Apocalypse",
+            "textSize": 0,
             "libraryVisible": true,
-            "playPoint": "oldBettyHereGotA",
-            "textSize": 0
-        }
-    }
+            "authorName": "No Time for Apocalypse",
+            "playPoint": "ohThankYou"
+        },
+        "optionMirroring": true
+    },
+    "updated_at": "2017-05-02T18:58:49Z",
+    "title": "Pestilence Dialogues - Farmer"
 }

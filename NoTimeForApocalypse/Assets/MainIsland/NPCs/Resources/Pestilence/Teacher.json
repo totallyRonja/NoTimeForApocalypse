@@ -1,11 +1,39 @@
 {
     "created_at": "2017-04-23T14:54:39Z",
     "url_key": "q4q6",
-    "title": "Pestilence Dialogues - Teacher",
-    "updated_at": "2017-04-26T17:47:56Z",
     "data": {
+        "initial": "hello",
         "allowCheckpoints": false,
         "stitches": {
+            "wellThenItsGoodT": {
+                "content": [
+                    "Well then it's good that they didn't even come here.",
+                    {
+                        "divert": "sinceTheSchoolIs"
+                    }
+                ]
+            },
+            "iCameAnywaysToSe": {
+                "content": [
+                    "I came anyways to send the kids back home.",
+                    {
+                        "notIfConditions": null,
+                        "ifConditions": [
+                            {
+                                "ifCondition": "talked mother"
+                            }
+                        ],
+                        "linkPath": "oh",
+                        "option": "I've came to tell you this kid couldn't come, the mom is ill.\u00a0"
+                    },
+                    {
+                        "notIfConditions": null,
+                        "ifConditions": null,
+                        "linkPath": "imAfraidNotButTh",
+                        "option": "Oh, well then. Is there anything else I can do?"
+                    }
+                ]
+            },
             "imVerySorryButTh": {
                 "content": [
                     "I'm very sorry but the school is closed.",
@@ -14,11 +42,11 @@
                     }
                 ]
             },
-            "allOfTheStaffHas": {
+            "oh": {
                 "content": [
-                    "All of the staff has fallen ill.",
+                    "Oh!",
                     {
-                        "divert": "iCameAnywaysToSe"
+                        "divert": "wellThenItsGoodT"
                     }
                 ]
             },
@@ -30,36 +58,22 @@
                     }
                 ]
             },
-            "oh": {
+            "allOfTheStaffHas": {
                 "content": [
-                    "Oh!",
+                    "All of the staff has fallen ill.",
                     {
-                        "divert": "wellThenItsGoodT"
-                    },
-                    {
-                        "flagName": "if_questkid_active"
+                        "divert": "iCameAnywaysToSe"
                     }
                 ]
             },
-            "iCameAnywaysToSe": {
+            "butThanksForTell": {
                 "content": [
-                    "I came anyways to send the kids back home.",
-                    {
-                        "linkPath": "oh",
-                        "option": "I've came to tell you this kid couldn't come, the mom is ill.\u00a0",
-                        "notIfConditions": null,
-                        "ifConditions": [
-                            {
-                                "ifCondition": "talked mother"
-                            }
-                        ]
-                    },
-                    {
-                        "linkPath": "imAfraidNotButTh",
-                        "option": "Oh, well then. Is there anything else I can do?",
-                        "notIfConditions": null,
-                        "ifConditions": null
-                    }
+                    "But thanks for telling me anyways!"
+                ]
+            },
+            "imAfraidNotButTh": {
+                "content": [
+                    "Im afraid not. But thank you anyways. "
                 ]
             },
             "hello": {
@@ -72,33 +86,16 @@
                         "pageNum": 1
                     }
                 ]
-            },
-            "imAfraidNotButTh": {
-                "content": [
-                    "Im afraid not. But thank you anyways. "
-                ]
-            },
-            "butThanksForTell": {
-                "content": [
-                    "But thanks for telling me anyways!"
-                ]
-            },
-            "wellThenItsGoodT": {
-                "content": [
-                    "Well then it's good that they didn't even come here.",
-                    {
-                        "divert": "sinceTheSchoolIs"
-                    }
-                ]
             }
         },
-        "optionMirroring": true,
-        "initial": "hello",
         "editorData": {
-            "authorName": "Anonymous",
+            "textSize": 0,
             "libraryVisible": true,
-            "playPoint": "iCameAnywaysToSe",
-            "textSize": 0
-        }
-    }
+            "authorName": "Anonymous",
+            "playPoint": "butThanksForTell"
+        },
+        "optionMirroring": true
+    },
+    "updated_at": "2017-05-02T19:10:42Z",
+    "title": "Pestilence Dialogues - Teacher"
 }

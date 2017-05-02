@@ -24,6 +24,7 @@ public class TagTracker : MonoBehaviour {
         if(tag.StartsWith("-"))
             activeTags.Remove(tag.Substring(1));
         else
-            activeTags.Add(tag);
+            if(!isTag(tag))
+                activeTags.Add(tag);
     }
 }
