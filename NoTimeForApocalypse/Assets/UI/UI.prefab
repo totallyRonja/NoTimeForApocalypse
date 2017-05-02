@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114911107606008088}
   - component: {fileID: 114059450721453488}
   m_Layer: 5
-  m_Name: Image
+  m_Name: HPBar
   m_TagString: HpDisplay
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -339,6 +339,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9f7d114e2fcd19246a297de8a4894377, type: 3}
   - {fileID: 21300000, guid: e581cab2e0660b14096a255c05b15423, type: 3}
   - {fileID: 21300000, guid: 6b07c3dcbad835e45b34c9b503629349, type: 3}
+  timeLeft: 600
+  pause: {fileID: 114843793612711158}
 --- !u!114 &114070677259338846
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1085,7 +1087,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.5, y: 1.5999947}
+  m_AnchoredPosition: {x: -1.5, y: 1.5999908}
   m_SizeDelta: {x: -39, y: -48.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224376549166070170
