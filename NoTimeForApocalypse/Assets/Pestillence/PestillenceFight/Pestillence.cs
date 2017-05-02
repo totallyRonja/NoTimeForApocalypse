@@ -5,6 +5,7 @@ using UnityEngine;
 public class Pestillence : Hitable {
 
     [SerializeField] PuddleSpawner puddleSpawner;
+    private Collider2D puddleColl;
     public GameObject tumor;
 
     [SerializeField] float puddleDelay;
@@ -15,11 +16,15 @@ public class Pestillence : Hitable {
     public int stages = 5;
     private int stage = 0;
 
-    public Sprite[] sprites;
+    private Transform player;
+
+    //public Sprite[] sprites;
 
 	// Use this for initialization
 	void Start () {
         hp = max_hp;
+        puddleColl = puddleSpawner.GetComponent<Collider2D>();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
 	}
 	
 	// Update is called once per frame
@@ -32,6 +37,10 @@ public class Pestillence : Hitable {
         if (puddleTimer > puddleDelay) {
             puddleTimer = 0;
             puddleSpawner.SpawnPuddle();
+            if (puddleColl.OverlapPoint(player.transform.position)) {
+                GameObject newTumor = Instantiate(tumor, transform.position, transform.rotation);
+                newTumor.GetComponent<Tumor>().recursion = 4;
+            }
         }
     }
 
