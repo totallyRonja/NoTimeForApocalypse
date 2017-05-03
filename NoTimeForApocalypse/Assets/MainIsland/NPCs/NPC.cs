@@ -114,7 +114,7 @@ public class NPC : MonoBehaviour, IOptionHolder {
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.tag == "Player") {
-            ui.Show("[Action]", "");
+            ui.Show("[talk]", "");
             ui.SetActive(textAnchor == null ? transform : textAnchor, true);
             inRange = collision.gameObject;
         }
@@ -132,7 +132,7 @@ public class NPC : MonoBehaviour, IOptionHolder {
 
         inRange.GetComponent<PlayerController>().enabled = true;
         inControl = false;
-        ui.Show("[Action]", "");
+        ui.Show("[talk]", "");
     }
 
     public void ChooseOption(int index) {

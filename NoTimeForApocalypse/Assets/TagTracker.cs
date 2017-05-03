@@ -6,9 +6,11 @@ public class TagTracker : MonoBehaviour {
 
     public List<string> activeTags;
 
+    public static TagTracker tracker; //singleton instance (last added tracker)
+
 	// Use this for initialization
 	void Start () {
-        
+        tracker = this;
 	}
 	
 	// Update is called once per frame
