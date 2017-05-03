@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 210239581036176722}
   - component: {fileID: 114835021369575704}
   m_Layer: 0
-  m_Name: Bones_02
+  m_Name: ExampleBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

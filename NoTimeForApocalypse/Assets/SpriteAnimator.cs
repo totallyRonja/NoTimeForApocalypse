@@ -14,6 +14,11 @@ public class SpriteAnimator : MonoBehaviour {
 	void Start () {
         render = GetComponent<SpriteRenderer>();
         offset = UnityEngine.Random.value * 100;
+
+        Renderer r = GetComponent<Renderer>();
+        Material mat = r.material;
+        mat.SetFloat("_Offset", UnityEngine.Random.value*2);
+        r.material = mat;
 	}
 	
 	// Update is called once per frame

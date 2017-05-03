@@ -7,6 +7,7 @@ Shader "2D/Grass"
         [PerRendererData]_MainTex ("Sprite Texture", 2D) = "white" {}
 		_Speed("Speed", Float) = 1
 		_Intensity("Intensity", Float) = 1
+		_Offset("Offset", Float) = 0
      }
      SubShader
      {
@@ -30,6 +31,7 @@ Shader "2D/Grass"
 			 
 			 float _Speed;
 			 float _Intensity;
+			 float _Offset;
 
              sampler2D _MainTex;
  
@@ -49,12 +51,12 @@ Shader "2D/Grass"
              {
                  Fragment o;
      
-                 float4 pos = UnityObjectToClipPos(v.vertex);
+                 float4 pos = v.vertex;
                  o.uv_MainTex = v.uv_MainTex;
 
-				 pos.x += o.uv_MainTex.y*sin(pos.x * 0.5 + _Time * _Speed)*_Intensity;
+				 pos.x += o.uv_MainTex.y*cos(_Offset + _Time * _Speed)*_Intensity;
 
-				 o.vertex = pos;
+				 o.vertex = UnityObjectToClipPos(pos);
                  return o;
              }
                                                      
