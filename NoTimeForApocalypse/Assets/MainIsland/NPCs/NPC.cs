@@ -103,6 +103,7 @@ public class NPC : MonoBehaviour, IOptionHolder {
                     print("set: " + flag);
                     tags.setTag(flag);
                 }
+                Time.timeScale = 0;
             }
         }
 
@@ -127,6 +128,8 @@ public class NPC : MonoBehaviour, IOptionHolder {
     }
 
     void Release() {
+        Time.timeScale = 1;
+
         inRange.GetComponent<PlayerController>().enabled = true;
         inControl = false;
         ui.Show("[Action]", "");
@@ -144,5 +147,6 @@ public class NPC : MonoBehaviour, IOptionHolder {
             print("set: " + flag);
             tags.setTag(flag);
         }
+        chunkProgress = -1; //I HAVE NO CLUE WHY I HAVE TO DO THIS BUT IT WORKS
     }
 }
