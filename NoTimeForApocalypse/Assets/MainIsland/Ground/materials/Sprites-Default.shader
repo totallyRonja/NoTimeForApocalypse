@@ -82,19 +82,24 @@ Shader "2D/Texture Blend"
                     o += map.r * tex2D (_SubTexR, IN.uvr);
                     o += map.g * tex2D (_SubTexG, IN.uvg);
                     o += map.b * tex2D (_SubTexB, IN.uvb);
+					o.a = map.a;
                 } else {
                     if(map.r > map.g && map.r > map.b)
                         o = tex2D (_SubTexR, IN.uvr);
                     if(map.g > map.r && map.g > map.b)
                         o = tex2D (_SubTexG, IN.uvg);
                     if(map.b > map.r && map.b > map.g)
-                        o = tex2D (_SubTexB, IN.uvb);   
+                        o = tex2D (_SubTexB, IN.uvb);
+					if(map.a > 0.5)
+						o.a = 1;
+					else
+						o.a = 0;
                 }
                  
 
 				 o *=  tex2D(_TintTex, IN.uv_MainTex) * _TintMult;
 				 
-				 o.a = map.a;
+				 
                  
                  return o;
              }
