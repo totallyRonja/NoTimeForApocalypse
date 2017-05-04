@@ -48,7 +48,7 @@ public class HitParticle : MonoBehaviour {
 			return;
 		punched.Add(hp);
 		hp.Hit(source, 1, transform.rotation.z);
-        Destroy(gameObject);
+        GetComponent<Collider2D>().enabled = false;
 	}
 
 	public void add_speed(Vector2 speed){
