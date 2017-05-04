@@ -10,6 +10,7 @@ Shader "2D/Texture Blend"
         _SubTexR ("Sprite Texture", 2D) = "red" {}
         _SubTexG ("Sprite Texture", 2D) = "green" {}
         _SubTexB ("Sprite Texture", 2D) = "blue" {}
+        [MaterialToggle] _HardTransition("Hard Transition", Int) = 1
      }
      SubShader
      {
@@ -32,6 +33,7 @@ Shader "2D/Texture Blend"
              #pragma multi_compile DUMMY PIXELSNAP_ON
 			 
 			 float _TintMult;
+             int _HardTransition;
 
              sampler2D _MainTex;
 			 sampler2D _TintTex;
@@ -73,13 +75,23 @@ Shader "2D/Texture Blend"
                                                      
              float4 frag(Fragment IN) : COLOR
              {
-                 half4 map = tex2D (_MainTex, IN.uv_MainTex);
-                 normalize(map);
-                 float4 o = float4(0, 0, 0, 0);
-                 o += map.r * tex2D (_SubTexR, IN.uvr);
-                 o += map.g * tex2D (_SubTexG, IN.uvg);
-                 o += map.b * tex2D (_SubTexB, IN.uvb);
+                half4 map = tex2D (_MainTex, IN.uv_MainTex);
+                normalize(map);
+                float4 o = float4(0, 0, 0, 0);
+                if(_HardTransition < 0.5) {
+                    o += map.r * tex2D (_SubTexR, IN.uvr);
+                    o += map.g * tex2D (_SubTexG, IN.uvg);
+                    o += map.b * tex2D (_SubTexB, IN.uvb);
+                } else {
+                    if(map.r > map.g && map.r > map.b)
+                        o = tex2D (_SubTexR, IN.uvr);
+                    if(map.g > map.r && map.g > map.b)
+                        o = tex2D (_SubTexG, IN.uvg);
+                    if(map.b > map.r && map.b > map.g)
+                        o = tex2D (_SubTexB, IN.uvb);   
+                }
                  
+
 				 o *=  tex2D(_TintTex, IN.uv_MainTex) * _TintMult;
 				 
 				 o.a = map.a;

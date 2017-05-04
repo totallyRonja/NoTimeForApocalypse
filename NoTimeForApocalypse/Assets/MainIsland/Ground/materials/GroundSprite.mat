@@ -8,7 +8,7 @@ Material:
   m_PrefabInternal: {fileID: 0}
   m_Name: GroundSprite
   m_Shader: {fileID: 4800000, guid: ce2df3dd432b84bd68587891c24752bd, type: 3}
-  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA _HARDTRANSITION_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_CustomRenderQueue: -1
@@ -83,6 +83,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _HardTransition: 1
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1

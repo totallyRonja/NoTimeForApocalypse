@@ -1,18 +1,15 @@
 {
-    "created_at": "2017-04-19T15:10:57Z",
     "url_key": "w3nh",
+    "created_at": "2017-04-19T15:10:57Z",
     "data": {
         "initial": "ahDearFriend",
-        "allowCheckpoints": false,
+        "optionMirroring": true,
         "stitches": {
-            "ohIAlmostForgotY": {
+            "believeMeICanAnd": {
                 "content": [
-                    "Oh! I almost forgot. You might find some treasures on your journey. I am always willing to trade. I have wares. ",
+                    "Believe me I can and I would. It's not like I'm not creative enough to insult you.",
                     {
-                        "notIfConditions": null,
-                        "ifConditions": null,
-                        "linkPath": "freeToGo",
-                        "option": "Alright."
+                        "divert": "butAnywaysIWontL"
                     }
                 ]
             },
@@ -24,16 +21,20 @@
                     }
                 ]
             },
-            "endsDialoguePlay": {
+            "butAnywaysIWontL": {
                 "content": [
-                    "[Ends dialogue, player is trapped with peter until talk is selected again]"
-                ]
-            },
-            "maybeButArentYou": {
-                "content": [
-                    "Maybe. But aren't you a little too nosy about personal  matters?",
+                    "But anyways I won't let you pass if you are rude to me. So think again. ",
                     {
-                        "divert": "notThatIWouldNor"
+                        "ifConditions": null,
+                        "option": "Alright, what do you want?\u00a0",
+                        "linkPath": "youSeeItAppearsT",
+                        "notIfConditions": null
+                    },
+                    {
+                        "ifConditions": null,
+                        "option": "Well then.\u00a0",
+                        "linkPath": null,
+                        "notIfConditions": null
                     }
                 ]
             },
@@ -45,67 +46,36 @@
                     }
                 ]
             },
+            "thereArePestilen": {
+                "content": [
+                    "There are *-Pestilence-*, *-War-*, *-Famine -*and *-Death-*.",
+                    {
+                        "divert": "iHaveReasonToBel"
+                    }
+                ]
+            },
+            "sayHaveYouHeardO": {
+                "content": [
+                    "Say, have you heard of the *-Horsemen of the Apocalypse-*? ",
+                    {
+                        "ifConditions": null,
+                        "option": "This knowledge was not handed to me.",
+                        "linkPath": "theyAreBasically",
+                        "notIfConditions": null
+                    },
+                    {
+                        "ifConditions": null,
+                        "option": "I've heard some things.\u00a0",
+                        "linkPath": "thereArePestilen",
+                        "notIfConditions": null
+                    }
+                ]
+            },
             "iHaveReasonToBel": {
                 "content": [
                     "I have reason to believe that *-Pestilence -*hides up in the north behind a gate.",
                     {
                         "divert": "youShouldTryToLo"
-                    }
-                ]
-            },
-            "notThatIWouldNor": {
-                "content": [
-                    "Not that I would normally mind, but I'm pretty much stranded here, you see?",
-                    {
-                        "notIfConditions": null,
-                        "ifConditions": null,
-                        "linkPath": "maybeButArentYou",
-                        "option": "Isn't that a little selfish for a doctor?"
-                    },
-                    {
-                        "notIfConditions": null,
-                        "ifConditions": null,
-                        "linkPath": "thereSeemsToBeAP",
-                        "option": "Please elaborate."
-                    }
-                ]
-            },
-            "youSeeItAppearsT": {
-                "content": [
-                    "You see, it appears that chaotic aspects beyond my power are trying to take over this place.",
-                    {
-                        "divert": "notThatIWouldNor"
-                    }
-                ]
-            },
-            "itSeemsLikeYouMi": {
-                "content": [
-                    "It seems like you might have been lost, haven't you? But you can help a buddy out here, right?",
-                    {
-                        "notIfConditions": null,
-                        "ifConditions": null,
-                        "linkPath": "perfectPerfectSo",
-                        "option": "Eh, I guess so?\u00a0"
-                    },
-                    {
-                        "notIfConditions": null,
-                        "ifConditions": null,
-                        "linkPath": "woahArentYouARud",
-                        "option": "Help yourself, medico.\u00a0"
-                    },
-                    {
-                        "notIfConditions": [
-                            {
-                                "notIfCondition": "peter post"
-                            }
-                        ],
-                        "ifConditions": [
-                            {
-                                "ifCondition": "post"
-                            }
-                        ],
-                        "linkPath": "ohThankYouDearFr",
-                        "option": "I got mail for you!"
                     }
                 ]
             },
@@ -131,40 +101,6 @@
                     }
                 ]
             },
-            "maybeTryAskingAr": {
-                "content": [
-                    "Maybe try asking around the town if people have any hints for you.",
-                    {
-                        "notIfConditions": null,
-                        "ifConditions": null,
-                        "linkPath": "youCouldTryHitti",
-                        "option": "How the... how am I supposed to kill Pestilence?"
-                    },
-                    {
-                        "notIfConditions": null,
-                        "ifConditions": null,
-                        "linkPath": "ohIAlmostForgotY",
-                        "option": "I'm on my way.\u00a0"
-                    }
-                ]
-            },
-            "sayHaveYouHeardO": {
-                "content": [
-                    "Say, have you heard of the *-Horsemen of the Apocalypse-*? ",
-                    {
-                        "notIfConditions": null,
-                        "ifConditions": null,
-                        "linkPath": "theyAreBasically",
-                        "option": "This knowledge was not handed to me."
-                    },
-                    {
-                        "notIfConditions": null,
-                        "ifConditions": null,
-                        "linkPath": "thereArePestilen",
-                        "option": "I've heard some things.\u00a0"
-                    }
-                ]
-            },
             "afterResearchIve": {
                 "content": [
                     "After research I've come to the conclusion that past the gate of the north there is something much worse hiding.",
@@ -173,35 +109,53 @@
                     }
                 ]
             },
-            "thereSeemsToBeAP": {
+            "youSeeItAppearsT": {
                 "content": [
-                    "There seems to be a plague going around, spreading from the north.",
+                    "You see, it appears that chaotic aspects beyond my power are trying to take over this place.",
                     {
-                        "divert": "youWouldThinkTha"
+                        "divert": "notThatIWouldNor"
                     }
                 ]
             },
-            "butItAppearsThat": {
+            "maybeButArentYou": {
                 "content": [
-                    "But it appears that there are powers at work beyond my control.",
+                    "Maybe. But aren't you a little too nosy about personal  matters?",
                     {
-                        "divert": "youSeeItAppearsT"
+                        "divert": "notThatIWouldNor"
                     }
                 ]
             },
-            "believeMeICanAnd": {
+            "maybeTryAskingAr": {
                 "content": [
-                    "Believe me I can and I would. It's not like I'm not creative enough to insult you.",
+                    "Maybe try asking around the town if people have any hints for you.",
                     {
-                        "divert": "butAnywaysIWontL"
+                        "ifConditions": null,
+                        "option": "How the... how am I supposed to kill Pestilence?",
+                        "linkPath": "youCouldTryHitti",
+                        "notIfConditions": null
+                    },
+                    {
+                        "ifConditions": null,
+                        "option": "I'm on my way.\u00a0",
+                        "linkPath": "ohIAlmostForgotY",
+                        "notIfConditions": null
                     }
                 ]
             },
-            "freeToGo": {
+            "notThatIWouldNor": {
                 "content": [
-                    "[Free to go]",
+                    "Not that I would normally mind, but I'm pretty much stranded here, you see?",
                     {
-                        "pageNum": -1
+                        "ifConditions": null,
+                        "option": "Isn't that a little selfish for a doctor?",
+                        "linkPath": "maybeButArentYou",
+                        "notIfConditions": null
+                    },
+                    {
+                        "ifConditions": null,
+                        "option": "Please elaborate.",
+                        "linkPath": "thereSeemsToBeAP",
+                        "notIfConditions": null
                     }
                 ]
             },
@@ -216,19 +170,69 @@
                     }
                 ]
             },
-            "thereArePestilen": {
+            "thereSeemsToBeAP": {
                 "content": [
-                    "There are *-Pestilence-*, *-War-*, *-Famine -*and *-Death-*.",
+                    "There seems to be a plague going around, spreading from the north.",
                     {
-                        "divert": "iHaveReasonToBel"
+                        "divert": "youWouldThinkTha"
                     }
                 ]
             },
-            "theyAreBasically": {
+            "woahArentYouARud": {
                 "content": [
-                    "They are basically supernatural aspects of chaos and destruction. Nasty guys.",
+                    "Woah, aren't you a rude one? You don't see me insulting your odd metallic body either.",
                     {
-                        "divert": "thereArePestilen"
+                        "divert": "believeMeICanAnd"
+                    }
+                ]
+            },
+            "butItAppearsThat": {
+                "content": [
+                    "But it appears that there are powers at work beyond my control.",
+                    {
+                        "divert": "youSeeItAppearsT"
+                    }
+                ]
+            },
+            "itSeemsLikeYouMi": {
+                "content": [
+                    "It seems like you might have been lost, haven't you? But you can help a buddy out here, right?",
+                    {
+                        "ifConditions": null,
+                        "option": "Eh, I guess so?\u00a0",
+                        "linkPath": "perfectPerfectSo",
+                        "notIfConditions": null
+                    },
+                    {
+                        "ifConditions": null,
+                        "option": "Help yourself, medico.\u00a0",
+                        "linkPath": "woahArentYouARud",
+                        "notIfConditions": null
+                    },
+                    {
+                        "ifConditions": [
+                            {
+                                "ifCondition": "post"
+                            }
+                        ],
+                        "option": "I got mail for you!",
+                        "linkPath": "ohThankYouDearFr",
+                        "notIfConditions": [
+                            {
+                                "notIfCondition": "peter post"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "ohIAlmostForgotY": {
+                "content": [
+                    "Oh! I almost forgot. You might find some treasures on your journey. I am always willing to trade. I have wares. ",
+                    {
+                        "ifConditions": null,
+                        "option": "Alright.",
+                        "linkPath": null,
+                        "notIfConditions": null
                     }
                 ]
             },
@@ -240,40 +244,23 @@
                     }
                 ]
             },
-            "butAnywaysIWontL": {
+            "theyAreBasically": {
                 "content": [
-                    "But anyways I won't let you pass if you are rude to me. So think again. ",
+                    "They are basically supernatural aspects of chaos and destruction. Nasty guys.",
                     {
-                        "notIfConditions": null,
-                        "ifConditions": null,
-                        "linkPath": "youSeeItAppearsT",
-                        "option": "Alright, what do you want?\u00a0"
-                    },
-                    {
-                        "notIfConditions": null,
-                        "ifConditions": null,
-                        "linkPath": "endsDialoguePlay",
-                        "option": "Well then.\u00a0"
-                    }
-                ]
-            },
-            "woahArentYouARud": {
-                "content": [
-                    "Woah, aren't you a rude one? You don't see me insulting your odd metallic body either.",
-                    {
-                        "divert": "believeMeICanAnd"
+                        "divert": "thereArePestilen"
                     }
                 ]
             }
         },
         "editorData": {
-            "textSize": 0,
-            "libraryVisible": true,
             "authorName": "No Time For Apocalypse",
-            "playPoint": "ohThankYouDearFr"
+            "libraryVisible": true,
+            "playPoint": "ohIAlmostForgotY",
+            "textSize": 0
         },
-        "optionMirroring": true
+        "allowCheckpoints": false
     },
-    "updated_at": "2017-05-02T18:53:56Z",
-    "title": "Pestilence Dialogues - Peter"
+    "title": "Pestilence Dialogues - Peter",
+    "updated_at": "2017-05-02T19:25:50Z"
 }

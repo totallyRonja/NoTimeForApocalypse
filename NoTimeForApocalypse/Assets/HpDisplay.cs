@@ -23,11 +23,14 @@ public class HpDisplay : MonoBehaviour {
 	}
 
     private void Update() {
-        timeLeft -= Time.deltaTime;
-        countDown.text = String.Format("{0:00}:{1:00}", Mathf.Floor(timeLeft/60), Mathf.Floor(timeLeft%60));
-        if (timeLeft <= 0) {
-            timeLeft = 0;
-            pause.Pause();
+        
+        if (timeLeft > 0) {
+            timeLeft -= Time.deltaTime;
+            if(timeLeft <= 0){
+                timeLeft = 0;
+                pause.Pause();
+            }
+            countDown.text = String.Format("{0:00}:{1:00}", Mathf.Floor(timeLeft/60), Mathf.Floor(timeLeft%60));
         }
     }
 
