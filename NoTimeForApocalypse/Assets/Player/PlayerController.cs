@@ -15,7 +15,9 @@ public class PlayerController : Hitable {
 
 	float direction = 0;
 	float hitCooldown = 0;
-    
+
+    public DirectionalSprite defaultAnim;
+    public DirectionalSprite hitAnim;
 
     private HpDisplay hpDisplay;
     public int maxHp = 7;
@@ -79,7 +81,13 @@ public class PlayerController : Hitable {
 			GameObject newHit = Instantiate(hitPrefab, hitOrigin.transform.position, Quaternion.AngleAxis(angle, Vector3.forward));
             newHit.GetComponent<HitParticle>().source = gameObject;
 			hitCooldown = 0.4f;
-		}
+
+            defaultAnim.enabled = false;
+            hitAnim.angle = -angle * Mathf.Deg2Rad;
+            hitAnim.enabled = true;
+            
+
+        }
 	}
 
     public override void Hit(GameObject source, float damage = 0, float directionAngle = 0) {
