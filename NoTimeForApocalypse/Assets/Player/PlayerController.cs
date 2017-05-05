@@ -12,12 +12,10 @@ public class PlayerController : Hitable {
     [NonSerialized] public bool slowed = false;
 
 	Rigidbody2D rigid;
-	SpriteRenderer sprite;
 
 	float direction = 0;
 	float hitCooldown = 0;
-
-	Animator anim;
+    
 
     private HpDisplay hpDisplay;
     public int maxHp = 7;
@@ -32,8 +30,6 @@ public class PlayerController : Hitable {
 	// Use this for initialization
 	void Awake () {
 		rigid = GetComponent<Rigidbody2D> ();
-		sprite = transform.GetComponentInChildren<SpriteRenderer>();
-		anim = GetComponentInChildren<Animator>();
         hpDisplay = GameObject.FindWithTag("HpDisplay").GetComponent<HpDisplay>();
 
         if (hp < 0)
@@ -44,7 +40,6 @@ public class PlayerController : Hitable {
 	void Update () {
 		Movement();
 		Punch();
-		Anim();
 
         iTimer -= Time.deltaTime;
 	}
@@ -54,8 +49,6 @@ public class PlayerController : Hitable {
     }
 
     private void OnDisable() {
-        anim.SetFloat("speed_x", 0);
-        anim.SetFloat("speed_y", 0);
         rigid.velocity = Vector2.zero;
     }
 
@@ -87,11 +80,6 @@ public class PlayerController : Hitable {
             newHit.GetComponent<HitParticle>().source = gameObject;
 			hitCooldown = 0.4f;
 		}
-	}
-	private void Anim(){
-		anim.SetFloat("speed_x", rigid.velocity.normalized.x);
-		anim.SetFloat("speed_y", rigid.velocity.normalized.y);
-		sprite.flipX = rigid.velocity.x < 0;
 	}
 
     public override void Hit(GameObject source, float damage = 0, float directionAngle = 0) {

@@ -14,6 +14,10 @@ Shader "2D/Texture Blend"
      }
      SubShader
      {
+		ZWrite Off
+		Cull Off
+        Blend SrcAlpha OneMinusSrcAlpha 
+
          Tags 
          { 
              "RenderType" = "Opaque" 
@@ -22,9 +26,7 @@ Shader "2D/Texture Blend"
  
          Pass
          {
-             ZWrite Off
-             Blend SrcAlpha OneMinusSrcAlpha 
-  
+
              CGPROGRAM
              #include "UnityCG.cginc"
 
