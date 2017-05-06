@@ -11,9 +11,4 @@ public class randWobbleOffset : MonoBehaviour {
         Material wobbleMat = GetComponent<Renderer>().material;
         wobbleMat.SetFloat("_Offset", Random.Range(0, maxOffset));
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
