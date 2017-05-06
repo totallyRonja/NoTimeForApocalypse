@@ -48,7 +48,7 @@ public class DirectionalSprite : MonoBehaviour {
         }
             
         if (mirror) {
-            print(Mathf.RoundToInt((spriteSheets.Length - 1) * (Mathf.Abs(angle) / Mathf.PI)));
+            //print(Mathf.RoundToInt((spriteSheets.Length - 1) * (Mathf.Abs(angle) / Mathf.PI)));
             if (idle)
                 render.sprite = idleSheet;
             else

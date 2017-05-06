@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212524980843191580}
   - component: {fileID: 58146200181099088}
   - component: {fileID: 210363200309861986}
+  - component: {fileID: 114814463266406980}
   m_Layer: 0
   m_Name: ExampleTree
   m_TagString: Untagged
@@ -57,6 +58,18 @@ CircleCollider2D:
   m_Offset: {x: 0.3, y: 0.6}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &114814463266406980
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1315768559686024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fed41ff8fa937949bb09888aad93f9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxOffset: 1.5707964
 --- !u!210 &210363200309861986
 SortingGroup:
   m_ObjectHideFlags: 1
