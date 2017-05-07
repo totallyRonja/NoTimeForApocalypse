@@ -11,6 +11,7 @@ public class AppleTree : Hitable {
         Vector3 origin = transform.GetChild(UnityEngine.Random.Range(0, transform.childCount)).localPosition;
         GameObject newApple = Instantiate(apple, transform.position + Vector3.down * 0.1f + Vector3.right * origin.x, transform.rotation, transform.parent);
         newApple.transform.GetChild(0).localPosition = Vector3.up * origin.y;
+        newApple.GetComponent<Collider2D>().enabled = false;
         appleSpeed[newApple.transform.GetChild(0)] = 0;
     }
 
@@ -24,6 +25,7 @@ public class AppleTree : Hitable {
         List<Transform> keys = new List<Transform>(appleSpeed.Keys);
 		foreach(Transform apple in keys) {
             if (apple == null || apple.transform.localPosition.y < 0) {
+                apple.GetComponentInParent<Collider2D>().enabled = true;
                 appleSpeed.Remove(apple);
                 continue;
             }

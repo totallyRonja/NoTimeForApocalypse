@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6e47fa1571ef3645b6a102080e78745, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tag: Apple
+  setTag: 
 --- !u!212 &212866071517018714
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -130,7 +130,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8e8f7910fbc75cc48b2833ffd8c49175, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fe6ff362269bef14795bcbd72f79da87, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

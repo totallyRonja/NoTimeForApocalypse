@@ -1,26 +1,35 @@
 {
-    "created_at": "2017-04-23T13:44:11Z",
-    "url_key": "pcjx",
     "data": {
-        "initial": "didYouComeForOur",
-        "allowCheckpoints": false,
         "stitches": {
+            "thankYouVeryMuch": {
+                "content": [
+                    "Thank you very much!",
+                    {
+                        "flagName": "has apple"
+                    }
+                ]
+            },
+            "thankYou": {
+                "content": [
+                    "Thank you!"
+                ]
+            },
             "imGonnaNeedApple": {
                 "content": [
                     "I'm gonna need *-5 apples-* for a start.",
                     {
+                        "linkPath": "thankYou",
                         "notIfConditions": null,
                         "ifConditions": null,
-                        "linkPath": "thankYou",
                         "option": "I'm on my way!"
                     }
                 ]
             },
-            "youCanTryHitting": {
+            "sorryButIHaveToD": {
                 "content": [
-                    "You can try *-hitting the trees-* in the*- south east -*for some delicious fruit.",
+                    "Sorry but I have to disappoint you, we are fresh out of apples.",
                     {
-                        "divert": "imGonnaNeedApple"
+                        "divert": "theConsumationOf"
                     }
                 ]
             },
@@ -32,32 +41,6 @@
                     }
                 ]
             },
-            "theConsumationOf": {
-                "content": [
-                    "The consumation of apple pie really peaked since all of this has started to happen.",
-                    {
-                        "divert": "itSeemsLikeFever"
-                    }
-                ]
-            },
-            "thankYou": {
-                "content": [
-                    "Thank you!"
-                ]
-            },
-            "thankYouVeryMuch": {
-                "content": [
-                    "Thank you very much!"
-                ]
-            },
-            "sorryButIHaveToD": {
-                "content": [
-                    "Sorry but I have to disappoint you, we are fresh out of apples.",
-                    {
-                        "divert": "theConsumationOf"
-                    }
-                ]
-            },
             "ohThankYou": {
                 "content": [
                     "Oh thank you!",
@@ -66,22 +49,47 @@
                     }
                 ]
             },
+            "youCanTryHitting": {
+                "content": [
+                    "You can try *-hitting the trees-* in the*- south east -*for some delicious fruit.",
+                    {
+                        "divert": "imGonnaNeedApple"
+                    }
+                ]
+            },
+            "theConsumationOf": {
+                "content": [
+                    "The consumation of apple pie really peaked since all of this has started to happen.",
+                    {
+                        "divert": "itSeemsLikeFever"
+                    }
+                ]
+            },
             "itSeemsLikeFever": {
                 "content": [
                     "It seems like fevers really make you hungry for apple pie.",
                     {
+                        "linkPath": "ohThenWeCouldGet",
                         "notIfConditions": null,
                         "ifConditions": null,
-                        "linkPath": "ohThenWeCouldGet",
                         "option": "What if I brought you apples?"
                     },
                     {
-                        "notIfConditions": null,
-                        "ifConditions": null,
                         "linkPath": "thankYouVeryMuch",
+                        "notIfConditions": [
+                            {
+                                "notIfCondition": "has apple"
+                            }
+                        ],
+                        "ifConditions": [
+                            {
+                                "ifCondition": "apple"
+                            }
+                        ],
                         "option": "I got your apples"
                     },
                     {
+                        "linkPath": "ohThankYou",
                         "notIfConditions": [
                             {
                                 "notIfCondition": "waiter post"
@@ -92,7 +100,6 @@
                                 "ifCondition": "post"
                             }
                         ],
-                        "linkPath": "ohThankYou",
                         "option": "I got mail for you!"
                     }
                 ]
@@ -109,14 +116,18 @@
                 ]
             }
         },
+        "allowCheckpoints": false,
+        "optionMirroring": true,
         "editorData": {
-            "textSize": 0,
             "libraryVisible": true,
+            "playPoint": "thankYouVeryMuch",
             "authorName": "Anonymous",
-            "playPoint": "ohThankYou"
+            "textSize": 0
         },
-        "optionMirroring": true
+        "initial": "didYouComeForOur"
     },
-    "updated_at": "2017-05-02T19:08:08Z",
-    "title": "Pestilence Dialogues - Waiter"
+    "url_key": "pcjx",
+    "created_at": "2017-04-23T13:44:11Z",
+    "title": "Pestilence Dialogues - Waiter",
+    "updated_at": "2017-05-07T11:05:45Z"
 }

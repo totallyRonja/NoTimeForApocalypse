@@ -20,6 +20,10 @@ public class Pustule : MonoBehaviour {
             TagTracker.tracker.setTag(setTag);
             Destroy(gameObject);
         }
+        if (TagTracker.tracker.isTag(setTag)) {
+            Destroy(GetComponent<Collider2D>());
+            Destroy(this);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {

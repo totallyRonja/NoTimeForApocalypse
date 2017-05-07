@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Walky
+  m_Name: PlayerLegs
   m_Shader: {fileID: 4800000, guid: e5fd9f9cad631174fbc64c1dcb1aa7de, type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
   m_LightmapFlags: 4

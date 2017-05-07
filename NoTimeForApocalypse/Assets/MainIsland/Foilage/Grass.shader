@@ -54,7 +54,7 @@ Shader "2D/Grass"
                  float4 pos = v.vertex;
                  o.uv_MainTex = v.uv_MainTex;
 
-				 pos.x += o.uv_MainTex.y*cos(_Offset + _Time * _Speed)*_Intensity;
+				 pos.x += o.uv_MainTex.y*cos(_Offset + _Time.y * _Speed)*_Intensity;
 
 				 o.vertex = UnityObjectToClipPos(pos);
                  return o;
