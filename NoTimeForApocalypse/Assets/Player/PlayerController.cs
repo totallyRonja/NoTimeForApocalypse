@@ -28,6 +28,7 @@ public class PlayerController : Hitable {
     public Collider2D land;
 
     public PauseMenu pause;
+    public AudioSource attackAudio;
 
 	// Use this for initialization
 	void Awake () {
@@ -74,19 +75,20 @@ public class PlayerController : Hitable {
 
 	private void Punch() {
 		hitCooldown -= Time.deltaTime;
-		if (Input.GetButtonDown ("Fire1") && hitCooldown < 0) {
+		if (Input.GetButton ("Fire1") && hitCooldown < 0) {
             GameObject closest = getClosestWithTag("Enemy");
             Vector2 direction = closest==null ? Vector2.zero : (Vector2)(closest.transform.position - hitOrigin.transform.position);
             float angle = direction==Vector2.zero?this.direction*Mathf.Rad2Deg:getAngle(direction);
 			GameObject newHit = Instantiate(hitPrefab, hitOrigin.transform.position, Quaternion.AngleAxis(angle, Vector3.forward));
             newHit.GetComponent<HitParticle>().source = gameObject;
-			hitCooldown = 0.4f;
+			hitCooldown = 0.5f;
 
             defaultAnim.enabled = false;
             hitAnim.angle = -angle * Mathf.Deg2Rad;
             hitAnim.enabled = true;
-            
 
+            attackAudio.pitch = UnityEngine.Random.Range(0.9f, 1.3f);
+            attackAudio.Play();
         }
 	}
 
