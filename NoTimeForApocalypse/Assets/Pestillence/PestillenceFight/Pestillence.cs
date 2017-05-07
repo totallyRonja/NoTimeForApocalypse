@@ -18,7 +18,7 @@ public class Pestillence : Hitable {
 
     private Transform player;
 
-    //public Sprite[] sprites;
+    public Sprite[] stageSheets;
 
 	// Use this for initialization
 	void Start () {
@@ -50,7 +50,7 @@ public class Pestillence : Hitable {
         if (hp <= 0) {
             print("YOU WON");
             //Destroy(gameObject);
-            GetComponentInChildren<Animator>().Play("5");
+            GetComponentInChildren<SpriteRenderer>().sprite =  stageSheets[5];
             return;
         }
 
@@ -60,7 +60,7 @@ public class Pestillence : Hitable {
             newTumor.GetComponent<Tumor>().recursion = 4 - stage; //ugly hack, if I ever touch this script again please fix this!!
             print("stage " + stage + "at" + hp + " hp");
 
-            GetComponentInChildren<Animator>().Play(""+stage);
+            GetComponentInChildren<SpriteRenderer>().sprite = stageSheets[stage];
             //GetComponentInChildren<SpriteRenderer>().sprite = sprites[stage];
         }
 	}
