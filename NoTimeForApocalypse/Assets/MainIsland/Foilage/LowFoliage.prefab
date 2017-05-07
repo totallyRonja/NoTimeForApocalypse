@@ -69,7 +69,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fed41ff8fa937949bb09888aad93f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxOffset: 1.5707964
+  maxOffset: 6.283184
 --- !u!210 &210116738000915580
 SortingGroup:
   m_ObjectHideFlags: 1

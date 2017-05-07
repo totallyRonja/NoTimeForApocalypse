@@ -58,15 +58,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SubTexB:
-        m_Texture: {fileID: 2800000, guid: 59c4b9a43c6aa432f8e12859759c5feb, type: 3}
+        m_Texture: {fileID: 2800000, guid: b6ea3dd269ee4de4ea748e831482823d, type: 3}
         m_Scale: {x: 50, y: 50}
         m_Offset: {x: 0, y: 0}
     - _SubTexG:
-        m_Texture: {fileID: 2800000, guid: 2571fda0ed7d84523a8d693d51e43b6e, type: 3}
+        m_Texture: {fileID: 2800000, guid: a3a1a54f8ef189f4f8478ce2da2c1192, type: 3}
         m_Scale: {x: 50, y: 50}
         m_Offset: {x: 0, y: 0}
     - _SubTexR:
-        m_Texture: {fileID: 2800000, guid: 839bc88c0605e4b51b128489d1c35ed6, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5292b890fa1977243814594b1aa86903, type: 3}
         m_Scale: {x: 50, y: 50}
         m_Offset: {x: 0, y: 0}
     - _TintTex:
