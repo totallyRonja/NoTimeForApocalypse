@@ -48,16 +48,16 @@ Shader "2D/SpriteSheetAnimation"
   
             Fragment vert(Vertex v)
             {
-            Fragment o;
-				
-			float4 localPos = v.vertex;
-			localPos.x /= _Sprites.x;
-			localPos.y /= _Sprites.y;
+                Fragment o;
+                    
+                float4 localPos = v.vertex;
+                localPos.x /= _Sprites.x;
+                localPos.y /= _Sprites.y;
 
-            o.vertex = UnityObjectToClipPos(localPos);
-            o.uv_MainTex = v.uv_MainTex;
+                o.vertex = UnityObjectToClipPos(localPos);
+                o.uv_MainTex = v.uv_MainTex;
 
-            return o;
+                return o;
             }
                                                      
             float4 frag(Fragment IN) : COLOR
