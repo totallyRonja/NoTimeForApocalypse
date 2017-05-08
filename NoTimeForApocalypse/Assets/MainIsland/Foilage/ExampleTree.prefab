@@ -69,7 +69,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fed41ff8fa937949bb09888aad93f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxOffset: 6.283184
+  offset: {x: 0, y: 62.83185}
+  speed: {x: 0.8, y: 1.2}
 --- !u!210 &210363200309861986
 SortingGroup:
   m_ObjectHideFlags: 1
