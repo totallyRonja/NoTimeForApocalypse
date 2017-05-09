@@ -12,6 +12,8 @@ public class GenerateFoliage : MonoBehaviour {
 
     public Rect offset_size; //offset AND size
 
+    public bool alwaysDraw = false;
+
     private Collider2D coll;
 
     new Transform camera;
@@ -58,9 +60,10 @@ public class GenerateFoliage : MonoBehaviour {
             for (int y = 0; y < existingObjects.GetLength(1); y++) {
                 Vector2 indexBasePos = new Vector2(indexPos.x + x, indexPos.y + y);
                 Vector2 basePos = new Vector2(indexBasePos.x * coll.bounds.size.x / amount.x + coll.bounds.min.x,
-                        indexBasePos.y * coll.bounds.size.y / amount.y + coll.bounds.min.x);
+                        indexBasePos.y * coll.bounds.size.y / amount.y + coll.bounds.min.y);
 
                 existingObjects[x, y] = Instantiate(protoScrub, basePos, transform.rotation,transform);
+                existingObjects[x, y].SetActive(coll.OverlapPoint(existingObjects[x, y].transform.position));
             }
         }
         {//so I can hide the comment
@@ -86,35 +89,47 @@ public class GenerateFoliage : MonoBehaviour {
     void UpdateObjects() {
         Vector2 currentIndexPos = new Vector2(Mathf.Floor((camera.position.x - cameraHalfExtents.x - offset_size.x - coll.bounds.min.x) * amount.x / coll.bounds.size.x),
                 Mathf.Floor((camera.position.y - cameraHalfExtents.y - offset_size.y - coll.bounds.min.y) * amount.y / coll.bounds.size.y));
-        print("saved: " + indexPos + " | current: " + currentIndexPos);
+        //print("saved: " + indexPos + " | current: " + currentIndexPos);
         if(currentIndexPos.x > indexPos.x) {
-            for(int y=0;y<existingObjects.GetLength(1); y++) {
-                existingObjects[(int)startIndex.x, y].transform.position += Vector3.right * atomSize.x * existingObjects.GetLength(0);
+            for (int y=0;y<existingObjects.GetLength(1); y++) {
+                existingObjects[(int)startIndex.x, y].transform.position =
+                        indexToWorldPos(new Vector2(indexPos.x + existingObjects.GetLength(0), indexPos.y + y));
+                existingObjects[iAdd((int)startIndex.x, 0, existingObjects.GetLength(0)), y]
+                        .SetActive(coll.OverlapPoint(existingObjects[iAdd((int)startIndex.x, 0, existingObjects.GetLength(0)), y].transform.position) || alwaysDraw);
             }
-            startIndex.x = ((startIndex.x + 1) % existingObjects.GetLength(0) + existingObjects.GetLength(0)) % existingObjects.GetLength(0);
             indexPos.x++;
+            startIndex.x = iAdd((int)startIndex.x, 1, existingObjects.GetLength(0));
         }
         if (currentIndexPos.x < indexPos.x) {
             for (int y = 0; y < existingObjects.GetLength(1); y++) {
-                existingObjects[iAdd((int)startIndex.x, -1, existingObjects.GetLength(0)), y].transform.position -= Vector3.right * atomSize.x * existingObjects.GetLength(0);
+                existingObjects[iAdd((int)startIndex.x, -1, existingObjects.GetLength(0)), y].transform.position =
+                        indexToWorldPos(new Vector2(indexPos.x, indexPos.y + y));
+                existingObjects[iAdd((int)startIndex.x, -1, existingObjects.GetLength(0)), y]
+                        .SetActive(coll.OverlapPoint(existingObjects[iAdd((int)startIndex.x, -1, existingObjects.GetLength(0)), y].transform.position) || alwaysDraw);
             }
-            startIndex.x = ((startIndex.x - 1) % existingObjects.GetLength(0) + existingObjects.GetLength(0)) % existingObjects.GetLength(0);
             indexPos.x--;
+            startIndex.x = iAdd((int)startIndex.x, -1, existingObjects.GetLength(0));
         }
 
         if (currentIndexPos.y > indexPos.y) {
             for (int x = 0; x < existingObjects.GetLength(0); x++) {
-                existingObjects[x, (int)startIndex.y].transform.position += Vector3.up * atomSize.y * existingObjects.GetLength(1);
+                existingObjects[x, (int)startIndex.y].transform.position =
+                        indexToWorldPos(new Vector2(indexPos.x + x, indexPos.y + existingObjects.GetLength(1)));
+                existingObjects[x, iAdd((int)startIndex.y, 0, existingObjects.GetLength(1))]
+                        .SetActive(coll.OverlapPoint(existingObjects[x, iAdd((int)startIndex.y, 0, existingObjects.GetLength(1))].transform.position) || alwaysDraw);
             }
-            startIndex.y = ((startIndex.y + 1) % existingObjects.GetLength(1) + existingObjects.GetLength(1)) % existingObjects.GetLength(1);
             indexPos.y++;
+            startIndex.y = iAdd((int)startIndex.y, 1, existingObjects.GetLength(1));
         }
         if (currentIndexPos.y < indexPos.y) {
             for (int x = 0; x < existingObjects.GetLength(0); x++) {
-                existingObjects[x, iAdd((int)startIndex.y, -1, existingObjects.GetLength(1))].transform.position -= Vector3.up * atomSize.y * existingObjects.GetLength(1);
+                existingObjects[x, iAdd((int)startIndex.y, -1, existingObjects.GetLength(1))].transform.position =
+                        indexToWorldPos(new Vector2(indexPos.x + x, indexPos.y));
+                existingObjects[x, iAdd((int)startIndex.y, -1, existingObjects.GetLength(1))]
+                        .SetActive(coll.OverlapPoint(existingObjects[x, iAdd((int)startIndex.y, -1, existingObjects.GetLength(1))].transform.position) || alwaysDraw);
             }
-            startIndex.y = iAdd((int)startIndex.y, -1, existingObjects.GetLength(1));
             indexPos.y--;
+            startIndex.y = iAdd((int)startIndex.y, -1, existingObjects.GetLength(1));
         }
     }
 
@@ -122,11 +137,13 @@ public class GenerateFoliage : MonoBehaviour {
         return ((index + summand) % max + max) % max;
     }
 
-    /*void OnDrawGizmosSelected() {
+    Vector2 indexToWorldPos(Vector2 iPos) {
+        return new Vector2(iPos.x * coll.bounds.size.x / amount.x + coll.bounds.min.x,
+                iPos.y * coll.bounds.size.y / amount.y + coll.bounds.min.y);
+    }
+
+    void OnDrawGizmosSelected() {
         Gizmos.color = Color.blue;
-        foreach (Vector2 pos in existingObjects.Keys) {
-            Gizmos.DrawSphere(pos, 0.5f);
-            //print(pos);
-        }
-    }*/
+        Gizmos.DrawSphere(indexToWorldPos(indexPos), 1);
+    }
 }
