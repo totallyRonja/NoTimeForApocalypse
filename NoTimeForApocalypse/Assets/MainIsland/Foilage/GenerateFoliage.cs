@@ -58,12 +58,16 @@ public class GenerateFoliage : MonoBehaviour {
 
         for (int x = 0; x < existingObjects.GetLength(0); x++) {
             for (int y = 0; y < existingObjects.GetLength(1); y++) {
+                Random.InitState((int)(indexPos.x + x + (indexPos.y + y) * amount.x));
                 Vector2 indexBasePos = new Vector2(indexPos.x + x, indexPos.y + y);
                 Vector2 basePos = new Vector2(indexBasePos.x * coll.bounds.size.x / amount.x + coll.bounds.min.x,
-                        indexBasePos.y * coll.bounds.size.y / amount.y + coll.bounds.min.y);
+                        indexBasePos.y * coll.bounds.size.y / amount.y + coll.bounds.min.y) +
+                        new Vector2(Random.Range(-random.x, random.x), Random.Range(-random.y, random.y));
 
                 existingObjects[x, y] = Instantiate(protoScrub, basePos, transform.rotation,transform);
-                existingObjects[x, y].SetActive(coll.OverlapPoint(existingObjects[x, y].transform.position));
+                existingObjects[x, y].SetActive(coll.OverlapPoint(existingObjects[x, y].transform.position) || alwaysDraw);
+                if (existingObjects[x, y].activeSelf)
+                    existingObjects[x, y].GetComponent<SpriteRenderer>().sprite = sprites[(int)(sprites.Length * Random.value)];
             }
         }
         {//so I can hide the comment
@@ -91,44 +95,64 @@ public class GenerateFoliage : MonoBehaviour {
                 Mathf.Floor((camera.position.y - cameraHalfExtents.y - offset_size.y - coll.bounds.min.y) * amount.y / coll.bounds.size.y));
         //print("saved: " + indexPos + " | current: " + currentIndexPos);
         if(currentIndexPos.x > indexPos.x) {
+
             for (int y=0;y<existingObjects.GetLength(1); y++) {
-                existingObjects[(int)startIndex.x, y].transform.position =
-                        indexToWorldPos(new Vector2(indexPos.x + existingObjects.GetLength(0), indexPos.y + y));
-                existingObjects[iAdd((int)startIndex.x, 0, existingObjects.GetLength(0)), y]
-                        .SetActive(coll.OverlapPoint(existingObjects[iAdd((int)startIndex.x, 0, existingObjects.GetLength(0)), y].transform.position) || alwaysDraw);
+                Random.InitState((int)(indexPos.x + existingObjects.GetLength(0) + (indexPos.y + y) * amount.x));
+                existingObjects[(int)startIndex.x, iAdd((int)startIndex.y, y, existingObjects.GetLength(1))].transform.position =
+                        indexToWorldPos(new Vector2(indexPos.x + existingObjects.GetLength(0), indexPos.y + y)) + 
+                        new Vector2(Random.Range(-random.x, random.x), Random.Range(-random.y, random.y));
+                existingObjects[(int)startIndex.x, iAdd((int)startIndex.y, y, existingObjects.GetLength(1))]
+                        .SetActive(coll.OverlapPoint(existingObjects[(int)startIndex.x, iAdd((int)startIndex.y, y, existingObjects.GetLength(1))].transform.position) || alwaysDraw);
+                if(existingObjects[(int)startIndex.x, iAdd((int)startIndex.y, y, existingObjects.GetLength(1))].activeSelf)
+                    existingObjects[(int)startIndex.x, iAdd((int)startIndex.y, y, existingObjects.GetLength(1))].GetComponent<SpriteRenderer>().sprite = sprites[(int)(sprites.Length * Random.value)];
             }
             indexPos.x++;
             startIndex.x = iAdd((int)startIndex.x, 1, existingObjects.GetLength(0));
         }
         if (currentIndexPos.x < indexPos.x) {
-            for (int y = 0; y < existingObjects.GetLength(1); y++) {
-                existingObjects[iAdd((int)startIndex.x, -1, existingObjects.GetLength(0)), y].transform.position =
-                        indexToWorldPos(new Vector2(indexPos.x, indexPos.y + y));
-                existingObjects[iAdd((int)startIndex.x, -1, existingObjects.GetLength(0)), y]
-                        .SetActive(coll.OverlapPoint(existingObjects[iAdd((int)startIndex.x, -1, existingObjects.GetLength(0)), y].transform.position) || alwaysDraw);
-            }
             indexPos.x--;
+            for (int y = 0; y < existingObjects.GetLength(1); y++) {
+                Random.InitState((int)(indexPos.x + (indexPos.y + y) * amount.x));
+                existingObjects[iAdd((int)startIndex.x, -1, existingObjects.GetLength(0)), iAdd((int)startIndex.y, y, existingObjects.GetLength(1))].transform.position =
+                        indexToWorldPos(new Vector2(indexPos.x, indexPos.y + y)) +
+                        new Vector2(Random.Range(-random.x, random.x), Random.Range(-random.y, random.y));
+                existingObjects[iAdd((int)startIndex.x, -1, existingObjects.GetLength(0)), iAdd((int)startIndex.y, y, existingObjects.GetLength(1))]
+                        .SetActive(coll.OverlapPoint(existingObjects[iAdd((int)startIndex.x, -1, existingObjects.GetLength(0)), iAdd((int)startIndex.y, y, existingObjects.GetLength(1))].transform.position) || alwaysDraw);
+                if (existingObjects[iAdd((int)startIndex.x, -1, existingObjects.GetLength(0)), iAdd((int)startIndex.y, y, existingObjects.GetLength(1))].activeSelf)
+                    existingObjects[iAdd((int)startIndex.x, -1, existingObjects.GetLength(0)), iAdd((int)startIndex.y, y, existingObjects.GetLength(1))].GetComponent<SpriteRenderer>().sprite = sprites[(int)(sprites.Length * Random.value)];
+            }
+            
             startIndex.x = iAdd((int)startIndex.x, -1, existingObjects.GetLength(0));
         }
 
         if (currentIndexPos.y > indexPos.y) {
+            
             for (int x = 0; x < existingObjects.GetLength(0); x++) {
-                existingObjects[x, (int)startIndex.y].transform.position =
-                        indexToWorldPos(new Vector2(indexPos.x + x, indexPos.y + existingObjects.GetLength(1)));
-                existingObjects[x, iAdd((int)startIndex.y, 0, existingObjects.GetLength(1))]
-                        .SetActive(coll.OverlapPoint(existingObjects[x, iAdd((int)startIndex.y, 0, existingObjects.GetLength(1))].transform.position) || alwaysDraw);
+                Random.InitState((int)(indexPos.x + x + (indexPos.y + existingObjects.GetLength(1)) * amount.x));
+                existingObjects[iAdd((int)startIndex.x, x, existingObjects.GetLength(0)), (int)startIndex.y].transform.position =
+                        indexToWorldPos(new Vector2(indexPos.x + x, indexPos.y + existingObjects.GetLength(1))) +
+                        new Vector2(Random.Range(-random.x, random.x), Random.Range(-random.y, random.y));
+                existingObjects[iAdd((int)startIndex.x, x, existingObjects.GetLength(0)), (int)startIndex.y]
+                        .SetActive(coll.OverlapPoint(existingObjects[iAdd((int)startIndex.x, x, existingObjects.GetLength(0)), (int)startIndex.y].transform.position) || alwaysDraw);
+                if (existingObjects[iAdd((int)startIndex.x, x, existingObjects.GetLength(0)), (int)startIndex.y].activeSelf)
+                    existingObjects[iAdd((int)startIndex.x, x, existingObjects.GetLength(0)), (int)startIndex.y].GetComponent<SpriteRenderer>().sprite = sprites[(int)(sprites.Length * Random.value)];
             }
             indexPos.y++;
             startIndex.y = iAdd((int)startIndex.y, 1, existingObjects.GetLength(1));
         }
         if (currentIndexPos.y < indexPos.y) {
-            for (int x = 0; x < existingObjects.GetLength(0); x++) {
-                existingObjects[x, iAdd((int)startIndex.y, -1, existingObjects.GetLength(1))].transform.position =
-                        indexToWorldPos(new Vector2(indexPos.x + x, indexPos.y));
-                existingObjects[x, iAdd((int)startIndex.y, -1, existingObjects.GetLength(1))]
-                        .SetActive(coll.OverlapPoint(existingObjects[x, iAdd((int)startIndex.y, -1, existingObjects.GetLength(1))].transform.position) || alwaysDraw);
-            }
             indexPos.y--;
+            for (int x = 0; x < existingObjects.GetLength(0); x++) {
+                Random.InitState((int)(indexPos.x + x + indexPos.y * amount.x));
+                existingObjects[iAdd((int)startIndex.x, x, existingObjects.GetLength(0)), iAdd((int)startIndex.y, -1, existingObjects.GetLength(1))].transform.position =
+                        indexToWorldPos(new Vector2(indexPos.x + x, indexPos.y)) +
+                        new Vector2(Random.Range(-random.x, random.x), Random.Range(-random.y, random.y));
+                existingObjects[iAdd((int)startIndex.x, x, existingObjects.GetLength(0)), iAdd((int)startIndex.y, -1, existingObjects.GetLength(1))]
+                        .SetActive(coll.OverlapPoint(existingObjects[iAdd((int)startIndex.x, x, existingObjects.GetLength(0)), iAdd((int)startIndex.y, -1, existingObjects.GetLength(1))].transform.position) || alwaysDraw);
+                if (existingObjects[iAdd((int)startIndex.x, x, existingObjects.GetLength(0)), iAdd((int)startIndex.y, -1, existingObjects.GetLength(1))].activeSelf)
+                    existingObjects[iAdd((int)startIndex.x, x, existingObjects.GetLength(0)), iAdd((int)startIndex.y, -1, existingObjects.GetLength(1))].GetComponent<SpriteRenderer>().sprite = sprites[(int)(sprites.Length * Random.value)];
+            }
+            
             startIndex.y = iAdd((int)startIndex.y, -1, existingObjects.GetLength(1));
         }
     }
@@ -142,8 +166,10 @@ public class GenerateFoliage : MonoBehaviour {
                 iPos.y * coll.bounds.size.y / amount.y + coll.bounds.min.y);
     }
 
-    void OnDrawGizmosSelected() {
-        Gizmos.color = Color.blue;
+    /*void OnDrawGizmos() {
+        if (!Application.isPlaying)
+            return;
+        Gizmos.color = Color.red;
         Gizmos.DrawSphere(indexToWorldPos(indexPos), 1);
-    }
+    }*/
 }
