@@ -114,7 +114,7 @@ public class NPC : MonoBehaviour, IOptionHolder {
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.tag == "Player") {
-            ui.Show("[talk]", "");
+            ui.Show("talk", "");
             ui.SetActive(textAnchor == null ? transform : textAnchor, true);
             inRange = collision.gameObject;
         }
@@ -132,7 +132,7 @@ public class NPC : MonoBehaviour, IOptionHolder {
 
         inRange.GetComponent<PlayerController>().enabled = true;
         inControl = false;
-        ui.Show("[talk]", "");
+        ui.Show("talk", "");
     }
 
     public void ChooseOption(int index) {
@@ -140,6 +140,11 @@ public class NPC : MonoBehaviour, IOptionHolder {
             return;
 
         chunk = player.CreateChunkForOption(chunk.Stitches[Math.Max(chunk.Stitches.Count - 1, 0)].Content.Options[index]);
+        if(chunk == null) {
+            Release();
+            return;
+        }
+
         isChoosing = false;
         chunkProgress = 0;
         ui.Show("", chunk.Paragraphs[chunkProgress].Text);

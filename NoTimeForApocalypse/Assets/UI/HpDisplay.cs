@@ -34,7 +34,7 @@ public class HpDisplay : MonoBehaviour {
         }
     }
 
-    // Update is called once per frame
+    
     public void setHP (int hp) {
         int frame = Math.Min(Math.Max(7 - hp, 0), 7);
         render.sprite = stages[frame];
