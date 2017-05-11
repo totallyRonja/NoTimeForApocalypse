@@ -139,12 +139,17 @@ public class NPC : MonoBehaviour, IOptionHolder {
         if (!isChoosing)
             return;
 
-        chunk = player.CreateChunkForOption(chunk.Stitches[Math.Max(chunk.Stitches.Count - 1, 0)].Content.Options[index]);
+        try {
+            chunk = player.CreateChunkForOption(chunk.Stitches[Math.Max(chunk.Stitches.Count - 1, 0)].Content.Options[index]);
+        } catch (NullReferenceException e) {
+            Release();
+            return;
+        }
         if(chunk == null) {
             Release();
             return;
         }
-
+        
         isChoosing = false;
         chunkProgress = 0;
         ui.Show("", chunk.Paragraphs[chunkProgress].Text);
