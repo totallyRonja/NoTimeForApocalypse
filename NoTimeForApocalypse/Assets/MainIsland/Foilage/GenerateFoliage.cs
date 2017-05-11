@@ -13,6 +13,7 @@ public class GenerateFoliage : MonoBehaviour {
     public Rect offset_size; //offset AND size
 
     public bool alwaysDraw = false;
+    public int seed = 0;
 
     private Collider2D coll;
 
@@ -22,7 +23,7 @@ public class GenerateFoliage : MonoBehaviour {
     int tickCounter = 0;
 
     GameObject[,] existingObjects;
-    Vector2 atomSize; //distance between objects
+    //Vector2 atomSize; //distance between objects
     Vector2 startIndex = Vector2.zero;
     Vector2 indexPos;
 
@@ -54,11 +55,11 @@ public class GenerateFoliage : MonoBehaviour {
         indexPos = new Vector2(Mathf.Floor((camera.position.x - cameraHalfExtents.x - offset_size.x - coll.bounds.min.x) * amount.x / coll.bounds.size.x),
                 Mathf.Floor((camera.position.y - cameraHalfExtents.y - offset_size.y - coll.bounds.min.y) * amount.y / coll.bounds.size.y));
 
-        atomSize = new Vector2(coll.bounds.size.x / amount.x, coll.bounds.size.y / amount.y);
+        //atomSize = new Vector2(coll.bounds.size.x / amount.x, coll.bounds.size.y / amount.y);
 
         for (int x = 0; x < existingObjects.GetLength(0); x++) {
             for (int y = 0; y < existingObjects.GetLength(1); y++) {
-                Random.InitState((int)(indexPos.x + x + (indexPos.y + y) * amount.x));
+                Random.InitState((int)(indexPos.x + x + (indexPos.y + y) * amount.x)+ seed);
                 Vector2 indexBasePos = new Vector2(indexPos.x + x, indexPos.y + y);
                 Vector2 basePos = new Vector2(indexBasePos.x * coll.bounds.size.x / amount.x + coll.bounds.min.x,
                         indexBasePos.y * coll.bounds.size.y / amount.y + coll.bounds.min.y) +
@@ -97,7 +98,7 @@ public class GenerateFoliage : MonoBehaviour {
         if(currentIndexPos.x > indexPos.x) {
 
             for (int y=0;y<existingObjects.GetLength(1); y++) {
-                Random.InitState((int)(indexPos.x + existingObjects.GetLength(0) + (indexPos.y + y) * amount.x));
+                Random.InitState((int)(indexPos.x + existingObjects.GetLength(0) + (indexPos.y + y) * amount.x) + seed);
                 existingObjects[(int)startIndex.x, iAdd((int)startIndex.y, y, existingObjects.GetLength(1))].transform.position =
                         indexToWorldPos(new Vector2(indexPos.x + existingObjects.GetLength(0), indexPos.y + y)) + 
                         new Vector2(Random.Range(-random.x, random.x), Random.Range(-random.y, random.y));
@@ -112,7 +113,7 @@ public class GenerateFoliage : MonoBehaviour {
         if (currentIndexPos.x < indexPos.x) {
             indexPos.x--;
             for (int y = 0; y < existingObjects.GetLength(1); y++) {
-                Random.InitState((int)(indexPos.x + (indexPos.y + y) * amount.x));
+                Random.InitState((int)(indexPos.x + (indexPos.y + y) * amount.x) + seed);
                 existingObjects[iAdd((int)startIndex.x, -1, existingObjects.GetLength(0)), iAdd((int)startIndex.y, y, existingObjects.GetLength(1))].transform.position =
                         indexToWorldPos(new Vector2(indexPos.x, indexPos.y + y)) +
                         new Vector2(Random.Range(-random.x, random.x), Random.Range(-random.y, random.y));
@@ -128,7 +129,7 @@ public class GenerateFoliage : MonoBehaviour {
         if (currentIndexPos.y > indexPos.y) {
             
             for (int x = 0; x < existingObjects.GetLength(0); x++) {
-                Random.InitState((int)(indexPos.x + x + (indexPos.y + existingObjects.GetLength(1)) * amount.x));
+                Random.InitState((int)(indexPos.x + x + (indexPos.y + existingObjects.GetLength(1)) * amount.x) + seed);
                 existingObjects[iAdd((int)startIndex.x, x, existingObjects.GetLength(0)), (int)startIndex.y].transform.position =
                         indexToWorldPos(new Vector2(indexPos.x + x, indexPos.y + existingObjects.GetLength(1))) +
                         new Vector2(Random.Range(-random.x, random.x), Random.Range(-random.y, random.y));
@@ -143,7 +144,7 @@ public class GenerateFoliage : MonoBehaviour {
         if (currentIndexPos.y < indexPos.y) {
             indexPos.y--;
             for (int x = 0; x < existingObjects.GetLength(0); x++) {
-                Random.InitState((int)(indexPos.x + x + indexPos.y * amount.x));
+                Random.InitState((int)(indexPos.x + x + indexPos.y * amount.x) + seed);
                 existingObjects[iAdd((int)startIndex.x, x, existingObjects.GetLength(0)), iAdd((int)startIndex.y, -1, existingObjects.GetLength(1))].transform.position =
                         indexToWorldPos(new Vector2(indexPos.x + x, indexPos.y)) +
                         new Vector2(Random.Range(-random.x, random.x), Random.Range(-random.y, random.y));

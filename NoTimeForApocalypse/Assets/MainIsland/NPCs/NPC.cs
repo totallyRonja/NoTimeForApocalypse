@@ -24,6 +24,7 @@ public class NPC : MonoBehaviour, IOptionHolder {
     private int chunkProgress = 0;
     private bool inControl = false;
     private bool isChoosing = false;
+    private float cooldown = 0;
 
     void Awake() {
         ui = GameObject.
@@ -45,7 +46,7 @@ public class NPC : MonoBehaviour, IOptionHolder {
     }
 
     private void Update() {
-        if (Input.GetButtonDown("Fire1") && inRange != null) {
+        if (Input.GetButtonDown("Fire1") && inRange != null && cooldown <= 0) {
             if (inControl) {
                 chunkProgress++;
                 if (chunkProgress >= chunk.Paragraphs.Count) {
@@ -110,6 +111,9 @@ public class NPC : MonoBehaviour, IOptionHolder {
         if (Input.GetButtonDown("Cancel") && inRange != null) {
             Release();
         }
+
+        if (cooldown > 0)
+            cooldown -= Time.deltaTime;
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
@@ -133,6 +137,8 @@ public class NPC : MonoBehaviour, IOptionHolder {
         inRange.GetComponent<PlayerController>().enabled = true;
         inControl = false;
         ui.Show("talk", "");
+
+        cooldown = 0.5f;
     }
 
     public void ChooseOption(int index) {
@@ -141,7 +147,7 @@ public class NPC : MonoBehaviour, IOptionHolder {
 
         try {
             chunk = player.CreateChunkForOption(chunk.Stitches[Math.Max(chunk.Stitches.Count - 1, 0)].Content.Options[index]);
-        } catch (NullReferenceException e) {
+        } catch (NullReferenceException) {
             Release();
             return;
         }
