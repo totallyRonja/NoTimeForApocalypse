@@ -75,7 +75,7 @@ public class PlayerController : Hitable {
 
 	private void Punch() {
 		hitCooldown -= Time.deltaTime;
-		if (Input.GetButton ("Fire1") && hitCooldown < 0) {
+		if (Input.GetButtonDown ("Fire1") && hitCooldown < 0) {
             GameObject closest = getClosestWithTag("Enemy");
             Vector2 direction = closest==null ? Vector2.zero : (Vector2)(closest.transform.position - hitOrigin.transform.position);
             float angle = direction==Vector2.zero?this.direction*Mathf.Rad2Deg:getAngle(direction);
