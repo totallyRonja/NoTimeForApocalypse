@@ -23,7 +23,7 @@ public class NPC : MonoBehaviour, IOptionHolder {
     private PlayChunk chunk = null;
     private int chunkProgress = 0;
     private bool inControl = false;
-    private bool isChoosing = false;
+    private List<Option> isChoosing = null;
     private float cooldown = 0;
 
     void Awake() {
@@ -85,7 +85,7 @@ public class NPC : MonoBehaviour, IOptionHolder {
                         }
                         ui.Connect(this);
                         ui.ShowOptions(sOptions);
-                        isChoosing = true;
+                        isChoosing = o;
                     }
                 } else {
                     ui.Show("", chunk.Paragraphs[chunkProgress].Text);
@@ -133,8 +133,10 @@ public class NPC : MonoBehaviour, IOptionHolder {
 
     void Release() {
         Time.timeScale = 1;
-
-        inRange.GetComponent<PlayerController>().enabled = true;
+        if(inRange != null)
+            inRange.GetComponent<PlayerController>().enabled = true;
+        else
+            GameObject.FindWithTag("Player").GetComponent<PlayerController>().enabled = true;;
         inControl = false;
         ui.Show("talk", "");
 
@@ -142,11 +144,11 @@ public class NPC : MonoBehaviour, IOptionHolder {
     }
 
     public void ChooseOption(int index) {
-        if (!isChoosing)
+        if (isChoosing == null)
             return;
 
         try {
-            chunk = player.CreateChunkForOption(chunk.Stitches[Math.Max(chunk.Stitches.Count - 1, 0)].Content.Options[index]);
+            chunk = player.CreateChunkForOption(isChoosing[index]);
         } catch (NullReferenceException) {
             Release();
             return;
@@ -156,7 +158,7 @@ public class NPC : MonoBehaviour, IOptionHolder {
             return;
         }
         
-        isChoosing = false;
+        isChoosing = null;
         chunkProgress = 0;
         ui.Show("", chunk.Paragraphs[chunkProgress].Text);
         foreach (string flag in chunk.Stitches[chunkProgress].Content.Flags) {
