@@ -45,7 +45,7 @@ public class NPC : MonoBehaviour, IOptionHolder {
 
     }
 
-    private void Update() {
+    private void LateUpdate() {
         if (Input.GetButtonDown("Fire1") && inRange != null && cooldown <= 0) {
             if (inControl) {
                 chunkProgress++;
@@ -141,6 +141,7 @@ public class NPC : MonoBehaviour, IOptionHolder {
         ui.Show("talk", "");
 
         cooldown = 0.5f;
+        PauseMenu.menu.Unpause();
     }
 
     public void ChooseOption(int index) {

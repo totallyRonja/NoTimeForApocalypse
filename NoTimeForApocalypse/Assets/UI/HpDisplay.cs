@@ -28,7 +28,8 @@ public class HpDisplay : MonoBehaviour {
             timeLeft -= Time.deltaTime;
             if(timeLeft <= 0){
                 timeLeft = 0;
-                pause.Pause();
+                pause.death = true;
+                pause.Pause("the time came and you coudn't stop the apocalypse");
             }
             countDown.text = String.Format("{0:00}:{1:00}", Mathf.Floor(timeLeft/60), Mathf.Floor(timeLeft%60));
         }

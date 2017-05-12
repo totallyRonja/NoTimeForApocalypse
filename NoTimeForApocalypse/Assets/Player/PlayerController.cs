@@ -122,8 +122,8 @@ public class PlayerController : Hitable {
 
     public void Die(string deathMessage = "you died") {
         hp = -1;
-        print("played died");
         hpDisplay.setHP(0);
-        pause.Pause();
+        pause.death = true;
+        pause.Pause(deathMessage);
     }
 }
