@@ -18,7 +18,6 @@ public class Pustule : MonoBehaviour {
     void Update() {
         if (Input.GetButton("Fire1") && active) {
             TagTracker.tracker.setTag(setTag);
-            Destroy(gameObject);
         }
         if (TagTracker.tracker.isTag(setTag)) {
             Destroy(GetComponent<Collider2D>());
