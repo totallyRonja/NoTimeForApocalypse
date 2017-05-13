@@ -4,6 +4,7 @@
 /NoTimeForApocalypse/[Bb]uild/
 /NoTimeForApocalypse/[Bb]uilds/
 /NoTimeForApocalypse/Assets/AssetStoreTools*
+/exports/
 
 #vscode settings
 /NoTimeForApocalypse/.vscode/settings.json
