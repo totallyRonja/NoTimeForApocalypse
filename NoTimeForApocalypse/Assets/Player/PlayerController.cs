@@ -61,6 +61,7 @@ public class PlayerController : Hitable {
             input.Normalize();
         input.Scale(new Vector2(1, 2f/3f));
 		Vector2 velocity = input * walkSpeed;
+        if(Input.GetButton("God")) velocity *= 10; // speed cheat
 		rigid.velocity = slowed?velocity*0.4f:velocity;
 
 		if (velocity != Vector2.zero) { //this used to drive the hit direction
@@ -68,8 +69,8 @@ public class PlayerController : Hitable {
 			//Debug.Log (direction);
 		}
 
-        if (!land.OverlapPoint(transform.position) && hp >= 0) {
-            Die();
+        if (!land.OverlapPoint(transform.position) && hp >= 0 && !Input.GetButton("God")) {
+            Die("You drowned");
         }
 	}
 

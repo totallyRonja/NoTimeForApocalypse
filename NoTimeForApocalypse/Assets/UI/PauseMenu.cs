@@ -22,7 +22,7 @@ public class PauseMenu : MonoBehaviour {
         if(Input.GetButtonDown("Cancel")){
             print(Time.timeScale > 0.5f && !paused);
             if(Time.timeScale > 0.5f && !paused){
-                Pause();
+                Pause("Paused");
             } else
             if(paused && !death){
                 Unpause();
