@@ -316,6 +316,7 @@ GameObject:
   - component: {fileID: 286958214}
   - component: {fileID: 286958213}
   - component: {fileID: 286958212}
+  - component: {fileID: 286958215}
   m_Layer: 5
   m_Name: Credits
   m_TagString: Untagged
@@ -376,7 +377,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 286958213}
   m_OnClick:
     m_PersistentCalls:
@@ -416,6 +417,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 286958210}
+--- !u!114 &286958215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 286958210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24af82d8ba2093146b772dd9bfede5bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene: CreditsMenu
 --- !u!1 &630060794
 GameObject:
   m_ObjectHideFlags: 0
@@ -1396,7 +1409,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1907239584}
-  m_LocalRotation: {x: 0, y: 0, z: -0.99667794, w: 0.081444144}
+  m_LocalRotation: {x: 0, y: 0, z: 0.9925732, w: -0.12164906}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1449,7 +1462,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1980525268}
-  m_LocalRotation: {x: 0, y: 0, z: -0.6413165, w: -0.7672764}
+  m_LocalRotation: {x: 0, y: 0, z: -0.57726926, w: -0.81655395}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

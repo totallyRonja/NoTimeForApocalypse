@@ -21,7 +21,7 @@ public class HitParticle : MonoBehaviour {
     void Awake () {
 		lifetime = initLifetime;
 		add_speed(transform.up * base_speed);
-		sprite = GetComponent<SpriteRenderer>();
+		sprite = GetComponentInChildren<SpriteRenderer>();
 		transform.localScale = Vector3.zero;
 	}
 	

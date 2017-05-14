@@ -733,6 +733,91 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 02813ecc09f414c339d17f5032b75dec, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &562506637 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1304512515688382, guid: 1700d228b5f71e34880f5a3755ff027e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1936616494}
+--- !u!82 &562506642
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 562506637}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 1
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &651063033
 GameObject:
   m_ObjectHideFlags: 0
@@ -935,7 +1020,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
-  m_SubmitButton: Fire1
+  m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
@@ -1355,7 +1440,22 @@ Prefab:
     - target: {fileID: 82288943264543420, guid: 5730fe90c9b0bb44086056c3dde009c6,
         type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114778223258999810, guid: 5730fe90c9b0bb44086056c3dde009c6,
+        type: 2}
+      propertyPath: main
+      value: 
+      objectReference: {fileID: 8300000, guid: 2ebaf3c7c124c5e4cbca70ab400c004d, type: 3}
+    - target: {fileID: 114778223258999810, guid: 5730fe90c9b0bb44086056c3dde009c6,
+        type: 2}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 8300000, guid: 2ebaf3c7c124c5e4cbca70ab400c004d, type: 3}
+    - target: {fileID: 114778223258999810, guid: 5730fe90c9b0bb44086056c3dde009c6,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5730fe90c9b0bb44086056c3dde009c6, type: 2}
@@ -1543,6 +1643,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114889539561101558, guid: 1700d228b5f71e34880f5a3755ff027e,
+        type: 2}
+      propertyPath: wall
+      value: 
+      objectReference: {fileID: 2080155628}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1700d228b5f71e34880f5a3755ff027e, type: 2}
   m_IsPrefabParent: 0
@@ -1615,3 +1720,9 @@ Transform:
   m_Father: {fileID: 1781807256}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2080155628 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114239639545567520, guid: 1700d228b5f71e34880f5a3755ff027e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1936616494}
+  m_Script: {fileID: 11500000, guid: 5d2a57a15f888244baec5bc87273bd1b, type: 3}

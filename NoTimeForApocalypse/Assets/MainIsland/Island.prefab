@@ -6125,6 +6125,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 899b7a5717c54544dbb21deaf2ea9f2a, type: 3}
   - {fileID: 21300000, guid: 1f0b6120f62075c428e9f89c693003a7, type: 3}
   - {fileID: 21300000, guid: 7abb7d9a0d30899429055ed66dc3ae62, type: 3}
+  winScene: WinMenu
 --- !u!114 &114925083291851918
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class PauseMenu : MonoBehaviour {
     
@@ -20,7 +21,7 @@ public class PauseMenu : MonoBehaviour {
 	
     void Update(){
         if(Input.GetButtonDown("Cancel")){
-            print(Time.timeScale > 0.5f && !paused);
+            //print(Time.timeScale > 0.5f && !paused);
             if(Time.timeScale > 0.5f && !paused){
                 Pause("Paused");
             } else
@@ -45,6 +46,7 @@ public class PauseMenu : MonoBehaviour {
         SetVisible(false);
         Time.timeScale = 1;
         paused = false;
+        EventSystem.current.SetSelectedGameObject(null);
     }
 
     void SetVisible(bool visible){

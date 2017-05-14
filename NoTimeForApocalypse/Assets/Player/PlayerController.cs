@@ -29,6 +29,9 @@ public class PlayerController : Hitable {
 
     public PauseMenu pause;
     public AudioSource attackAudio;
+    public AudioSource walkAudio;
+    public AudioClip defaultWalk;
+    public AudioClip mudWalk;
 
 	// Use this for initialization
 	void Awake () {
@@ -64,14 +67,39 @@ public class PlayerController : Hitable {
         if(Input.GetButton("God")) velocity *= 10; // speed cheat
 		rigid.velocity = slowed?velocity*0.4f:velocity;
 
+        walkAudio.mute = velocity == Vector2.zero;
 		if (velocity != Vector2.zero) { //this used to drive the hit direction
 			direction = Mathf.Atan2 (-velocity.x, velocity.y);
-			//Debug.Log (direction);
 		}
 
         if (!land.OverlapPoint(transform.position) && hp >= 0 && !Input.GetButton("God")) {
             Die("You drowned");
         }
+
+        if(slowed && walkAudio.clip != mudWalk){
+            int pos = walkAudio.timeSamples;
+            walkAudio.clip = mudWalk;
+            walkAudio.timeSamples = pos;
+            try{
+                walkAudio.Play();
+            } catch {
+                walkAudio.time = 0;
+                walkAudio.Play();
+            }
+        } 
+        if(!slowed && walkAudio.clip != defaultWalk){
+            int pos = walkAudio.timeSamples;
+            walkAudio.clip = defaultWalk;
+            walkAudio.timeSamples = pos;
+            try{
+                walkAudio.Play();
+            } catch {
+                walkAudio.time = 0;
+                walkAudio.Play();
+            }
+        }
+
+        //print(walkAudio.time);
 	}
 
 	private void Punch() {

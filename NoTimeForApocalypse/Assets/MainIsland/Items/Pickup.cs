@@ -16,7 +16,7 @@ public class Pickup : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetButton("Fire1") && active) {
+        if (Input.GetButton("Submit") && active) {
             TagTracker.tracker.setTag(setTag);
             Destroy(gameObject);
         }

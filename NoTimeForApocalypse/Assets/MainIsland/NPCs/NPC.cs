@@ -6,6 +6,7 @@ using Inklewriter;
 using Inklewriter.Player;
 using Inklewriter.Unity;
 using System;
+using UnityEngine.EventSystems;
 
 //namespace Inklewriter.Unity {
 public class NPC : MonoBehaviour, IOptionHolder {
@@ -60,17 +61,17 @@ public class NPC : MonoBehaviour, IOptionHolder {
                             List<string> con = i.IfConditions;
                             List<string> nonCon = i.NotIfConditions;
                             foreach (string c in con) {
-                                print("check for " +c);
+                                //print("check for " +c);
                                 if (!tags.isTag(c)) {
-                                    print("you need "+c);
+                                    //print("you need "+c);
                                     remove.Add(i);
                                     break;
                                 }
                             }
                             foreach (string c in nonCon) {
-                                print("check for not " + c);
+                                //print("check for not " + c);
                                 if (tags.isTag(c)) {
-                                    print("you don't need " + c);
+                                    //print("you don't need " + c);
                                     remove.Add(i);
                                     break;
                                 }
@@ -132,7 +133,6 @@ public class NPC : MonoBehaviour, IOptionHolder {
     }
 
     void Release() {
-        Time.timeScale = 1;
         if(inRange != null)
             inRange.GetComponent<PlayerController>().enabled = true;
         else
@@ -141,7 +141,7 @@ public class NPC : MonoBehaviour, IOptionHolder {
         ui.Show("talk", "");
 
         cooldown = 0.5f;
-        PauseMenu.menu.Unpause();
+        Time.timeScale = 1;
     }
 
     public void ChooseOption(int index) {
@@ -166,6 +166,7 @@ public class NPC : MonoBehaviour, IOptionHolder {
             print("set: " + flag);
             tags.setTag(flag);
         }
+        EventSystem.current.SetSelectedGameObject(null);
         chunkProgress = -1; //I HAVE NO CLUE WHY I HAVE TO DO THIS BUT IT WORKS
     }
 }

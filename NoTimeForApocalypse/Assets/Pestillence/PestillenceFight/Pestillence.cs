@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Pestillence : Hitable {
 
@@ -19,6 +20,8 @@ public class Pestillence : Hitable {
     private Transform player;
 
     public Sprite[] stageSheets;
+    public string winScene;
+    public Wall wall;
 
 	// Use this for initialization
 	void Start () {
@@ -40,6 +43,8 @@ public class Pestillence : Hitable {
             if (puddleColl.OverlapPoint(player.transform.position) && hp > 0) {
                 GameObject newTumor = Instantiate(tumor, transform.position, transform.rotation);
                 newTumor.GetComponent<Tumor>().recursion = 4;
+                if(wall != null)
+                    wall.Reset();
             }
         }
     }
@@ -49,7 +54,7 @@ public class Pestillence : Hitable {
 
         if (hp <= 0) {
             print("YOU WON");
-            //Destroy(gameObject);
+            StartCoroutine(WinScreen());
             GetComponentInChildren<SpriteRenderer>().sprite =  stageSheets[5];
             return;
         }
@@ -64,4 +69,9 @@ public class Pestillence : Hitable {
             //GetComponentInChildren<SpriteRenderer>().sprite = sprites[stage];
         }
 	}
+
+    IEnumerator WinScreen(){
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(winScene);
+    }
 }
