@@ -80,8 +80,8 @@ public class NpcUi : MonoBehaviour {
 
         this.content = content;
         this.caption = caption;
-        Apply();
         showOptions = false;
+        Apply();
     }
 
     public void ShowOptions(string[] options) {
@@ -93,7 +93,7 @@ public class NpcUi : MonoBehaviour {
             buttons[i].GetComponentInChildren<Text>().text = options[i];
         }
         EventSystem.current.SetSelectedGameObject(buttons[0]);
-        print((RectTransform)transform.parent);
+        //print((RectTransform)transform.parent);
         ((RectTransform)transform.parent).sizeDelta = new Vector2(500, 36 + 50 * options.Length);
 
         showOptions = true;

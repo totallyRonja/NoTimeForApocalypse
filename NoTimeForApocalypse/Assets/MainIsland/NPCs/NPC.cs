@@ -46,7 +46,7 @@ public class NPC : MonoBehaviour, IOptionHolder {
     }
 
     private void LateUpdate() {
-        if (Input.GetButtonDown("Fire1") && inRange != null && cooldown <= 0) {
+        if (Input.GetButtonDown("Submit") && inRange != null && cooldown <= 0) {
             if (inControl) {
                 chunkProgress++;
                 if (chunkProgress >= chunk.Paragraphs.Count) {

@@ -24,7 +24,7 @@ public class Pickup : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.CompareTag("Player")) {
-            ui.Show("[pick up]", "");
+            ui.Show("pick up "+setTag, "");
             ui.SetActive(transform, true);
             active = true;
         }

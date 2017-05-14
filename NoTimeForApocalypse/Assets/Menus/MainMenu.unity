@@ -166,8 +166,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0.64300203, g: 0.5955882, b: 1, a: 1}
+    m_PressedColor: {r: 0.092140034, g: 0, b: 0.5808823, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -362,8 +362,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0.64300203, g: 0.5955882, b: 1, a: 1}
+    m_PressedColor: {r: 0.092140034, g: 0, b: 0.5808823, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -699,7 +699,7 @@ MonoBehaviour:
   m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1421149944}
   m_sendNavigationEvents: 1
   m_DragThreshold: 5
 --- !u!4 &1244943777
@@ -892,6 +892,7 @@ GameObject:
   - component: {fileID: 1421149947}
   - component: {fileID: 1421149946}
   - component: {fileID: 1421149949}
+  - component: {fileID: 1421149950}
   m_Layer: 5
   m_Name: Play
   m_TagString: Untagged
@@ -938,8 +939,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0.64300203, g: 0.5955882, b: 1, a: 1}
+    m_PressedColor: {r: 0.092140034, g: 0, b: 0.5808823, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -953,7 +954,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 276801737}
+  m_TargetGraphic: {fileID: 1421149947}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -1004,6 +1005,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: PestillenceScene
+--- !u!114 &1421149950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1421149944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75786ada3a8587e4c929b0bb8da6d1c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1509320145
 GameObject:
   m_ObjectHideFlags: 0
@@ -1129,8 +1141,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0.64300203, g: 0.5955882, b: 1, a: 1}
+    m_PressedColor: {r: 0.092140034, g: 0, b: 0.5808823, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1384,7 +1396,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1907239584}
-  m_LocalRotation: {x: 0, y: 0, z: -0.9904524, w: -0.13785523}
+  m_LocalRotation: {x: 0, y: 0, z: -0.99667794, w: 0.081444144}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1437,7 +1449,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1980525268}
-  m_LocalRotation: {x: 0, y: 0, z: -0.90690535, w: -0.42133442}
+  m_LocalRotation: {x: 0, y: 0, z: -0.6413165, w: -0.7672764}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
