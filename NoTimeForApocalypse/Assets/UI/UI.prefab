@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 222733252844502280}
   - component: {fileID: 114626644088918844}
   - component: {fileID: 114135014683068028}
-  - component: {fileID: 114763950817019744}
+  - component: {fileID: 114843495321828976}
   m_Layer: 5
   m_Name: continue
   m_TagString: Untagged
@@ -466,6 +466,7 @@ GameObject:
   - component: {fileID: 222170291512434664}
   - component: {fileID: 114565496538073984}
   - component: {fileID: 114112883325960106}
+  - component: {fileID: 114491548363820412}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -710,7 +711,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9f7d114e2fcd19246a297de8a4894377, type: 3}
   - {fileID: 21300000, guid: e581cab2e0660b14096a255c05b15423, type: 3}
   - {fileID: 21300000, guid: 6b07c3dcbad835e45b34c9b503629349, type: 3}
-  timeLeft: 600
+  timeLeft: 300
   pause: {fileID: 114843793612711158}
 --- !u!114 &114070677259338846
 MonoBehaviour:
@@ -833,8 +834,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0.40484428, g: 0.6311418, b: 0.7058823, a: 1}
+    m_PressedColor: {r: 0.21568629, g: 0.27450982, b: 0.34117648, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -848,7 +849,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 114979275064297318}
+  m_TargetGraphic: {fileID: 114031581782971468}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -874,8 +875,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0.40484428, g: 0.6311418, b: 0.7058823, a: 1}
+    m_PressedColor: {r: 0.21568629, g: 0.27450982, b: 0.34117648, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -889,10 +890,21 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 114626644088918844}
+  m_TargetGraphic: {fileID: 114375394588737880}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114843793612711158}
+        m_MethodName: Unpause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114141673083084800
@@ -1011,8 +1023,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0.40484428, g: 0.6311418, b: 0.7058823, a: 1}
+    m_PressedColor: {r: 0.21568629, g: 0.27450982, b: 0.34117648, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1026,7 +1038,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 114424485211752768}
+  m_TargetGraphic: {fileID: 114741985237285352}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -1427,6 +1439,17 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Button
+--- !u!114 &114491548363820412
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1839170010849988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75786ada3a8587e4c929b0bb8da6d1c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114499480514161834
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1667,18 +1690,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114763950817019744
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1244621436763810}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24af82d8ba2093146b772dd9bfede5bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scene: 
 --- !u!114 &114767342418037682
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1721,6 +1732,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114843495321828976
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1244621436763810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75786ada3a8587e4c929b0bb8da6d1c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114843793612711158
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2253,7 +2275,7 @@ RectTransform:
   - {fileID: 224267372443926198}
   - {fileID: 224276186142204028}
   m_Father: {fileID: 224591901070281874}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.3, y: 0.4}
   m_AnchorMax: {x: 0.7, y: 0.8}
@@ -2362,7 +2384,7 @@ RectTransform:
   m_Children:
   - {fileID: 224659566638275958}
   m_Father: {fileID: 224591901070281874}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.03, y: 0.9}
   m_AnchorMax: {x: 0.03, y: 0.95}
@@ -2417,7 +2439,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224591901070281874}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 1, y: 1}
@@ -2434,11 +2456,11 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 224584667313471042}
   - {fileID: 224621429770077490}
   - {fileID: 224376549166070170}
   - {fileID: 224732471135967762}
   - {fileID: 224519148996035054}
-  - {fileID: 224584667313471042}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2477,7 +2499,7 @@ RectTransform:
   m_Children:
   - {fileID: 224865219181555746}
   m_Father: {fileID: 224591901070281874}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.2}
@@ -2559,7 +2581,7 @@ RectTransform:
   m_Children:
   - {fileID: 224057304951783848}
   m_Father: {fileID: 224591901070281874}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

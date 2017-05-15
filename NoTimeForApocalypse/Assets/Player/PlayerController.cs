@@ -56,6 +56,7 @@ public class PlayerController : Hitable {
 
     private void OnDisable() {
         rigid.velocity = Vector2.zero;
+        walkAudio.mute = true;
     }
 
     private void Movement() {
