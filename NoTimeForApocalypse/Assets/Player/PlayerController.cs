@@ -11,7 +11,7 @@ public class PlayerController : Hitable {
 	public GameObject hitOrigin;
     [NonSerialized] public bool slowed = false;
 
-	Rigidbody2D rigid;
+	PlayerPhysics rigid;
 
 	float direction = 0;
 	float hitCooldown = 0;
@@ -35,7 +35,7 @@ public class PlayerController : Hitable {
 
 	// Use this for initialization
 	void Awake () {
-		rigid = GetComponent<Rigidbody2D> ();
+		rigid = GetComponent<PlayerPhysics>();
         hpDisplay = GameObject.FindWithTag("HpDisplay").GetComponent<HpDisplay>();
 
         if (hp < 0)
@@ -56,6 +56,7 @@ public class PlayerController : Hitable {
 
     private void OnDisable() {
         rigid.velocity = Vector2.zero;
+        rigid.velocityGoal = Vector2.zero;
         walkAudio.mute = true;
     }
 
@@ -66,7 +67,7 @@ public class PlayerController : Hitable {
         input.Scale(new Vector2(1, 2f/3f));
 		Vector2 velocity = input * walkSpeed;
         if(Input.GetButton("God")) velocity *= 10; // speed cheat
-		rigid.velocity = slowed?velocity*0.4f:velocity;
+		rigid.velocityGoal = slowed?velocity*0.4f:velocity;
 
         walkAudio.mute = velocity == Vector2.zero;
 		if (velocity != Vector2.zero) { //this used to drive the hit direction
@@ -74,7 +75,9 @@ public class PlayerController : Hitable {
 		}
 
         if (!land.OverlapPoint(transform.position) && hp >= 0 && !Input.GetButton("God")) {
-            Die("You drowned");
+            Hit(gameObject, 1);
+            rigid.velocity = rigid.velocity.normalized * -20;
+            transform.position += (Vector3)rigid.velocity * Time.deltaTime;
         }
 
         if(slowed && walkAudio.clip != mudWalk){
