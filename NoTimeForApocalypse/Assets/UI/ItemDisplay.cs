@@ -9,13 +9,13 @@ public class ItemDisplay : MonoBehaviour {
 
     public void UpdateStatus() {
         foreach (string tag in tags) {
-            if (!TagTracker.tracker.isTag(tag)) {
+            if (!TagTracker.current.isTag(tag)) {
                 gameObject.SetActive(false);
                 return;
             }
         }
         foreach (string nTag in notTags) {
-            if (TagTracker.tracker.isTag(nTag)) {
+            if (TagTracker.current.isTag(nTag)) {
                 gameObject.SetActive(false);
                 return;
             }

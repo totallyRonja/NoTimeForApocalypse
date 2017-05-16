@@ -16,7 +16,7 @@ public class Wall : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(!broken && TagTracker.tracker.isTag(breakerTag)){
+		if(!broken && TagTracker.current.isTag(breakerTag)){
 			GetComponentInChildren<SpriteRenderer>().sprite = brokenWall;
 			foreach(Collider2D coll in GetComponents<Collider2D>()){
 				coll.enabled = !coll.enabled;

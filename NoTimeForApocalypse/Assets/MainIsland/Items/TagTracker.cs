@@ -1,16 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TagTracker : MonoBehaviour {
 
     public List<string> activeTags;
-
-    public static TagTracker tracker; //singleton instance (last added tracker)
+    public UnityEvent tagsChanged;
+    public static TagTracker current; //singleton instance (last added tracker)
 
 	// Use this for initialization
-	void Start () {
-        tracker = this;
+	void Awake () {
+        current = this;
+
+        if(tagsChanged == null)
+            tagsChanged = new UnityEvent();
 	}
 	
 	// Update is called once per frame
@@ -28,5 +32,6 @@ public class TagTracker : MonoBehaviour {
         else
             if(!isTag(tag))
                 activeTags.Add(tag);
+        tagsChanged.Invoke();
     }
 }

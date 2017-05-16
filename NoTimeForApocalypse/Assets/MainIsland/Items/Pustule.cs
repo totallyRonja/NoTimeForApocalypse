@@ -17,17 +17,17 @@ public class Pustule : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (Input.GetButton("Submit") && active) {
-            TagTracker.tracker.setTag(setTag);
+            TagTracker.current.setTag(setTag);
             gameObject.SetActive(false);
         }
-        if (TagTracker.tracker.isTag(setTag)) {
+        if (TagTracker.current.isTag(setTag)) {
             Destroy(GetComponent<Collider2D>());
             Destroy(this);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.CompareTag("Player") && !TagTracker.tracker.isTag(setTag)) {
+        if (collision.CompareTag("Player") && !TagTracker.current.isTag(setTag)) {
             ui.Show("pick up " + setTag, "");
             ui.SetActive(transform, true);
             active = true;
