@@ -45,4 +45,10 @@ public class StaticSafeSystem : MonoBehaviour {
 			}
 		}
 	}
+
+	public void Reset(){
+        activeTags = new List<string>();
+        saveTags();
+        completedQuest.Invoke();
+    }
 }

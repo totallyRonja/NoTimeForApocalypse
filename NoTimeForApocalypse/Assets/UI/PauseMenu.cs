@@ -47,6 +47,8 @@ public class PauseMenu : MonoBehaviour {
         Time.timeScale = 1;
         paused = false;
         EventSystem.current.SetSelectedGameObject(null);
+        if(ArchievmentMenu.current)
+            ArchievmentMenu.current.gameObject.SetActive(false);
     }
 
     void SetVisible(bool visible){

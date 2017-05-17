@@ -34,4 +34,9 @@ public class TagTracker : MonoBehaviour {
                 activeTags.Add(tag);
         tagsChanged.Invoke();
     }
+    public void Reset()
+    {
+        activeTags = new List<string>();
+        tagsChanged.Invoke();
+    }
 }

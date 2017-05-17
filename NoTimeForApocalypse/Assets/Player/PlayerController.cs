@@ -76,8 +76,8 @@ public class PlayerController : Hitable {
 
         if (!land.OverlapPoint(transform.position) && hp >= 0 && !Input.GetButton("God")) {
             Hit(gameObject, 1);
-            rigid.velocity = rigid.velocity.normalized * -20;
-            transform.position += (Vector3)rigid.velocity * Time.deltaTime;
+            rigid.velocity = -rigid.velocity + rigid.velocity.normalized * -10;
+            transform.position += (Vector3)rigid.velocity * Time.fixedDeltaTime;
         }
 
         if(slowed && walkAudio.clip != mudWalk){
@@ -125,7 +125,7 @@ public class PlayerController : Hitable {
         }
 	}
 
-    public override void Hit(GameObject source, float damage = 0, float directionAngle = 0) {
+    public override void Hit(GameObject source, float damage = 0, float directionAngle = float.MinValue) {
         if (hp < 0) return;
         if (iTimer < 0) {
             iTimer = iFrames;
@@ -134,6 +134,11 @@ public class PlayerController : Hitable {
         }
         if (hp <= 0)
             Die();
+        if(directionAngle != float.MinValue) {
+            rigid.velocity = new Vector2(Mathf.Sin(directionAngle) * 20, Mathf.Cos(directionAngle) * 20);
+            //Debug.Log(directionAngle);
+            //Debug.DrawRay(transform.position, rigid.velocity);
+        }
     }
 
     public GameObject getClosestWithTag(string tag) {

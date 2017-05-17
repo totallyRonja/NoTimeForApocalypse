@@ -41,16 +41,19 @@ public class Tumor : Hitable {
         rigid.AddForce(((Vector2)transform.up + randomness) * speed, ForceMode2D.Force);
     }
     
-    public override void Hit(GameObject source, float damage = 0, float directionAngle = 0) {
-        split();
+    public override void Hit(GameObject source, float damage = 0, float directionAngle = float.MinValue) {
+        split(directionAngle);
     }
 
-    void split() {
+    void split(float dir) {
         if (recursion < maxRecursion) {
             for (int i = 0; i < 2; i++) {
                 GameObject child = Instantiate(gameObject);
                 child.GetComponent<Tumor>().recursion = recursion + 1;
-                child.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-1, 1), Random.Range(-1, 1)).normalized * 10, ForceMode2D.Impulse);
+                child.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-10, 10), Random.Range(-10, 10)).normalized, ForceMode2D.Impulse);
+                if(dir != float.MinValue){
+                    child.GetComponent<Rigidbody2D>().AddForce(transform.up * -20, ForceMode2D.Impulse);
+                }
             }
         }
         Destroy(gameObject);
@@ -61,6 +64,6 @@ public class Tumor : Hitable {
         Hitable hit = go.GetComponent<Hitable>();
         if (hit == null || go.tag != "Player")
             return;
-        hit.Hit(gameObject, 1, transform.eulerAngles.z);
+        hit.Hit(gameObject, 1, transform.eulerAngles.z * Mathf.Deg2Rad);
     }
 }

@@ -2,20 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemDisplay : MonoBehaviour {
+public class ItemDisplay : MonoBehaviour
+{
+
 
     public string[] tags;
     public string[] notTags;
+    public bool global; //the static global safe stuff
 
-    public void UpdateStatus() {
-        foreach (string tag in tags) {
-            if (!TagTracker.current.isTag(tag)) {
+    void Start()
+    {
+        TagTracker.current.tagsChanged.AddListener(UpdateStatus);
+        UpdateStatus();
+    }
+    public void UpdateStatus()
+    {
+        List<string> trackerTags = global ? StaticSafeSystem.current.activeTags : TagTracker.current.activeTags;
+        foreach (string tag in tags)
+        {
+            if (!trackerTags.Contains(tag))
+            {
                 gameObject.SetActive(false);
                 return;
             }
         }
-        foreach (string nTag in notTags) {
-            if (TagTracker.current.isTag(nTag)) {
+        foreach (string nTag in notTags)
+        {
+            if (trackerTags.Contains(nTag))
+            {
                 gameObject.SetActive(false);
                 return;
             }

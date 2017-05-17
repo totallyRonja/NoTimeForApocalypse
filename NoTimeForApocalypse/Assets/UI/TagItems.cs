@@ -31,11 +31,5 @@ public class TagItems : MonoBehaviour {
         }
         background.enabled = active > 0;
         ((RectTransform)transform).sizeDelta = new Vector2(2 * 20 + active * (height + 10) - 10, ((RectTransform)transform).sizeDelta.y);
-
-        if (Application.isPlaying) {
-            foreach(RectTransform item in items) {
-                item.GetComponent<ItemDisplay>().UpdateStatus();
-            }
-        }
 	}
 }

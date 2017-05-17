@@ -10,7 +10,7 @@ public class QuestCounter : MonoBehaviour {
 		UpdateScore();
 	}
 	void UpdateScore(){
-		print(StaticSafeSystem.current.activeTags.Count);
+		//print(StaticSafeSystem.current.activeTags.Count);
 		GetComponent<Text>().text = ""+StaticSafeSystem.current.activeTags.Count;
 	}
 }
