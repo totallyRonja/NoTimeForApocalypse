@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class PauseMenu : MonoBehaviour {
     
-    public static PauseMenu menu; //singleton variable
+    public static PauseMenu current; //singleton variable
     public bool death = false;
     private GameObject title;
     private bool paused;
@@ -16,7 +16,7 @@ public class PauseMenu : MonoBehaviour {
         SetVisible(false);
         Time.timeScale = 1;
         title = transform.Find("title").gameObject;
-        menu = this;
+        current = this;
 	}
 	
     void Update(){

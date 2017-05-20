@@ -26,14 +26,7 @@ public class Tumor : Hitable {
         dmgCd -= Time.deltaTime;
 
         Vector2 difference = victim.transform.position - transform.position;
-        Vector2 toVector2 = new Vector2(0, 1);
-        Vector2 fromVector2 = difference;
-
-        float ang = Vector2.Angle(fromVector2, toVector2);
-        Vector3 cross = Vector3.Cross(fromVector2, toVector2);
-
-        if (cross.z > 0)
-            ang = 360 - ang;
+        float ang = Mathf.Atan2(-difference.x, difference.y) * Mathf.Rad2Deg;
 
         transform.rotation = Quaternion.Euler(0, 0, ang);
         //transform.Translate(Vector3.up * Time.deltaTime * speed);

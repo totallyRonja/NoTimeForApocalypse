@@ -8,14 +8,15 @@ public class AudioSettings : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
-	}
+        AudioListener.volume = PlayerPrefs.GetFloat("Volume");
+        print("loaded audio volume: " + AudioListener.volume);
+    }
 	
 	// Update is called once per frame
-	void Update () {
+	/*void Update () {
         if (Input.GetButtonDown("Mute")) {
             volume = volume == 0 ? 1 : 0;
         }
         AudioListener.volume = volume;
-	}
+	}*/
 }

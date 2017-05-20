@@ -20,11 +20,26 @@ GameObject:
   m_Component:
   - component: {fileID: 4179138228911818}
   - component: {fileID: 212495676714645926}
-  - component: {fileID: 114731315948362518}
-  - component: {fileID: 60962101173031348}
   m_Layer: 0
   m_Name: poison_puddle
   m_TagString: slow
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1567925348448962
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4812207917272022}
+  - component: {fileID: 60157544939096102}
+  - component: {fileID: 114661123857981376}
+  m_Layer: 0
+  m_Name: collider
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,18 +51,32 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1192275856619608}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.854649, y: 282.70557, z: 0}
+  m_LocalPosition: {x: 14.542877, y: 1.85466, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4812207917272022}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &60962101173031348
+--- !u!4 &4812207917272022
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1567925348448962}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4179138228911818}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &60157544939096102
 PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1192275856619608}
+  m_GameObject: {fileID: 1567925348448962}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -66,24 +95,24 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 2.56, y: -0.0000012207031}
-      - {x: 2.1968508, y: -0.8059267}
+    - - {x: 2.7966576, y: -0.098609924}
+      - {x: 2.433506, y: -0.8650894}
       - {x: 1.2799994, y: -1.4403507}
       - {x: -0.020173797, y: -1.6723719}
       - {x: -1.21948, y: -1.5210439}
-      - {x: -2.1262448, y: -1.0076596}
-      - {x: -2.56, y: -0.00000015258789}
-      - {x: -2.217025, y: 1.2231058}
-      - {x: -1.2515527, y: 1.8946234}
-      - {x: -0.009482422, y: 2.057433}
-      - {x: 1.2705191, y: 1.904105}
-      - {x: 2.0630767, y: 1.188428}
---- !u!114 &114731315948362518
+      - {x: -2.1262436, y: -1.1259842}
+      - {x: -2.6783218, y: -0.43386078}
+      - {x: -2.5917282, y: 0.6117554}
+      - {x: -1.626255, y: 1.2635422}
+      - {x: -0.048923492, y: 1.4855194}
+      - {x: 1.4282875, y: 1.3124695}
+      - {x: 2.2405624, y: 0.8728943}
+--- !u!114 &114661123857981376
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1192275856619608}
+  m_GameObject: {fileID: 1567925348448962}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c16121573e4cd74883119a1a135e291, type: 3}
@@ -145,7 +174,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ee7f2051eae862a4baf192964d39927f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

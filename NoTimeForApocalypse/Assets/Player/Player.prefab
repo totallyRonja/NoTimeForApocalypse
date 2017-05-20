@@ -57,11 +57,14 @@ GameObject:
   - component: {fileID: 4613852072180962}
   - component: {fileID: 70579027198421886}
   - component: {fileID: 50154549042059124}
-  - component: {fileID: 114467699455215164}
   - component: {fileID: 210341304738266174}
-  - component: {fileID: 82709403698569166}
-  - component: {fileID: 82050554678937448}
+  - component: {fileID: 114467699455215164}
   - component: {fileID: 114397857791689510}
+  - component: {fileID: 114351288727615272}
+  - component: {fileID: 82050554678937448}
+  - component: {fileID: 114013500853893490}
+  - component: {fileID: 82709403698569166}
+  - component: {fileID: 114999122042843476}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -150,7 +153,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1641179743581418}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 56.89, y: -83.38, z: 0}
+  m_LocalPosition: {x: 57.19, y: -83.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4064536338883984}
@@ -418,6 +421,22 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1052026162157638}
   m_Enabled: 1
+--- !u!114 &114013500853893490
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1641179743581418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ead185997e850ab4a9b7a65e6bf89ddf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitPrefab: {fileID: 1903814844163502, guid: 7acce8229ae5b450a9c6c352e7a12454, type: 2}
+  hitOrigin: {fileID: 1413334045136568}
+  defaultAnim: {fileID: 114979582453790718}
+  hitAnim: {fileID: 114095388537662886}
+  attackAudio: {fileID: 82709403698569166}
 --- !u!114 &114089683139920536
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -451,6 +470,21 @@ MonoBehaviour:
   idle: 0
   autoAngle: 0
   transitionTo: {fileID: 114979582453790718}
+--- !u!114 &114351288727615272
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1641179743581418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd67ab4ab9df45b40b35888abbcc963f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSpeed: 11
+  walkAudio: {fileID: 82050554678937448}
+  defaultWalk: {fileID: 8300000, guid: a885eb1d9f7ab214fa22ad8c7b2a6a39, type: 3}
+  mudWalk: {fileID: 8300000, guid: 0cd5c99ae1b699d4789180e2fac9512a, type: 3}
 --- !u!114 &114397857791689510
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -464,7 +498,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocityGoal: {x: 0, y: 0}
   acceleration: 60
-  velocity: {x: 0, y: 0}
+  land: {fileID: 0}
 --- !u!114 &114422943175968396
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -489,19 +523,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf575795d5ca04d9fbbf3e86b23ce665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 10
-  hitPrefab: {fileID: 1903814844163502, guid: 7acce8229ae5b450a9c6c352e7a12454, type: 2}
-  hitOrigin: {fileID: 1413334045136568}
-  defaultAnim: {fileID: 114979582453790718}
-  hitAnim: {fileID: 114095388537662886}
   maxHp: 7
   iFrames: 1
-  land: {fileID: 0}
   pause: {fileID: 0}
-  attackAudio: {fileID: 82709403698569166}
-  walkAudio: {fileID: 82050554678937448}
-  defaultWalk: {fileID: 8300000, guid: a885eb1d9f7ab214fa22ad8c7b2a6a39, type: 3}
-  mudWalk: {fileID: 8300000, guid: 0cd5c99ae1b699d4789180e2fac9512a, type: 3}
 --- !u!114 &114777372863134402
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -548,6 +572,49 @@ MonoBehaviour:
   idle: 0
   autoAngle: 1
   transitionTo: {fileID: 0}
+--- !u!114 &114999122042843476
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1641179743581418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1132467352969454b8feab0a56f521d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 50
+  duration: 0.11
+  dynamic:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 3.3265994
+      outSlope: 5.0000005
+      tangentMode: 69
+    - serializedVersion: 2
+      time: 0.19999999
+      value: 1
+      inSlope: 5.0000005
+      outSlope: -0
+      tangentMode: 69
+    - serializedVersion: 2
+      time: 0.79999995
+      value: 1
+      inSlope: 0
+      outSlope: -4.999999
+      tangentMode: 69
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: -4.999999
+      outSlope: 0
+      tangentMode: 69
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!124 &124514373063660084
 Behaviour:
   m_ObjectHideFlags: 1
