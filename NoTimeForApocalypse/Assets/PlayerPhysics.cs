@@ -6,7 +6,10 @@ public class PlayerPhysics : MonoBehaviour {
 
 	public Vector2 velocityGoal;
 	public float acceleration;
-	public Vector2 velocity;
+	public Vector2 velocity{
+        get { return rigid.velocity; }
+        set { rigid.velocity = value; }
+    }
 
 	private Rigidbody2D rigid;
 
@@ -17,6 +20,7 @@ public class PlayerPhysics : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		
 		if(velocity != velocityGoal){
 			Vector2 difference = velocityGoal - velocity;
 			if(difference.magnitude < acceleration * Time.deltaTime){
