@@ -6,29 +6,30 @@ using UnityEngine.UI;
 
 public class HpDisplay : MonoBehaviour {
 
-    public Sprite[] stages;
+    public static HpDisplay current;
 
+    public Sprite[] stages;
     public float timeLeft = 600;
 
     private Image render;
     private Text countDown;
-    public PauseMenu pause;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         render = GetComponent<Image>();
         countDown = GetComponentInChildren<Text>();
         //pause = GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>();
         setHP(7);
-	}
+        current = this;
+    }
 
     private void Update() {
         if (timeLeft > 0) {
             timeLeft -= Time.deltaTime;
             if(timeLeft <= 0){
                 timeLeft = 0;
-                pause.death = true;
-                pause.Pause("the time came and you coudn't stop the apocalypse");
+                PauseMenu.current.death = true;
+                PauseMenu.current.Pause("the time came and you coudn't stop the apocalypse");
             }
             countDown.text = String.Format("{0:00}:{1:00}", Mathf.Floor(Mathf.Ceil(timeLeft) / 60), Mathf.Floor(Mathf.Ceil(timeLeft) % 60));
         }

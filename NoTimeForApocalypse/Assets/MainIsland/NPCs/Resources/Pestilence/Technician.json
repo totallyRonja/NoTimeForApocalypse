@@ -1,101 +1,17 @@
 {
-    "updated_at": "2017-05-13T17:00:25Z",
+    "updated_at": "2017-05-21T13:21:13Z",
+    "url_key": "znbm",
+    "created_at": "2017-04-23T13:08:10Z",
+    "title": "Pestilence Dialogues - Technician",
     "data": {
-        "editorData": {
-            "playPoint": "goodLuckCuriousT",
-            "authorName": "Anonymous",
-            "libraryVisible": true,
-            "textSize": 0
-        },
         "initial": "mumbleMumble",
-        "allowCheckpoints": false,
+        "optionMirroring": true,
         "stitches": {
-            "wHATItMissedBack": {
-                "content": [
-                    "WHAT, it missed? Back to the drawing board then.",
-                    {
-                        "divert": "thankYouAnywaysF"
-                    }
-                ]
-            },
-            "iAmWorkingOnAMac": {
-                "content": [
-                    "I am working on a machine and I'm just missing a few parts!",
-                    {
-                        "option": "Can I help?",
-                        "ifConditions": null,
-                        "linkPath": "noImFine",
-                        "notIfConditions": null
-                    },
-                    {
-                        "option": "I got the core!",
-                        "ifConditions": [
-                            {
-                                "ifCondition": "core"
-                            }
-                        ],
-                        "linkPath": "ohHowWonderfulTh",
-                        "notIfConditions": [
-                            {
-                                "notIfCondition": "has core"
-                            }
-                        ]
-                    }
-                ]
-            },
-            "noTimeToTalk": {
-                "content": [
-                    "No time to talk!",
-                    {
-                        "divert": "theApocalypseIsN"
-                    }
-                ]
-            },
-            "goodLuckCuriousT": {
-                "content": [
-                    "Good Luck, curious Tinman."
-                ]
-            },
-            "punctuatedStitch1": {
+            "punctuatedStitch": {
                 "content": [
                     "...",
                     {
-                        "divert": "wHATItMissedBack"
-                    }
-                ]
-            },
-            "theApocalypseIsN": {
-                "content": [
-                    "The apocalypse is nearing and I'm trying to figure out how to stop it!",
-                    {
-                        "divert": "iAmWorkingOnAMac"
-                    }
-                ]
-            },
-            "myMachineShouldH": {
-                "content": [
-                    "My machine should have fired and eliminated the reason of the apocalypse.",
-                    {
-                        "divert": "punctuatedStitch1"
-                    }
-                ]
-            },
-            "findingItWouldHe": {
-                "content": [
-                    "Finding it would help me greatly!",
-                    {
-                        "option": "I'm on my way.",
-                        "ifConditions": null,
-                        "linkPath": "goodLuckCuriousT",
-                        "notIfConditions": null
-                    }
-                ]
-            },
-            "wellNowThatIThin": {
-                "content": [
-                    "Well, now that I think about it. I lost a important part.",
-                    {
-                        "divert": "itsAPowerCoreIUs"
+                        "divert": "wellNowThatIThin"
                     }
                 ]
             },
@@ -107,30 +23,91 @@
                     }
                 ]
             },
+            "iAmWorkingOnAMac": {
+                "content": [
+                    "I am working on a machine and I'm just missing a few parts!",
+                    {
+                        "ifConditions": null,
+                        "option": "Can I help?",
+                        "notIfConditions": null,
+                        "linkPath": "noImFine"
+                    },
+                    {
+                        "ifConditions": [
+                            {
+                                "ifCondition": "core"
+                            }
+                        ],
+                        "option": "I got the core!",
+                        "notIfConditions": [
+                            {
+                                "notIfCondition": "gave core"
+                            }
+                        ],
+                        "linkPath": "ohHowWonderfulTh"
+                    }
+                ]
+            },
+            "mumbleMumble": {
+                "content": [
+                    "*mumble mumble*",
+                    {
+                        "ifConditions": null,
+                        "option": "Um, hello?",
+                        "notIfConditions": null,
+                        "linkPath": "noTimeToTalk"
+                    },
+                    {
+                        "pageNum": 1
+                    }
+                ]
+            },
+            "findingItWouldHe": {
+                "content": [
+                    "Finding it would help me greatly!",
+                    {
+                        "ifConditions": null,
+                        "option": "I'm on my way.",
+                        "notIfConditions": null,
+                        "linkPath": "goodLuckCuriousT"
+                    }
+                ]
+            },
+            "theApocalypseIsN": {
+                "content": [
+                    "The apocalypse is nearing and I'm trying to figure out how to stop it!",
+                    {
+                        "divert": "iAmWorkingOnAMac"
+                    }
+                ]
+            },
             "thankYouAnywaysF": {
                 "content": [
                     "Thank you anyways for your help!"
                 ]
             },
-            "punctuatedStitch": {
+            "wHATItMissedBack": {
+                "content": [
+                    "WHAT, it missed? Back to the drawing board then.",
+                    {
+                        "divert": "thankYouAnywaysF"
+                    }
+                ]
+            },
+            "myMachineShouldH": {
+                "content": [
+                    "My machine should have fired and eliminated the reason of the apocalypse.",
+                    {
+                        "divert": "punctuatedStitch1"
+                    }
+                ]
+            },
+            "punctuatedStitch1": {
                 "content": [
                     "...",
                     {
-                        "divert": "wellNowThatIThin"
+                        "divert": "wHATItMissedBack"
                     }
-                ]
-            },
-            "itIsSupposedToCl": {
-                "content": [
-                    "It is supposed to clear the disease spreading from the north. ",
-                    {
-                        "divert": "youHaveProbablyS"
-                    }
-                ]
-            },
-            "youHaveProbablyS": {
-                "content": [
-                    "You have probably seen the disgusting discoloration in the ground."
                 ]
             },
             "ohHowWonderfulTh": {
@@ -140,22 +117,59 @@
                         "divert": "myMachineShouldH"
                     },
                     {
-                        "flagName": "has core"
+                        "flagName": "gave core"
                     }
                 ]
             },
-            "mumbleMumble": {
+            "wellNowThatIThin": {
                 "content": [
-                    "*mumble mumble*",
+                    "Well, now that I think about it. I lost a important part.",
                     {
-                        "option": "Um, hello?",
+                        "divert": "itsAPowerCoreIUs"
+                    }
+                ]
+            },
+            "noTimeToTalk": {
+                "content": [
+                    "No time to talk!",
+                    {
                         "ifConditions": null,
-                        "linkPath": "noTimeToTalk",
-                        "notIfConditions": null
+                        "option": "a",
+                        "notIfConditions": [
+                            {
+                                "notIfCondition": "gave core"
+                            }
+                        ],
+                        "linkPath": "theApocalypseIsN"
                     },
                     {
-                        "pageNum": 1
+                        "ifConditions": [
+                            {
+                                "ifCondition": "gave core"
+                            }
+                        ],
+                        "option": "b",
+                        "notIfConditions": null,
+                        "linkPath": "afterTheRecentFa"
                     }
+                ]
+            },
+            "goodLuckCuriousT": {
+                "content": [
+                    "Good Luck, curious Tinman."
+                ]
+            },
+            "afterTheRecentFa": {
+                "content": [
+                    "after the recent fail I have more work to do than ever.",
+                    {
+                        "divert": "iDontThinkICanDo"
+                    }
+                ]
+            },
+            "iDontThinkICanDo": {
+                "content": [
+                    "I don't think I can do it but we mustn't loose hope."
                 ]
             },
             "itsAPowerCoreIUs": {
@@ -165,16 +179,14 @@
                         "divert": "findingItWouldHe"
                     }
                 ]
-            },
-            "endDialogue": {
-                "content": [
-                    "End dialogue. "
-                ]
             }
         },
-        "optionMirroring": true
-    },
-    "url_key": "znbm",
-    "title": "Pestilence Dialogues - Technician",
-    "created_at": "2017-04-23T13:08:10Z"
+        "editorData": {
+            "playPoint": "thankYouAnywaysF",
+            "textSize": 0,
+            "authorName": "Anonymous",
+            "libraryVisible": true
+        },
+        "allowCheckpoints": false
+    }
 }

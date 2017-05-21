@@ -57,7 +57,6 @@ public class NPC : MonoBehaviour, IOptionHolder {
                         List<Option> o = new List<Option>(chunk.Stitches[chunk.Stitches.Count-1].Content.Options);
                         List<Option> remove = new List<Option>();
                         foreach(Option i in o) {
-                            
                             List<string> con = i.IfConditions;
                             List<string> nonCon = i.NotIfConditions;
                             foreach (string c in con) {
@@ -80,13 +79,22 @@ public class NPC : MonoBehaviour, IOptionHolder {
                         foreach(Option i in remove) {
                             o.Remove(i);
                         }
+
+                        isChoosing = o;
+
+                        for (int i = 0; i < o.Count;i++){
+                            if (o[i].Text.Length <= 1){
+                                ChooseOption(i);
+                                return;
+                            }
+                        }
+
                         string[] sOptions = new string[o.Count];
                         for(int i=0;i<o.Count;i++) {
                             sOptions[i] = o[i].Text;
                         }
                         ui.Connect(this);
                         ui.ShowOptions(sOptions);
-                        isChoosing = o;
                     }
                 } else {
                     ui.Show("", chunk.Paragraphs[chunkProgress].Text);
@@ -96,7 +104,7 @@ public class NPC : MonoBehaviour, IOptionHolder {
                     }
                 }
             } else {
-                inRange.GetComponent<PlayerController>().enabled = false;
+                //inRange.GetComponent<PlayerController>().enabled = false;
                 inControl = true;
                 chunk = player.CreateFirstChunk();
                 chunkProgress = 0;
@@ -133,10 +141,10 @@ public class NPC : MonoBehaviour, IOptionHolder {
     }
 
     void Release() {
-        if(inRange != null)
+        /*if(inRange != null)
             inRange.GetComponent<PlayerController>().enabled = true;
         else
-            GameObject.FindWithTag("Player").GetComponent<PlayerController>().enabled = true;;
+            GameObject.FindWithTag("Player").GetComponent<PlayerController>().enabled = true;*/
         inControl = false;
         ui.Show("talk", "");
 

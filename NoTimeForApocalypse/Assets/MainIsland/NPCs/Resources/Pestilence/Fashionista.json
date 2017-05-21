@@ -1,82 +1,21 @@
 {
+    "created_at": "2017-04-22T16:03:16Z",
+    "updated_at": "2017-05-21T11:40:27Z",
+    "url_key": "44v5",
     "data": {
+        "optionMirroring": true,
+        "editorData": {
+            "libraryVisible": true,
+            "textSize": 0,
+            "playPoint": "thanksForTheWart",
+            "authorName": "Anonymous"
+        },
+        "initial": "hey",
+        "allowCheckpoints": false,
         "stitches": {
-            "iFoundThisShinyT": {
+            "youKnowWhereToFi": {
                 "content": [
-                    "I found this shiny thing a while ago. I think it fits you style, you can have it.",
-                    {
-                        "flagName": "core"
-                    }
-                ]
-            },
-            "soAreYouGonnaDoT": {
-                "content": [
-                    "So are you gonna do this or not?",
-                    {
-                        "linkPath": "sweetThankYou",
-                        "notIfConditions": null,
-                        "ifConditions": null,
-                        "option": "Alright.\u00a0"
-                    }
-                ]
-            },
-            "youKnowWhatWould": {
-                "content": [
-                    "You know what would be perfect for this?",
-                    {
-                        "divert": "imGonnaNeedPestW"
-                    }
-                ]
-            },
-            "ohThankYouTimeTo": {
-                "content": [
-                    "Oh thank you. Time to get to work.",
-                    {
-                        "divert": "iFoundThisShinyT"
-                    },
-                    {
-                        "flagName": "has warts"
-                    }
-                ]
-            },
-            "imGonnaNeedPestW": {
-                "content": [
-                    "I'm gonna need *-Pest Warts -*of each color.",
-                    {
-                        "linkPath": "fashionNeverDies",
-                        "notIfConditions": null,
-                        "ifConditions": null,
-                        "option": "That seems really dangerous."
-                    },
-                    {
-                        "linkPath": "ohThankYouTimeTo",
-                        "notIfConditions": null,
-                        "ifConditions": [
-                            {
-                                "ifCondition": "warts"
-                            }
-                        ],
-                        "option": "I got the warts."
-                    }
-                ]
-            },
-            "imAlreadyCovered": {
-                "content": [
-                    "I'm already covered in sores like any other person here, why not make the best out of it, huh?",
-                    {
-                        "linkPath": "soAreYouGonnaDoT",
-                        "notIfConditions": null,
-                        "ifConditions": null,
-                        "option": "Humans sure are weird."
-                    }
-                ]
-            },
-            "iveBeenWorkingOn": {
-                "content": [
-                    "I've been working on a dress and I have visionized these crazy red and yellow colors.",
-                    {
-                        "divert": "youKnowWhatWould"
-                    }
+                    "You know where to find me if you change your mind."
                 ]
             },
             "fashionNeverDies": {
@@ -87,11 +26,71 @@
                     }
                 ]
             },
+            "iveBeenWorkingOn": {
+                "content": [
+                    "I've been working on a dress and I have visionized these crazy red and yellow colors.",
+                    {
+                        "divert": "youKnowWhatWould"
+                    },
+                    {
+                        "pageNum": -1
+                    }
+                ]
+            },
+            "ohThankYouTimeTo": {
+                "content": [
+                    "Oh thank you. Time to get to work.",
+                    {
+                        "divert": "iFoundThisShinyT"
+                    },
+                    {
+                        "flagName": "gave warts"
+                    },
+                    {
+                        "flagName": "core"
+                    }
+                ]
+            },
+            "thanksForTheWart": {
+                "content": [
+                    "Thanks for the warts earlier but I need you to let me work now."
+                ]
+            },
+            "youKnowWhatWould": {
+                "content": [
+                    "You know what would be perfect for this?",
+                    {
+                        "divert": "imGonnaNeedPestW"
+                    }
+                ]
+            },
+            "iFoundThisShinyT": {
+                "content": [
+                    "I found this shiny thing a while ago. I think it fits you style, you can have it."
+                ]
+            },
             "hey": {
                 "content": [
                     "Hey!",
                     {
-                        "divert": "iveBeenWorkingOn"
+                        "ifConditions": [
+                            {
+                                "ifCondition": "gave warts"
+                            }
+                        ],
+                        "notIfConditions": null,
+                        "linkPath": "thanksForTheWart",
+                        "option": "\u00a0"
+                    },
+                    {
+                        "ifConditions": null,
+                        "notIfConditions": [
+                            {
+                                "notIfCondition": "gave warts"
+                            }
+                        ],
+                        "linkPath": "iveBeenWorkingOn",
+                        "option": "\u00a0"
                     },
                     {
                         "pageNum": 1
@@ -101,29 +100,61 @@
                     }
                 ]
             },
-            "sweetThankYou": {
+            "sweetSeeYouLater": {
                 "content": [
-                    "Sweet, thank you!"
+                    "Sweet, see you later then!"
                 ]
             },
-            "youKnowWhereToFi": {
+            "soAreYouGonnaDoT": {
                 "content": [
-                    "You know where to find me if you change your mind."
+                    "So are you gonna do this or not?",
+                    {
+                        "ifConditions": null,
+                        "notIfConditions": null,
+                        "linkPath": "sweetSeeYouLater",
+                        "option": "Alright.\u00a0"
+                    },
+                    {
+                        "ifConditions": null,
+                        "notIfConditions": null,
+                        "linkPath": "youKnowWhereToFi",
+                        "option": "I'm not comfortable with this"
+                    }
+                ]
+            },
+            "imAlreadyCovered": {
+                "content": [
+                    "I'm already covered in sores like any other person here, why not make the best out of it, huh?",
+                    {
+                        "ifConditions": null,
+                        "notIfConditions": null,
+                        "linkPath": "soAreYouGonnaDoT",
+                        "option": "Humans sure are weird."
+                    }
+                ]
+            },
+            "imGonnaNeedPestW": {
+                "content": [
+                    "I'm gonna need *-Pest Warts -*of each color.",
+                    {
+                        "ifConditions": null,
+                        "notIfConditions": null,
+                        "linkPath": "fashionNeverDies",
+                        "option": "That seems really dangerous."
+                    },
+                    {
+                        "ifConditions": [
+                            {
+                                "ifCondition": "warts"
+                            }
+                        ],
+                        "notIfConditions": null,
+                        "linkPath": "ohThankYouTimeTo",
+                        "option": "I got the warts."
+                    }
                 ]
             }
-        },
-        "allowCheckpoints": false,
-        "optionMirroring": true,
-        "editorData": {
-            "libraryVisible": true,
-            "playPoint": "iFoundThisShinyT",
-            "authorName": "Anonymous",
-            "textSize": 0
-        },
-        "initial": "hey"
+        }
     },
-    "url_key": "44v5",
-    "created_at": "2017-04-22T16:03:16Z",
-    "title": "Pestilence Dialogues - Fashionista",
-    "updated_at": "2017-05-07T11:08:50Z"
+    "title": "Pestilence Dialogues - Fashionista"
 }

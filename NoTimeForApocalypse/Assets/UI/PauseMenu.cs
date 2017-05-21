@@ -43,6 +43,7 @@ public class PauseMenu : MonoBehaviour {
         Pause();
 	}
     public void Unpause() {
+        print("upa");
         SetVisible(false);
         Time.timeScale = 1;
         paused = false;

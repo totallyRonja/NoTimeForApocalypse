@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-[RequireComponent(typeof(PlayerController))]
 public class PlayerPhysics : MonoBehaviour {
 
 	public Vector2 velocityGoal;
@@ -15,12 +14,12 @@ public class PlayerPhysics : MonoBehaviour {
     public Collider2D land;
 
 	private Rigidbody2D rigid;
-    private PlayerController controller;
+    private PlayerHP health;
 
     // Use this for initialization
     void Start () {
 		rigid = GetComponent<Rigidbody2D>();
-        controller = GetComponent<PlayerController>();
+        health = GetComponent<PlayerHP>();
     }
 	
 	// Update is called once per frame
@@ -36,8 +35,8 @@ public class PlayerPhysics : MonoBehaviour {
 			}
 			rigid.velocity = velocity;
 		}
-		if (!land.OverlapPoint(transform.position) && controller.hp >= 0 && !Input.GetButton("God")) {
-            controller.Hit(gameObject, 1);
+		if (!land.OverlapPoint(transform.position) && (health?health.hp>=0:true) && !Input.GetButton("God")) {
+            if(health)health.Hit(gameObject, 1);
             rigid.velocity = -rigid.velocity + rigid.velocity.normalized * -10;
             transform.position += (Vector3)rigid.velocity * Time.fixedDeltaTime;
         }

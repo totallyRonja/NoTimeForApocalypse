@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerController))]
 [RequireComponent(typeof(PlayerPhysics))]
 public class PlayerWalk : MonoBehaviour {
 
@@ -12,17 +11,28 @@ public class PlayerWalk : MonoBehaviour {
     public AudioClip defaultWalk;
     public AudioClip mudWalk;
 	[NonSerialized] public bool slowed = false;
+    [NonSerialized] public Vector2 direction;
     
 	private PlayerPhysics phys;
-    private PlayerController controller;
+    //private PlayerController controller;
     void Awake () {
-        controller = GetComponent<PlayerController>();
-        controller.walk = this;
+        //controller = GetComponent<PlayerController>();
+        //controller.walk = this;
 
         phys = GetComponent<PlayerPhysics>();
     }
 
+    void Update(){
+        Walk();
+    }
+
 	public void Walk() {
+        if(Time.timeScale <= 0){
+            direction = Vector2.zero;
+            return;
+        }
+
+
         Vector2 input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         if (input.magnitude > 1)
             input.Normalize();
@@ -32,9 +42,8 @@ public class PlayerWalk : MonoBehaviour {
         phys.velocityGoal = slowed ? velocity * 0.4f : velocity;
 
         walkAudio.mute = velocity == Vector2.zero;
-        if (velocity != Vector2.zero)
-        { //this used to drive the hit direction
-            controller.direction = Mathf.Atan2(-velocity.x, velocity.y);
+        if (velocity != Vector2.zero){ //this used to drive the hit direction
+            direction = velocity.normalized;
         }
 
         if (slowed && walkAudio.clip != mudWalk)
