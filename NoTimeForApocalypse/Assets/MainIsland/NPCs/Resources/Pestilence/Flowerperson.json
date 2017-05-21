@@ -1,10 +1,17 @@
 {
-    "url_key": "vd5j",
     "title": "Pestilence Dialogues - Flowerperson",
-    "created_at": "2017-04-22T15:40:56Z",
-    "updated_at": "2017-05-02T19:21:56Z",
+    "url_key": "vd5j",
     "data": {
+        "initial": "ohHelloWelcomeTo",
         "stitches": {
+            "thankYou": {
+                "content": [
+                    "Thank you!",
+                    {
+                        "flagName": "flower"
+                    }
+                ]
+            },
             "sheLivesJustArou": {
                 "content": [
                     "She lives just around the corner. She has a child.",
@@ -13,57 +20,11 @@
                     }
                 ]
             },
-            "youBasicallyCant": {
-                "content": [
-                    "You basically can't miss her.",
-                    {
-                        "ifConditions": null,
-                        "linkPath": "thankYou",
-                        "notIfConditions": null,
-                        "option": "Got it!"
-                    }
-                ]
-            },
-            "ifYouCameForMedi": {
-                "content": [
-                    "If you came for medicine flowers I have to disappoint you.",
-                    {
-                        "divert": "imCompletelyOutO"
-                    }
-                ]
-            },
-            "imAfraidNot": {
-                "content": [
-                    "I'm afraid not. ",
-                    {
-                        "divert": "atLeastNotInThat"
-                    }
-                ]
-            },
-            "thankYou": {
-                "content": [
-                    "Thank you!",
-                    {
-                        "flagName": "flowers"
-                    }
-                ]
-            },
             "iStillGotADelive": {
                 "content": [
                     "I still got a delivery to make.",
                     {
                         "divert": "msJunebugExpects"
-                    }
-                ]
-            },
-            "imCompletelyOutO": {
-                "content": [
-                    "I'm completely out of them.",
-                    {
-                        "ifConditions": null,
-                        "linkPath": "imAfraidNot",
-                        "notIfConditions": null,
-                        "option": "Anything I can do to help?"
                     }
                 ]
             },
@@ -78,11 +39,64 @@
                     }
                 ]
             },
+            "youBasicallyCant": {
+                "content": [
+                    "You basically can't miss her.",
+                    {
+                        "notIfConditions": null,
+                        "linkPath": "thankYou",
+                        "ifConditions": null,
+                        "option": "Got it!"
+                    }
+                ]
+            },
             "msJunebugExpects": {
                 "content": [
                     "Ms Junebug expects a delivery of her favorite flowers today.",
                     {
                         "divert": "sheLivesJustArou"
+                    }
+                ]
+            },
+            "imAfraidNot": {
+                "content": [
+                    "I'm afraid not. ",
+                    {
+                        "notIfConditions": [
+                            {
+                                "notIfCondition": "flower"
+                            }
+                        ],
+                        "linkPath": "atLeastNotInThat",
+                        "ifConditions": null,
+                        "option": "1"
+                    },
+                    {
+                        "notIfConditions": [
+                            {
+                                "notIfCondition": "gave flower"
+                            }
+                        ],
+                        "linkPath": "butThatFlowerIGa",
+                        "ifConditions": [
+                            {
+                                "ifCondition": "flower"
+                            }
+                        ],
+                        "option": "p"
+                    },
+                    {
+                        "notIfConditions": null,
+                        "linkPath": "butYouAlreadyWer",
+                        "ifConditions": [
+                            {
+                                "ifCondition": "flower"
+                            },
+                            {
+                                "ifCondition": "gave flower"
+                            }
+                        ],
+                        "option": "d"
                     }
                 ]
             },
@@ -93,16 +107,54 @@
                         "divert": "iStillGotADelive"
                     }
                 ]
+            },
+            "imSureItWouldHel": {
+                "content": [
+                    "I'm sure it would help Miss Junebug greatly when you'd give them to her."
+                ]
+            },
+            "butYouAlreadyWer": {
+                "content": [
+                    "But you already were a great help when you gave Miss Junebug that flower earlier."
+                ]
+            },
+            "butThatFlowerIGa": {
+                "content": [
+                    "But that Flower I gave you earlier...",
+                    {
+                        "divert": "imSureItWouldHel"
+                    }
+                ]
+            },
+            "imCompletelyOutO": {
+                "content": [
+                    "I'm completely out of them.",
+                    {
+                        "notIfConditions": null,
+                        "linkPath": "imAfraidNot",
+                        "ifConditions": null,
+                        "option": "Anything I can do to help?"
+                    }
+                ]
+            },
+            "ifYouCameForMedi": {
+                "content": [
+                    "If you came for medicine flowers I have to disappoint you.",
+                    {
+                        "divert": "imCompletelyOutO"
+                    }
+                ]
             }
         },
-        "initial": "ohHelloWelcomeTo",
-        "optionMirroring": true,
         "editorData": {
-            "playPoint": "thankYou",
+            "playPoint": "imAfraidNot",
             "textSize": 0,
             "authorName": "Anonymous",
             "libraryVisible": false
         },
+        "optionMirroring": true,
         "allowCheckpoints": false
-    }
+    },
+    "updated_at": "2017-05-21T17:00:55Z",
+    "created_at": "2017-04-22T15:40:56Z"
 }

@@ -101,24 +101,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1116443950264136
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 224972538691706304}
-  - component: {fileID: 222256586282403332}
-  - component: {fileID: 114644956028239708}
-  - component: {fileID: 114309372048601120}
-  m_Layer: 5
-  m_Name: SickChild
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1143797701227248
 GameObject:
   m_ObjectHideFlags: 1
@@ -628,6 +610,7 @@ GameObject:
   - component: {fileID: 114790776956639462}
   - component: {fileID: 222983944322535876}
   - component: {fileID: 114863475982852176}
+  - component: {fileID: 114865638734344112}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -682,7 +665,7 @@ GameObject:
   - component: {fileID: 222087147514154888}
   - component: {fileID: 114372617018905604}
   m_Layer: 5
-  m_Name: GameObject
+  m_Name: Controls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1195,7 +1178,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114591097420822176}
   m_HandleRect: {fileID: 224135800944966556}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1340,7 +1323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tags:
-  - has rose
+  - gave rose
   notTags: []
   global: 1
 --- !u!114 &114059450721453488
@@ -1364,7 +1347,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e581cab2e0660b14096a255c05b15423, type: 3}
   - {fileID: 21300000, guid: 6b07c3dcbad835e45b34c9b503629349, type: 3}
   timeLeft: 300
-  pause: {fileID: 114843793612711158}
 --- !u!114 &114070677259338846
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1665,7 +1647,7 @@ MonoBehaviour:
   tags:
   - apple
   notTags:
-  - has apple
+  - gave apple
   global: 0
 --- !u!114 &114195901674277446
 MonoBehaviour:
@@ -1679,7 +1661,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tags:
-  - has apple
+  - gave apple
   notTags: []
   global: 1
 --- !u!114 &114207029944802416
@@ -1696,7 +1678,7 @@ MonoBehaviour:
   tags:
   - rose
   notTags:
-  - has rose
+  - gave rose
   global: 0
 --- !u!114 &114216352612667572
 MonoBehaviour:
@@ -1924,7 +1906,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tags:
-  - has warts
+  - gave warts
   notTags: []
   global: 1
 --- !u!114 &114301347293270662
@@ -1981,21 +1963,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &114309372048601120
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1116443950264136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfe77b616660cc94ab18af61a0951a84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tags:
-  - told teacher child is sick
-  notTags: []
-  global: 1
 --- !u!114 &114317198248828704
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2094,7 +2061,7 @@ MonoBehaviour:
   tags:
   - post
   notTags:
-  - waiter post
+  - gave waiter post
   global: 0
 --- !u!114 &114334224276760176
 MonoBehaviour:
@@ -2141,9 +2108,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tags:
-  - flowers
+  - flower
   notTags:
-  - has flowers
+  - gave flower
   global: 0
 --- !u!114 &114370368303456274
 MonoBehaviour:
@@ -2385,7 +2352,7 @@ MonoBehaviour:
   tags:
   - post
   notTags:
-  - peter post
+  - gave peter post
   global: 0
 --- !u!114 &114469233104227260
 MonoBehaviour:
@@ -2595,7 +2562,7 @@ MonoBehaviour:
   tags:
   - post
   notTags:
-  - farmer post
+  - gave farmer post
   global: 0
 --- !u!114 &114520683024274720
 MonoBehaviour:
@@ -2923,33 +2890,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: back
---- !u!114 &114644956028239708
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1116443950264136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: a1710682c154489438611863e8275186, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 1
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!114 &114647367590638594
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2997,7 +2937,7 @@ MonoBehaviour:
   tags:
   - core
   notTags:
-  - has core
+  - gave core
   global: 0
 --- !u!114 &114655227855402106
 MonoBehaviour:
@@ -3293,7 +3233,7 @@ MonoBehaviour:
   tags:
   - warts
   notTags:
-  - has warts
+  - gave warts
   global: 0
 --- !u!114 &114773069454304902
 MonoBehaviour:
@@ -3469,6 +3409,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114865638734344112
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1611567871322226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75786ada3a8587e4c929b0bb8da6d1c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114866668640754112
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3603,7 +3554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tags:
-  - has core
+  - gave core
   notTags: []
   global: 1
 --- !u!114 &114903810730178120
@@ -3751,7 +3702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tags:
-  - has pest post
+  - gave post pestilence
   notTags: []
   global: 1
 --- !u!222 &222017804060531920
@@ -3820,12 +3771,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1740046427147762}
---- !u!222 &222256586282403332
-CanvasRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1116443950264136}
 --- !u!222 &222274052030792252
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -4450,7 +4395,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224355431687534528}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4507,7 +4452,6 @@ RectTransform:
   - {fileID: 224357894470673560}
   - {fileID: 224136282178457706}
   - {fileID: 224005989536449318}
-  - {fileID: 224972538691706304}
   - {fileID: 224281798253814776}
   - {fileID: 224778960445547350}
   m_Father: {fileID: 224865381247072782}
@@ -4515,7 +4459,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000023841858, y: 0.000091552734}
+  m_AnchoredPosition: {x: -0.000023841858, y: 0.00012207031}
   m_SizeDelta: {x: 0, y: 370}
   m_Pivot: {x: 0.5000003, y: 1.0000002}
 --- !u!224 &224357894470673560
@@ -5030,7 +4974,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224355431687534528}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5224,22 +5168,4 @@ RectTransform:
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 58, y: 58}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!224 &224972538691706304
-RectTransform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1116443950264136}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 224355431687534528}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

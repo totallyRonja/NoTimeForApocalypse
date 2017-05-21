@@ -81,27 +81,30 @@ public class NPC : MonoBehaviour, IOptionHolder {
                         }
 
                         isChoosing = o;
-
-                        for (int i = 0; i < o.Count;i++){
-                            if (o[i].Text.Length <= 1){
-                                ChooseOption(i);
-                                return;
-                            }
+                        
+                        if (o.Count <= 1 && o[0].Text.Length <= 1){
+                            ChooseOption(0);
+                            return;
+                        }else{
+                            remove = new List<Option>();
+                            foreach (Option i in o)
+                                if (i.Text.Length <= 1)
+                                    remove.Add(i);
+                                    
+                            foreach (Option i in remove)
+                                o.Remove(i);
                         }
 
                         string[] sOptions = new string[o.Count];
-                        for(int i=0;i<o.Count;i++) {
+                        for(int i=0;i<o.Count;i++)
                             sOptions[i] = o[i].Text;
-                        }
                         ui.Connect(this);
                         ui.ShowOptions(sOptions);
                     }
                 } else {
                     ui.Show("", chunk.Paragraphs[chunkProgress].Text);
-                    foreach (string flag in chunk.Stitches[chunkProgress].Content.Flags) {
-                        print("set: " + flag);
+                    foreach (string flag in chunk.Stitches[chunkProgress].Content.Flags)
                         tags.setTag(flag);
-                    }
                 }
             } else {
                 //inRange.GetComponent<PlayerController>().enabled = false;

@@ -4,13 +4,14 @@ using UnityEngine;
 
 [RequireComponent(typeof(PlayerWalk))]
 public class PlayerPunch : MonoBehaviour {
-	public GameObject hitPrefab;
+    public float hitDelay = 0.5f;
+    public GameObject hitPrefab;
     public GameObject hitOrigin;
 	public DirectionalSprite defaultAnim;
     public DirectionalSprite hitAnim;
     public AudioSource attackAudio;
 
-	private float hitCooldown = 0;
+	private bool canHit = true;
     private PlayerWalk walk;
 
     void Awake () {
@@ -23,14 +24,13 @@ public class PlayerPunch : MonoBehaviour {
 	
 	// Update is called once per frame
 	public void Punch () {
-		hitCooldown -= Time.deltaTime;
-        if (Input.GetButtonDown("Fire1") && hitCooldown < 0)
-        {
+        if (Input.GetButtonDown("Fire1") && canHit && walk.direction != Vector2.zero){
             GameObject closest = getClosestWithTag("Enemy");
             Vector2 direction = closest == null ? walk.direction : (Vector2)(closest.transform.position - hitOrigin.transform.position);
             GameObject newHit = Instantiate(hitPrefab, hitOrigin.transform.position, Quaternion.AngleAxis(Mathf.Atan2(-direction.x, direction.y) * Mathf.Rad2Deg, Vector3.forward));
             newHit.GetComponent<HitParticle>().source = gameObject;
-            hitCooldown = 0.5f;
+            canHit = false;
+            StartCoroutine(Reactivate());
 
             defaultAnim.enabled = false;
             hitAnim.angle = Mathf.Atan2(direction.y, direction.x);
@@ -41,8 +41,12 @@ public class PlayerPunch : MonoBehaviour {
         }
 	}
 
-	public GameObject getClosestWithTag(string tag)
-    {
+    IEnumerator Reactivate(){
+        yield return new WaitForSeconds(hitDelay);
+        canHit = true;
+    }
+
+	public GameObject getClosestWithTag(string tag){
         GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag(tag);
         GameObject closest = null;
         float distance = -1;
