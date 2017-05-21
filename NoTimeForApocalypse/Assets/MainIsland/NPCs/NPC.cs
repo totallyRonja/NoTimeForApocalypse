@@ -84,13 +84,14 @@ public class NPC : MonoBehaviour, IOptionHolder {
                         
                         if (o.Count <= 1 && o[0].Text.Length <= 1){
                             ChooseOption(0);
+                            chunkProgress++;
                             return;
                         }else{
                             remove = new List<Option>();
                             foreach (Option i in o)
                                 if (i.Text.Length <= 1)
                                     remove.Add(i);
-                                    
+
                             foreach (Option i in remove)
                                 o.Remove(i);
                         }
