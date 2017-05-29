@@ -99,7 +99,7 @@ Shader "2D/Texture Blend"
             }
                  
 
-				o *=  tex2D(_TintTex, IN.uv_MainTex) * _TintMult;
+				o *=  float4(tex2D(_TintTex, IN.uv_MainTex).rgb, 1) * _TintMult;
 				 
 				 
                  

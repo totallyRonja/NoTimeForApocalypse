@@ -11,8 +11,6 @@ public class Tumor : Hitable {
 
     private Rigidbody2D rigid;
 
-    public float dmgCd = 0;
-
 	// Use this for initialization
 	void Start () {
         victim = GameObject.FindGameObjectWithTag("Player");
@@ -23,7 +21,6 @@ public class Tumor : Hitable {
 	
 	// Update is called once per frame
 	void Update () {
-        dmgCd -= Time.deltaTime;
 
         Vector2 difference = victim.transform.position - transform.position;
         float ang = Mathf.Atan2(-difference.x, difference.y) * Mathf.Rad2Deg;

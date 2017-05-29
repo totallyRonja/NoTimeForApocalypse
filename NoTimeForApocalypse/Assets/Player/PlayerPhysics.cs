@@ -15,6 +15,7 @@ public class PlayerPhysics : MonoBehaviour {
 
 	private Rigidbody2D rigid;
     private PlayerHP health;
+    private Vector3 safePoint;
 
     // Use this for initialization
     void Start () {
@@ -35,10 +36,14 @@ public class PlayerPhysics : MonoBehaviour {
 			}
 			rigid.velocity = velocity;
 		}
-		if (!land.OverlapPoint(transform.position) && (health?health.hp>=0:true) && !Input.GetButton("God")) {
-            if(health)health.Hit(gameObject, 1);
-            rigid.velocity = -rigid.velocity + rigid.velocity.normalized * -10;
-            transform.position += (Vector3)rigid.velocity * Time.fixedDeltaTime;
+		if (!land.OverlapPoint(transform.position) && (health?health.hp>=0:true)) {
+            if (!Input.GetButton("God")){
+                if (health) health.Hit(gameObject, 1);
+                rigid.velocity = rigid.velocity.normalized * -30;
+                transform.position = safePoint;
+            }
+        } else {
+            safePoint = transform.position;
         }
 	}
 }
