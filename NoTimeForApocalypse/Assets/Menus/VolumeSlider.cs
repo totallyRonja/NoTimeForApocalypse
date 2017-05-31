@@ -19,7 +19,7 @@ public class VolumeSlider : MonoBehaviour {
 	
 	// Update is called once per frame
 	void UpdateVolume (float val) {
-        print("volume set to " + val);
+//        print("volume set to " + val);
         AudioListener.volume = val;
         PlayerPrefs.SetFloat("Volume", val);
 		if(testAudio) testAudio.Play();

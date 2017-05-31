@@ -8,7 +8,7 @@ public class CameraMagic : MonoBehaviour {
 	public TransparencySortMode mode;
 	public Vector3 axis = Vector3.up;
 
-    private Camera[] cam = null;
+//    private Camera[] cam = null;
 
 	// Use this for initialization
 	void Start () {
