@@ -82,19 +82,17 @@ public class NPC : MonoBehaviour, IOptionHolder {
 
                         isChoosing = o;
                         
-                        if (o.Count <= 1 && o[0].Text.Length <= 1){
+                        remove = new List<Option>();
+                        foreach (Option i in o)
+                            if (i.Text.Length <= 1)
+                                remove.Add(i);
+                        if(o.Count == remove.Count){
                             ChooseOption(0);
                             chunkProgress++;
                             return;
-                        }else{
-                            remove = new List<Option>();
-                            foreach (Option i in o)
-                                if (i.Text.Length <= 1)
-                                    remove.Add(i);
-
-                            foreach (Option i in remove)
-                                o.Remove(i);
                         }
+                        foreach (Option i in remove)
+                            o.Remove(i);
 
                         string[] sOptions = new string[o.Count];
                         for(int i=0;i<o.Count;i++)
