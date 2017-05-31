@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 5d6b25137e9a21a42bf3da035da1eca9
+timeCreated: 1492535364
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - protoScrub: {fileID: 1381295647075996, guid: 82937a16486a8c647b9315caa313c2cd,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

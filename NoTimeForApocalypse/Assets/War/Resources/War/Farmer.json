@@ -1,0 +1,164 @@
+{
+    "title": "Pestilence Dialogues - Farmer",
+    "url_key": "d83n",
+    "data": {
+        "initial": "helloDear",
+        "stitches": {
+            "iHopedYouCouldHe": {
+                "content": [
+                    "I hoped you could help me out a little.",
+                    {
+                        "notIfConditions": null,
+                        "linkPath": "oldBettyHereGotA",
+                        "ifConditions": null,
+                        "option": "Sure!"
+                    },
+                    {
+                        "notIfConditions": null,
+                        "linkPath": "ohThatsAPity",
+                        "ifConditions": null,
+                        "option": "I don't see why."
+                    }
+                ]
+            },
+            "bettyIsAlreadyWa": {
+                "content": [
+                    "Betty is already way better."
+                ]
+            },
+            "ohThatsAPity": {
+                "content": [
+                    "Oh that's a pity."
+                ]
+            },
+            "thankYouSoMuchFo": {
+                "content": [
+                    "Thank you so much for helping us earlier!",
+                    {
+                        "divert": "bettyIsAlreadyWa"
+                    }
+                ]
+            },
+            "goodLuckItMeansA": {
+                "content": [
+                    "Good Luck! it means a lot to me!"
+                ]
+            },
+            "helloDear": {
+                "content": [
+                    "Hello dear!",
+                    {
+                        "notIfConditions": [
+                            {
+                                "notIfCondition": "gave rose"
+                            }
+                        ],
+                        "linkPath": "iHopedYouCouldHe",
+                        "ifConditions": null,
+                        "option": "1"
+                    },
+                    {
+                        "notIfConditions": null,
+                        "linkPath": "thankYouSoMuchFo",
+                        "ifConditions": [
+                            {
+                                "ifCondition": "gave rose"
+                            }
+                        ],
+                        "option": "d"
+                    },
+                    {
+                        "notIfConditions": [
+                            {
+                                "notIfCondition": "gave farmer post"
+                            }
+                        ],
+                        "linkPath": "ohThankYou",
+                        "ifConditions": [
+                            {
+                                "ifCondition": "post"
+                            }
+                        ],
+                        "option": "I got mail for you!"
+                    },
+                    {
+                        "pageNum": 1
+                    },
+                    {
+                        "pageLabel": " Farmer"
+                    }
+                ]
+            },
+            "oldBettyHereGotA": {
+                "content": [
+                    "Old Betty here got a nasty illness. I have heard about a *-Cowthorn Rose. -*I'm sure I could try to cure her using it in her medicine.",
+                    {
+                        "notIfConditions": null,
+                        "linkPath": "youFindItInTheSo",
+                        "ifConditions": null,
+                        "option": "Where do I find it?"
+                    },
+                    {
+                        "notIfConditions": [
+                            {
+                                "notIfCondition": "gave rose"
+                            }
+                        ],
+                        "linkPath": "thankYouDearYouA",
+                        "ifConditions": [
+                            {
+                                "ifCondition": "rose"
+                            }
+                        ],
+                        "option": "Here you go."
+                    }
+                ]
+            },
+            "ohThankYou": {
+                "content": [
+                    "Oh thank you! ",
+                    {
+                        "flagName": "gave farmer post"
+                    }
+                ]
+            },
+            "myBonesAreTooSor": {
+                "content": [
+                    "My bones are too sore to go myself.",
+                    {
+                        "notIfConditions": null,
+                        "linkPath": "goodLuckItMeansA",
+                        "ifConditions": null,
+                        "option": "I'm on my way."
+                    }
+                ]
+            },
+            "youFindItInTheSo": {
+                "content": [
+                    "You find it in the south, close to the Flowershop.",
+                    {
+                        "divert": "myBonesAreTooSor"
+                    }
+                ]
+            },
+            "thankYouDearYouA": {
+                "content": [
+                    "Thank you, dear! You are a true darling.",
+                    {
+                        "flagName": "gave rose"
+                    }
+                ]
+            }
+        },
+        "editorData": {
+            "playPoint": "oldBettyHereGotA",
+            "textSize": 0,
+            "authorName": "No Time for Apocalypse",
+            "libraryVisible": false
+        },
+        "optionMirroring": true,
+        "allowCheckpoints": false
+    },
+    "updated_at": "2017-05-21T16:53:30Z",
+    "created_at": "2017-04-22T15:40:36Z"
+}
