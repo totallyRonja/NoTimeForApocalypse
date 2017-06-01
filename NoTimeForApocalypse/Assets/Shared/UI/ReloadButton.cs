@@ -8,7 +8,6 @@ using UnityEngine.EventSystems;
 public class ReloadButton : MonoBehaviour {
 
     public string scene;
-    public GameObject loadingScreen;
 
     // Use this for initialization
     void Start () {
@@ -18,7 +17,7 @@ public class ReloadButton : MonoBehaviour {
     void OnClick() {
         GameObject menu = GameObject.FindWithTag("PauseMenu");
         if (menu) menu.GetComponent<PauseMenu>().Unpause();
-        if (loadingScreen) loadingScreen.SetActive(true);
+        if (LoadingScreen.current) LoadingScreen.current.gameObject.SetActive(true);
 
         SceneManager.LoadScene(scene==""?SceneManager.GetActiveScene().name:scene);
     }

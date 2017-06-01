@@ -14,6 +14,10 @@ public class MenuManager : MonoBehaviour {
     // Use this for initialization
     void Awake () {
         current = this;
+
+        for (int i = 0; i < menus.Length;i++){
+            menus[i].gameObject.SetActive(i == activeMenu);
+        }
     }
 
     public void setMenu(int menuIndex){
@@ -29,10 +33,10 @@ public class MenuManager : MonoBehaviour {
         for (float i = 0; i < interpolateDuration; i += Time.deltaTime)
         {
             menus[activeMenu].fade = i / interpolateDuration;
-			((RectTransform)menus[activeMenu].transform).sizeDelta = Vector2.one * i / interpolateDuration * 1000;
+			((RectTransform)menus[activeMenu].transform).sizeDelta = Vector2.one * Mathf.Pow(i / interpolateDuration, 2) * 1000;
 
             menus[oldMenu].fade = 1- i / interpolateDuration;
-			((RectTransform)menus[oldMenu].transform).sizeDelta = Vector2.one * (1 + i * 2 / interpolateDuration) * 1000;
+			((RectTransform)menus[oldMenu].transform).sizeDelta = Vector2.one * Mathf.Pow(1 + i / interpolateDuration, 2) * 1000;
             yield return null;
         }
         menus[oldMenu].gameObject.SetActive(false);

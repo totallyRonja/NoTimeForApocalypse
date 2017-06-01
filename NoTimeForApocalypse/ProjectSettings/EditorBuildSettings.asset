@@ -9,14 +9,11 @@ EditorBuildSettings:
     path: Assets/Menus/MainMenu.unity
     guid: 30631f182b1a69e4c9eb7102c14495ba
   - enabled: 1
-    path: Assets/Pestillence/PestillenceScene.unity
-    guid: a21c0a08e47984cefae714c826202a14
-  - enabled: 1
     path: Assets/Menus/WinMenu.unity
     guid: e22a05a15eaae1c4392693f9d8b1bc24
   - enabled: 1
-    path: Assets/Menus/CreditsMenu.unity
-    guid: 9c6cf237cb3f1ab4194e4d2d49796392
+    path: Assets/Pestilence/PestilenceScene.unity
+    guid: a21c0a08e47984cefae714c826202a14
   - enabled: 1
-    path: Assets/Menus/OptionMenu.unity
-    guid: fc60aa3eeede1b74085ed8eb6910cd35
+    path: Assets/War/WarScene.unity
+    guid: db5d22f03f3305d48bcbc009216f54b4

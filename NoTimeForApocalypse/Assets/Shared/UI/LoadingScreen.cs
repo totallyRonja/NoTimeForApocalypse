@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class LoadingScreen : MonoBehaviour {
 
-	// Use this for initialization
+    public static LoadingScreen current;
+
+    void Awake(){
+        current = this;
+    }
 	void OnEnable () {
-        StartCoroutine("Loaded");
+        StartCoroutine(Loaded());
     }
 	
 	// Update is called once per frame
