@@ -63,14 +63,14 @@ Shader "2D/SpriteSheetAnimation"
             float4 frag(Fragment IN) : COLOR
             {
 			float time = _Sprites.w == 0 ? _Time.y : _Sprites.w;
-			float frame = floor(_FrameProperties.x + ((time + _FrameProperties.w) * _FrameProperties.z) % (_FrameProperties.y - _FrameProperties.x));
+			float frame = floor(_FrameProperties.x + (((( -time + _FrameProperties.w) 
+                * _FrameProperties.z)%(_FrameProperties.y - _FrameProperties.x))+(_FrameProperties.y - _FrameProperties.x))%(_FrameProperties.y - _FrameProperties.x));
 			float2 uv = IN.uv_MainTex;
 			uv.x = (uv.x / _Sprites.x) + ((frame % _Sprites.x) / _Sprites.x);
-			uv.y = (uv.y / _Sprites.y) + (floor(frame / _Sprites.x) / _Sprites.y);
+			uv.y = ((uv.y / _Sprites.y) + (ceil(frame / _Sprites.x) / _Sprites.y));
 
             half4 map = tex2D (_MainTex, uv);
-                
-                
+            
             return map;
             }
  

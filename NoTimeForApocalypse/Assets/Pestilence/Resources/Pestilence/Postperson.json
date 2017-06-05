@@ -1,22 +1,85 @@
 {
-    "updated_at": "2017-05-21T17:30:07Z",
-    "title": "Pestilence Dialogues - Postperson",
+    "updated_at": "2017-06-03T12:44:22Z",
     "data": {
+        "allowCheckpoints": false,
+        "initial": "ohNoItsADisaster",
         "editorData": {
-            "authorName": "Anonymous",
+            "libraryVisible": false,
             "textSize": 0,
-            "playPoint": "itsFineIfItsTooM",
-            "libraryVisible": false
+            "playPoint": "ohNoItsADisaster",
+            "authorName": "Anonymous"
         },
+        "optionMirroring": true,
         "stitches": {
-            "thankYou": {
+            "myPidgeonsTheyHa": {
                 "content": [
-                    "Thank you!",
+                    "My pidgeons. They have fallen ill.",
                     {
-                        "divert": "iDontKnowWhatIWo"
+                        "divert": "youSeeIAmRespons"
+                    }
+                ]
+            },
+            "itsFineIfItsTooM": {
+                "content": [
+                    "It's fine if it's too much but I'd like to know."
+                ]
+            },
+            "oneOfThemSeemsTo": {
+                "content": [
+                    "One of them seems to be adressed to a *-Peter-*.",
+                    {
+                        "divert": "theOtherLettersG"
+                    }
+                ]
+            },
+            "thereAreStillPeo": {
+                "content": [
+                    "There are still people waiting for their mail.",
+                    {
+                        "divert": "youreStillDoingT"
+                    }
+                ]
+            },
+            "ohNoItsADisaster": {
+                "content": [
+                    "Oh no! It's a disaster!",
+                    {
+                        "option": "What's wrong?",
+                        "notIfConditions": [
+                            {
+                                "notIfCondition": "post"
+                            }
+                        ],
+                        "ifConditions": null,
+                        "linkPath": "myPidgeonsTheyHa"
                     },
                     {
-                        "flagName": "gave post pestilence"
+                        "option": "I've delivered them all!",
+                        "notIfConditions": null,
+                        "ifConditions": [
+                            {
+                                "ifCondition": "post"
+                            },
+                            {
+                                "ifCondition": "gave peter post"
+                            },
+                            {
+                                "ifCondition": "gave waiter post"
+                            },
+                            {
+                                "ifCondition": "gave teacher post"
+                            }
+                        ],
+                        "linkPath": "thankYou"
+                    },
+                    {
+                        "option": "p",
+                        "notIfConditions": null,
+                        "ifConditions": null,
+                        "linkPath": "thereAreStillPeo"
+                    },
+                    {
+                        "pageNum": 1
                     }
                 ]
             },
@@ -36,14 +99,11 @@
                     }
                 ]
             },
-            "furthermoreThere": {
+            "theOtherLettersG": {
                 "content": [
-                    "Furthermore there are *-two farms-* on the outside of the city.",
+                    "The other letters go out to *-the Teacher-* right over there,",
                     {
-                        "ifConditions": null,
-                        "linkPath": "hereYouGo",
-                        "option": "Sure, I can do that!",
-                        "notIfConditions": null
+                        "divert": "andTheWaitressLi"
                     }
                 ]
             },
@@ -55,19 +115,11 @@
                     }
                 ]
             },
-            "myPidgeonsTheyHa": {
+            "manyPeopleLiveOu": {
                 "content": [
-                    "My pidgeons. They have fallen ill.",
+                    "Many people live out of the city and in these cases my birds get there much faster than I do.",
                     {
-                        "divert": "youSeeIAmRespons"
-                    }
-                ]
-            },
-            "iGotThreeLetters": {
-                "content": [
-                    "I got*- three letters-* waiting for their owners.",
-                    {
-                        "divert": "oneOfThemSeemsTo"
+                        "divert": "itsInTheMiddleOf"
                     }
                 ]
             },
@@ -79,36 +131,9 @@
                     }
                 ]
             },
-            "itsFineIfItsTooM": {
+            "oh": {
                 "content": [
-                    "It's fine if it's too much but I'd like to know."
-                ]
-            },
-            "thereAreStillPeo": {
-                "content": [
-                    "There are still people waiting for their mail.",
-                    {
-                        "divert": "youreStillDoingT"
-                    }
-                ]
-            },
-            "itsInTheMiddleOf": {
-                "content": [
-                    "It's in the middle of the end of the world, but thats no excuse not to do my job!",
-                    {
-                        "ifConditions": null,
-                        "linkPath": "ohCouldYouMaybeB",
-                        "option": "I get around a lot...?",
-                        "notIfConditions": null
-                    }
-                ]
-            },
-            "oneOfThemSeemsTo": {
-                "content": [
-                    "One of them seems to be adressed to a *-Peter-*.",
-                    {
-                        "divert": "furthermoreThere"
-                    }
+                    "Oh."
                 ]
             },
             "iDontKnowWhatIWo": {
@@ -116,70 +141,50 @@
                     "I don't know what I woud've done without you, it's important that everyone get's their mail"
                 ]
             },
-            "ohNoItsADisaster": {
+            "andTheWaitressLi": {
                 "content": [
-                    "Oh no! It's a disaster!",
+                    "and *-the Waitress-* living out in the north-west.",
                     {
+                        "option": "Sure, I can do that!",
+                        "notIfConditions": null,
                         "ifConditions": null,
-                        "linkPath": "myPidgeonsTheyHa",
-                        "option": "What's wrong?",
-                        "notIfConditions": [
-                            {
-                                "notIfCondition": "gave post pestilence"
-                            },
-                            {
-                                "notIfCondition": "post"
-                            }
-                        ]
-                    },
-                    {
-                        "ifConditions": [
-                            {
-                                "ifCondition": "post"
-                            },
-                            {
-                                "ifCondition": "gave farmer post"
-                            },
-                            {
-                                "ifCondition": "gave peter post"
-                            },
-                            {
-                                "ifCondition": "gave waiter post"
-                            }
-                        ],
-                        "linkPath": "thankYou",
-                        "option": "I've delivered them all!",
-                        "notIfConditions": null
-                    },
-                    {
-                        "ifConditions": null,
-                        "linkPath": "thereAreStillPeo",
-                        "option": "p",
-                        "notIfConditions": null
-                    },
-                    {
-                        "pageNum": 1
+                        "linkPath": "hereYouGo"
                     }
                 ]
             },
-            "oh": {
+            "iGotThreeLetters": {
                 "content": [
-                    "Oh."
+                    "I got*- three letters-* waiting for their owners.",
+                    {
+                        "divert": "oneOfThemSeemsTo"
+                    }
                 ]
             },
-            "manyPeopleLiveOu": {
+            "thankYou": {
                 "content": [
-                    "Many people live out of the city and in these cases pidgeons get there much faster than I do.",
+                    "Thank you!",
                     {
-                        "divert": "itsInTheMiddleOf"
+                        "divert": "iDontKnowWhatIWo"
+                    },
+                    {
+                        "flagName": "gave post pestilence"
+                    }
+                ]
+            },
+            "itsInTheMiddleOf": {
+                "content": [
+                    "It's in the middle of the end of the world, but thats no excuse not to do my job!",
+                    {
+                        "option": "I get around a lot...?",
+                        "notIfConditions": null,
+                        "ifConditions": null,
+                        "linkPath": "ohCouldYouMaybeB"
                     }
                 ]
             }
-        },
-        "optionMirroring": true,
-        "allowCheckpoints": false,
-        "initial": "ohNoItsADisaster"
+        }
     },
+    "created_at": "2017-04-22T16:15:01Z",
     "url_key": "99g8",
-    "created_at": "2017-04-22T16:15:01Z"
+    "title": "Pestilence Dialogues - Postperson"
 }

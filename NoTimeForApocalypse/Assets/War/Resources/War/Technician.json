@@ -1,192 +1,179 @@
 {
-    "updated_at": "2017-05-21T13:21:13Z",
-    "url_key": "znbm",
-    "created_at": "2017-04-23T13:08:10Z",
-    "title": "Pestilence Dialogues - Technician",
+    "updated_at": "2017-06-03T12:20:04Z",
+    "created_at": "2017-06-02T12:36:26Z",
+    "title": "War Dialogues - Technician",
     "data": {
-        "initial": "mumbleMumble",
+        "editorData": {
+            "playPoint": "iNeededANewSetOf",
+            "textSize": 0,
+            "libraryVisible": false,
+            "authorName": "Anonymous"
+        },
         "optionMirroring": true,
+        "initial": "helloCuriousCons",
         "stitches": {
-            "punctuatedStitch": {
+            "beAwareThatSomeS": {
                 "content": [
-                    "...",
+                    "Be aware that some scrap is useless, so you might have to walk around",
                     {
-                        "divert": "wellNowThatIThin"
+                        "divert": "andTryAFewPilesO"
                     }
                 ]
             },
-            "noImFine": {
+            "iThoughtIBuiltTh": {
                 "content": [
-                    "No. I'm fine.",
+                    "I thought I built the most complex things on the island,",
                     {
-                        "divert": "punctuatedStitch"
+                        "divert": "butYoureHereSoIm"
                     }
                 ]
             },
-            "iAmWorkingOnAMac": {
+            "butYoureHereSoIm": {
                 "content": [
-                    "I am working on a machine and I'm just missing a few parts!",
+                    "but you're here so I'm obviously wrong.",
                     {
-                        "ifConditions": null,
-                        "option": "Can I help?",
-                        "notIfConditions": null,
-                        "linkPath": "noImFine"
+                        "divert": "youSeemABitDamag"
+                    }
+                ]
+            },
+            "iWontLieTheThoug": {
+                "content": [
+                    "I won't lie, the thought of looking into your inner workings intrigues me"
+                ]
+            },
+            "surelyICanRepair": {
+                "content": [
+                    "surely I can repair you again",
+                    {
+                        "divert": "nowGoAndBeCarefu"
                     },
                     {
-                        "ifConditions": [
-                            {
-                                "ifCondition": "core"
-                            }
-                        ],
-                        "option": "I got the core!",
-                        "notIfConditions": [
-                            {
-                                "notIfCondition": "gave core"
-                            }
-                        ],
-                        "linkPath": "ohHowWonderfulTh"
+                        "flagName": "!heal"
                     }
                 ]
             },
-            "mumbleMumble": {
+            "iNeededANewSetOf": {
                 "content": [
-                    "*mumble mumble*",
+                    "I needed a new set of tools for quite a while now."
+                ]
+            },
+            "thanksATon": {
+                "content": [
+                    "Thanks a ton.",
                     {
+                        "divert": "iNeededANewSetOf"
+                    },
+                    {
+                        "flagName": "gave tech post"
+                    }
+                ]
+            },
+            "youFoundSomeScra": {
+                "content": [
+                    "You found some scrap. This is perfect!",
+                    {
+                        "divert": "iCanFixYouUpAnyt"
+                    },
+                    {
+                        "flagName": "gave scrap"
+                    }
+                ]
+            },
+            "helloCuriousCons": {
+                "content": [
+                    "Hello curious construction",
+                    {
+                        "notIfConditions": [
+                            {
+                                "notIfCondition": "scrap"
+                            }
+                        ],
                         "ifConditions": null,
-                        "option": "Um, hello?",
+                        "option": "1",
+                        "linkPath": "iThoughtIBuiltTh"
+                    },
+                    {
+                        "notIfConditions": [
+                            {
+                                "notIfCondition": "gave scrap"
+                            }
+                        ],
+                        "ifConditions": [
+                            {
+                                "ifCondition": "scrap"
+                            }
+                        ],
+                        "option": "f",
+                        "linkPath": "youFoundSomeScra"
+                    },
+                    {
                         "notIfConditions": null,
-                        "linkPath": "noTimeToTalk"
+                        "ifConditions": [
+                            {
+                                "ifCondition": "gave scrap"
+                            }
+                        ],
+                        "option": "d",
+                        "linkPath": "surelyICanRepair"
+                    },
+                    {
+                        "notIfConditions": [
+                            {
+                                "notIfCondition": "gave tech post"
+                            }
+                        ],
+                        "ifConditions": [
+                            {
+                                "ifCondition": "post"
+                            }
+                        ],
+                        "option": "I have a letter for you",
+                        "linkPath": "thanksATon"
                     },
                     {
                         "pageNum": 1
                     }
                 ]
             },
-            "findingItWouldHe": {
+            "youSeemABitDamag": {
                 "content": [
-                    "Finding it would help me greatly!",
+                    "You seem a bit damaged though, not to insult you!",
                     {
-                        "ifConditions": null,
-                        "option": "I'm on my way.",
-                        "notIfConditions": null,
-                        "linkPath": "goodLuckCuriousT"
+                        "divert": "ifYouBringMeABit"
                     }
                 ]
             },
-            "theApocalypseIsN": {
+            "iCanFixYouUpAnyt": {
                 "content": [
-                    "The apocalypse is nearing and I'm trying to figure out how to stop it!",
+                    "I can fix you up anytime you come by now.",
                     {
-                        "divert": "iAmWorkingOnAMac"
-                    }
-                ]
-            },
-            "thankYouAnywaysF": {
-                "content": [
-                    "Thank you anyways for your help!"
-                ]
-            },
-            "wHATItMissedBack": {
-                "content": [
-                    "WHAT, it missed? Back to the drawing board then.",
-                    {
-                        "divert": "thankYouAnywaysF"
-                    }
-                ]
-            },
-            "myMachineShouldH": {
-                "content": [
-                    "My machine should have fired and eliminated the reason of the apocalypse.",
-                    {
-                        "divert": "punctuatedStitch1"
-                    }
-                ]
-            },
-            "punctuatedStitch1": {
-                "content": [
-                    "...",
-                    {
-                        "divert": "wHATItMissedBack"
-                    }
-                ]
-            },
-            "ohHowWonderfulTh": {
-                "content": [
-                    "Oh, how wonderful! Thanks a lot!",
-                    {
-                        "divert": "myMachineShouldH"
+                        "divert": "iWontLieTheThoug"
                     },
                     {
-                        "flagName": "gave core"
+                        "flagName": "!heal"
                     }
                 ]
             },
-            "wellNowThatIThin": {
+            "ifYouBringMeABit": {
                 "content": [
-                    "Well, now that I think about it. I lost a important part.",
+                    "If you bring me a bit of scrap that's lying around I might be able to fix you.",
                     {
-                        "divert": "itsAPowerCoreIUs"
+                        "divert": "beAwareThatSomeS"
                     }
                 ]
             },
-            "noTimeToTalk": {
+            "nowGoAndBeCarefu": {
                 "content": [
-                    "No time to talk!",
-                    {
-                        "ifConditions": null,
-                        "option": "a",
-                        "notIfConditions": [
-                            {
-                                "notIfCondition": "gave core"
-                            }
-                        ],
-                        "linkPath": "theApocalypseIsN"
-                    },
-                    {
-                        "ifConditions": [
-                            {
-                                "ifCondition": "gave core"
-                            }
-                        ],
-                        "option": "b",
-                        "notIfConditions": null,
-                        "linkPath": "afterTheRecentFa"
-                    }
+                    "now go and be careful not to get damaged again."
                 ]
             },
-            "goodLuckCuriousT": {
+            "andTryAFewPilesO": {
                 "content": [
-                    "Good Luck, curious Tinman."
-                ]
-            },
-            "afterTheRecentFa": {
-                "content": [
-                    "after the recent fail I have more work to do than ever.",
-                    {
-                        "divert": "iDontThinkICanDo"
-                    }
-                ]
-            },
-            "iDontThinkICanDo": {
-                "content": [
-                    "I don't think I can do it but we mustn't loose hope."
-                ]
-            },
-            "itsAPowerCoreIUs": {
-                "content": [
-                    "It's a *-Power Core-* I use to give a lot of energy to machinery..",
-                    {
-                        "divert": "findingItWouldHe"
-                    }
+                    "and try a few piles of trash before one proves useful."
                 ]
             }
         },
-        "editorData": {
-            "playPoint": "thankYouAnywaysF",
-            "textSize": 0,
-            "authorName": "Anonymous",
-            "libraryVisible": true
-        },
         "allowCheckpoints": false
-    }
+    },
+    "url_key": "j483"
 }

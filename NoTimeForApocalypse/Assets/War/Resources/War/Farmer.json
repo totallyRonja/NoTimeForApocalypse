@@ -1,164 +1,114 @@
 {
-    "title": "Pestilence Dialogues - Farmer",
-    "url_key": "d83n",
+    "updated_at": "2017-06-03T14:48:04Z",
+    "created_at": "2017-06-03T12:20:45Z",
+    "title": "War Dialogues - Farmer",
     "data": {
-        "initial": "helloDear",
+        "editorData": {
+            "playPoint": "meAndEmmaAreAlwa",
+            "textSize": 0,
+            "libraryVisible": false,
+            "authorName": "Anonymous"
+        },
+        "optionMirroring": true,
+        "initial": "goodDayWoodman",
         "stitches": {
-            "iHopedYouCouldHe": {
+            "iDontKnowWhatYou": {
                 "content": [
-                    "I hoped you could help me out a little.",
+                    "I don't know what you're doing here,",
                     {
-                        "notIfConditions": null,
-                        "linkPath": "oldBettyHereGotA",
-                        "ifConditions": null,
-                        "option": "Sure!"
+                        "divert": "butYoureMakingEm"
+                    }
+                ]
+            },
+            "iHopeTheyFeelBet": {
+                "content": [
+                    "I hope they feel better soon",
+                    {
+                        "divert": "meAndEmmaAreAlwa"
                     },
                     {
-                        "notIfConditions": null,
-                        "linkPath": "ohThatsAPity",
-                        "ifConditions": null,
-                        "option": "I don't see why."
+                        "flagName": "milk"
                     }
                 ]
             },
-            "bettyIsAlreadyWa": {
+            "ohDear": {
                 "content": [
-                    "Betty is already way better."
-                ]
-            },
-            "ohThatsAPity": {
-                "content": [
-                    "Oh that's a pity."
-                ]
-            },
-            "thankYouSoMuchFo": {
-                "content": [
-                    "Thank you so much for helping us earlier!",
+                    "Oh dear",
                     {
-                        "divert": "bettyIsAlreadyWa"
+                        "divert": "iHopeTheyFeelBet"
                     }
                 ]
             },
-            "goodLuckItMeansA": {
+            "meAndEmmaAreAlwa": {
                 "content": [
-                    "Good Luck! it means a lot to me!"
+                    "Me and Emma are always glad to help"
                 ]
             },
-            "helloDear": {
+            "illTellEmmaToRea": {
                 "content": [
-                    "Hello dear!",
+                    "I'll tell emma to read if to me later."
+                ]
+            },
+            "goodDayWoodman": {
+                "content": [
+                    "Good day, Woodman.",
                     {
                         "notIfConditions": [
                             {
-                                "notIfCondition": "gave rose"
+                                "notIfCondition": "milk"
                             }
                         ],
-                        "linkPath": "iHopedYouCouldHe",
-                        "ifConditions": null,
-                        "option": "1"
-                    },
-                    {
-                        "notIfConditions": null,
-                        "linkPath": "thankYouSoMuchFo",
+                        "option": "I was sent to get milk for the child",
                         "ifConditions": [
                             {
-                                "ifCondition": "gave rose"
+                                "ifCondition": "sent for milk"
                             }
                         ],
-                        "option": "d"
+                        "linkPath": "ohDear"
                     },
                     {
                         "notIfConditions": [
                             {
-                                "notIfCondition": "gave farmer post"
+                                "notIfCondition": "brought farmer post"
                             }
                         ],
-                        "linkPath": "ohThankYou",
+                        "option": "I brought you a letter",
                         "ifConditions": [
                             {
                                 "ifCondition": "post"
                             }
                         ],
-                        "option": "I got mail for you!"
+                        "linkPath": "thankYouDearSoul"
+                    },
+                    {
+                        "notIfConditions": null,
+                        "option": "o",
+                        "ifConditions": null,
+                        "linkPath": "iDontKnowWhatYou"
                     },
                     {
                         "pageNum": 1
-                    },
-                    {
-                        "pageLabel": " Farmer"
                     }
                 ]
             },
-            "oldBettyHereGotA": {
+            "thankYouDearSoul": {
                 "content": [
-                    "Old Betty here got a nasty illness. I have heard about a *-Cowthorn Rose. -*I'm sure I could try to cure her using it in her medicine.",
+                    "Thank you, dear soul",
                     {
-                        "notIfConditions": null,
-                        "linkPath": "youFindItInTheSo",
-                        "ifConditions": null,
-                        "option": "Where do I find it?"
+                        "divert": "illTellEmmaToRea"
                     },
-                    {
-                        "notIfConditions": [
-                            {
-                                "notIfCondition": "gave rose"
-                            }
-                        ],
-                        "linkPath": "thankYouDearYouA",
-                        "ifConditions": [
-                            {
-                                "ifCondition": "rose"
-                            }
-                        ],
-                        "option": "Here you go."
-                    }
-                ]
-            },
-            "ohThankYou": {
-                "content": [
-                    "Oh thank you! ",
                     {
                         "flagName": "gave farmer post"
                     }
                 ]
             },
-            "myBonesAreTooSor": {
+            "butYoureMakingEm": {
                 "content": [
-                    "My bones are too sore to go myself.",
-                    {
-                        "notIfConditions": null,
-                        "linkPath": "goodLuckItMeansA",
-                        "ifConditions": null,
-                        "option": "I'm on my way."
-                    }
-                ]
-            },
-            "youFindItInTheSo": {
-                "content": [
-                    "You find it in the south, close to the Flowershop.",
-                    {
-                        "divert": "myBonesAreTooSor"
-                    }
-                ]
-            },
-            "thankYouDearYouA": {
-                "content": [
-                    "Thank you, dear! You are a true darling.",
-                    {
-                        "flagName": "gave rose"
-                    }
+                    "but you're making emma nervous."
                 ]
             }
         },
-        "editorData": {
-            "playPoint": "oldBettyHereGotA",
-            "textSize": 0,
-            "authorName": "No Time for Apocalypse",
-            "libraryVisible": false
-        },
-        "optionMirroring": true,
         "allowCheckpoints": false
     },
-    "updated_at": "2017-05-21T16:53:30Z",
-    "created_at": "2017-04-22T15:40:36Z"
+    "url_key": "8nrw"
 }

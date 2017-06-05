@@ -29,7 +29,10 @@ public class PlayerWalk : MonoBehaviour {
 	public void Walk() {
         if(Time.timeScale <= 0){
             direction = Vector2.zero;
+            walkAudio.pitch = 0;
             return;
+        } else {
+            walkAudio.pitch = 1;
         }
 
 

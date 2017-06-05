@@ -33,7 +33,7 @@ public class PlayerPunch : MonoBehaviour {
             StartCoroutine(Reactivate());
 
             defaultAnim.enabled = false;
-            hitAnim.angle = Mathf.Atan2(direction.y, direction.x);
+            hitAnim.angle = Mathf.Atan2(direction.x, direction.y);
             hitAnim.enabled = true;
 
             attackAudio.pitch = UnityEngine.Random.Range(0.9f, 1.3f);

@@ -1,138 +1,81 @@
 {
-    "updated_at": "2017-05-21T17:30:07Z",
-    "title": "Pestilence Dialogues - Postperson",
+    "updated_at": "2017-06-02T12:32:38Z",
+    "created_at": "2017-05-30T13:27:35Z",
+    "title": "War Dialogues - Postperson",
     "data": {
         "editorData": {
-            "authorName": "Anonymous",
+            "playPoint": "hiTincan",
             "textSize": 0,
-            "playPoint": "itsFineIfItsTooM",
-            "libraryVisible": false
+            "libraryVisible": false,
+            "authorName": "Anonymous"
         },
+        "optionMirroring": true,
+        "initial": "hiTincan",
         "stitches": {
-            "thankYou": {
+            "youGaveTheSeedsT": {
                 "content": [
-                    "Thank you!",
+                    "You gave the seeds to the birds and they destroyed the gate?",
                     {
-                        "divert": "iDontKnowWhatIWo"
-                    },
-                    {
-                        "flagName": "gave post pestilence"
+                        "divert": "iShouldReallyTal"
                     }
                 ]
             },
-            "youSeeIAmRespons": {
+            "youGotTheSeedsFr": {
                 "content": [
-                    "You see, I am responsible for the mail here on this island.",
+                    "you got the seeds from the flowershop.",
                     {
-                        "divert": "manyPeopleLiveOu"
+                        "divert": "nowGoNorthWhereM"
                     }
                 ]
             },
-            "hereYouGo": {
+            "iUsuallyMakeTheM": {
                 "content": [
-                    "Here you go!",
+                    "I usually make the mail go round on here,",
                     {
-                        "flagName": "post"
+                        "divert": "butMyBirdsAllAng"
                     }
                 ]
             },
-            "furthermoreThere": {
+            "youDontReallyHav": {
                 "content": [
-                    "Furthermore there are *-two farms-* on the outside of the city.",
+                    "you don't really have to bother coming back until it's all delivered"
+                ]
+            },
+            "nowGoNorthWhereM": {
+                "content": [
+                    "now go north where my birds have flown!"
+                ]
+            },
+            "youStillHaveMail": {
+                "content": [
+                    "you still have mail with you",
                     {
-                        "ifConditions": null,
-                        "linkPath": "hereYouGo",
-                        "option": "Sure, I can do that!",
-                        "notIfConditions": null
+                        "divert": "youDontReallyHav"
                     }
                 ]
             },
-            "youreStillDoingT": {
+            "hiTincan": {
                 "content": [
-                    "You're still doing this, right?",
+                    "Hi tincan",
                     {
-                        "divert": "itsFineIfItsTooM"
-                    }
-                ]
-            },
-            "myPidgeonsTheyHa": {
-                "content": [
-                    "My pidgeons. They have fallen ill.",
-                    {
-                        "divert": "youSeeIAmRespons"
-                    }
-                ]
-            },
-            "iGotThreeLetters": {
-                "content": [
-                    "I got*- three letters-* waiting for their owners.",
-                    {
-                        "divert": "oneOfThemSeemsTo"
-                    }
-                ]
-            },
-            "ohCouldYouMaybeB": {
-                "content": [
-                    "Oh! Could you maybe bring the mail to the people living outside the city?",
-                    {
-                        "divert": "iGotThreeLetters"
-                    }
-                ]
-            },
-            "itsFineIfItsTooM": {
-                "content": [
-                    "It's fine if it's too much but I'd like to know."
-                ]
-            },
-            "thereAreStillPeo": {
-                "content": [
-                    "There are still people waiting for their mail.",
-                    {
-                        "divert": "youreStillDoingT"
-                    }
-                ]
-            },
-            "itsInTheMiddleOf": {
-                "content": [
-                    "It's in the middle of the end of the world, but thats no excuse not to do my job!",
-                    {
-                        "ifConditions": null,
-                        "linkPath": "ohCouldYouMaybeB",
-                        "option": "I get around a lot...?",
-                        "notIfConditions": null
-                    }
-                ]
-            },
-            "oneOfThemSeemsTo": {
-                "content": [
-                    "One of them seems to be adressed to a *-Peter-*.",
-                    {
-                        "divert": "furthermoreThere"
-                    }
-                ]
-            },
-            "iDontKnowWhatIWo": {
-                "content": [
-                    "I don't know what I woud've done without you, it's important that everyone get's their mail"
-                ]
-            },
-            "ohNoItsADisaster": {
-                "content": [
-                    "Oh no! It's a disaster!",
-                    {
-                        "ifConditions": null,
-                        "linkPath": "myPidgeonsTheyHa",
-                        "option": "What's wrong?",
                         "notIfConditions": [
-                            {
-                                "notIfCondition": "gave post pestilence"
-                            },
                             {
                                 "notIfCondition": "post"
                             }
-                        ]
+                        ],
+                        "ifConditions": null,
+                        "option": "1",
+                        "linkPath": "iUsuallyMakeTheM"
                     },
                     {
+                        "notIfConditions": [
+                            {
+                                "notIfCondition": "gave post war"
+                            },
+                            {
+                                "notIfCondition": "seeds"
+                            }
+                        ],
                         "ifConditions": [
                             {
                                 "ifCondition": "post"
@@ -141,45 +84,159 @@
                                 "ifCondition": "gave farmer post"
                             },
                             {
-                                "ifCondition": "gave peter post"
+                                "ifCondition": "gave flower post"
                             },
                             {
-                                "ifCondition": "gave waiter post"
+                                "ifCondition": "gave tech post"
                             }
                         ],
-                        "linkPath": "thankYou",
-                        "option": "I've delivered them all!",
-                        "notIfConditions": null
+                        "option": "d",
+                        "linkPath": "iSeeYouveGivenTh"
                     },
                     {
+                        "notIfConditions": [
+                            {
+                                "notIfCondition": "gave seeds"
+                            }
+                        ],
+                        "ifConditions": [
+                            {
+                                "ifCondition": "seeds"
+                            }
+                        ],
+                        "option": "s",
+                        "linkPath": "youGotTheSeedsFr"
+                    },
+                    {
+                        "notIfConditions": null,
+                        "ifConditions": [
+                            {
+                                "ifCondition": "gave seeds"
+                            }
+                        ],
+                        "option": "D",
+                        "linkPath": "youGaveTheSeedsT"
+                    },
+                    {
+                        "notIfConditions": null,
                         "ifConditions": null,
-                        "linkPath": "thereAreStillPeo",
                         "option": "p",
-                        "notIfConditions": null
+                        "linkPath": "youStillHaveMail"
                     },
                     {
                         "pageNum": 1
                     }
                 ]
             },
-            "oh": {
+            "neat": {
                 "content": [
-                    "Oh."
+                    "Neat",
+                    {
+                        "divert": "comeBackWhenTheM"
+                    },
+                    {
+                        "flagName": "post"
+                    }
                 ]
             },
-            "manyPeopleLiveOu": {
+            "thankYouForYourH": {
                 "content": [
-                    "Many people live out of the city and in these cases pidgeons get there much faster than I do.",
+                    "thank you for your help though!"
+                ]
+            },
+            "butMyBirdsAllAng": {
+                "content": [
+                    "but my birds all angrily flew away, no clue what that's all about.",
                     {
-                        "divert": "itsInTheMiddleOf"
+                        "divert": "longStoryShortIN"
+                    }
+                ]
+            },
+            "comeBackWhenTheM": {
+                "content": [
+                    "come back when the mail is delivered"
+                ]
+            },
+            "iShouldReallyTal": {
+                "content": [
+                    "I should really talk to the flower seller about the content of the seeds",
+                    {
+                        "divert": "thankYouForYourH"
+                    }
+                ]
+            },
+            "getSomeSeedsFrom": {
+                "content": [
+                    "get some seeds from the flowershop and bring them to them",
+                    {
+                        "divert": "thatWillCalmThem"
+                    },
+                    {
+                        "flagName": "sent by post"
+                    }
+                ]
+            },
+            "andTheyrePecking": {
+                "content": [
+                    "and they're pecking against the doors of some old theatre",
+                    {
+                        "divert": "getSomeSeedsFrom"
+                    }
+                ]
+            },
+            "thatWillCalmThem": {
+                "content": [
+                    "that will calm them for sure"
+                ]
+            },
+            "youDownForThat": {
+                "content": [
+                    "You down for that?",
+                    {
+                        "notIfConditions": null,
+                        "ifConditions": null,
+                        "option": "Yeah, I guess.",
+                        "linkPath": "neat"
+                    }
+                ]
+            },
+            "longStoryShortIN": {
+                "content": [
+                    "Long story short, I need someone else to bring out the post to the people.",
+                    {
+                        "divert": "youDownForThat"
+                    }
+                ]
+            },
+            "inTheMeantimeIFi": {
+                "content": [
+                    "In the meantime I figured out that my birds went north",
+                    {
+                        "divert": "andTheyrePecking"
+                    }
+                ]
+            },
+            "iSeeYouveGivenTh": {
+                "content": [
+                    "I see you've given the mail to everyone,",
+                    {
+                        "divert": "goodJobWithThat"
+                    },
+                    {
+                        "flagName": "gave post war"
+                    }
+                ]
+            },
+            "goodJobWithThat": {
+                "content": [
+                    "good job with that!",
+                    {
+                        "divert": "inTheMeantimeIFi"
                     }
                 ]
             }
         },
-        "optionMirroring": true,
-        "allowCheckpoints": false,
-        "initial": "ohNoItsADisaster"
+        "allowCheckpoints": false
     },
-    "url_key": "99g8",
-    "created_at": "2017-04-22T16:15:01Z"
+    "url_key": "9prw"
 }

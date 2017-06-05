@@ -1,258 +1,122 @@
 {
-    "updated_at": "2017-05-21T17:26:42Z",
-    "title": "Pestilence Dialogues - Peter",
+    "updated_at": "2017-05-29T16:48:05Z",
+    "created_at": "2017-05-28T09:03:58Z",
+    "title": "War Dialogues - Peter",
     "data": {
         "editorData": {
-            "authorName": "No Time For Apocalypse",
+            "playPoint": "helloStrangerYou",
             "textSize": 0,
-            "playPoint": "aa",
-            "libraryVisible": true
+            "libraryVisible": false,
+            "authorName": "Anonymous"
         },
+        "optionMirroring": true,
+        "initial": "helloStrangerYou",
         "stitches": {
-            "ohIAlmostForgotY": {
+            "maybeSomePie": {
                 "content": [
-                    "Oh! I almost forgot. You might find some treasures on your journey. I am always willing to trade. I have wares. ",
+                    "Maybe some pie?",
                     {
-                        "ifConditions": null,
-                        "linkPath": null,
-                        "option": "Alright.",
-                        "notIfConditions": null
+                        "divert": "beCarefulAboutTh"
                     }
                 ]
             },
-            "perfectPerfectSo": {
+            "youCanComeBackAn": {
                 "content": [
-                    "Perfect, perfect! So you see, I am a humble doctor trying to treat the people of this town.",
+                    "you can come back any time you have more of that!"
+                ]
+            },
+            "thatPieWasDelici": {
+                "content": [
+                    "that pie was delicious",
                     {
-                        "divert": "butItAppearsThat"
+                        "divert": "youCanComeBackAn"
                     }
                 ]
             },
-            "youWouldThinkTha": {
+            "thisPieLooksJust": {
                 "content": [
-                    "You would think that's exactly my job but this isn't a normal plague. I've seen plague in my life.",
+                    "This pie looks just like the thing I was looking for"
+                ]
+            },
+            "youSeeIJustGotHe": {
+                "content": [
+                    "you see I just got here myself and now I'd really be in the mood for some stuff to eat...",
                     {
-                        "divert": "afterResearchIve"
+                        "divert": "maybeSomePie"
                     }
                 ]
             },
-            "thereSeemsToBeAP": {
+            "helloStrangerYou": {
                 "content": [
-                    "There seems to be a plague going around, spreading from the north.",
+                    "Hello Stranger, you've found me in quite a good time",
                     {
-                        "divert": "youWouldThinkTha"
-                    }
-                ]
-            },
-            "butItAppearsThat": {
-                "content": [
-                    "But it appears that there are powers at work beyond my control.",
-                    {
-                        "divert": "youSeeItAppearsT"
-                    }
-                ]
-            },
-            "youSeeItAppearsT": {
-                "content": [
-                    "You see, it appears that chaotic aspects beyond my power are trying to take over this place.",
-                    {
-                        "divert": "notThatIWouldNor"
-                    }
-                ]
-            },
-            "youShouldTryToLo": {
-                "content": [
-                    "You should try to look for a way to break the gate.",
-                    {
-                        "divert": "maybeTryAskingAr"
-                    }
-                ]
-            },
-            "woahArentYouARud": {
-                "content": [
-                    "Woah, aren't you a rude one? You don't see me insulting your odd metallic body either.",
-                    {
-                        "divert": "believeMeICanAnd"
-                    }
-                ]
-            },
-            "youCouldTryHitti": {
-                "content": [
-                    "You could try hitting it really hard for a start.",
-                    {
-                        "divert": "ohIAlmostForgotY"
-                    },
-                    {
-                        "pageNum": -1
-                    }
-                ]
-            },
-            "iHaveReasonToBel": {
-                "content": [
-                    "I have reason to believe that *-Pestilence -*hides up in the north behind a gate.",
-                    {
-                        "divert": "youShouldTryToLo"
-                    }
-                ]
-            },
-            "thereArePestilen": {
-                "content": [
-                    "There are *-Pestilence-*, *-War-*, *-Famine -*and *-Death-*.",
-                    {
-                        "divert": "iHaveReasonToBel"
-                    }
-                ]
-            },
-            "sayHaveYouHeardO": {
-                "content": [
-                    "Say, have you heard of the *-Horsemen of the Apocalypse-*? ",
-                    {
-                        "ifConditions": null,
-                        "linkPath": "theyAreBasically",
-                        "option": "This knowledge was not handed to me.",
-                        "notIfConditions": null
-                    },
-                    {
-                        "ifConditions": null,
-                        "linkPath": "thereArePestilen",
-                        "option": "I've heard some things.\u00a0",
-                        "notIfConditions": null
-                    }
-                ]
-            },
-            "afterResearchIve": {
-                "content": [
-                    "After research I've come to the conclusion that past the gate of the north there is something much worse hiding.",
-                    {
-                        "divert": "sayHaveYouHeardO"
-                    }
-                ]
-            },
-            "maybeButArentYou": {
-                "content": [
-                    "Maybe. But aren't you a little too nosy about personal  matters?",
-                    {
-                        "divert": "notThatIWouldNor"
-                    }
-                ]
-            },
-            "believeMeICanAnd": {
-                "content": [
-                    "Believe me I can and I would. It's not like I'm not creative enough to insult you.",
-                    {
-                        "ifConditions": null,
-                        "linkPath": "youSeeItAppearsT",
-                        "option": "Alright, what do you want?\u00a0",
-                        "notIfConditions": null
-                    },
-                    {
-                        "ifConditions": null,
-                        "linkPath": null,
-                        "option": "Well then.\u00a0",
-                        "notIfConditions": null
-                    }
-                ]
-            },
-            "notThatIWouldNor": {
-                "content": [
-                    "Not that I would normally mind, but I'm pretty much stranded here, you see?",
-                    {
-                        "ifConditions": null,
-                        "linkPath": "maybeButArentYou",
-                        "option": "Isn't that a little selfish for a doctor?",
-                        "notIfConditions": null
-                    },
-                    {
-                        "ifConditions": null,
-                        "linkPath": "thereSeemsToBeAP",
-                        "option": "Please elaborate.",
-                        "notIfConditions": null
-                    }
-                ]
-            },
-            "maybeTryAskingAr": {
-                "content": [
-                    "Maybe try asking around the town if people have any hints for you.",
-                    {
-                        "ifConditions": null,
-                        "linkPath": "youCouldTryHitti",
-                        "option": "How the... how am I supposed to kill Pestilence?",
-                        "notIfConditions": null
-                    },
-                    {
-                        "ifConditions": null,
-                        "linkPath": "ohIAlmostForgotY",
-                        "option": "I'm on my way.\u00a0",
-                        "notIfConditions": null
-                    }
-                ]
-            },
-            "itSeemsLikeYouMi": {
-                "content": [
-                    "It seems like you might have been lost, haven't you? But you can help a buddy out here, right?",
-                    {
-                        "ifConditions": null,
-                        "linkPath": "perfectPerfectSo",
-                        "option": "Eh, I guess so?\u00a0",
-                        "notIfConditions": null
-                    },
-                    {
-                        "ifConditions": null,
-                        "linkPath": "woahArentYouARud",
-                        "option": "Help yourself, medico.\u00a0",
-                        "notIfConditions": null
-                    },
-                    {
-                        "ifConditions": [
-                            {
-                                "ifCondition": "post"
-                            }
-                        ],
-                        "linkPath": "ohThankYouDearFr",
-                        "option": "I got mail for you!",
                         "notIfConditions": [
                             {
-                                "notIfCondition": "gave peter post"
+                                "notIfCondition": "plum pie"
+                            },
+                            {
+                                "notIfCondition": "gave plum pie"
                             }
-                        ]
-                    }
-                ]
-            },
-            "theyAreBasically": {
-                "content": [
-                    "They are basically supernatural aspects of chaos and destruction. Nasty guys.",
+                        ],
+                        "option": "1",
+                        "ifConditions": null,
+                        "linkPath": "youSeeIJustGotHe"
+                    },
                     {
-                        "divert": "thereArePestilen"
-                    }
-                ]
-            },
-            "ahDearFriend": {
-                "content": [
-                    "Ah, dear friend!",
+                        "notIfConditions": [
+                            {
+                                "notIfCondition": "gave plum pie"
+                            }
+                        ],
+                        "option": "I found some pie for you!",
+                        "ifConditions": [
+                            {
+                                "ifCondition": "plum pie"
+                            }
+                        ],
+                        "linkPath": "blessYourHeart"
+                    },
                     {
-                        "divert": "itSeemsLikeYouMi"
+                        "notIfConditions": null,
+                        "option": "f",
+                        "ifConditions": [
+                            {
+                                "ifCondition": "gave plum pie"
+                            }
+                        ],
+                        "linkPath": "thatPieWasDelici"
                     },
                     {
                         "pageNum": 1
-                    },
-                    {
-                        "pageLabel": " Peter"
                     }
                 ]
             },
-            "ohThankYouDearFr": {
+            "beCarefulAboutTh": {
                 "content": [
-                    "Oh? Thank you, dear friend.",
+                    "Be careful about the other citizens though, everyone seems to be on edge here",
                     {
-                        "flagName": "gave peter post"
+                        "divert": "andThereSomeKind"
                     }
+                ]
+            },
+            "blessYourHeart": {
+                "content": [
+                    "Bless your heart!",
+                    {
+                        "divert": "thisPieLooksJust"
+                    },
+                    {
+                        "flagName": "gave plum pie"
+                    }
+                ]
+            },
+            "andThereSomeKind": {
+                "content": [
+                    "and there some kind of warlord up the north?? it's weird"
                 ]
             }
         },
-        "optionMirroring": true,
-        "allowCheckpoints": false,
-        "initial": "ahDearFriend"
+        "allowCheckpoints": false
     },
-    "url_key": "w3nh",
-    "created_at": "2017-04-19T15:10:57Z"
+    "url_key": "pz9g"
 }

@@ -29,9 +29,19 @@ public class TagTracker : MonoBehaviour {
     public void setTag(string tag) {
         if(tag.StartsWith("-"))
             activeTags.Remove(tag.Substring(1));
-        else
-            if(!isTag(tag))
-                activeTags.Add(tag);
+        else if(tag.StartsWith("!")){
+            switch (tag.Substring(1))
+            {
+                case "heal":
+                    PlayerHP.current.SetHP(PlayerHP.current.maxHp);
+                    print("powered up");
+                    break;
+                default:
+                    setTag(tag.Substring(1));
+                    return;
+            }
+        }else if(!isTag(tag))
+            activeTags.Add(tag);
         tagsChanged.Invoke();
     }
     public void Reset()

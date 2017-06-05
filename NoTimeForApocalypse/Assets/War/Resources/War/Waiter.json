@@ -1,159 +1,111 @@
 {
-    "updated_at": "2017-05-21T17:39:11Z",
-    "title": "Pestilence Dialogues - Waiter",
+    "updated_at": "2017-05-30T13:11:41Z",
+    "created_at": "2017-05-30T12:57:47Z",
+    "title": "War Dialogues - Waiter",
     "data": {
+        "optionMirroring": true,
         "editorData": {
-            "authorName": "Anonymous",
+            "playPoint": "youMightFitInAft",
             "textSize": 0,
-            "playPoint": "didYouComeForOur",
-            "libraryVisible": true
+            "libraryVisible": false,
+            "authorName": "War"
         },
+        "initial": "whatAreYouDoingH",
         "stitches": {
-            "thankYou": {
+            "imPrettySureIveN": {
                 "content": [
-                    "Thank you!"
-                ]
-            },
-            "justBringTheAppl": {
-                "content": [
-                    "Just bring the *-apples-* to me and I'll make a delicious cake!",
+                    "I'm pretty sure I've never seen your face around here.",
                     {
-                        "ifConditions": null,
-                        "linkPath": "thankYou",
-                        "option": "I'm on my way!",
-                        "notIfConditions": null
+                        "divert": "goBeUsefulIJustM"
                     }
                 ]
             },
-            "ohThenWeCouldGet": {
+            "whatAreYouDoingH": {
                 "content": [
-                    "Oh, then we could get back to baking.",
+                    "What are you doing here?",
                     {
-                        "divert": "youCanTryHitting"
-                    }
-                ]
-            },
-            "iCanAlreadySmell": {
-                "content": [
-                    "I can already smell it."
-                ]
-            },
-            "didYouComeForOur": {
-                "content": [
-                    "Did you come for our world famous apple pie?",
-                    {
-                        "ifConditions": [
-                            {
-                                "ifCondition": "post"
-                            }
-                        ],
-                        "linkPath": "ohThankYou",
-                        "option": "Actually I'm here to give you this mail.",
                         "notIfConditions": [
                             {
-                                "notIfCondition": "gave waiter post"
+                                "notIfCondition": "plum pie"
                             }
-                        ]
-                    },
-                    {
-                        "ifConditions": null,
-                        "linkPath": "sorryButIHaveToD",
+                        ],
                         "option": "1",
-                        "notIfConditions": [
-                            {
-                                "notIfCondition": "gave apple"
-                            }
-                        ]
+                        "ifConditions": null,
+                        "linkPath": "imPrettySureIveN"
                     },
                     {
-                        "ifConditions": [
+                        "notIfConditions": [
                             {
-                                "ifCondition": "gave apple"
+                                "notIfCondition": "gave plum pie"
                             }
                         ],
-                        "linkPath": "justGiveMeAround",
+                        "option": "p",
+                        "ifConditions": [
+                            {
+                                "ifCondition": "plum pie"
+                            }
+                        ],
+                        "linkPath": "youStillHaveAPie"
+                    },
+                    {
+                        "notIfConditions": null,
                         "option": "d",
-                        "notIfConditions": null
+                        "ifConditions": [
+                            {
+                                "ifCondition": "gave plum pie"
+                            }
+                        ],
+                        "linkPath": "likeImGenuinelyC"
                     },
                     {
                         "pageNum": 1
                     }
                 ]
             },
-            "thankYouVeryMuch": {
+            "youStillHaveAPie": {
                 "content": [
-                    "Thank you very much!",
-                    {
-                        "flagName": "gave apple"
-                    }
+                    "You still have a pie to deliver"
                 ]
             },
-            "justGiveMeAround": {
+            "butDontDareEatin": {
                 "content": [
-                    "Just give me around 5 minutes then it should be ready.",
-                    {
-                        "divert": "iCanAlreadySmell"
-                    }
+                    "but don't dare eating it yourself! I don't trust you."
                 ]
             },
-            "ohThankYou": {
+            "youMightFitInAft": {
                 "content": [
-                    "Oh thank you!",
-                    {
-                        "flagName": "gave waiter post"
-                    }
+                    "You might fit in after all"
                 ]
             },
-            "itSeemsLikeFever": {
+            "goBeUsefulIJustM": {
                 "content": [
-                    "It seems like fevers really make you hungry for apple pie.",
+                    "Go be useful. I just made this pie, you'll surely find someone who wants it",
                     {
-                        "ifConditions": null,
-                        "linkPath": "ohThenWeCouldGet",
-                        "option": "What if I brought you apples?",
-                        "notIfConditions": null
+                        "divert": "butDontDareEatin"
                     },
                     {
-                        "ifConditions": [
-                            {
-                                "ifCondition": "apple"
-                            }
-                        ],
-                        "linkPath": "thankYouVeryMuch",
-                        "option": "I got your apples",
-                        "notIfConditions": null
+                        "flagName": "plum pie"
                     }
                 ]
             },
-            "theConsumationOf": {
+            "likeImGenuinelyC": {
                 "content": [
-                    "The consumation of apple pie really peaked since all of this has started to happen.",
+                    "like... I'm genuinely curious.",
                     {
-                        "divert": "itSeemsLikeFever"
+                        "divert": "thatDeliveryEarl"
                     }
                 ]
             },
-            "youCanTryHitting": {
+            "thatDeliveryEarl": {
                 "content": [
-                    "You can try *-hitting the trees-* in the*- east -*for some delicious fruit.",
+                    "that delivery earlier was perfect.",
                     {
-                        "divert": "justBringTheAppl"
-                    }
-                ]
-            },
-            "sorryButIHaveToD": {
-                "content": [
-                    "Sorry but I have to disappoint you, we are fresh out of apples.",
-                    {
-                        "divert": "theConsumationOf"
+                        "divert": "youMightFitInAft"
                     }
                 ]
             }
         },
-        "optionMirroring": true,
-        "allowCheckpoints": false,
-        "initial": "didYouComeForOur"
+        "allowCheckpoints": false
     },
-    "url_key": "pcjx",
-    "created_at": "2017-04-23T13:44:11Z"
+    "url_key": "4nf2"
 }

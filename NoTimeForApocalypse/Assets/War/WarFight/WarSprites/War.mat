@@ -73,5 +73,5 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FrameProperties: {r: 0, g: 6, b: 8, a: 0}
-    - _Sprites: {r: 1, g: 6, b: 0, a: 0}
+    - _FrameProperties: {r: 0, g: 12, b: 10, a: 0}
+    - _Sprites: {r: 1, g: 12, b: 0, a: 0}
