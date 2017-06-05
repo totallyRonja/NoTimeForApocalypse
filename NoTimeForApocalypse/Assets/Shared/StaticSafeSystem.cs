@@ -21,11 +21,12 @@ public class StaticSafeSystem : MonoBehaviour {
 			completedQuest = new UnityEvent(); // event
 	}
 	void Start () {
-		TagTracker.current.tagsChanged.AddListener(tagsChanged);
+		if(TagTracker.current)
+			TagTracker.current.tagsChanged.AddListener(tagsChanged);
 	}
 	
 	void Load(){ // load existing tags from file
-		string joinedString = PlayerPrefs.GetString("Quests");
+        string joinedString = PlayerPrefs.GetString("Quests");
 		if(joinedString != "")
 			activeTags = new List<string>(joinedString.Split(';'));
         beatenLevels = PlayerPrefs.GetInt("Levels");

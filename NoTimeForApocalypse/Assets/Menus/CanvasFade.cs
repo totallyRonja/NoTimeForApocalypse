@@ -22,7 +22,7 @@ public class CanvasFade : MonoBehaviour {
             c.a = _fade;
             g.color = c;
         }
-        print("set tint to " + _fade);
+        //print("set tint to " + _fade);
     }
 
 	void Awake(){
