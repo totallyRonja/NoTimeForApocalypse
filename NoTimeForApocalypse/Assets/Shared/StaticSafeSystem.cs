@@ -11,6 +11,7 @@ public class StaticSafeSystem : MonoBehaviour {
 	public List<string> activeTags;
     public int beatenLevels = 0; //just count up, 4 means all levels beaten
     public int upgrades = 0; //bit wise; 1 is dash 1 << 1 is war upgrade, 1 << 2 is famine, 1 << 3 death
+	public bool accessible;
     public UnityEvent completedQuest;
 
 	void Awake(){
@@ -31,10 +32,13 @@ public class StaticSafeSystem : MonoBehaviour {
 			activeTags = new List<string>(joinedString.Split(';'));
         beatenLevels = PlayerPrefs.GetInt("Levels");
         upgrades = PlayerPrefs.GetInt("Upgrades");
+        accessible = (upgrades >> 31 & 1) == 1;
     }
 	void Save(){ // load existing tags from file
 		string joinedString = string.Join(";", activeTags.ToArray());
 		PlayerPrefs.SetString("Quests", joinedString);
+		upgrades ^= (-(accessible?1:0) ^ upgrades) & (1 << 31);
+
         PlayerPrefs.SetInt("Upgrades", upgrades);
 		PlayerPrefs.SetInt("Levels", beatenLevels);
         PlayerPrefs.Save();
@@ -63,9 +67,13 @@ public class StaticSafeSystem : MonoBehaviour {
         beatenLevels = Math.Max(beatenLevels, beaten);
         Save();
     }
+	public void SetAccessible(bool accessible){
+        this.accessible = accessible;
+        Save();
+    }
 	public void Reset(){
         activeTags = new List<string>();
-        upgrades = 0;
+        upgrades &= 1 << 31;
         beatenLevels = 0;
         Save();
         completedQuest.Invoke();

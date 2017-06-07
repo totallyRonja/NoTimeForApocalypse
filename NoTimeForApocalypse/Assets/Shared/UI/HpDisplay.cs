@@ -18,13 +18,16 @@ public class HpDisplay : MonoBehaviour {
 	void Awake () {
         render = GetComponent<Image>();
         countDown = GetComponentInChildren<Text>();
-        //pause = GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>();
         setHP(7);
         current = this;
     }
 
+    void Start(){
+        countDown.text = StaticSafeSystem.current.accessible ? "as long as you need" : String.Format("{0:00}:{1:00}", Mathf.Floor(Mathf.Ceil(timeLeft) / 60), Mathf.Floor(Mathf.Ceil(timeLeft) % 60));
+    }
+
     private void Update() {
-        if (timeLeft > 0) {
+        if (timeLeft > 0 && !StaticSafeSystem.current.accessible) {
             timeLeft -= Time.deltaTime;
             if(timeLeft <= 0){
                 timeLeft = 0;

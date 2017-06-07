@@ -4,7 +4,8 @@ using UnityEngine;
 
 [ExecuteInEditMode]
 public class WidthEqualsHeight : MonoBehaviour {
-	void OnRectTransformDimensionsChange(){
-		((RectTransform)transform).sizeDelta = new Vector2(((RectTransform)transform).rect.height, 0);
+    public float factor = 1;
+    void OnRectTransformDimensionsChange(){
+		((RectTransform)transform).sizeDelta = new Vector2(((RectTransform)transform).rect.height*factor, 0);
 	}
 }
