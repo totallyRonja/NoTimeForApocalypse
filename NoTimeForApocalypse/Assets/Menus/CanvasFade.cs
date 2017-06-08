@@ -15,7 +15,7 @@ public class CanvasFade : MonoBehaviour {
     private List<Graphic> graphics;
 
     void ApplyTint(){
-        if(graphics == null) Awake();
+        Awake();
 
         foreach (Graphic g in graphics){
             Color c = g.color;

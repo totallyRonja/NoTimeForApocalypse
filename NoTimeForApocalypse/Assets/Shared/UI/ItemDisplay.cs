@@ -12,7 +12,10 @@ public class ItemDisplay : MonoBehaviour
 
     void Start()
     {
-        TagTracker.current.tagsChanged.AddListener(UpdateStatus);
+        if(global)
+            StaticSafeSystem.current.completedQuest.AddListener(UpdateStatus);
+        else
+            TagTracker.current.tagsChanged.AddListener(UpdateStatus);
         UpdateStatus();
     }
     public void UpdateStatus()

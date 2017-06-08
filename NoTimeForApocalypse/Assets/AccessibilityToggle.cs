@@ -8,6 +8,7 @@ public class AccessibilityToggle : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         GetComponent<Toggle>().onValueChanged.AddListener(Changed);
+        GetComponent<Toggle>().isOn = StaticSafeSystem.current.accessible;
     }
 
 	void Changed(bool value){

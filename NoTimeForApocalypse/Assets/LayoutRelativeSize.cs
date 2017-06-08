@@ -13,6 +13,6 @@ public class LayoutRelativeSize : MonoBehaviour {
 				new Vector2(((RectTransform)transform.parent).rect.width * relativeSize.x, 
 							((RectTransform)transform.parent).rect.height * relativeSize.y) * 
 							((RectTransform)transform.parent).localScale.x;
-        print(((RectTransform)transform.parent).rect.width * relativeSize.x);
+        //print(((RectTransform)transform.parent).rect.width * relativeSize.x);
     }
 }
