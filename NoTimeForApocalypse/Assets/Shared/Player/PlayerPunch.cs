@@ -58,6 +58,6 @@ public class PlayerPunch : MonoBehaviour {
                 distance = (go.transform.position - transform.position).magnitude;
             }
         }
-        return distance < 20 ? closest : null;
+        return distance < 10 ? closest : null;
     }
 }

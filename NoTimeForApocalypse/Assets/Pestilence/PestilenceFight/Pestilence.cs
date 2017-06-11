@@ -73,5 +73,8 @@ public class Pestilence : Hitable {
     IEnumerator WinScreen(){
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene(winScene);
+        yield return new WaitForSeconds(0.1f);
+        if(MenuManager.current)
+            MenuManager.current.setMenu(1);
     }
 }

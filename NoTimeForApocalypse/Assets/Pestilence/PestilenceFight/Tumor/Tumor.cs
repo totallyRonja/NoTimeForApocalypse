@@ -21,14 +21,13 @@ public class Tumor : Hitable {
 	
 	// Update is called once per frame
 	void Update () {
-
         Vector2 difference = victim.transform.position - transform.position;
         float ang = Mathf.Atan2(-difference.x, difference.y) * Mathf.Rad2Deg;
 
         transform.rotation = Quaternion.Euler(0, 0, ang);
         //transform.Translate(Vector3.up * Time.deltaTime * speed);
         Vector2 randomness = new Vector2(Random.Range(-1, 1), Random.Range(-1, 1)) * 0.5f;
-        rigid.AddForce(((Vector2)transform.up + randomness) * speed, ForceMode2D.Force);
+        rigid.AddForce(((Vector2)transform.up + randomness) * speed * Time.deltaTime, ForceMode2D.Force);
     }
     
     public override void Hit(GameObject source, float damage = 0, float directionAngle = float.MinValue) {
