@@ -1,9 +1,92 @@
 {
-    "title": "Pestilence Dialogues - Mother",
-    "url_key": "vqd3",
     "data": {
-        "initial": "coughs",
+        "allowCheckpoints": false,
+        "optionMirroring": true,
         "stitches": {
+            "weReallyApprecia": {
+                "content": [
+                    "We really appreciate it."
+                ]
+            },
+            "notReallyWereAct": {
+                "content": [
+                    "Not really, we're actually pretty well off in this hellhole.",
+                    {
+                        "divert": "lookAroundTheIsl"
+                    }
+                ]
+            },
+            "inThisTimeMoreTh": {
+                "content": [
+                    "In this time more than ever before",
+                    {
+                        "option": "d",
+                        "ifConditions": [
+                            {
+                                "ifCondition": "gave flower"
+                            }
+                        ],
+                        "notIfConditions": null,
+                        "linkPath": "andThankYouAgain"
+                    },
+                    {
+                        "option": "1",
+                        "ifConditions": null,
+                        "notIfConditions": [
+                            {
+                                "notIfCondition": "gave flower"
+                            }
+                        ],
+                        "linkPath": null
+                    }
+                ]
+            },
+            "helloDearWhatCan": {
+                "content": [
+                    "Hello dear, what can I do for you? ",
+                    {
+                        "option": "You seem exhausted, is there anything i can do for you?",
+                        "ifConditions": null,
+                        "notIfConditions": null,
+                        "linkPath": "notReallyWereAct"
+                    },
+                    {
+                        "option": "I brought you flowers from the flowershop",
+                        "ifConditions": [
+                            {
+                                "ifCondition": "flower"
+                            }
+                        ],
+                        "notIfConditions": [
+                            {
+                                "notIfCondition": "gave flower"
+                            }
+                        ],
+                        "linkPath": "ohHowNice"
+                    }
+                ]
+            },
+            "thoseFlowersHave": {
+                "content": [
+                    "Those flowers have healing powers.",
+                    {
+                        "divert": "soMyChildAndMeWi"
+                    }
+                ]
+            },
+            "thanksDear": {
+                "content": [
+                    "Thanks, dear."
+                ]
+            },
+            "ohHowNice": {
+                "content": [
+                    "Oh! How nice.",
+                    {
+                        "divert": "thoseFlowersHave"
+                    }
+                ]
+            },
             "coughs": {
                 "content": [
                     "*Coughs*",
@@ -15,27 +98,9 @@
                     }
                 ]
             },
-            "thanksDear": {
+            "soMyChildAndMeWi": {
                 "content": [
-                    "Thanks, dear."
-                ]
-            },
-            "weReallyApprecia": {
-                "content": [
-                    "We really appreciate it."
-                ]
-            },
-            "theseFlowersAreS": {
-                "content": [
-                    "These flowers are said to filter bad particles out of the air.",
-                    {
-                        "divert": "soMaybeMyChildAn"
-                    }
-                ]
-            },
-            "soMaybeMyChildAn": {
-                "content": [
-                    "So maybe my child and me can sleep well tonight."
+                    "So my child and me will be able to sleep well tonight."
                 ]
             },
             "andThankYouAgain": {
@@ -46,67 +111,6 @@
                     }
                 ]
             },
-            "ohHowNice": {
-                "content": [
-                    "Oh! How nice! ",
-                    {
-                        "divert": "theseFlowersAreS"
-                    },
-                    {
-                        "flagName": "gave flower"
-                    }
-                ]
-            },
-            "inThisTimeMoreTh": {
-                "content": [
-                    "In this time more than ever before",
-                    {
-                        "notIfConditions": null,
-                        "linkPath": "andThankYouAgain",
-                        "ifConditions": [
-                            {
-                                "ifCondition": "gave flower"
-                            }
-                        ],
-                        "option": "d"
-                    },
-                    {
-                        "notIfConditions": [
-                            {
-                                "notIfCondition": "gave flower"
-                            }
-                        ],
-                        "linkPath": null,
-                        "ifConditions": null,
-                        "option": "1"
-                    }
-                ]
-            },
-            "helloDearWhatCan": {
-                "content": [
-                    "Hello dear, what can I do for you? ",
-                    {
-                        "notIfConditions": null,
-                        "linkPath": "notReallyWereAct",
-                        "ifConditions": null,
-                        "option": "You seem exhausted, is there anything i can do for you?"
-                    },
-                    {
-                        "notIfConditions": [
-                            {
-                                "notIfCondition": "gave flower"
-                            }
-                        ],
-                        "linkPath": "ohHowNice",
-                        "ifConditions": [
-                            {
-                                "ifCondition": "flower"
-                            }
-                        ],
-                        "option": "Flower Delivery!"
-                    }
-                ]
-            },
             "lookAroundTheIsl": {
                 "content": [
                     "Look around the island, theres always someone to help.",
@@ -114,25 +118,18 @@
                         "divert": "inThisTimeMoreTh"
                     }
                 ]
-            },
-            "notReallyWereAct": {
-                "content": [
-                    "Not really, we're actually pretty well off in this hellhole.",
-                    {
-                        "divert": "lookAroundTheIsl"
-                    }
-                ]
             }
         },
+        "initial": "coughs",
         "editorData": {
-            "playPoint": "soMaybeMyChildAn",
-            "textSize": 0,
             "authorName": "Anonymous",
+            "playPoint": "soMyChildAndMeWi",
+            "textSize": 0,
             "libraryVisible": true
-        },
-        "optionMirroring": true,
-        "allowCheckpoints": false
+        }
     },
-    "updated_at": "2017-05-21T17:07:05Z",
-    "created_at": "2017-04-23T14:50:16Z"
+    "updated_at": "2017-06-11T10:53:56Z",
+    "url_key": "vqd3",
+    "created_at": "2017-04-23T14:50:16Z",
+    "title": "Pestilence Dialogues - Mother"
 }
