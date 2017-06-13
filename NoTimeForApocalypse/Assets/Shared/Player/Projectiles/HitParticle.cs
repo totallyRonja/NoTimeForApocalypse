@@ -47,7 +47,7 @@ public class HitParticle : MonoBehaviour {
 		if (hp == null || punched.Contains(hp))
 			return;
 		punched.Add(hp);
-		hp.Hit(source, 1, transform.rotation.z * Mathf.Deg2Rad);
+		hp.Hit(source, 1, transform.rotation.z);
         GetComponent<Collider2D>().enabled = false;
 	}
 
