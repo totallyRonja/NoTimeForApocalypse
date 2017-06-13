@@ -24,7 +24,7 @@ public class NPC : MonoBehaviour, IOptionHolder {
     private PlayChunk chunk = null;
     private int chunkProgress = 0;
     private bool inControl = false;
-    private List<Option> isChoosing = null;
+    public List<Option> isChoosing = null;
     private float cooldown = 0;
 
     void Awake() {
