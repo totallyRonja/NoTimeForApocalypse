@@ -7,7 +7,7 @@ public class AppleTree:Hitable {
 
     Dictionary <Transform, float> appleSpeed = new Dictionary <Transform, float> (); 
 
-    public override void Hit(GameObject source, float damage = 0, float directionAngle = 0) {
+    public override void Hit(GameObject source, float damage = 0, Vector2 direction = new Vector2()) {
         Vector3 origin = transform.GetChild(UnityEngine.Random.Range(0, transform.childCount)).localPosition; 
         GameObject newApple = Instantiate(apple, transform.position + Vector3.down * 0.1f + Vector3.right * origin.x, transform.rotation, transform.parent); 
         newApple.transform.GetChild(0).localPosition = Vector3.up * origin.y; 

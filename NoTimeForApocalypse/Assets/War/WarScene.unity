@@ -3330,6 +3330,48 @@ SpriteRenderer:
   m_Size: {x: 6.546875, y: 7.34375}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+--- !u!1001 &1118099661
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1166798088}
+    m_Modifications:
+    - target: {fileID: 4199916608090968, guid: 897cf19ee48e3be408f0a6b89d053fe3, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 64.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199916608090968, guid: 897cf19ee48e3be408f0a6b89d053fe3, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -18.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199916608090968, guid: 897cf19ee48e3be408f0a6b89d053fe3, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199916608090968, guid: 897cf19ee48e3be408f0a6b89d053fe3, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199916608090968, guid: 897cf19ee48e3be408f0a6b89d053fe3, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199916608090968, guid: 897cf19ee48e3be408f0a6b89d053fe3, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199916608090968, guid: 897cf19ee48e3be408f0a6b89d053fe3, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199916608090968, guid: 897cf19ee48e3be408f0a6b89d053fe3, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 897cf19ee48e3be408f0a6b89d053fe3, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1127731434
 GameObject:
   m_ObjectHideFlags: 0
@@ -3340,6 +3382,7 @@ GameObject:
   - component: {fileID: 1127731435}
   - component: {fileID: 1127731437}
   - component: {fileID: 1127731436}
+  - component: {fileID: 1127731438}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -3421,6 +3464,24 @@ SpriteRenderer:
   m_Size: {x: 5.4, y: 64.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+--- !u!114 &1127731438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1127731434}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8243b2000f89c4478a648aff68fd86c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteSheets: []
+  idleSheet: {fileID: 21300000, guid: 6a06d35edd40b56449ad1de21d8cfeb5, type: 3}
+  mirror: 0
+  angle: 0
+  idle: 0
+  autoAngle: 0
+  transitionTo: {fileID: 0}
 --- !u!1 &1136733822
 GameObject:
   m_ObjectHideFlags: 0
@@ -3556,6 +3617,7 @@ Transform:
   - {fileID: 707073487}
   - {fileID: 77113098}
   - {fileID: 1757608612}
+  - {fileID: 1658333557}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4002,9 +4064,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2aa2a2d51d64174ca1b07082ee297fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
-  acceleration: 3
+  speed: 5
+  acceleration: 2.5
   area: {fileID: 750367389}
+  projectile: {fileID: 1079006809263284, guid: 897cf19ee48e3be408f0a6b89d053fe3, type: 2}
+  hp: 20
+  decayTime: 5
 --- !u!1 &1297378372
 GameObject:
   m_ObjectHideFlags: 0
@@ -5999,6 +6064,11 @@ Prefab:
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224355431687534528, guid: 03ee8a6ce27823344bb2b7c0698cf420,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.0001373291
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 03ee8a6ce27823344bb2b7c0698cf420, type: 2}
   m_IsPrefabParent: 0
@@ -7624,6 +7694,11 @@ Transform:
   m_Father: {fileID: 1541615516}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1658333557 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4199916608090968, guid: 897cf19ee48e3be408f0a6b89d053fe3,
+    type: 2}
+  m_PrefabInternal: {fileID: 1118099661}
 --- !u!1 &1693953606
 GameObject:
   m_ObjectHideFlags: 0

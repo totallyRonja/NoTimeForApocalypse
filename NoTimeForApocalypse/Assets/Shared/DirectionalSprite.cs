@@ -11,7 +11,7 @@ public class DirectionalSprite : MonoBehaviour {
     public float angle;
     public bool idle;
     public bool autoAngle;
-
+    public Vector4 startEndFpsOffset = Vector4.zero;
     public MonoBehaviour transitionTo;
 
     private Vector2 oldPos;

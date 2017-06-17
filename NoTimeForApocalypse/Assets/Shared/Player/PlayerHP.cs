@@ -20,7 +20,7 @@ public class PlayerHP : Hitable {
         current = this;
     }
 
-	public override void Hit(GameObject source, float damage = 0, float directionAngle = float.MinValue)
+	public override void Hit(GameObject source, float damage = 0, Vector2 direction = new Vector2())
     {
         if (hp < 0) return;
         if (!(onCooldown || StaticSafeSystem.current.accessible))
@@ -32,12 +32,7 @@ public class PlayerHP : Hitable {
         }
         if (hp <= 0)
             Die();
-        if (directionAngle != float.MinValue)
-        {
-            phys.velocity = new Vector2(Mathf.Sin(directionAngle) * 20, Mathf.Cos(directionAngle) * 20);
-            //Debug.Log(directionAngle);
-            //Debug.DrawRay(transform.position, rigid.velocity);
-        }
+        phys.velocity = direction.normalized * 20;
     }
 
     public void SetHP(int newHp){

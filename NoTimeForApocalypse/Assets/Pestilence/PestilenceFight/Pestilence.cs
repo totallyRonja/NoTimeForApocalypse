@@ -49,7 +49,7 @@ public class Pestilence : Hitable {
         }
     }
 
-	public override void Hit(GameObject source, float damage = 0, float directionAngle = 0){
+	public override void Hit(GameObject source, float damage = 0, Vector2 direction = new Vector2()){
         hp -= (int)damage;
 
         if (hp <= 0) {
