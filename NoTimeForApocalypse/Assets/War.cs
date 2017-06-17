@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,12 +7,15 @@ public class War : Hitable {
     public float acceleration = 20;
     public Collider2D area;
     public GameObject projectile;
+    public DirectionalSprite throwAnim;
+    public Transform projectileOffset;
     public int hp = 20;
     public float decayTime = 5;
 
     private GameObject player;
     private Rigidbody2D rigid;
     private Vector2 velocityGoal;
+    private bool canThrow = true;
 
     // Use this for initialization
     void Start()
@@ -29,9 +31,7 @@ public class War : Hitable {
         {
             if (hp > 0)
                 velocityGoal = (player.transform.position - transform.position).normalized * speed;
-        }
-        else
-        {
+        }else{
             Vector3 difference = area.transform.position - transform.position;
             if (hp > 0)
                 velocityGoal = difference.normalized * speed * Mathf.Min(difference.magnitude, 1);
@@ -42,6 +42,9 @@ public class War : Hitable {
     {
         Vector2 difference = velocityGoal - rigid.velocity;
         rigid.velocity += difference.normalized * acceleration * Time.fixedDeltaTime * Mathf.Min(difference.magnitude, 1);
+
+        if((transform.position - player.transform.position).magnitude > 5 && canThrow && Random.value < 0.01)
+            StartCoroutine(throwHead());
     }
     void OnCollisionEnter2D(Collision2D coll)
     {
@@ -64,8 +67,15 @@ public class War : Hitable {
     }
     IEnumerator throwHead()
     {
-        yield return null;
-        
+        canThrow = false;
+        throwAnim.enabled = true;
+        rigid.simulated = false;
+        yield return new WaitForSeconds(0.75f);
+        rigid.simulated = true;
+        rigid.velocity = Vector2.zero;
+        Instantiate(projectile, (projectileOffset?projectileOffset:transform).position, transform.rotation, transform.parent);
+        yield return new WaitForSeconds(5);
+        canThrow = true;
     }
     IEnumerator dying(){
         float startTime = Time.time;
