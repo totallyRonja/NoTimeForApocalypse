@@ -18,15 +18,13 @@ public class War : Hitable {
     private bool canThrow = true;
 
     // Use this for initialization
-    void Start()
-    {
+    void Start(){
         player = GameObject.FindGameObjectWithTag("Player");
         rigid = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update(){
         if (area.OverlapPoint(player.transform.position))
         {
             if (hp > 0)
@@ -38,43 +36,41 @@ public class War : Hitable {
         }
     }
 
-    void FixedUpdate()
-    {
+    void FixedUpdate(){
         Vector2 difference = velocityGoal - rigid.velocity;
         rigid.velocity += difference.normalized * acceleration * Time.fixedDeltaTime * Mathf.Min(difference.magnitude, 1);
 
-        if((transform.position - player.transform.position).magnitude > 5 && canThrow && Random.value < 0.01)
+        float playerDistance = (transform.position - player.transform.position).magnitude;
+        if(playerDistance > 5 && playerDistance < 30 && canThrow && Random.value < 0.01f)
             StartCoroutine(throwHead());
     }
-    void OnCollisionEnter2D(Collision2D coll)
-    {
+    void OnCollisionEnter2D(Collision2D coll){
         if (!coll.gameObject.CompareTag("Player")) return;
         Hitable hpPool = coll.gameObject.GetComponent<Hitable>();
         if (!hpPool) return;
         hpPool.Hit(gameObject, 2, -coll.contacts[0].normal);
     }
-    public override void Hit(GameObject source, float damage = 0, Vector2 direction = new Vector2())
-    {
+    public override void Hit(GameObject source, float damage = 0, Vector2 direction = new Vector2()){
         if (hp <= 0) return;
         direction.Normalize();
-        rigid.velocity = Vector2.zero;
+        rigid.velocity = rigid.velocity/2;
         hp -= (int)damage;
         if (hp <= 0)
         {
             StartCoroutine(dying());
             velocityGoal = Vector2.zero;
+            rigid.simulated = false;
         }
     }
-    IEnumerator throwHead()
-    {
+    IEnumerator throwHead(){
         canThrow = false;
         throwAnim.enabled = true;
         rigid.simulated = false;
-        yield return new WaitForSeconds(0.75f);
+        yield return new WaitForSeconds(0.7f);
         rigid.simulated = true;
         rigid.velocity = Vector2.zero;
         Instantiate(projectile, (projectileOffset?projectileOffset:transform).position, transform.rotation, transform.parent);
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
         canThrow = true;
     }
     IEnumerator dying(){

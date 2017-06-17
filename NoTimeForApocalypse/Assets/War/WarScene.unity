@@ -4103,12 +4103,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  acceleration: 2.5
+  acceleration: 5
   area: {fileID: 750367389}
   projectile: {fileID: 1079006809263284, guid: 897cf19ee48e3be408f0a6b89d053fe3, type: 2}
   throwAnim: {fileID: 1127731438}
   projectileOffset: {fileID: 35390195}
-  hp: 20
+  hp: 35
   decayTime: 5
 --- !u!1 &1297378372
 GameObject:
