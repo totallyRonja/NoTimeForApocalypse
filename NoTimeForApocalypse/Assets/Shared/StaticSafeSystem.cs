@@ -59,12 +59,15 @@ public class StaticSafeSystem : MonoBehaviour {
         for(int i=0;i<8;i++)if((upgrades>>i&1)==1)upgradeList.Add(i);
         return upgradeList;
     }
+	public bool getUpgrade(int index){
+        return ((upgrades >> index) & 1) == 1;
+    }
 	public void addUpgrade(int index){
         upgrades |= 1 << index;
         Save();
     }
 	public void finishLevel(int beaten){
-        beatenLevels = Math.Max(beatenLevels, beaten);
+        beatenLevels = Math.Max(beatenLevels, beaten+1);
         Save();
     }
 	public void SetAccessible(bool accessible){

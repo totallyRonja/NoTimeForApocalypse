@@ -43,6 +43,7 @@ public class Pestilence : Hitable {
             if (puddleColl.OverlapPoint(player.transform.position) && hp > 0) {
                 GameObject newTumor = Instantiate(tumor, transform.position, transform.rotation);
                 newTumor.GetComponent<Tumor>().recursion = 4;
+                newTumor.SetActive(true);
                 if(wall != null)
                     wall.Reset();
             }
@@ -71,9 +72,11 @@ public class Pestilence : Hitable {
 	}
 
     IEnumerator WinScreen(){
+        HpDisplay.current.countDownScale = 0;
         yield return new WaitForSeconds(1);
+        StaticSafeSystem.current.finishLevel(0);
         SceneManager.LoadScene(winScene);
-        yield return new WaitForSeconds(0.1f);
+        yield return null;
         if(MenuManager.current)
             MenuManager.current.setMenu(1);
     }

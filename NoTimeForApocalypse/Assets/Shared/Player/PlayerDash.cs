@@ -28,15 +28,14 @@ public class PlayerDash : MonoBehaviour {
 	
 	// Update is called once per frame
 	public void Dash(){
-        //if(Input.GetButtonDown("Action"))
-        //    print(Time.timeScale);
-        if (Input.GetButtonDown("Action") && Time.timeScale > 0){
+        //upgrade 0 is dash
+        if (Input.GetButtonDown("Action") && Time.timeScale > 0 && StaticSafeSystem.current.getUpgrade(0)){
             StartCoroutine("DashAction");
         }
     }
     private IEnumerator DashAction() {
         enabled = false;
-        //walk.enabled = false;
+        walk.enabled = false;
         float timer = 0;
         while (timer < duration){
             phys.velocity = walk.direction * dynamic.Evaluate(timer / duration) * speed;
@@ -45,7 +44,7 @@ public class PlayerDash : MonoBehaviour {
             yield return null;
         }
         phys.velocity = Vector2.zero;
-        //walk.enabled = true;
+        walk.enabled = true;
         enabled = true;
     }
 }

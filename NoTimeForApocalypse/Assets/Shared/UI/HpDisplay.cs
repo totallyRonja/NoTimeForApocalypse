@@ -10,6 +10,7 @@ public class HpDisplay : MonoBehaviour {
 
     public Sprite[] stages;
     public float timeLeft = 600;
+    [NonSerialized] public float countDownScale = 1;
 
     private Image render;
     private Text countDown;
@@ -28,7 +29,7 @@ public class HpDisplay : MonoBehaviour {
 
     private void Update() {
         if (timeLeft > 0 && !StaticSafeSystem.current.accessible) {
-            timeLeft -= Time.deltaTime;
+            timeLeft -= Time.deltaTime * countDownScale;
             if(timeLeft <= 0){
                 timeLeft = 0;
                 PauseMenu.current.death = true;

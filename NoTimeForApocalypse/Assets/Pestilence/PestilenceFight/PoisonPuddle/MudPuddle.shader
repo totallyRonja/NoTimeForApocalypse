@@ -17,7 +17,7 @@ Shader "2D/Dissolve"
         Tags 
         { 
             "RenderType" = "Opaque" 
-            "Queue" = "Transparent" 
+            "Queue" = "Transparent"
         }
  
         Pass

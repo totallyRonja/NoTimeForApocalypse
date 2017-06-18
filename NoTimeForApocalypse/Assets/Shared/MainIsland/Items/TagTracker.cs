@@ -16,20 +16,18 @@ public class TagTracker : MonoBehaviour {
         if(tagsChanged == null)
             tagsChanged = new UnityEvent();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public bool isTag(string tag) {
+        if(tag.StartsWith("?$")) return StaticSafeSystem.current;
         return activeTags.Contains(tag);
     }
 
-    public void setTag(string tag) {
-        if(tag.StartsWith("-"))
+    public void setTag(string tag)
+    {
+        if (tag.StartsWith("-"))
             activeTags.Remove(tag.Substring(1));
-        else if(tag.StartsWith("!")){
+        else if (tag.StartsWith("!"))
+        {
             switch (tag.Substring(1))
             {
                 case "heal":
@@ -40,7 +38,8 @@ public class TagTracker : MonoBehaviour {
                     setTag(tag.Substring(1));
                     return;
             }
-        }else if(!isTag(tag))
+        }
+        else if(!isTag(tag))
             activeTags.Add(tag);
         tagsChanged.Invoke();
     }
