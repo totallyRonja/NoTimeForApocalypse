@@ -64,6 +64,7 @@ public class Pestilence : Hitable {
             stage++;
             GameObject newTumor = Instantiate(tumor, transform.position, transform.rotation);
             newTumor.GetComponent<Tumor>().recursion = 4 - stage; //ugly hack, if I ever touch this script again please fix this!!
+            newTumor.SetActive(true);
             print("stage " + stage + "at" + hp + " hp");
 
             GetComponentInChildren<SpriteRenderer>().sprite = stageSheets[stage];

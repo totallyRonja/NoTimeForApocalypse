@@ -18,33 +18,36 @@ public class TagTracker : MonoBehaviour {
 	}
 
     public bool isTag(string tag) {
-        if(tag.StartsWith("?$")) return StaticSafeSystem.current;
+        if(tag.StartsWith("?")){
+            switch(tag.Substring(1)){
+                case "$":
+                    return StaticSafeSystem.current.getBuyable();
+                default:
+                    return StaticSafeSystem.current.getUpgrade(int.Parse(tag.Substring(1)));
+            }
+        }
         return activeTags.Contains(tag);
     }
 
-    public void setTag(string tag)
-    {
+    public void setTag(string tag){
         if (tag.StartsWith("-"))
             activeTags.Remove(tag.Substring(1));
-        else if (tag.StartsWith("!"))
-        {
-            switch (tag.Substring(1))
-            {
+        else if (tag.StartsWith("!")){
+            switch (tag.Substring(1)){
                 case "heal":
                     PlayerHP.current.SetHP(PlayerHP.current.maxHp);
-                    print("powered up");
                     break;
                 default:
                     setTag(tag.Substring(1));
                     return;
             }
-        }
-        else if(!isTag(tag))
+        } else if(tag.StartsWith("$")){
+            StaticSafeSystem.current.buyUpgrade(int.Parse(tag.Substring(1)));
+        } else if(!isTag(tag))
             activeTags.Add(tag);
         tagsChanged.Invoke();
     }
-    public void Reset()
-    {
+    public void Reset(){
         activeTags = new List<string>();
         tagsChanged.Invoke();
     }

@@ -11,6 +11,6 @@ public class QuestCounter : MonoBehaviour {
 	}
 	void UpdateScore(){
 		//print(StaticSafeSystem.current.activeTags.Count);
-		GetComponent<Text>().text = ""+StaticSafeSystem.current.activeTags.Count;
+		GetComponent<Text>().text = ""+(StaticSafeSystem.current.activeTags.Count - StaticSafeSystem.current.usedCoins);
 	}
 }

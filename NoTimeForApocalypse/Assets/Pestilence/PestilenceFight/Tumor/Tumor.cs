@@ -5,6 +5,7 @@ using UnityEngine;
 public class Tumor : Hitable {
 
     public float speed = 1;
+    public float acceleration = 1;
     public int maxRecursion = 3;
     [System.NonSerialized] public int recursion = 0;
     GameObject victim;
@@ -20,14 +21,14 @@ public class Tumor : Hitable {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-        Vector2 difference = victim.transform.position - transform.position;
-        float ang = Mathf.Atan2(-difference.x, difference.y) * Mathf.Rad2Deg;
-
-        transform.rotation = Quaternion.Euler(0, 0, ang);
-        //transform.Translate(Vector3.up * Time.deltaTime * speed);
-        Vector2 randomness = new Vector2(Random.Range(-1, 1), Random.Range(-1, 1)) * 0.5f;
-        rigid.AddForce(((Vector2)transform.up + randomness) * speed * Time.deltaTime, ForceMode2D.Force);
+	void FixedUpdate () {
+        Vector2 goalVelocity = victim.transform.position - transform.position;
+        goalVelocity.Normalize();
+        goalVelocity *= speed;
+        Vector2 difference = goalVelocity - rigid.velocity;
+        rigid.velocity += difference.normalized * acceleration * Time.fixedDeltaTime * Mathf.Min(difference.magnitude, 1);
+        float angle = Mathf.Atan2(rigid.velocity.y, rigid.velocity.x) - Mathf.PI * 0.5f;
+        transform.rotation = Quaternion.AngleAxis(angle * Mathf.Rad2Deg, Vector3.forward);
     }
     
     public override void Hit(GameObject source, float damage = 0, Vector2 direction = new Vector2()) {
@@ -39,8 +40,8 @@ public class Tumor : Hitable {
             for (int i = 0; i < 2; i++) {
                 GameObject child = Instantiate(gameObject);
                 child.GetComponent<Tumor>().recursion = recursion + 1;
-                child.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-10, 10), Random.Range(-10, 10)).normalized, ForceMode2D.Impulse);
-                child.GetComponent<Rigidbody2D>().AddForce(dir.normalized * -20, ForceMode2D.Impulse);
+                child.GetComponent<Rigidbody2D>().velocity = rigid.velocity;
+                child.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-1, 1), Random.Range(-1, 1)).normalized * acceleration, ForceMode2D.Impulse);
             }
         }
         Destroy(gameObject);
