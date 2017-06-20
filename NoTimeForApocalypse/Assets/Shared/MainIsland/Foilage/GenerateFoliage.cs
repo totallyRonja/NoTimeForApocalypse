@@ -100,6 +100,7 @@ public class GenerateFoliage : MonoBehaviour {
                             new Vector2(Random.Range(-random.x, random.x), Random.Range(-random.y, random.y));
                     existingObjects[(int)startIndex.x, iAdd((int)startIndex.y, y, existingObjects.GetLength(1))]
                             .SetActive(coll.OverlapPoint(existingObjects[(int)startIndex.x, iAdd((int)startIndex.y, y, existingObjects.GetLength(1))].transform.position) || alwaysDraw);
+                    existingObjects[(int)startIndex.x, iAdd((int)startIndex.y, y, existingObjects.GetLength(1))].transform.localScale = Vector3.one;
                     if(existingObjects[(int)startIndex.x, iAdd((int)startIndex.y, y, existingObjects.GetLength(1))].activeSelf)
                         existingObjects[(int)startIndex.x, iAdd((int)startIndex.y, y, existingObjects.GetLength(1))].GetComponent<SpriteRenderer>().sprite = sprites[(int)(sprites.Length * Random.value)];
                 }
@@ -115,6 +116,7 @@ public class GenerateFoliage : MonoBehaviour {
                             new Vector2(Random.Range(-random.x, random.x), Random.Range(-random.y, random.y));
                     existingObjects[iAdd((int)startIndex.x, -1, existingObjects.GetLength(0)), iAdd((int)startIndex.y, y, existingObjects.GetLength(1))]
                             .SetActive(coll.OverlapPoint(existingObjects[iAdd((int)startIndex.x, -1, existingObjects.GetLength(0)), iAdd((int)startIndex.y, y, existingObjects.GetLength(1))].transform.position) || alwaysDraw);
+                    existingObjects[iAdd((int)startIndex.x, -1, existingObjects.GetLength(0)), iAdd((int)startIndex.y, y, existingObjects.GetLength(1))].transform.localScale = Vector3.one;
                     if (existingObjects[iAdd((int)startIndex.x, -1, existingObjects.GetLength(0)), iAdd((int)startIndex.y, y, existingObjects.GetLength(1))].activeSelf)
                         existingObjects[iAdd((int)startIndex.x, -1, existingObjects.GetLength(0)), iAdd((int)startIndex.y, y, existingObjects.GetLength(1))].GetComponent<SpriteRenderer>().sprite = sprites[(int)(sprites.Length * Random.value)];
                 }
@@ -131,6 +133,7 @@ public class GenerateFoliage : MonoBehaviour {
                             new Vector2(Random.Range(-random.x, random.x), Random.Range(-random.y, random.y));
                     existingObjects[iAdd((int)startIndex.x, x, existingObjects.GetLength(0)), (int)startIndex.y]
                             .SetActive(coll.OverlapPoint(existingObjects[iAdd((int)startIndex.x, x, existingObjects.GetLength(0)), (int)startIndex.y].transform.position) || alwaysDraw);
+                    existingObjects[iAdd((int)startIndex.x, x, existingObjects.GetLength(0)), (int)startIndex.y].transform.localScale = Vector3.one;
                     if (existingObjects[iAdd((int)startIndex.x, x, existingObjects.GetLength(0)), (int)startIndex.y].activeSelf)
                         existingObjects[iAdd((int)startIndex.x, x, existingObjects.GetLength(0)), (int)startIndex.y].GetComponent<SpriteRenderer>().sprite = sprites[(int)(sprites.Length * Random.value)];
                 }
@@ -146,6 +149,7 @@ public class GenerateFoliage : MonoBehaviour {
                             new Vector2(Random.Range(-random.x, random.x), Random.Range(-random.y, random.y));
                     existingObjects[iAdd((int)startIndex.x, x, existingObjects.GetLength(0)), iAdd((int)startIndex.y, -1, existingObjects.GetLength(1))]
                             .SetActive(coll.OverlapPoint(existingObjects[iAdd((int)startIndex.x, x, existingObjects.GetLength(0)), iAdd((int)startIndex.y, -1, existingObjects.GetLength(1))].transform.position) || alwaysDraw);
+                    existingObjects[iAdd((int)startIndex.x, x, existingObjects.GetLength(0)), iAdd((int)startIndex.y, -1, existingObjects.GetLength(1))].transform.localScale = Vector3.one;
                     if (existingObjects[iAdd((int)startIndex.x, x, existingObjects.GetLength(0)), iAdd((int)startIndex.y, -1, existingObjects.GetLength(1))].activeSelf)
                         existingObjects[iAdd((int)startIndex.x, x, existingObjects.GetLength(0)), iAdd((int)startIndex.y, -1, existingObjects.GetLength(1))].GetComponent<SpriteRenderer>().sprite = sprites[(int)(sprites.Length * Random.value)];
                 }

@@ -87,7 +87,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   setTag: scrap
   decayTime: 2
-  probability: 0
+  probability: 0.2
 --- !u!210 &210531519703525844
 SortingGroup:
   m_ObjectHideFlags: 1

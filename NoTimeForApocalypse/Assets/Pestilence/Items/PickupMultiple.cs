@@ -13,7 +13,6 @@ public class PickupMultiple : MonoBehaviour {
     // Use this for initialization
     void Start() {
         ui = GameObject.FindGameObjectWithTag("NPCDialogueBox").GetComponent<NpcUi>();
-        TagTracker.current.tagsChanged.AddListener(checkLife);
     }
 
     // Update is called once per frame
@@ -28,17 +27,9 @@ public class PickupMultiple : MonoBehaviour {
                 gameObject.SetActive(false);
         }
     }
-    public void checkLife(){
-        if (TagTracker.current.isTag(setTag)){
-            foreach (Collider2D c in GetComponents<Collider2D>())
-                if (c.isTrigger)
-                    Destroy(c);
-            Destroy(this);
-        }
-    }
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.CompareTag("Player") && !TagTracker.current.isTag(setTag)) {
-            ui.Show("pick up " + setTag, "");
+        if (collision.CompareTag("Player")) {
+            ui.Show((TagTracker.current.isTag(setTag)?"destroy ":"pick up ") + setTag, "");
             ui.SetActive(transform, true);
             active = true;
         }

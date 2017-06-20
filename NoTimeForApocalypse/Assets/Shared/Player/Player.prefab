@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 20692071556964026}
   - component: {fileID: 92831895670525492}
   - component: {fileID: 124514373063660084}
-  - component: {fileID: 81670287841938970}
   - component: {fileID: 114422943175968396}
   - component: {fileID: 114089683139920536}
   - component: {fileID: 114186781007106944}
@@ -66,6 +65,7 @@ GameObject:
   - component: {fileID: 82709403698569166}
   - component: {fileID: 114999122042843476}
   - component: {fileID: 114108360098918006}
+  - component: {fileID: 81781033221986874}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -154,7 +154,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1641179743581418}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.2, y: 109.3, z: 0}
+  m_LocalPosition: {x: -9.9, y: 96.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4064536338883984}
@@ -248,12 +248,12 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.25}
   m_Size: {x: 0.5, y: 0.5}
   m_Direction: 1
---- !u!81 &81670287841938970
+--- !u!81 &81781033221986874
 AudioListener:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1052026162157638}
+  m_GameObject: {fileID: 1641179743581418}
   m_Enabled: 1
 --- !u!82 &82050554678937448
 AudioSource:
@@ -472,8 +472,8 @@ MonoBehaviour:
   idle: 0
   autoAngle: 0
   transitionTo: {fileID: 114979582453790718}
-  spriteProperties: {x: 0, y: 0, z: 0, w: 0}
-  animProperties: {x: 0, y: 0, z: 0, w: 0}
+  spriteProperties: {x: 1, y: 8, z: 0, w: 0}
+  animProperties: {x: 0, y: 8, z: 20, w: 0}
 --- !u!114 &114108360098918006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -486,7 +486,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 7
-  hp: -1
+  hp: 7
   iFrames: 1
 --- !u!114 &114186781007106944
 MonoBehaviour:
@@ -566,8 +566,8 @@ MonoBehaviour:
   idle: 1
   autoAngle: 1
   transitionTo: {fileID: 0}
-  spriteProperties: {x: 0, y: 0, z: 0, w: 0}
-  animProperties: {x: 0, y: 0, z: 0, w: 0}
+  spriteProperties: {x: 1, y: 8, z: 0, w: 0}
+  animProperties: {x: 0, y: 8, z: 4, w: 0}
 --- !u!114 &114979582453790718
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -588,11 +588,11 @@ MonoBehaviour:
   idleSheet: {fileID: 21300000, guid: 25f910f1ef6661b4b927c07e685e14a2, type: 3}
   mirror: 1
   angle: 0
-  idle: 0
+  idle: 1
   autoAngle: 1
   transitionTo: {fileID: 0}
-  spriteProperties: {x: 0, y: 0, z: 0, w: 0}
-  animProperties: {x: 0, y: 0, z: 0, w: 0}
+  spriteProperties: {x: 1, y: 8, z: 0, w: 0}
+  animProperties: {x: 0, y: 8, z: 4, w: 0}
 --- !u!114 &114999122042843476
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -668,7 +668,7 @@ SpriteRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: 068d08f688e14c74c980718b24a5c0bc, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
