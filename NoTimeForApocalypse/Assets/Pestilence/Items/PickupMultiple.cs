@@ -5,6 +5,7 @@ using UnityEngine;
 public class PickupMultiple : MonoBehaviour {
 
     public string setTag;
+    public float decayTime = 0;
     [Range(0, 1)]public float probability = 1;
     private NpcUi ui;
     private bool active = false;
@@ -21,7 +22,10 @@ public class PickupMultiple : MonoBehaviour {
             if(probability!=1)Random.InitState(System.Environment.TickCount);
             if(Random.value < probability)
                 TagTracker.current.setTag(setTag);
-            gameObject.SetActive(false);
+            if(decayTime > 0)
+                StartCoroutine(decay());
+            else
+                gameObject.SetActive(false);
         }
     }
     public void checkLife(){
@@ -45,5 +49,16 @@ public class PickupMultiple : MonoBehaviour {
             ui.SetActive(transform, false);
             active = false;
         }
+    }
+
+    IEnumerator decay(){
+        ui.SetActive(transform, false);
+        active = false;
+        float startTime = Time.time;
+        while(startTime + decayTime > Time.time){
+            transform.localScale = new Vector3(1, 1-(Time.time - startTime)/decayTime, 1);
+            yield return null;
+        }
+        gameObject.SetActive(false);
     }
 }

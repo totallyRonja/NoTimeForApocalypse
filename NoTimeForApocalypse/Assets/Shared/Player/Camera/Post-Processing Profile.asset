@@ -35,10 +35,10 @@ MonoBehaviour:
       fxaaSettings:
         preset: 2
       taaSettings:
-        jitterSpread: 1
+        jitterSpread: 0.692
         sharpen: 0
         stationaryBlending: 0.99
-        motionBlending: 0.885
+        motionBlending: 0.337
   ambientOcclusion:
     m_Enabled: 0
     m_Settings:
@@ -100,8 +100,8 @@ MonoBehaviour:
     m_Enabled: 0
     m_Settings:
       bloom:
-        intensity: 21.59
-        threshold: 0.94
+        intensity: 74.25
+        threshold: 1
         softKnee: 0.521
         radius: 4.15
         antiFlicker: 0
