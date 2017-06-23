@@ -11,6 +11,7 @@ public class PlayerDash : MonoBehaviour {
     public AnimationCurve dynamic;
     public AudioSource dashSound;
     public AudioClip dashClip;
+    public DirectionalSprite[] dashAnims;
 
     private PlayerPhysics phys;
 	private PlayerWalk walk;
@@ -34,8 +35,10 @@ public class PlayerDash : MonoBehaviour {
         }
     }
     private IEnumerator DashAction() {
+        foreach(DirectionalSprite ds in dashAnims)
+            ds.enabled = true;
         enabled = false;
-        walk.enabled = false;
+        //walk.enabled = false;
         float timer = 0;
         while (timer < duration){
             phys.velocity = walk.direction * dynamic.Evaluate(timer / duration) * speed;
@@ -44,7 +47,7 @@ public class PlayerDash : MonoBehaviour {
             yield return null;
         }
         phys.velocity = Vector2.zero;
-        walk.enabled = true;
+        //walk.enabled = true;
         enabled = true;
     }
 }

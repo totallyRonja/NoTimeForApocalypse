@@ -84,6 +84,7 @@ GameObject:
   - component: {fileID: 212834215256372062}
   - component: {fileID: 114979582453790718}
   - component: {fileID: 114095388537662886}
+  - component: {fileID: 114620584966575334}
   m_Layer: 8
   m_Name: UpperBody
   m_TagString: Untagged
@@ -101,6 +102,7 @@ GameObject:
   - component: {fileID: 4673510905750272}
   - component: {fileID: 212098915533201818}
   - component: {fileID: 114777372863134402}
+  - component: {fileID: 114533087586288700}
   m_Layer: 8
   m_Name: LowerBody
   m_TagString: Untagged
@@ -154,7 +156,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1641179743581418}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.9, y: 96.07, z: 0}
+  m_LocalPosition: {x: 57.91, y: -84.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4064536338883984}
@@ -450,7 +452,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7634d2eab0c8a164aa12470cbd692ddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volume: 1
 --- !u!114 &114095388537662886
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -543,6 +544,50 @@ MonoBehaviour:
   mode: 3
   axis: {x: 0, y: 1, z: 0}
   frustumRotation: {x: 0, y: 180, z: 0}
+--- !u!114 &114533087586288700
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1680089928968814}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8243b2000f89c4478a648aff68fd86c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteSheets:
+  - {fileID: 21300000, guid: c743e5c0e1c0f874a975e718fbc93f29, type: 3}
+  - {fileID: 21300000, guid: 4c30bc9c3b6a8e843a32ee94e670c7ce, type: 3}
+  - {fileID: 21300000, guid: 673b338b42de0db48a95a4dc8820c729, type: 3}
+  idleSheet: {fileID: 21300000, guid: 673b338b42de0db48a95a4dc8820c729, type: 3}
+  mirror: 1
+  angle: 2.0525558
+  idle: 0
+  autoAngle: 1
+  transitionTo: {fileID: 114777372863134402}
+  spriteProperties: {x: 1, y: 1, z: 0, w: 0}
+  animProperties: {x: 0, y: 1, z: 5, w: 85.95908}
+--- !u!114 &114620584966575334
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1664358471104594}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8243b2000f89c4478a648aff68fd86c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteSheets:
+  - {fileID: 21300000, guid: 7a0b4bda16d7f7145a17271f69c1a31f, type: 3}
+  idleSheet: {fileID: 21300000, guid: 7a0b4bda16d7f7145a17271f69c1a31f, type: 3}
+  mirror: 1
+  angle: 0
+  idle: 1
+  autoAngle: 1
+  transitionTo: {fileID: 114979582453790718}
+  spriteProperties: {x: 1, y: 1, z: 0, w: 0}
+  animProperties: {x: 0, y: 1, z: 5, w: 85.36003}
 --- !u!114 &114777372863134402
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -604,8 +649,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1132467352969454b8feab0a56f521d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
-  duration: 0.2
+  speed: 40
+  duration: 0.25
   dynamic:
     serializedVersion: 2
     m_Curve:
@@ -638,6 +683,9 @@ MonoBehaviour:
     m_RotationOrder: 0
   dashSound: {fileID: 0}
   dashClip: {fileID: 0}
+  dashAnims:
+  - {fileID: 114620584966575334}
+  - {fileID: 114533087586288700}
 --- !u!124 &124514373063660084
 Behaviour:
   m_ObjectHideFlags: 1
@@ -668,7 +716,7 @@ SpriteRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 068d08f688e14c74c980718b24a5c0bc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -1,69 +1,17 @@
 {
-    "updated_at": "2017-06-03T12:17:14Z",
-    "created_at": "2017-06-03T10:48:27Z",
-    "title": "War Dialogues - Flowerperson",
+    "url_key": "3xw4",
     "data": {
-        "editorData": {
-            "playPoint": "thatSoundsStrang",
-            "textSize": 0,
-            "libraryVisible": false,
-            "authorName": "War"
-        },
-        "optionMirroring": true,
         "initial": "helloMechanicPal",
+        "optionMirroring": true,
         "stitches": {
-            "thanksYouSoMuch": {
-                "content": [
-                    "Thanks you so much!",
-                    {
-                        "divert": "thisAreSomeSeeds"
-                    },
-                    {
-                        "flagName": "gave flower post"
-                    }
-                ]
-            },
-            "thatSoundsStrang": {
-                "content": [
-                    "That sounds strange at best, I'll investigate the rest of the seeds."
-                ]
-            },
-            "thisAreSomeSeeds": {
-                "content": [
-                    "This are some seeds for new colorful flowers.",
-                    {
-                        "divert": "somethingIThinkW"
-                    }
-                ]
-            },
-            "somethingIThinkW": {
-                "content": [
-                    "Something I think we all need right now."
-                ]
-            },
-            "theyWerePartOfTh": {
-                "content": [
-                    "They were part of the delivery earlier, but I can do without them."
-                ]
-            },
-            "comeBackWhenTheW": {
-                "content": [
-                    "come back when the world is saved or whatever"
-                ]
-            },
             "sureTakeThoseSee": {
                 "content": [
                     "Sure! Take those seeds here",
                     {
                         "divert": "theyWerePartOfTh"
-                    }
-                ]
-            },
-            "areYouMaybeInter": {
-                "content": [
-                    "are you maybe interrested in a few flowers?",
+                    },
                     {
-                        "divert": "youHaveToSaveThe"
+                        "flagName": "seeds"
                     }
                 ]
             },
@@ -72,6 +20,17 @@
                     "you have to save the world? I guess not then.",
                     {
                         "divert": "comeBackWhenTheW"
+                    }
+                ]
+            },
+            "thanksYouSoMuch": {
+                "content": [
+                    "Thanks you so much!",
+                    {
+                        "divert": "thisAreSomeSeeds"
+                    },
+                    {
+                        "flagName": "gave flower post"
                     }
                 ]
             },
@@ -89,8 +48,8 @@
                                 "ifCondition": "post"
                             }
                         ],
-                        "option": "I have mail for you!",
-                        "linkPath": "thanksYouSoMuch"
+                        "linkPath": "thanksYouSoMuch",
+                        "option": "I have mail for you!"
                     },
                     {
                         "notIfConditions": [
@@ -99,8 +58,8 @@
                             }
                         ],
                         "ifConditions": null,
-                        "option": "1",
-                        "linkPath": "areYouMaybeInter"
+                        "linkPath": "areYouMaybeInter",
+                        "option": "1"
                     },
                     {
                         "notIfConditions": [
@@ -113,8 +72,8 @@
                                 "ifCondition": "sent by post"
                             }
                         ],
-                        "option": "I need some seeds for the carrier birds",
-                        "linkPath": "sureTakeThoseSee"
+                        "linkPath": "sureTakeThoseSee",
+                        "option": "I need some seeds for the carrier birds"
                     },
                     {
                         "notIfConditions": [
@@ -127,8 +86,8 @@
                                 "ifCondition": "seeds"
                             }
                         ],
-                        "option": "f",
-                        "linkPath": "areYouMaybeInter"
+                        "linkPath": "areYouMaybeInter",
+                        "option": "f"
                     },
                     {
                         "notIfConditions": null,
@@ -137,16 +96,60 @@
                                 "ifCondition": "gave seeds"
                             }
                         ],
-                        "option": "The seeds turned the birds really powerful",
-                        "linkPath": "thatSoundsStrang"
+                        "linkPath": "thatSoundsStrang",
+                        "option": "The seeds turned the birds really powerful"
                     },
                     {
                         "pageNum": 1
                     }
                 ]
+            },
+            "thatSoundsStrang": {
+                "content": [
+                    "That sounds strange at best, I'll investigate the rest of the seeds."
+                ]
+            },
+            "areYouMaybeInter": {
+                "content": [
+                    "are you maybe interrested in a few flowers?",
+                    {
+                        "divert": "youHaveToSaveThe"
+                    }
+                ]
+            },
+            "theyWerePartOfTh": {
+                "content": [
+                    "They were part of the delivery earlier, but I can do without them."
+                ]
+            },
+            "comeBackWhenTheW": {
+                "content": [
+                    "come back when the world is saved or whatever"
+                ]
+            },
+            "thisAreSomeSeeds": {
+                "content": [
+                    "This are some seeds for new colorful flowers.",
+                    {
+                        "divert": "somethingIThinkW"
+                    }
+                ]
+            },
+            "somethingIThinkW": {
+                "content": [
+                    "Something I think we all need right now."
+                ]
             }
+        },
+        "editorData": {
+            "authorName": "War",
+            "libraryVisible": false,
+            "textSize": 0,
+            "playPoint": "theyWerePartOfTh"
         },
         "allowCheckpoints": false
     },
-    "url_key": "3xw4"
+    "created_at": "2017-06-03T10:48:27Z",
+    "updated_at": "2017-06-23T18:32:12Z",
+    "title": "War Dialogues - Flowerperson"
 }

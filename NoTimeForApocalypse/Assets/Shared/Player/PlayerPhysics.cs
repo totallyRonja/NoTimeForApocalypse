@@ -25,7 +25,6 @@ public class PlayerPhysics : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
 		if(velocity != velocityGoal){
 			Vector2 difference = velocityGoal - velocity;
 			if(difference.magnitude < acceleration * Time.deltaTime){
@@ -41,6 +40,7 @@ public class PlayerPhysics : MonoBehaviour {
                 if (health) health.Hit(gameObject, 1);
                 rigid.velocity = rigid.velocity.normalized * -30;
                 transform.position = safePoint;
+                print(rigid.velocity);
             }
         } else {
             safePoint = transform.position;
