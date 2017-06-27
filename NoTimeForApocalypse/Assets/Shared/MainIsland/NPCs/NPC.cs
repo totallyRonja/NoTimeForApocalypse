@@ -93,7 +93,8 @@ public class NPC : MonoBehaviour, IOptionHolder {
                         }
                         foreach (Option i in remove)
                             o.Remove(i);
-
+                        
+                        isChoosing = o;
                         string[] sOptions = new string[o.Count];
                         for(int i=0;i<o.Count;i++)
                             sOptions[i] = o[i].Text;
@@ -159,6 +160,11 @@ public class NPC : MonoBehaviour, IOptionHolder {
             return;
 
         try {
+            if (TagTracker.current.debug){
+                print("options:");
+                foreach (Option o in isChoosing)
+                    print(o.Text);
+            }
             chunk = player.CreateChunkForOption(isChoosing[index]);
         } catch (NullReferenceException) {
             Release();
@@ -173,7 +179,6 @@ public class NPC : MonoBehaviour, IOptionHolder {
         chunkProgress = 0;
         ui.Show("", chunk.Paragraphs[chunkProgress].Text);
         foreach (string flag in chunk.Stitches[chunkProgress].Content.Flags) {
-            print("set: " + flag);
             tags.setTag(flag);
         }
         EventSystem.current.SetSelectedGameObject(null);

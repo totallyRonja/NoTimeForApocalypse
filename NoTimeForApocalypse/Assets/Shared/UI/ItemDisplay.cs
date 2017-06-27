@@ -25,16 +25,19 @@ public class ItemDisplay : MonoBehaviour
         List<string> trackerTags = global ? StaticSafeSystem.current.activeTags : TagTracker.current.activeTags;
         foreach (string tag in tags){
             if (!trackerTags.Contains(tag)){
+                if(!global)gameObject.SetActive(false);
                 image.enabled = false;
                 return;
             }
         }
         foreach (string nTag in notTags){
             if (trackerTags.Contains(nTag)){
+                if (!global) gameObject.SetActive(false);
                 image.enabled = false;
                 return;
             }
         }
         image.enabled = true;
+        gameObject.SetActive(true);
     }
 }

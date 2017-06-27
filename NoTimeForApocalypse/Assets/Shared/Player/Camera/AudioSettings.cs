@@ -6,7 +6,6 @@ public class AudioSettings : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        AudioListener.volume = PlayerPrefs.GetFloat("Volume");
-        print("loaded audio volume: " + AudioListener.volume);
+        AudioListener.volume = PlayerPrefs.GetFloat("Volume") - 1;
     }
 }
