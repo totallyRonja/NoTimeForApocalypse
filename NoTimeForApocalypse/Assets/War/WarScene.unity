@@ -4474,7 +4474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2aa2a2d51d64174ca1b07082ee297fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 10
   acceleration: 5
   area: {fileID: 750367389}
   projectile: {fileID: 1079006809263284, guid: 897cf19ee48e3be408f0a6b89d053fe3, type: 2}

@@ -200,8 +200,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 3
-  speed: 10
-  acceleration: 5
+  speed: 15
+  acceleration: 10
   hurtSound: {fileID: 8300000, guid: 42f531e75afeb73479abcf87e3970eea, type: 3}
 --- !u!212 &212394226911183216
 SpriteRenderer:

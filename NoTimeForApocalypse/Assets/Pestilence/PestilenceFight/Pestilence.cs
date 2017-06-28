@@ -22,13 +22,16 @@ public class Pestilence : Hitable {
     public Sprite[] stageSheets;
     public string winScene;
     public Wall wall;
+    private Material pestMat;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         hp = max_hp;
         puddleColl = puddleSpawner.GetComponent<Collider2D>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
-	}
+        pestMat = GetComponentInChildren<Renderer>().material;
+        pestMat.SetFloat("_Flashing", 0);
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -70,6 +73,7 @@ public class Pestilence : Hitable {
             GetComponentInChildren<SpriteRenderer>().sprite = stageSheets[stage];
             //GetComponentInChildren<SpriteRenderer>().sprite = sprites[stage];
         }
+        StartCoroutine(blink(0.1f));
 	}
 
     IEnumerator WinScreen(){
@@ -80,5 +84,11 @@ public class Pestilence : Hitable {
         yield return null;
         if(MenuManager.current)
             MenuManager.current.setMenu(1);
+    }
+
+    IEnumerator blink(float time){
+        pestMat.SetFloat("_Flashing", 1);
+        yield return new WaitForSeconds(time);
+        pestMat.SetFloat("_Flashing", 0);
     }
 }

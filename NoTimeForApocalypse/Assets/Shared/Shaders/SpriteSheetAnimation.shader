@@ -4,9 +4,11 @@ Shader "2D/SpriteSheetAnimation"
 {  
     Properties
     {
-    [PerRendererData]_MainTex ("Sprite Texture", 2D) = "white" {}
-	_Sprites("X amount| Y amount| empty| time(optional)", Vector) = (1, 1, 0, 0)
-	_FrameProperties("start| end| fps| offset", Vector) = (0, 0, 10, 0)
+        [PerRendererData]_MainTex ("Sprite Texture", 2D) = "white" {}
+        _Sprites("X amount| Y amount| empty| time(optional)", Vector) = (1, 1, 0, 0)
+        _FrameProperties("start| end| fps| offset", Vector) = (0, 0, 10, 0)
+        _Flashing("Flashing", Range(0, 1)) = 0
+        _FlashingColor("flashing Color", Color) = (1, 1, 1, 1)
     }
     SubShader
     {
@@ -34,6 +36,9 @@ Shader "2D/SpriteSheetAnimation"
             float4 _FrameProperties;
 
             sampler2D _MainTex;
+
+            float _Flashing;
+            float4 _FlashingColor;
  
             struct Vertex
             {
@@ -71,7 +76,8 @@ Shader "2D/SpriteSheetAnimation"
                 uv.y = ((uv.y / _Sprites.y) + (floor(frame / _Sprites.x) / _Sprites.y));
 
                 half4 map = tex2D (_MainTex, uv);
-                
+                float alpha = map.a;
+                map = half4(lerp(map,_FlashingColor,_Flashing).rgb, map.a);
                 return map;
             }
  

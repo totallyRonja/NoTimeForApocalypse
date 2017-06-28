@@ -17,3 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/War/WarScene.unity
     guid: db5d22f03f3305d48bcbc009216f54b4
+  - enabled: 1
+    path: Assets/Famine/FamineScene.unity
+    guid: 00000000000000000000000000000000

@@ -19,12 +19,15 @@ public class War : Hitable {
     private Vector2 velocityGoal;
     private bool canThrow = true;
     private AudioSource audio;
+    private Material warMat;
 
     // Use this for initialization
     void Start(){
         player = GameObject.FindGameObjectWithTag("Player");
         rigid = GetComponent<Rigidbody2D>();
         audio = GetComponent<AudioSource>();
+        warMat = GetComponentInChildren<Renderer>().material;
+        warMat.SetFloat("_Flashing", 0);
     }
 
     // Update is called once per frame
@@ -45,7 +48,7 @@ public class War : Hitable {
         rigid.velocity += difference.normalized * acceleration * Time.fixedDeltaTime * Mathf.Min(difference.magnitude, 1);
 
         float playerDistance = (transform.position - player.transform.position).magnitude;
-        if(playerDistance > 5 && playerDistance < 30 && canThrow && Random.value < 0.01f && hp > 0)
+        if(playerDistance > 5 && playerDistance < 30 && canThrow && Random.value < 0.05f && hp > 0)
             StartCoroutine(throwHead());
     }
     void OnCollisionEnter2D(Collision2D coll){
@@ -65,6 +68,7 @@ public class War : Hitable {
             velocityGoal = Vector2.zero;
             rigid.simulated = false;
         }
+        StartCoroutine(blink(0.2f));
     }
     IEnumerator throwHead(){
         canThrow = false;
@@ -96,5 +100,11 @@ public class War : Hitable {
         StaticSafeSystem.current.finishLevel(1);
         SceneManager.LoadScene("MainMenu");
         
+    }
+
+    IEnumerator blink(float time){
+        warMat.SetFloat("_Flashing", 1);
+        yield return new WaitForSeconds(time);
+        warMat.SetFloat("_Flashing", 0);
     }
 }
