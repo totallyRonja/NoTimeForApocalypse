@@ -11,6 +11,7 @@ public class ButtonAudio : MonoBehaviour, ISelectHandler, IPointerEnterHandler{
 
     void Awake(){
         GetComponent<Button>().onClick.AddListener(OnClick);
+        print(gameObject);
     }
 
     public void OnClick(){
