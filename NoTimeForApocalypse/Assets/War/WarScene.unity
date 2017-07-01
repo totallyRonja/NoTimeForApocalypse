@@ -2952,6 +2952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44c5095c5cbef8148981b1bf40406e4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requireTag: seeds
   setTag: gave seeds
   attackTarget: {fileID: 1423164354}
 --- !u!1001 &836520108
@@ -6506,6 +6507,16 @@ Prefab:
       propertyPath: land
       value: 
       objectReference: {fileID: 1530824801}
+    - target: {fileID: 114777372863134402, guid: 02813ecc09f414c339d17f5032b75dec,
+        type: 2}
+      propertyPath: animProperties.z
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 114979582453790718, guid: 02813ecc09f414c339d17f5032b75dec,
+        type: 2}
+      propertyPath: animProperties.z
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 02813ecc09f414c339d17f5032b75dec, type: 2}
   m_IsPrefabParent: 0

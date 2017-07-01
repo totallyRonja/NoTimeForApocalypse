@@ -612,7 +612,7 @@ MonoBehaviour:
   autoAngle: 1
   transitionTo: {fileID: 0}
   spriteProperties: {x: 1, y: 8, z: 0, w: 0}
-  animProperties: {x: 0, y: 8, z: 4, w: 0}
+  animProperties: {x: 0, y: 8, z: 8, w: 0}
 --- !u!114 &114979582453790718
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -637,7 +637,7 @@ MonoBehaviour:
   autoAngle: 1
   transitionTo: {fileID: 0}
   spriteProperties: {x: 1, y: 8, z: 0, w: 0}
-  animProperties: {x: 0, y: 8, z: 4, w: 0}
+  animProperties: {x: 0, y: 8, z: 8, w: 0}
 --- !u!114 &114999122042843476
 MonoBehaviour:
   m_ObjectHideFlags: 1

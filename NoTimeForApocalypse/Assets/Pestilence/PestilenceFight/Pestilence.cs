@@ -10,6 +10,8 @@ public class Pestilence : Hitable {
     public GameObject tumor;
 
     [SerializeField] float puddleDelay;
+    [SerializeField] AudioClip hurtSound;
+    private AudioSource source;
     private float puddleTimer = 0;
 
     public int max_hp;
@@ -27,6 +29,7 @@ public class Pestilence : Hitable {
     // Use this for initialization
     void Start () {
         hp = max_hp;
+        source = GetComponent<AudioSource>();
         puddleColl = puddleSpawner.GetComponent<Collider2D>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         pestMat = GetComponentInChildren<Renderer>().material;
@@ -73,8 +76,10 @@ public class Pestilence : Hitable {
             GetComponentInChildren<SpriteRenderer>().sprite = stageSheets[stage];
             //GetComponentInChildren<SpriteRenderer>().sprite = sprites[stage];
         }
+        this.source.PlayOneShot(hurtSound);
+        print("playsound");
         StartCoroutine(blink(0.1f));
-	}
+    }
 
     IEnumerator WinScreen(){
         HpDisplay.current.countDownScale = 0;

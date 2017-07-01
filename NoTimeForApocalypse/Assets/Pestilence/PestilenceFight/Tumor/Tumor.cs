@@ -7,18 +7,20 @@ public class Tumor : Hitable {
     public float speed = 1;
     public float acceleration = 1;
     public int maxRecursion = 3;
+    [SerializeField] AudioClip hurtSound;
     [System.NonSerialized] public int recursion = 0;
     GameObject victim;
 
     private Rigidbody2D rigid;
+    private AudioSource source;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         victim = GameObject.FindGameObjectWithTag("Player");
         rigid = GetComponent<Rigidbody2D>();
         transform.localScale = Vector3.one * (2 /(recursion + 2f));
-        //Debug.Log(recursion + 1);
-	}
+        source = GetComponent<AudioSource>();
+    }
 	
 	// Update is called once per frame
 	void FixedUpdate () {
@@ -32,10 +34,10 @@ public class Tumor : Hitable {
     }
     
     public override void Hit(GameObject source, float damage = 0, Vector2 direction = new Vector2()) {
-        split(direction);
+        StartCoroutine(split(direction));
     }
 
-    void split(Vector2 dir) {
+    IEnumerator split(Vector2 dir) {
         if (recursion < maxRecursion) {
             for (int i = 0; i < 2; i++) {
                 GameObject child = Instantiate(gameObject);
@@ -44,6 +46,10 @@ public class Tumor : Hitable {
                 child.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-1, 1), Random.Range(-1, 1)).normalized * acceleration, ForceMode2D.Impulse);
             }
         }
+        this.source.PlayOneShot(hurtSound);
+        rigid.simulated = false;
+        transform.GetChild(0).gameObject.SetActive(false);
+        yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
     }
 

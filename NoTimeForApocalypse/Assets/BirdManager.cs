@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BirdManager : MonoBehaviour
 {
-
+    public string requireTag;
     public string setTag;
 	public Transform attackTarget;
 
@@ -18,8 +18,10 @@ public class BirdManager : MonoBehaviour
 
     // Update is called once per frame
     void Update(){
-        if (Input.GetButton("Submit") && active && !TagTracker.current.isTag(setTag)){
+        if (active && Input.GetButton("Submit") && !TagTracker.current.isTag(setTag)){
             StartCoroutine(Peck());
+            ui.SetActive(transform, false);
+            active = false;
         }
     }
 
@@ -32,7 +34,7 @@ public class BirdManager : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision){
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && TagTracker.current.isTag(requireTag) && !TagTracker.current.isTag(setTag))
         {
             ui.Show("give seeds to birds", "");
             ui.SetActive(transform, true);
