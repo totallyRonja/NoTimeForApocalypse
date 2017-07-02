@@ -180,7 +180,7 @@ MonoBehaviour:
     on how you felt while playing the game and how to improve it while we further
     develop it.
 
-    forms.google.com/INSERT_LINK_HERE'
+    https://goo.gl/forms/9zHq9uTNpvXb1biD2'
 --- !u!222 &124173647
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -689,7 +689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83a9134433ecd2045845568c9bc13244, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  url: https://www.youtube.com/watch?v=DLzxrzFCyOs
+  url: https://goo.gl/forms/9zHq9uTNpvXb1biD2
 --- !u!114 &1421221068
 MonoBehaviour:
   m_ObjectHideFlags: 0
