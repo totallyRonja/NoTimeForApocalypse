@@ -4,35 +4,67 @@ using System.Collections.Generic;
 using UnityEngine;
 using SimpleJSON;
 
+[Serializable]
 public class InkleDialogue {
     JSONNode data;
 
-    JSONNode activeNode;
+    public JSONNode activeNode;
 
     public InkleDialogue(string jsonFile){
         data = JSON.Parse(jsonFile);
     }
 
-    public string StartDialogue(){
-        string initialName = data["data"]["initial"].Value;
-        activeNode = data["data"]["stitches"][initialName]["content"];
+	public string GetText(){
         return activeNode[0].Value;
     }
 
+    public string StartDialogue(){
+        string initialName = data["data"]["initial"].Value;
+        activeNode = data["data"]["stitches"][initialName]["content"];
+        return GetText();
+    }
+
+	public string NextDialogue(){
+		if(!HasFollowing())
+            return null;
+        string nextName = activeNode[1]["divert"].Value;
+        activeNode = data["data"]["stitches"][nextName]["content"];
+        return GetText();
+    }
+
+	public bool HasFollowing(){
+		return activeNode[1]["divert"].IsString;
+	}
+
 	public bool IsQuestion(){
-        return !activeNode[1]["divert"].IsString;
+        return activeNode[1]["linkPath"] != null;
+    }
+
+	public bool IsEnd(){
+		return !(IsQuestion()||(NextDialogue() != null));
+	}
+
+	public string[] GetFlags(){
+        List<string> flags = new List<string>();
+        for (int i = 0; i < activeNode.Count;i++){
+			if(activeNode[i]["flagName"] != null && activeNode[i]["flagName"].IsString){
+                flags.Add(activeNode[i]["flagName"].Value);
+            }
+		}
+        return flags.ToArray();
     }
 
 	public InkleOption[] getOptions(){
 		if(!IsQuestion()){
-            Debug.LogError("not a Question");
+            Debug.LogError("not a Question: " + activeNode.ToString());
             return null;
         }
-        InkleOption[] options = new InkleOption[activeNode.Count-2];
-        for (int i = 0; i < activeNode.Count-2;i++){
-            options[i] = new InkleOption(activeNode[i+1], data);
+        List<InkleOption> options = new List<InkleOption>();
+        for (int i = 0; i < activeNode.Count;i++){
+			if(activeNode[i]["option"] != null)
+           		options.Add(new InkleOption(activeNode[i], data));
         }
-        return options;
+        return options.ToArray();
     }
 }
 

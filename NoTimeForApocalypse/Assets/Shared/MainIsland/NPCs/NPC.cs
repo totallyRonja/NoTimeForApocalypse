@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using Inklewriter;
-using Inklewriter.Player;
-using Inklewriter.Unity;
+//using Inklewriter;
+//using Inklewriter.Player;
+//using Inklewriter.Unity;
 using System;
 using UnityEngine.EventSystems;
 
@@ -18,12 +18,9 @@ public class NPC : MonoBehaviour, IOptionHolder {
     public string dialogueFile;
 
     private GameObject inRange = null;
-    private StoryModel model = null;
-    private StoryPlayer player = null;
-    private PlayChunk chunk = null;
-    private int chunkProgress = 0;
+    private InkleDialogue dialogue = null;
+    private List<InkleOption> isChoosing = null;
     private bool inControl = false;
-    public List<Option> isChoosing = null;
     private float cooldown = 0;
 
     void Awake() {
@@ -40,78 +37,69 @@ public class NPC : MonoBehaviour, IOptionHolder {
             return;
         }
         string storyJson = resource.text;
-        model = StoryModel.Create(storyJson);
-        player = new StoryPlayer(model, new UnityMarkupConverter());
-
+        dialogue = new InkleDialogue(storyJson);
     }
 
     private void LateUpdate() {
         if (Input.GetButtonDown("Submit") && inRange != null && cooldown <= 0) {
             if (inControl) {
-                chunkProgress++;
-                if (chunkProgress >= chunk.Paragraphs.Count) {
-                    if (chunk.IsEnd) {
+                if (dialogue.NextDialogue() == null) {
+                    if (dialogue.IsEnd()) {
                         Release();
                     } else {
-                        List<Option> o = new List<Option>(chunk.Stitches[chunk.Stitches.Count-1].Content.Options);
-                        List<Option> remove = new List<Option>();
-                        foreach(Option i in o) {
-                            List<string> con = i.IfConditions;
-                            List<string> nonCon = i.NotIfConditions;
+                        List<InkleOption> o = new List<InkleOption>(dialogue.getOptions());
+                        List<InkleOption> remove = new List<InkleOption>();
+                        foreach(InkleOption i in o) {
+                            string[] con = i.ifConditions;
+                            string[] nonCon = i.notIfConditions;
                             foreach (string c in con) {
-                                //print("check for " +c);
                                 if (!tags.isTag(c)) {
-                                    //print("you need "+c);
                                     remove.Add(i);
                                     break;
                                 }
                             }
                             foreach (string c in nonCon) {
-                                //print("check for not " + c);
                                 if (tags.isTag(c)) {
-                                    //print("you don't need " + c);
                                     remove.Add(i);
                                     break;
                                 }
                             }
                         }
-                        foreach(Option i in remove) {
+                        foreach(InkleOption i in remove) {
                             o.Remove(i);
                         }
 
                         isChoosing = o;
                         
-                        remove = new List<Option>();
-                        foreach (Option i in o)
-                            if (i.Text.Length <= 1)
+                        remove = new List<InkleOption>();
+                        foreach (InkleOption i in o)
+                            if (i.text.Length <= 1)
                                 remove.Add(i);
                         if(o.Count == remove.Count){
-                            ChooseOption(0);
-                            chunkProgress++;
+                            StartCoroutine(ChooseOption(0));
                             return;
                         }
-                        foreach (Option i in remove)
+                        foreach (InkleOption i in remove)
                             o.Remove(i);
                         
                         isChoosing = o;
                         string[] sOptions = new string[o.Count];
                         for(int i=0;i<o.Count;i++)
-                            sOptions[i] = o[i].Text;
+                            sOptions[i] = o[i].text;
                         ui.Connect(this);
                         ui.ShowOptions(sOptions);
                     }
                 } else {
-                    ui.Show("", chunk.Paragraphs[chunkProgress].Text);
-                    foreach (string flag in chunk.Stitches[chunkProgress].Content.Flags)
+                    ui.Show("", dialogue.GetText());
+                    foreach (string flag in dialogue.GetFlags())
                         tags.setTag(flag);
                 }
             } else {
                 //inRange.GetComponent<PlayerController>().enabled = false;
                 inControl = true;
-                chunk = player.CreateFirstChunk();
-                chunkProgress = 0;
-                ui.Show("", chunk.Paragraphs[chunkProgress].Text);
-                foreach (string flag in chunk.Stitches[chunkProgress].Content.Flags) {
+                dialogue.StartDialogue();
+                ui.Show("", dialogue.GetText());
+                foreach (string flag in dialogue.GetFlags()) {
                     print("set: " + flag);
                     tags.setTag(flag);
                 }
@@ -154,33 +142,32 @@ public class NPC : MonoBehaviour, IOptionHolder {
         Time.timeScale = 1;
     }
 
-    public void ChooseOption(int index) {
-        if (isChoosing == null)
-            return;
-
+    public IEnumerator ChooseOption(int index) {
+        yield return null;
+        if(isChoosing.Count == 0){
+            Debug.LogError("Empty Options???");
+            Release();
+            yield break;
+        }
         try {
             if (TagTracker.current.debug){
                 print("options:");
-                foreach (Option o in isChoosing)
-                    print(o.Text);
+                foreach (InkleOption o in isChoosing)
+                    print(o.text);
             }
-            chunk = player.CreateChunkForOption(isChoosing[index]);
+            dialogue.activeNode = isChoosing[index].linkPath;
         } catch (NullReferenceException) {
             Release();
-            return;
+            yield break;
         }
-        if(chunk == null) {
+        if(dialogue.activeNode.IsNull) {
             Release();
-            return;
+            yield break;
         }
         
-        isChoosing = null;
-        chunkProgress = 0;
-        ui.Show("", chunk.Paragraphs[chunkProgress].Text);
-        foreach (string flag in chunk.Stitches[chunkProgress].Content.Flags) {
+        ui.Show("", dialogue.activeNode[0].Value);
+        foreach (string flag in dialogue.GetFlags()) {
             tags.setTag(flag);
         }
-        EventSystem.current.SetSelectedGameObject(null);
-        chunkProgress = -1; //I HAVE NO CLUE WHY I HAVE TO DO THIS BUT IT WORKS
     }
 }

@@ -102,7 +102,8 @@ public class NpcUi : MonoBehaviour {
     public void Connect(IOptionHolder OptionChooseMethod) {
         for (int i = 0; i < buttons.Length; i++) {
             int a = i;
-            buttons[a].GetComponent<Button>().onClick.AddListener(() => OptionChooseMethod.ChooseOption(a));
+            buttons[a].GetComponent<Button>().onClick.AddListener(
+                    () => StartCoroutine(OptionChooseMethod.ChooseOption(a)));
         }
     }
 }
