@@ -8,7 +8,6 @@ using Inklewriter.Unity;
 using System;
 using UnityEngine.EventSystems;
 
-//namespace Inklewriter.Unity {
 public class NPC : MonoBehaviour, IOptionHolder {
 
     public Transform textAnchor;
