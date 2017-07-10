@@ -1,0 +1,88 @@
+{
+    "updated_at": "2017-06-29T14:07:17Z",
+    "url_key": "jmrw",
+    "title": "Famine Dialogues - Post",
+    "created_at": "2017-06-25T16:20:35Z",
+    "data": {
+        "optionMirroring": true,
+        "editorData": {
+            "authorName": "Anonymous",
+            "textSize": 0,
+            "playPoint": "allMyBirdsAreToo",
+            "libraryVisible": false
+        },
+        "allowCheckpoints": false,
+        "initial": "ohItsTerrible",
+        "stitches": {
+            "manyThanksYouAre": {
+                "content": [
+                    "Many thanks! You are a good friend!"
+                ]
+            },
+            "seeYou": {
+                "content": [
+                    "See you!",
+                    {
+                        "flagName": "post"
+                    }
+                ]
+            },
+            "ifYouCouldPickUp": {
+                "content": [
+                    "If you could pick up the post of the Farmer, the Waiter and the Fashionista, that would be really great!",
+                    {
+                        "option": "I'm on my way.",
+                        "linkPath": "seeYou",
+                        "notIfConditions": null,
+                        "ifConditions": null
+                    }
+                ]
+            },
+            "ohItsTerrible": {
+                "content": [
+                    "Oh it's terrible.",
+                    {
+                        "divert": "allMyBirdsAreToo"
+                    },
+                    {
+                        "pageNum": 1
+                    }
+                ]
+            },
+            "allMyBirdsAreToo": {
+                "content": [
+                    "All my birds are too hungry to fly and collect the post of the residents.",
+                    {
+                        "option": "I can fix that.",
+                        "linkPath": "ifYouCouldPickUp",
+                        "notIfConditions": [
+                            {
+                                "notIfCondition": "post"
+                            }
+                        ],
+                        "ifConditions": null
+                    },
+                    {
+                        "option": "Here you go. I got all the mail.",
+                        "linkPath": "manyThanksYouAre",
+                        "notIfConditions": null,
+                        "ifConditions": [
+                            {
+                                "ifCondition": "get post famine"
+                            },
+                            {
+                                "ifCondition": "get flower post"
+                            },
+                            {
+                                "ifCondition": "get fashion post"
+                            },
+                            {
+                                "ifCondition": "get farmer post"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}

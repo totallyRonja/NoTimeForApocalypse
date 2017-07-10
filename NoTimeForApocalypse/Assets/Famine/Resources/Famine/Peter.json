@@ -1,0 +1,184 @@
+{
+    "data": {
+        "allowCheckpoints": false,
+        "initial": "ahGladToSeeYouHa",
+        "editorData": {
+            "libraryVisible": false,
+            "textSize": 0,
+            "playPoint": "nowLeaveMeAloneI",
+            "authorName": "Anonymous"
+        },
+        "stitches": {
+            "andSelfishYouRea": {
+                "content": [
+                    "And selfish. You really should know me better by now. "
+                ]
+            },
+            "luckyYouIGuess": {
+                "content": [
+                    "Lucky you, I guess.",
+                    {
+                        "divert": "youStillKnowISel"
+                    }
+                ]
+            },
+            "itsJustPeoplesTr": {
+                "content": [
+                    "It's just peoples trust in you that I use up.",
+                    {
+                        "divert": "thisTimeICanOffe"
+                    }
+                ]
+            },
+            "ahGladToSeeYouHa": {
+                "content": [
+                    "Ah, glad to see you have made it this far.",
+                    {
+                        "divert": "luckyYouIGuess"
+                    },
+                    {
+                        "pageNum": 1
+                    }
+                ]
+            },
+            "letMeJust": {
+                "content": [
+                    "Let me just... .",
+                    {
+                        "divert": "punctuatedStitch"
+                    }
+                ]
+            },
+            "wouldYouBeIntere": {
+                "content": [
+                    "Would you be interested?",
+                    {
+                        "divert": "onlyTokensYouKno"
+                    }
+                ]
+            },
+            "youStillKnowISel": {
+                "content": [
+                    "You still know I sell upgrades for the soul of the innocent, right?",
+                    {
+                        "divert": "hahJustKidding"
+                    }
+                ]
+            },
+            "punctuatedStitch": {
+                "content": [
+                    "...",
+                    {
+                        "divert": "here"
+                    }
+                ]
+            },
+            "nowLeaveMeAloneI": {
+                "content": [
+                    "Now leave me alone, I have things to do. There are some nice metals around here."
+                ]
+            },
+            "ohAndFoodIsKinda": {
+                "content": [
+                    "Oh, and food is kinda scarce but who cares about that, right?",
+                    {
+                        "ifConditions": null,
+                        "option": "You're weird.",
+                        "notIfConditions": null,
+                        "linkPath": "dontForgetHeartl"
+                    }
+                ]
+            },
+            "dontForgetHeartl": {
+                "content": [
+                    "Don't forget heartless, my friend. ",
+                    {
+                        "divert": "andSelfishYouRea"
+                    }
+                ]
+            },
+            "hahJustKidding": {
+                "content": [
+                    "Hah, just kidding.",
+                    {
+                        "divert": "itsJustPeoplesTr"
+                    }
+                ]
+            },
+            "here": {
+                "content": [
+                    "Here.",
+                    {
+                        "divert": "doneAndGoodAsNew"
+                    }
+                ]
+            },
+            "ifWeWerentDoomed": {
+                "content": [
+                    "If we weren't doomed I'd get every piece of gold I could put my hands on.",
+                    {
+                        "divert": "ohAndFoodIsKinda"
+                    }
+                ]
+            },
+            "thisTimeICanOffe": {
+                "content": [
+                    "This time I can offer you a splendid blocking ability.",
+                    {
+                        "divert": "wouldYouBeIntere"
+                    }
+                ]
+            },
+            "hmItAppearsThatF": {
+                "content": [
+                    "Hm, it appears that Famine holds it's reign here.",
+                    {
+                        "divert": "youWillSeeALotOf"
+                    }
+                ]
+            },
+            "youWillSeeALotOf": {
+                "content": [
+                    "You will see a lot of precious metals.",
+                    {
+                        "divert": "ifWeWerentDoomed"
+                    }
+                ]
+            },
+            "onlyTokensYouKno": {
+                "content": [
+                    "Only 6 tokens. You know the deal.",
+                    {
+                        "ifConditions": [
+                            {
+                                "ifCondition": "?$"
+                            }
+                        ],
+                        "option": "Hit me up, doc.",
+                        "notIfConditions": null,
+                        "linkPath": "letMeJust"
+                    },
+                    {
+                        "ifConditions": null,
+                        "option": "Anything you can tell me?",
+                        "notIfConditions": null,
+                        "linkPath": "hmItAppearsThatF"
+                    }
+                ]
+            },
+            "doneAndGoodAsNew": {
+                "content": [
+                    "Done and good as new.",
+                    {
+                        "divert": "nowLeaveMeAloneI"
+                    }
+                ]
+            }
+        },
+        "optionMirroring": true
+    },
+    "title": "Famine Dialogues - Peter",
+    "url_key": "28d5",
+    "updated_at": "2017-06-29T14:21:57Z",
+    "created_at": "2017-06-25T17:27:21Z"
+}

@@ -1,0 +1,117 @@
+{
+    "data": {
+        "allowCheckpoints": false,
+        "initial": "mumbleMumble",
+        "editorData": {
+            "libraryVisible": false,
+            "playPoint": "mumbleMumble",
+            "textSize": 0,
+            "authorName": "Anonymous"
+        },
+        "stitches": {
+            "wouldYouDoMeTheF": {
+                "content": [
+                    "Would you do me the favour of bringing me one specimen? Pretty please? ",
+                    {
+                        "divert": "youWillBeAbleToF"
+                    }
+                ]
+            },
+            "youCantMissItWit": {
+                "content": [
+                    "You can't miss it with it's shiny golden petals and golden stem to match.",
+                    {
+                        "divert": "wouldYouDoMeTheF"
+                    }
+                ]
+            },
+            "iNeedToHaveIt": {
+                "content": [
+                    "I need to have it.",
+                    {
+                        "divert": "youCantMissItWit"
+                    }
+                ]
+            },
+            "ohSureHereYouGo": {
+                "content": [
+                    "Oh, sure! Here you go. ",
+                    {
+                        "flagName": "got post flower"
+                    }
+                ]
+            },
+            "thankYou": {
+                "content": [
+                    "Thank you!",
+                    {
+                        "flagName": "flower"
+                    }
+                ]
+            },
+            "mumbleMumble": {
+                "content": [
+                    "*mumble mumble*",
+                    {
+                        "option": "Whats wrong?",
+                        "ifConditions": null,
+                        "notIfConditions": null,
+                        "linkPath": "ohNothingItsJust"
+                    },
+                    {
+                        "option": "I got your flower.\u00a0",
+                        "ifConditions": [
+                            {
+                                "ifCondition": "got flower"
+                            },
+                            {
+                                "ifCondition": "flower"
+                            }
+                        ],
+                        "notIfConditions": [
+                            {
+                                "notIfCondition": "gave flower"
+                            }
+                        ],
+                        "linkPath": "thankYouItsAbsol"
+                    },
+                    {
+                        "pageNum": 1
+                    }
+                ]
+            },
+            "ohNothingItsJust": {
+                "content": [
+                    "Oh nothing, it's just that there has been this legend of a flower only in bloom every 1.000 years.",
+                    {
+                        "divert": "iNeedToHaveIt"
+                    }
+                ]
+            },
+            "thankYouItsAbsol": {
+                "content": [
+                    "Thank you! It's absolutely stunning.",
+                    {
+                        "flagName": "gave flower"
+                    }
+                ]
+            },
+            "youWillBeAbleToF": {
+                "content": [
+                    "You will be able to find the flower in the north east of the island.",
+                    {
+                        "option": "I will see what I can do.",
+                        "ifConditions": null,
+                        "notIfConditions": null,
+                        "linkPath": "thankYou"
+                    }
+                ]
+            }
+        },
+        "optionMirroring": true
+    },
+    "title": "Famine Dialogues - Flowerperson",
+    "url_key": "5bzh",
+    "updated_at": "2017-06-29T14:04:36Z",
+    "created_at": "2017-06-25T16:57:41Z"
+}
