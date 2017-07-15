@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6e47fa1571ef3645b6a102080e78745, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setTag: apple
+  setTag: $apple
 --- !u!212 &212866071517018714
 SpriteRenderer:
   m_ObjectHideFlags: 1

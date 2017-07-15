@@ -18,7 +18,6 @@ public class NpcUi : MonoBehaviour {
     private GUIStyle style;
     private Camera cam;
     private bool showOptions = false;
-
     GameObject[] buttons;
 
 	// Use this for initialization
@@ -27,10 +26,6 @@ public class NpcUi : MonoBehaviour {
         textComponent = GetComponent<Text>();
         textComponent.supportRichText = true;
         speechFrame = GetComponentInParent<Image>();
-        /*style = new GUIStyle();
-        style.richText = true;
-        GUILayout.Label("<size=100>ass</size>wipe", style);
-        //textComponent.Layout*/
 
         SetActive(null, false);
 

@@ -1,0 +1,42 @@
+[
+	{
+		"title": "Waitress",
+		"tags": "",
+		"body": "Hello sweetie\n<<if !visited(\"Waitress.GiveApples\")>>\n    Did you come to me for my world famous apple pie?\n    -> Actually I'm here to give you this letter <<if $post && !visited(\"Waitress.Post\")>>\n        [[Waitress.Post]]\n    -> Yeah, I'd really like a pie\n        Of course you do!\n        but... it's kinda awrkward.\n        I don't have any apples for my pie.\n        [[Waitress.AppleLocation]]\n    -> Not really, robots don't eat.\n        You can't say that without having tried my pie!\n        You surely have some smell sensors, right?\n        I'm sure you'd want some pie if I had some right here!\n        Sadly I don't because I'm all out of apples\n        [[Waitress.AppleLocation]]\n<<else>>\n    -> Can you tell me when the pie is done?\n        That'll be in about 5 minutes,\n        You'll have to wait just a bit.\n    -> I have a letter for you.<<if $post && !visited(\"Waitress.Post\")>>\n        [[Waitress.Post]]\n<<endif>>",
+		"position": {
+			"x": 571,
+			"y": 221
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Waitress.AppleLocation",
+		"tags": "",
+		"body": "<<if $apple>>\n    I see you found some apples\n    does giving them to me so I can make a apple pie sound like a good plan?\n    -> Yes, go ahead.\n        [[Waitress.GiveApples]]\n    -> Nah, I'd rather have them for myself.\n        I told you you can have the pie afterwards,\n        but sure,\n        go ahead,\n        hurt my feeling,\n        your own potential\n        and the apples possibility to become something greater\n<<else>>\n    I'll make you a pie as soon as you bring me some apples, okay?\n    Theres a apple tree at the east side of the island.\n    You should be able to get apples from it by straight up punching it.\n<<endif>>",
+		"position": {
+			"x": 885,
+			"y": 220
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Waitress.Post",
+		"tags": "",
+		"body": "Oh, thanks!\nIt's a set of recipies.\nI can't wait to try them out.",
+		"position": {
+			"x": 574,
+			"y": 520
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Waitress.GiveApples",
+		"tags": "",
+		"body": "Thanks!!\nI'm going to get going then.\nThe pie should be done in about 5 minutes.",
+		"position": {
+			"x": 887,
+			"y": 524
+		},
+		"colorID": 0
+	}
+]

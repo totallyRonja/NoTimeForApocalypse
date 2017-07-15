@@ -43,6 +43,10 @@ public class PlayerHP : Hitable {
         StartCoroutine(blink(0.5f));
     }
 
+    [Yarn.Unity.YarnCommand("SetHP")]
+    public void YarnSetHP(string newHp){
+        SetHP(int.Parse(newHp));
+    }
     public void SetHP(int newHp){
         hp = newHp;
         HpDisplay.current.setHP(hp);

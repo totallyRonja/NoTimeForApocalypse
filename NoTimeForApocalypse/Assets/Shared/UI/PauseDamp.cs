@@ -31,5 +31,6 @@ public class PauseDamp : MonoBehaviour {
 			c.a = pause;
 			render.color = c;
 		}
-	}
+        render.enabled = pause > 0;
+    }
 }

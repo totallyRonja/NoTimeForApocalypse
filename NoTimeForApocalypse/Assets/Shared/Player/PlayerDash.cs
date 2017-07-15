@@ -30,7 +30,7 @@ public class PlayerDash : MonoBehaviour {
 	// Update is called once per frame
 	public void Dash(){
         //upgrade 0 is dash
-        if (Input.GetButtonDown("Action") && Time.timeScale > 0 && StaticSafeSystem.current.getUpgrade(0)){
+        if (Input.GetButtonDown("Action") && Time.timeScale > 0 && StaticSafeSystem.current.hasUpgrade(0)){
             StartCoroutine("DashAction");
         }
     }

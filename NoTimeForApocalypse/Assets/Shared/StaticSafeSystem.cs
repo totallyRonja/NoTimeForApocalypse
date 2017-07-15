@@ -64,12 +64,14 @@ public class StaticSafeSystem : MonoBehaviour {
         for(int i=0;i<8;i++)if((upgrades>>i&1)==1)upgradeList.Add(i);
         return upgradeList;
     }
-	public bool getUpgrade(int index){
+
+	public bool hasUpgrade(int index){
         return ((upgrades >> index) & 1) == 1;
     }
-	public bool getBuyable(){
+	public bool canBuyUpgrade(){
         return activeTags.Count - usedCoins >= 6;
     }
+	[Yarn.Unity.YarnCommand("buyUpgrade")]
 	public bool buyUpgrade(int index){
         if(activeTags.Count - usedCoins < 6)
             throw new Exception("This cannot be bought with this amount of money, fix your dialogue");

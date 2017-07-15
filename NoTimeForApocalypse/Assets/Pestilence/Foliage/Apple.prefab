@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6e47fa1571ef3645b6a102080e78745, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setTag: apple
+  setTag: $apple
 --- !u!210 &210426151140850380
 SortingGroup:
   m_ObjectHideFlags: 1

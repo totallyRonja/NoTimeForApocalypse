@@ -22,11 +22,11 @@ public class TagTracker : MonoBehaviour {
         if(tag.StartsWith("?")){
             switch(tag.Substring(1)){
                 case "$":
-                    if(debug) print((StaticSafeSystem.current.getBuyable() ? "can" : "can't") + " buy stuff");
-                    return StaticSafeSystem.current.getBuyable();
+                    if(debug) print((StaticSafeSystem.current.canBuyUpgrade() ? "can" : "can't") + " buy stuff");
+                    return StaticSafeSystem.current.canBuyUpgrade();
                 default:
-                    if (debug) print((StaticSafeSystem.current.getBuyable() ? "has " : "doesn't have") + int.Parse(tag.Substring(1)) + ". upgrade");
-                    return StaticSafeSystem.current.getUpgrade(int.Parse(tag.Substring(1)));
+                    if (debug) print((StaticSafeSystem.current.canBuyUpgrade() ? "has " : "doesn't have") + int.Parse(tag.Substring(1)) + ". upgrade");
+                    return StaticSafeSystem.current.hasUpgrade(int.Parse(tag.Substring(1)));
             }
         }
         if (debug) print((activeTags.Contains(tag) ? "has " : "doesn't have") + " tag " + tag);

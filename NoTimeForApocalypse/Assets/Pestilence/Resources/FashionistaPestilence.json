@@ -1,0 +1,32 @@
+[
+	{
+		"title": "Fashionista",
+		"tags": "",
+		"body": "<<if !visited(\"Fashionista\")>>\n    Good morning pal!\n    I gotta tell you about my newest idea.\n    A dress based on warts!\n    With all those red and yellow colors.\n    Could you get me a wart for that project?\n    -> sure\n        Yessssss!\n        I knew I could trust you when I saw you.\n        [[Fashionista.WartLocation]]\n    -> that sounds unhealthy\n        Fashion never dies, baby!\n        I'm going to become famous with this.\n        My health really isn't important in this.\n        But I'm gonna get warts without you anyways, just you wait.\n    -> I have a wart for you right here <<if $warts>>\n        OH YES!!\n        I'm not even going to ask why you have this on you.\n        Seriously you have my highest gratitude.\n        [[Fashionista.GiveWarts]]\n<<elseif !visited(\"Fashionista.GiveWarts\")>>\n    <<if !visited(\"Fashionista.WartLocation\") && !$warts>>\n        Heyya.\n        Did you change your view on warts?\n        -> Yes, tell me where I can find them.\n            Neato.\n            [[Fashionista.WartLocation]]\n        -> No, they're gross!\n            Whatever you say.\n            Fashion never dies, baby!\n    <<else>>\n        Yooooo\n        How's your day going?\n        -> Could you tell me where to find warts again?\n            Of course!\n            [[Fashionista.WartLocation]]\n        -> I found the warts for you <<if $warts>>\n            Nice!!\n            [[Fashionista.GiveWarts]]\n    <<endif>>\n<<else>>\n    Heyya!\n    Thanks for the warts earlier.\n    You gave me more support than my mom did in the last 17 years.\n<<endif>>\n\n",
+		"position": {
+			"x": 537,
+			"y": 435
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Fashionista.WartLocation",
+		"tags": "",
+		"body": "You can find the warts up north.\nThey're all over the floor there\nJust pick them up and bring them to me.\nI seriously can't thank you enough.",
+		"position": {
+			"x": 345,
+			"y": 744
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Fashionista.GiveWarts",
+		"tags": "",
+		"body": "Seriously! You're the best.\nI found this sphere a few days ago lying around.\nI thought it'd make a neat accessory,\nbut it fits you soo much better, so please take it.\nI'm going to make the prettiest dress out of those warts!\nSee you at Fashion Week.",
+		"position": {
+			"x": 751,
+			"y": 750
+		},
+		"colorID": 0
+	}
+]

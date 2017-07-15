@@ -1,0 +1,42 @@
+[
+	{
+		"title": "Postperson",
+		"tags": "",
+		"body": "<<if !visited(\"Postperson\")>>\n    OH NO!\n    It's a disaster!\n    All of my pidgeons have fallen ill.\n    Who is supposed to bring the mail to the people now?\n    -> Sorry, but I'm busy saving humanity\n        Yeah maybe.\n        That could almost be as important as transfer of information.\n        Do what you have to do,\n        maybe you can help me afterwards.\n    -> I could do that for you.\n        [[Postperson.AcceptPost]]\n<<else>>\n    <<if !visited(\"Postperson.AcceptPost\")>>\n        Hello\n        Did you do whatever you previously said you wanted to do?\n        And more importantly:\n        Can you help me distribute the mail?\n        -> Nope, I still have to safe the world.\n            oh\n            okay...\n        -> Kinda. I can help with the mail now.\n            [[Postperson.AcceptPost]]\n    <<else>>\n        <<if !visited(\"Postperson.FinishPost\")>>\n            <<if visited(\"Peter.Post\") && visited(\"Teacher.Post\") && visited(\"Waitress.Post\")>>\n                [[Postperson.FinishPost]]\n            <<else>>\n                Thank you for bringing the mail to the people!\n                But there are still people waiting for their letters.\n                [[Postperson.PostLocations]]\n            <<endif>>\n        <<else>>\n            Thanks for helping me out with the mail earlier.\n            You can't imagine how important this job is for me.\n        <<endif>>\n    <<endif>>\n<<endif>>",
+		"position": {
+			"x": 516,
+			"y": 239
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Postperson.AcceptPost",
+		"tags": "",
+		"body": "<<set $post to true>>\nThanks for doing this!\nThe mail system is integral to all people on this island.\n[[Postperson.PostLocations]]",
+		"position": {
+			"x": 255,
+			"y": 471
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Postperson.FinishPost",
+		"tags": "",
+		"body": "I see you deliverd every single letter\nThank you so much!\nHopefully my pidgeons will be healthy soon.\nThen I'll be able to do my job properly again.",
+		"position": {
+			"x": 806,
+			"y": 471
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Postperson.PostLocations",
+		"tags": "",
+		"body": "<<if !visited(\"Peter.Post\")>>\nPeter lives in the south-east,\nnobody really knows where he came from.\n<<endif>>\n<<if !visited(\"Teacher.Post\")>>\nThe teacher lives just down the street\na few meters to the west from here.\n<<endif>>\n<<if !visited(\"Waiter.Post\")>>\nThe waitress lives in the north-west,\nit's easiest to just follow the path up there.\n<<endif>>",
+		"position": {
+			"x": 519,
+			"y": 712
+		},
+		"colorID": 0
+	}
+]

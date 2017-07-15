@@ -1,0 +1,22 @@
+[
+	{
+		"title": "Teacher",
+		"tags": "",
+		"body": "I am sorry, but the school is close today,\nthe whole staff is severly ill.\nI'm myself not feeling well and will go back inside\nas soon as I am sure I do not have to send any students home.\n-> I have a letter for you <<if $post && !visited(\"Teacher.Post\")>>\n    [[Teacher.Post]]",
+		"position": {
+			"x": 361,
+			"y": 222
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Teacher.Post",
+		"tags": "",
+		"body": "Thank you!\nIt is a journal with new teaching methods.\nI am already exited to use some of them once everyone is healthy again.",
+		"position": {
+			"x": 629,
+			"y": 224
+		},
+		"colorID": 0
+	}
+]
