@@ -21,7 +21,7 @@ Shader "2D/Texture Blend"
         Tags 
         { 
             "RenderType" = "Opaque" 
-            "Queue" = "Transparent" 
+            "Queue" = "Geometry" 
         }
  
         Pass
@@ -77,32 +77,26 @@ Shader "2D/Texture Blend"
                                                      
             float4 frag(Fragment IN) : COLOR
             {
-            half4 map = tex2D (_MainTex, IN.uv_MainTex);
-            normalize(map);
-            float4 o = float4(0, 0, 0, 0);
-            if(_HardTransition < 0.5) {
-                o += map.r * tex2D (_SubTexR, IN.uvr);
-                o += map.g * tex2D (_SubTexG, IN.uvg);
-                o += map.b * tex2D (_SubTexB, IN.uvb);
-				o.a = map.a;
-            } else {
-                if(map.r > map.g && map.r > map.b)
-                    o = tex2D (_SubTexR, IN.uvr);
-                if(map.g > map.r && map.g > map.b)
-                    o = tex2D (_SubTexG, IN.uvg);
-                if(map.b > map.r && map.b > map.g)
-                    o = tex2D (_SubTexB, IN.uvb);
-				if(map.a > 0.5)
-					o.a = 1;
-				else
-					o.a = 0;
-            }
-                 
-
+                half4 map = tex2D (_MainTex, IN.uv_MainTex);
+                normalize(map);
+                float4 o = float4(0, 0, 0, 0);
+                if(_HardTransition < 0.5) {
+                    o += map.r * tex2D (_SubTexR, IN.uvr);
+                    o += map.g * tex2D (_SubTexG, IN.uvg);
+                    o += map.b * tex2D (_SubTexB, IN.uvb);
+                    o.a = map.a;
+                } else {
+                    if(map.r > map.g && map.r > map.b)
+                        o = tex2D (_SubTexR, IN.uvr);
+                    if(map.g > map.r && map.g > map.b)
+                        o = tex2D (_SubTexG, IN.uvg);
+                    if(map.b > map.r && map.b > map.g)
+                        o = tex2D (_SubTexB, IN.uvb);
+                    if(map.a < 0.5)
+                        discard;
+                }
 				o *=  float4(tex2D(_TintTex, IN.uv_MainTex).rgb, 1) * _TintMult;
 				 
-				 
-                 
                 return o;
             }
  

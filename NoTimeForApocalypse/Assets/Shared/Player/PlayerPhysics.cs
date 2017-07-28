@@ -5,7 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerPhysics : MonoBehaviour {
 
-	public Vector2 velocityGoal;
+    public static PlayerPhysics current;
+    public Vector2 velocityGoal;
 	public float acceleration;
 	public Vector2 velocity{
         get { return rigid.velocity; }
@@ -16,6 +17,10 @@ public class PlayerPhysics : MonoBehaviour {
 	private Rigidbody2D rigid;
     private PlayerHP health;
     private Vector3 safePoint;
+
+    void Awake(){
+        current = this;
+    }
 
     // Use this for initialization
     void Start () {
