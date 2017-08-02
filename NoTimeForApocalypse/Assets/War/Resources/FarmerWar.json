@@ -1,0 +1,32 @@
+[
+	{
+		"title": "Farmer",
+		"tags": "",
+		"body": "<<if visited(\"Farmer.TakePost\") || visited(\"Farmer.GiveMilk\")>>\n    Good day Woodsman.\n    How are you today?\n<<else>>\n    Hello, Woodman.\n    What are you doing here?\n    I've never seen you around, but you're making emma nervous.\n    So I'd advice you to just go away, okay?\n<<endif>>\n<<if visited(\"Postperson.GivePost\")>>\n-> I'm bringing you a letter.\n    <<if !visited(\"Farmer\")>>\n        Oh, why didn't you just say so?\n    <<endif>>\n    [[Farmer.TakePost]]\n<<endif>>\n<<if visited(\"Mother.AskForMilk\")>>\n-> I've been sent to get some milk for the baby.\n    <<if !visited(\"Farmer\")>>\n        Why didn't you just say so.\n    <<endif>>\n    [[Farmer.GiveMilk]]\n<<endif>>",
+		"position": {
+			"x": 195,
+			"y": 90
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Farmer.GiveMilk",
+		"tags": "",
+		"body": "I know the child quite well by now.\nAlways great to see our small commune expanding.\nTake the milk and bring it to them.",
+		"position": {
+			"x": 328,
+			"y": 365
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Farmer.TakePost",
+		"tags": "",
+		"body": "Thank you dear soul.\nI'll tell emma to read it to me later.",
+		"position": {
+			"x": 89,
+			"y": 368
+		},
+		"colorID": 0
+	}
+]

@@ -1,0 +1,22 @@
+[
+	{
+		"title": "Waitress",
+		"tags": "",
+		"body": "What are you doing here?\n<<if !visited(\"Waitress.GivePie\")>>\n    [[Waitress.GivePie]]\n<<else>>\n    <<if !visited(\"Peter.TakePie\")>>\n        I can see you still have the pie.\n        Go make yourself useful!\n        At least you didn't eat it so far.\n    <<else>>\n        I'm going to give you the benefit of the doubt,\n        and assume you didn't eat the pie.\n        That means you probably brought it to someone.\n        Good job, you might be useful after all.\n    <<endif>>\n<<endif>>",
+		"position": {
+			"x": 293,
+			"y": 216
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Waitress.GivePie",
+		"tags": "",
+		"body": "What are you doing here?\nI've never seen your face,\nand we really don't need strangers around.\nBut if you're here you might as well be helpful.\nTake this pie and give it to a local who deserves it.\nBut if you eat it yourself I swear I will find you.",
+		"position": {
+			"x": 557,
+			"y": 278
+		},
+		"colorID": 0
+	}
+]

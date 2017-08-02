@@ -1,0 +1,12 @@
+[
+	{
+		"title": "Peter",
+		"tags": "",
+		"body": "<<if !visited(\"Peter\")>>\n    Hello Stranger!\n    You've found me in quite a strange time.\n    A literal rider of the apocalypse is hiding up north.\n    And it's the second one at that, can't they count?\n    Or did the first rider get lost in another timeline? heh.\n    The result of War being around is also quite unfortunate.\n    Many people seem to be quite aggressive.\n    If you knew me you'd know that that doesn't bother me much.\n    But it's surprisingly hard to get a good pie now...\n    So if you'd be able to get a pie for me somehow,\n    it'd help me a lot!\n<<else>>\n    <<if>>\n<<endif>>",
+		"position": {
+			"x": -443,
+			"y": 292
+		},
+		"colorID": 0
+	}
+]

@@ -1,0 +1,52 @@
+[
+	{
+		"title": "Flowerperson",
+		"tags": "",
+		"body": "<<if !visited(\"Flowerperson\")>>\n\n<<else>>\n    Hello there mechanic pal\n    <<if visited(\"Postperson.GivePost\") && !visited(\"Flowerperson.TakePost\")>>\n        -> I have a letter for you here\n            [[Flowerperson.TakePost]]\n        -> How are you?\n            [[Flowerperson.Smalltalk]]\n    <<endif>>\n    <<if visited(\"Postperson.AllPostDelivered\") && !visited(\"Flowerperson.GiveSeeds\")>>\n        -> I need a few seeds for the carrier birds.\n            [[Flowerperson.GiveSeeds]]\n        -> How are you?\n            [[Flowerperson.Smalltalk]]\n    <<endif>>\n    <<if $BirdsAteSeeds && !visited(\"Flowerperson.AggressiveBirdReaction\")>>\n        How did the birds like the seeds?\n        -> They got very active and destroyed a gate\n            [[Flowerperson.AggressiveBirdReaction]]\n    <<endif>>\n    [[Flowerperson.Smalltalk]]\n<<endif>>",
+		"position": {
+			"x": -376,
+			"y": -180
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Flowerperson.TakePost",
+		"tags": "",
+		"body": "Oh, thank you!\nThat's probably the seeds I'm expecting.\nI'm gonna plant a ton of colorful flowers,\nit's something we all need right now.",
+		"position": {
+			"x": -80,
+			"y": -179
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Flowerperson.GiveSeeds",
+		"tags": "",
+		"body": "Sure, here you go.\nThey were part of the delivery you gave me earlier.\nDid something bad happen to the birds?",
+		"position": {
+			"x": -531,
+			"y": 124
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Flowerperson.Smalltalk",
+		"tags": "",
+		"body": "Are you interrested in a few flowers?\nYou have to safe the world? I guess not then.\nCome back when the world is saved or whatever.",
+		"position": {
+			"x": -672,
+			"y": -183
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Flowerperson.AggressiveBirdReaction",
+		"tags": "",
+		"body": "Oh no! This shoudn't happen.\nSure, the seeds should give them energy, \nbut not make them aggressive.\nI'll assume for now that they were angry to begin with,\nbut if that happens again definitely tell me!",
+		"position": {
+			"x": -225,
+			"y": 116
+		},
+		"colorID": 0
+	}
+]

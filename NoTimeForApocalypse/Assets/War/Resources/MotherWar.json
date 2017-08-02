@@ -1,0 +1,32 @@
+[
+	{
+		"title": "Mother",
+		"tags": "",
+		"body": "Hello hard fellow.\n<<if !visited(\"Mother.AskForMilk\")>>\n    [[Mother.AskForMilk]]\n<<else>>\n    <<if !visited(\"Farmer.GiveMilk\")>>\n        My child still doesn't feel better,\n        could you get some Milk from the farmer living east of here?\n    <<else>>\n        [[Mother.TakeMilk]]\n    <<endif>>\n<<endif>>",
+		"position": {
+			"x": 353,
+			"y": 107
+		},
+		"colorID": 6
+	},
+	{
+		"title": "Mother.AskForMilk",
+		"tags": "",
+		"body": "My child is hungry.\nUsually I feed them with fresh milk by the farmer.\nSo if you could go over there and get some...\nIt'd be a huge help for me.\nHe lives just east of here.\nAlso say hi to emma by me.",
+		"position": {
+			"x": 355,
+			"y": 377
+		},
+		"colorID": 6
+	},
+	{
+		"title": "Mother.TakeMilk",
+		"tags": "",
+		"body": "<<if !visited(\"Mother.TakeMilk\")>>\n    I see you brought us the milk.\n    My child and me really appreciate that.\n    Could you give us a bit of privacy now?\n<<else>>\n    Thank you for that milk earlier,\n    but we need some rest now.\n    So if you could leave us alone?\n<<endif>>",
+		"position": {
+			"x": 630,
+			"y": 376
+		},
+		"colorID": 6
+	}
+]

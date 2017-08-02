@@ -1,0 +1,52 @@
+[
+	{
+		"title": "Fashionista",
+		"tags": "",
+		"body": "<<if visited(\"Fashionista.PreDrama\")>>\n    What's up geometric fashion pal?\n<<else>>\n    Heyya, what's going on?\n<<endif>>\n<<if $drama == 1>>\n    [[Fashionista.Drama1]]\n<<endif>>\n<<if $drama == 3>>\n    [[Fashionista.Drama3]]\n<<endif>>\n<<if $drama > 4>>\n    [[Fashionista.DramaFinished]]\n<<endif>>\n[[Fashionista.PreDrama]]",
+		"position": {
+			"x": -240,
+			"y": 175
+		},
+		"colorID": 1
+	},
+	{
+		"title": "Fashionista.Drama1",
+		"tags": "",
+		"body": "-> Your Mother sent me...\n    I should've expected that she'd start sending people after me.\n    It's about me getting \"proper education\", getting a \"real job\" isn't it?\n    If we're doing this this way you can go right back...\n    ...tell her I have a job, I have a calling.\n    What do I need her academic education for when I already have a job?\n    A job that makes me happier than she'll ever be!\n    <<set $drama = 2>>",
+		"position": {
+			"x": 102,
+			"y": 77
+		},
+		"colorID": 3
+	},
+	{
+		"title": "Fashionista.Drama3",
+		"tags": "",
+		"body": "-> Your mother wants you to be more \"useful\" to society\n    ...she really can't come up with new arguments, can she?\n    I am just as useful as her!\n    Does being a teacher help get food for everyone?\n    No!\n    Does being a teacher give anyone a roof over their head?\n    No!\n    I'm so sick of her elitism!\n    Making people feel good by dressing well is useful!\n    At least as much as algebra is.\n    When is the last time algebra made anyone happy?\n    <<set $drama = 4>>",
+		"position": {
+			"x": 100,
+			"y": 294
+		},
+		"colorID": 4
+	},
+	{
+		"title": "Fashionista.DramaFinished",
+		"tags": "",
+		"body": "-> Your mother wants to listen to you\n    She does?\n    She always wants to talk, but listening is new.\n    Let's hope she knows what she says.\n    When this works out I guess I have to thank you.\n-> About that dress you talked earlier... <<if (visited(\"Fashionista.DramaFinished\") && visited(\"Fashionista.PreDrama\")) || $debug>>\n    You're actually interrested in fashion?\n    You're the first person who actually takes a interrest in this.\n    This is so exiting!\n    My plan for the outfit is to to get a ton of small spikes on the back going.\n    Taking a ton of inspiration from hedgehogs there,\n    and then in the stomach area I want to use some smooth flowing shapes.\n    The whole thing is supposed to convey closing oneself off to the outside\n    while being super vulnerable on the inside.\n    I hope it works out.",
+		"position": {
+			"x": 98,
+			"y": 534
+		},
+		"colorID": 6
+	},
+	{
+		"title": "Fashionista.PreDrama",
+		"tags": "",
+		"body": "I'm working on some outfit right now.\nIt's inspired by geometric fashion so it'd fit your style perfectly.\nWould you mind modelling for me when it's done?\nJust come back tomorrow when you're up for it!",
+		"position": {
+			"x": 100,
+			"y": -132
+		},
+		"colorID": 2
+	}
+]

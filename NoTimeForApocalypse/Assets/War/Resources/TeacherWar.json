@@ -1,0 +1,52 @@
+[
+	{
+		"title": "Teacher",
+		"tags": "",
+		"body": "<<if visited(\"Teacher\")>>\n    Hello dearest robot.\n<<else>>\n    Hello.\n<<endif>>\n<<if $drama == 0>>\n    [[Teacher.Drama0]]\n<<endif>>\n<<if $drama == 2>>\n    [[Teacher.Drama2]]\n<<endif>>\n<<if $drama == 4>>\n    [[Teacher.Drama4]]\n<<endif>>\n<<if $drama > 4>>\n    [[Teacher.DramaFinished]]\n<<endif>>\nHave you heard of my daughter in the meantime?\nShe's the young lady in bright attire just south of here.",
+		"position": {
+			"x": 582,
+			"y": 152
+		},
+		"colorID": 1
+	},
+	{
+		"title": "Teacher.Drama0",
+		"tags": "",
+		"body": "You might have met my daughter,\nshe lives just south of here in a splendid house.\nPoint being that she should really visit school.\nShe isn not obliged to, but she never finished her education\nand quite frankly, I am worried about her future.\nWhat is supposed to become of her.\nCould you go and talk to her about that?\nShe will not listen to me anymore.\n<<set $drama = 1>>",
+		"position": {
+			"x": 913,
+			"y": -118
+		},
+		"colorID": 2
+	},
+	{
+		"title": "Teacher.Drama2",
+		"tags": "",
+		"body": "How did my daughter respond?\n-> She said she already has a good job.\n    Yes... of course she did.\n    What she does not understand is that good might not be enough\n    We are a small community on this island.\n    Every single resident has to provide a use so we can persist\n    and sadly looking good just does not do that, does it?\n    <<set $drama = 3>>",
+		"position": {
+			"x": 977,
+			"y": 171
+		},
+		"colorID": 3
+	},
+	{
+		"title": "Teacher.Drama4",
+		"tags": "",
+		"body": "Are there any news from my dearest daughter?\n-> She says her job is just as valuable as yours. You should talk to her.\n    Can you imagine how often I tried that.\n    She would never listen to a single one of my rational claims.\n    But now that I listened to what she is saying in your words...\n    ...I realise I never listened to her either.\n    I have to collect myself, then I will meet with her and listen.\n    Something I should have done months ago.\n    You truly rebuilt a bridge between us.\n    Thank you so much.\n    <<set $drama = 5>>",
+		"position": {
+			"x": 890,
+			"y": 434
+		},
+		"colorID": 4
+	},
+	{
+		"title": "Teacher.DramaFinished",
+		"tags": "",
+		"body": "Thank you for your help earlier.\nBut not I have to collect myself to see my daughter.\nIt's been way too long since we really talked.\nYou can probably imagine the awkwardness in this tiny village.",
+		"position": {
+			"x": 596,
+			"y": 515
+		},
+		"colorID": 0
+	}
+]
