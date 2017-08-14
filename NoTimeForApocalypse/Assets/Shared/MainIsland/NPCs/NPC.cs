@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using System;
 using UnityEngine.EventSystems;
-using Yarn.Unity.Example;
+using Yarn.Unity;
 
 public class NPC : MonoBehaviour {
 
@@ -27,15 +27,18 @@ public class NPC : MonoBehaviour {
     }
 
     void Start() {
+        //print(DialogueRunner.current);
         if (scriptToLoad != null){
-            FindObjectOfType<Yarn.Unity.DialogueRunner>().AddScript(scriptToLoad);
+            //print(scriptToLoad.text);
+            DialogueRunner.current.AddScript(scriptToLoad);
         }
     }
 
     void Update(){
-        cooldown -= Time.deltaTime;
+        if(cooldown > 0)
+            cooldown -= Time.deltaTime;
         if (Input.GetButtonDown("Submit") && inRange != null && cooldown <= 0){
-            FindObjectOfType<Yarn.Unity.DialogueRunner>().StartDialogue(talkToNode);
+            DialogueRunner.current.StartDialogue(talkToNode);
             cooldown = 0.5f;
         }
     }

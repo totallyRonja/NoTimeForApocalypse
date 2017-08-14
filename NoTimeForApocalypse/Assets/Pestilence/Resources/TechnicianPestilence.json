@@ -2,7 +2,7 @@
 	{
 		"title": "Technician",
 		"tags": "",
-		"body": "....\n-> Uhm, hello...\n    <<if !visited(\"Technician.GiveCore\")>>\n        No Time to talk!\n        There is something evil coming for us!\n        That would mean a mass extinction and a massive loss of knowledge.\n        I can't let that happen!\n        I don't know what it is,\n        but a rocket has to be able to stop it.\n        Right?\n        -> Is there a way I can help?\n            Probably not.\n            Though I seem to have lost a <b>power core</b>,\n            if you stumble upon it, that would help me greatly.\n            <<if visited(\"Technician\")>>\n                No clue where I put it.\n                I'm sure I had it a few days ago.\n            <<endif>>\n        -> I found your power core <<if visited(\"Fashionista.GiveWarts\")>>\n            [[Technician.GiveCore]]\n    <<else>>\n        It's a shame that rocket didn't hit, huh.\n        All that's between us and certain doom is you\n        and everything I can do now is get you in best shape.\n        [[Technician.HealPlayer]]\n    <<endif>>\n-> ...\n    [[Technician.MorseJoke]]",
+		"body": "....\n-> Uhm, hello...\n    <<if !visited(\"Technician.TakeCore\")>>\n        No Time to talk!\n        There is something evil coming for us!\n        That would mean a mass extinction and a massive loss of knowledge.\n        I can't let that happen!\n        I don't know what it is,\n        but a rocket has to be able to stop it.\n        Right?\n        -> Is there a way I can help?\n            Probably not.\n            Though I seem to have lost a power core,\n            if you stumble upon it, that would help me greatly.\n            <<if visited(\"Technician\")>>\n                No clue where I put it.\n                I'm sure I had it a few days ago.\n            <<endif>>\n        -> I found your power core <<if visited(\"Fashionista.TakeWarts\")>>\n            [[Technician.TakeCore]]\n    <<else>>\n        It's a shame that rocket didn't hit, huh.\n        All that's between us and certain doom is you\n        and everything I can do now is get you in best shape.\n        [[Technician.HealPlayer]]\n    <<endif>>\n-> ...\n    [[Technician.MorseJoke]]",
 		"position": {
 			"x": 528,
 			"y": -109
@@ -20,11 +20,11 @@
 		"colorID": 0
 	},
 	{
-		"title": "Technician.GiveCore",
+		"title": "Technician.TakeCore",
 		"tags": "",
 		"body": "OH\nI honestly didn't expect you to find it.\nWhere did you even find that??\nAnyways, with this I can finish building my rocket.\nAnd.... Liftoff<<set $rocket to true>>\n..........................................................\nIt missed??\nThat thing was my only hope to destroy the thing...\nHey.. you,\ncan you destroy the thing that's hiding up north.\nYour chances of winning aren't the highest,\nbut think of the science that'd be lost!\nIn the meantime I can repair you.\n[[Technician.HealPlayer]]",
 		"position": {
-			"x": 804,
+			"x": 805,
 			"y": 185
 		},
 		"colorID": 0
@@ -32,10 +32,10 @@
 	{
 		"title": "Technician.MorseJoke",
 		"tags": "",
-		"body": "-----\n....-\n.....\n.----",
+		"body": ".----\n...--\n...--\n--...",
 		"position": {
 			"x": 261,
-			"y": 83
+			"y": 82
 		},
 		"colorID": 0
 	}

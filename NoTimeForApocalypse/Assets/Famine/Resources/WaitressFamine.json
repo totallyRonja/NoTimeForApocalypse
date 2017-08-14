@@ -1,0 +1,62 @@
+[
+	{
+		"title": "Waitress",
+		"tags": "",
+		"body": "<<if !visited(\"Waitress.TakeGold\")>>\n    Excuse me?\n    Could you maybe run a small errand for me.\n    -> yes? \n        [[Waitress.AskForGold]]\n<<endif>>\n-> do you have any pie? <<if visited(\"Mother.AskForPie\") && !visited(\"Waitress.GivePie\")>>\n    [[Waitress.GetAskedForPie]]\n-> Your new Mailman is here! <<if visited(\"PostPerson.GivePost\") && !visited(\"Waitress.TakePost\")>>\n    [[Waitress.TakePost]]",
+		"position": {
+			"x": 682,
+			"y": 302
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Waitress.AskForGold",
+		"tags": "",
+		"body": "You see, I am a changed woman! And what does a changed woman need?\nRight. Riches! I am in dire need of riches!\n-> The people are dying of hunger!\n    Who cares about them really?\n    Do I look like the local baker? Not anymore!\n    My only interest now is gold.\n    But my gold has to be unique. Something the market hasn't seen to this day!\n    I know what I need!\n    I'm gonna use my cake tins to mold the gold. Noone has seen golden pie on this island before!\n    Oh, it's gonna be marvellous.\n    All I'm missing is the gold. Would you be a dear and bring me some?\n    There are some boulders with gold veins in them. Somewhere on the west side of the island.\n    Just smash them, would you?\n    -> If it helps you...\n        Thank you so much darling.\n        This will surely be the best deed you ever did.\n    -> I can't support your priorities\n        Pah. Then act like the cursed plebs you are.\n        Or come back when you've come to your senses.\n-> I found some gold for you. <<if $gold>>\n    [[Waitress.TakeGold]]",
+		"position": {
+			"x": 995,
+			"y": 301
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Waitress.TakeGold",
+		"tags": "",
+		"body": "Oh thank you so much dearest.\nThis will surely make me the best.\nBut when I start with a simgle pie, why stop?\nI can open a jewelery!\nI can sell gold pie to everyone!\nI can produce gold pie for the masses.\nAnd if everyone is so hungry, let them eat golden cake.",
+		"position": {
+			"x": 1289,
+			"y": 302
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Waitress.GetAskedForPie",
+		"tags": "",
+		"body": "<<if visited(\"Waitress.TakeGold\")>>\n    [[Waitress.GivePie]]\n<<else>>\n    No, of course not.\n    Why would be interrested in that?\n    Have you seen the stock market price of pie lately?\n    Gold is where it's at!\n    Go fetch me some and maybe we can talk about pie.\n<<endif>>",
+		"position": {
+			"x": 680,
+			"y": 570
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Waitress.GivePie",
+		"tags": "",
+		"body": "Of course I do!\nAnd you can be the first customer of my new line of cake jewerly.\nLet me get the piece quickly.\nThis is a depiction of a pear pie, doesn't it look lovely?\n100% pure gold.\nYou can have it, if you want a second piece it will cost you a arm and a leg obviously.\nNow go and use it to get your muse.",
+		"position": {
+			"x": 998,
+			"y": 565
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Waitress.TakePost",
+		"tags": "",
+		"body": "Oh? How charming!\nYou do your new job so well.\nRecipies from my grandmother?\nAs if that's worth anything, I should write her soon.",
+		"position": {
+			"x": 412,
+			"y": 296
+		},
+		"colorID": 0
+	}
+]

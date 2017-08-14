@@ -1,0 +1,22 @@
+[
+	{
+		"title": "Fashionista",
+		"tags": "",
+		"body": "<<if !visited(\"Fashionista.GivePost\")>>\n    Can't you see I'm busy?\n    -> I just wanted to get the mail<<if visited(\"Postperson.AskForPost\")>>\n        [[Fashionista.GivePost]]\n<<else>>\n    Do you think my pitch was already read?\n    Will they like it?\n    Gosh I'm so exited for this!!\n<<endif>>",
+		"position": {
+			"x": 472,
+			"y": 241
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Fashionista.GivePost",
+		"tags": "",
+		"body": "Oh yes!\nI just didn't expect you to get collect the mail.\nI wrote a pitch for a fashion magazine.\nDo you think I'll be accepted?",
+		"position": {
+			"x": 749,
+			"y": 242
+		},
+		"colorID": 0
+	}
+]

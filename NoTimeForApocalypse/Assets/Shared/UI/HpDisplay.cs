@@ -33,7 +33,7 @@ public class HpDisplay : MonoBehaviour {
             if(timeLeft <= 0){
                 timeLeft = 0;
                 PauseMenu.current.death = true;
-                PauseMenu.current.Pause("the time came and you coudn't stop the apocalypse");
+                PauseMenu.current.Pause("the time came and you couldn't stop the apocalypse");
             }
             countDown.text = String.Format("{0:00}:{1:00}", Mathf.Floor(Mathf.Ceil(timeLeft) / 60), Mathf.Floor(Mathf.Ceil(timeLeft) % 60));
         }

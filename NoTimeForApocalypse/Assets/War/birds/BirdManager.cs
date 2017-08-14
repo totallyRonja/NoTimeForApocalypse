@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BirdManager : MonoBehaviour
 {
-    public string requireTag;
+    public string requireNode;
     public string setTag;
 	public Transform attackTarget;
 
@@ -13,7 +13,7 @@ public class BirdManager : MonoBehaviour
 
     // Use this for initialization
     void Start(){
-        ui = GameObject.FindGameObjectWithTag("NPCDialogueBox").GetComponent<NpcUi>();
+        ui = NpcUi.current;
     }
 
     // Update is called once per frame
@@ -30,11 +30,12 @@ public class BirdManager : MonoBehaviour
 		foreach(Bird birb in birbs)
             birb.attack(attackTarget.position, 10);
         yield return new WaitForSeconds(10);
-        TagTracker.current.setTag(setTag);
+        ExampleVariableStorage.current.SetTag(setTag);
+        Yarn.Unity.DialogueRunner.current.SwitchNode.Invoke();
     }
 
     private void OnTriggerEnter2D(Collider2D collision){
-        if (collision.CompareTag("Player") && TagTracker.current.isTag(requireTag) && !TagTracker.current.isTag(setTag))
+        if (collision.CompareTag("Player") && Yarn.Unity.DialogueRunner.current.visited(requireNode) && !TagTracker.current.isTag(setTag))
         {
             ui.Show("give seeds to birds", "");
             ui.SetActive(transform, true);

@@ -1,0 +1,22 @@
+[
+	{
+		"title": "Teacher",
+		"tags": "",
+		"body": "Hello darling.\n<<if !visited(\"Teacher.TakeBook\")>>\n    I would love to show you my prized book collection,\n    but it is so far from complete I am afraid I can not do that.\n    Except of course if you happen to have the last missing piece.\n    It is a masterpiece of literature called \"The Metamorphosis\".\n    Written by the great Franz Kafka.\n    But what is a book worth if I can not have it,\n    maybe there is not a single copy of it left...\n    -> Is this the book you're looking for? <<if visited(\"Technician.GiveBook\")>>\n        [[Teacher.TakeBook]]\n<<else>>\n    Thank you so much for that book earlier.\n    It is so good!\n    The amout of interpretation I am able to get into every single line!\n    Please leave alone with my interpretation for now.\n<<endif>>",
+		"position": {
+			"x": 811,
+			"y": 306
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Teacher.TakeBook",
+		"tags": "",
+		"body": "It is!\nAnd it is even the first edition!\nI could never just take this from you,\ntake this key from my key collection.\nIt must be ancient and it emmits some kind of dark energy,\nbut I am sure you can handle that.\nNow excuse me while I inspect the newest book in my collection.",
+		"position": {
+			"x": 1073,
+			"y": 306
+		},
+		"colorID": 0
+	}
+]

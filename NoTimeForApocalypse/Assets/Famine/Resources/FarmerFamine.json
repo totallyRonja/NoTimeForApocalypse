@@ -1,0 +1,22 @@
+[
+	{
+		"title": "Farmer",
+		"tags": "",
+		"body": "Hello Tinman.\n<<if visited(\"Postperson.AskForPost\") && !visited(\"Farmer.GivePost\")>>\n    [[The messenger birds don't feel well.|Farmer.GivePost]]\n<<else>>\n    Thanks for getting the mail earlier.\n    I hope the judges like Emmas poem!\n<<endif>>\n\n    ",
+		"position": {
+			"x": 212,
+			"y": 255
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Farmer.GivePost",
+		"tags": "",
+		"body": "Oh dear, I wish I could help them.\nBut sadly my specialty are the bigger animals,\nSo I can do right now is wish them best of luck.\nI assume you're here to get my mail then?\nIt's a poem Emma wrote for a contest,\ncan you imagine how proud I am of her??",
+		"position": {
+			"x": 590,
+			"y": 249
+		},
+		"colorID": 0
+	}
+]

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class NpcUi : MonoBehaviour {
+    public static NpcUi current;
 
     public string caption;
     public string content;
@@ -19,6 +20,11 @@ public class NpcUi : MonoBehaviour {
     private Camera cam;
     private bool showOptions = false;
     GameObject[] buttons;
+    private Vector3 offset = Vector2.zero;
+
+    void Awake(){
+        current = this;
+    }
 
 	// Use this for initialization
 	void Start () {
@@ -39,19 +45,28 @@ public class NpcUi : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (active != null) {
-            Vector2 pos = cam.WorldToScreenPoint(active.position);
+            Vector2 pos = cam.WorldToScreenPoint(active.position + offset);
             transform.parent.position = pos;
         }
     }
 
     public void SetActive(Transform tr, bool setActive) {
-        if (setActive) {
+        SetActive(tr, setActive, Vector2.zero);
+    }
+
+    public void SetActive(Transform tr, bool setActive, Vector2 offset){
+        if (setActive)
+        {
+            this.offset = offset;
             active = tr;
             textComponent.enabled = true;
             speechFrame.enabled = true;
             Apply();
-        } else {
-            if(tr == active) {
+        }
+        else
+        {
+            if (tr == active)
+            {
                 active = null;
                 textComponent.enabled = false;
                 speechFrame.enabled = false;
@@ -64,8 +79,8 @@ public class NpcUi : MonoBehaviour {
         textComponent.text = "<size=" + captionSize + "><b>" + caption + "</b></size>"+((content != "" && caption!="")?("\n"):"")+"<b>" + content + "</b>";
         //print(textComponent.preferredHeight + 36);
         if (!showOptions) {
-            ((RectTransform)transform.parent).sizeDelta = new Vector2(Mathf.Min(500, 36 + textComponent.preferredWidth), 36 + textComponent.preferredHeight);
-            ((RectTransform)transform.parent).sizeDelta = new Vector2(Mathf.Min(500, 36 + textComponent.preferredWidth), 36 + textComponent.preferredHeight);
+            //((RectTransform)transform.parent).sizeDelta = new Vector2(Mathf.Min(500, 36 + textComponent.preferredWidth), 36 + textComponent.preferredHeight);
+            //((RectTransform)transform.parent).sizeDelta = new Vector2(Mathf.Min(500, 36 + textComponent.preferredWidth), 36 + textComponent.preferredHeight);
         }
     }
 
@@ -77,28 +92,5 @@ public class NpcUi : MonoBehaviour {
         this.caption = caption;
         showOptions = false;
         Apply();
-    }
-
-    public void ShowOptions(string[] options) {
-        //just to be sure that all unnessecary buttons are deactivated
-        Show("", "");
-
-        for(int i=0;i<options.Length;i++) {
-            buttons[i].SetActive(true);
-            buttons[i].GetComponentInChildren<Text>().text = options[i];
-        }
-        EventSystem.current.SetSelectedGameObject(buttons[0]);
-        //print((RectTransform)transform.parent);
-        ((RectTransform)transform.parent).sizeDelta = new Vector2(500, 36 + 50 * options.Length);
-
-        showOptions = true;
-    }
-
-    public void Connect(IOptionHolder OptionChooseMethod) {
-        for (int i = 0; i < buttons.Length; i++) {
-            int a = i;
-            buttons[a].GetComponent<Button>().onClick.AddListener(
-                    () => StartCoroutine(OptionChooseMethod.ChooseOption(a)));
-        }
     }
 }

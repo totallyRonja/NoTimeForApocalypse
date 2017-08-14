@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6e47fa1571ef3645b6a102080e78745, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: Apple
   setTag: $apple
 --- !u!210 &210426151140850380
 SortingGroup:
@@ -149,3 +150,5 @@ SpriteRenderer:
   m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0

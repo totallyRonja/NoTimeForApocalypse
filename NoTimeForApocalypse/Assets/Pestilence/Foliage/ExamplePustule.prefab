@@ -69,6 +69,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f96210977311c0749a40a6b4e91557f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: Warts
   setTag: $warts
   decayTime: 0
   probability: 1
@@ -122,3 +123,5 @@ SpriteRenderer:
   m_Size: {x: 6.46, y: 7.43}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0

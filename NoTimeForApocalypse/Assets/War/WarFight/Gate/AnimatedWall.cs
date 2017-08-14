@@ -13,15 +13,15 @@ public class AnimatedWall : MonoBehaviour
     void Start()
     {
         wallAnim = GetComponent<Animator>();
-        TagTracker.current.tagsChanged.AddListener(WallStatus);
+        Yarn.Unity.DialogueRunner.current.SwitchNode.AddListener(WallStatus);
         WallStatus();
     }
 
     // Update is called once per frame
     void WallStatus()
     {
-        wallAnim.SetBool("broken", TagTracker.current.isTag(breakerTag));
-        blockColl.enabled = !TagTracker.current.isTag(breakerTag);
+        wallAnim.SetBool("broken", ExampleVariableStorage.current.IsTag(breakerTag));
+        blockColl.enabled = !ExampleVariableStorage.current.IsTag(breakerTag);
     }
 
     public void Reset()

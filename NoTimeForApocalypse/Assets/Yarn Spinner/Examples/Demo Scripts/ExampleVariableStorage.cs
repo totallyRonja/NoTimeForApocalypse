@@ -133,7 +133,7 @@ public class ExampleVariableStorage : VariableStorageBehaviour
 
     public bool IsTag(string tagName)
     {
-        return GetValue("tagName").AsBool;
+        return GetValue(tagName).AsBool;
     }
     // Get a variable's value
     public override Yarn.Value GetValue (string variableName)

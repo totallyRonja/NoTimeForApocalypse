@@ -28,6 +28,7 @@ using System;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Events;
 
 namespace Yarn.Unity
 {
@@ -37,8 +38,10 @@ namespace Yarn.Unity
 	[AddComponentMenu("Scripts/Yarn Spinner/Dialogue Runner")]
 	public class DialogueRunner : MonoBehaviour
 	{
-		// The JSON files to load the conversation from
-		public TextAsset[] sourceText;
+        public static DialogueRunner current;
+
+        // The JSON files to load the conversation from
+        public TextAsset[] sourceText;
 
 		// Our variable storage
 		public Yarn.Unity.VariableStorageBehaviour variableStorage;
@@ -56,6 +59,8 @@ namespace Yarn.Unity
 
 		public bool automaticCommands = true;
 
+		public UnityEvent SwitchNode;
+
 		// Our conversation engine
 		// Automatically created on first access
 		private Dialogue _dialogue;
@@ -72,6 +77,13 @@ namespace Yarn.Unity
 				return _dialogue;
 			}
 		}
+
+
+		void Awake(){
+			if(current != null)
+                Debug.LogError("Second Dialoguerunner is registering");
+            current = this;
+        }
 
 		void Start ()
 		{
@@ -189,7 +201,8 @@ namespace Yarn.Unity
 					// Wait for post-node action
 					var nodeResult = step as Yarn.Dialogue.NodeCompleteResult;
 					yield return StartCoroutine (this.dialogueUI.NodeComplete (nodeResult.nextNode));
-				}
+                    SwitchNode.Invoke();
+                }
 			}
 
 			// No more results! The dialogue is done.

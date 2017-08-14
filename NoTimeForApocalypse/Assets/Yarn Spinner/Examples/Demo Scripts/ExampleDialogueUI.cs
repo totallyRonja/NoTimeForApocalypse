@@ -90,8 +90,9 @@ namespace Yarn.Unity.Example {
 		// Show a line of dialogue, gradually
 		public override IEnumerator RunLine (Yarn.Line line)
 		{
-			// Show the text
-			lineText.gameObject.SetActive (true);
+
+            // Show the text
+            lineText.gameObject.SetActive (true);
 			
 			if (textSpeed > 0.0f) {
 				// Display the line one character at a timetime

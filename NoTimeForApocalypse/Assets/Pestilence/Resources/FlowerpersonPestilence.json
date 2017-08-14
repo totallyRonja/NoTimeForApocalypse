@@ -1,8 +1,8 @@
 [
 	{
-		"title": "FlowerPerson",
+		"title": "Flowerperson",
 		"tags": "",
-		"body": "<<if !visited(\"FlowerPerson\")>>\n    Oh\n<<endif>>\nWelcome to the flowershop.\nIf you came for medicinal flowers I have to disappoint you.\nI don't have a single one of them left.\n<<if (visited(\"Farmer\") && !visited(\"Farmer.GiveRose\")) || !visited(\"FlowerPerson.GiveFlowers\")>>\n    -> Do you have a thornrose? <<if visited(\"Farmer\") && !visited(\"Farmer.GiveRose\")>>\n        No I don't, sorry.\n        But I've seen one just east of here.\n        They're my least favourite flowers,\n        but the healing effect it has on some animals is amazing.\n    -> The Mother living in the village told me about a flower delivery <<if visited(\"Mother\") && !visited(\"FlowerPerson.GiveFlowers\")>>\n        Yeah, I didn't have time to bring it to her,\n        this might sound rude,\n        but could you bring her the flowers in my place?\n        [[FlowerPerson.GiveFlowers]]\n    -> Is there anything I can do to help? <<if !visited(\"Mother\") && !visited(\"FlowerPerson.GiveFlowers\")>>\n        There actually is,\n        Have you met the mother living in the village?\n        She's still expecting a delivery of flowers,\n        if you could do that delivery in my place,\n        that would help me greatly.\n        [[FlowerPerson.GiveFlowers]]\n<<else>>\n    The flower I just gave you,\n    a commom myth is that they have healing powers,\n    but like implied - it's just a myth.\n    I just think that's interresting...\n<<endif>>",
+		"body": "<<if !visited(\"Flowerperson\")>>\n    Oh\n<<endif>>\nWelcome to the flowershop.\nIf you came for medicinal flowers I have to disappoint you.\nI don't have a single one of them left.\n<<if visited(\"Farmer\") && !visited(\"Farmer.TakeRose\") || !visited(\"Flowerperson.GiveFlowers\")>>\n    -> Do you have a thornrose? <<if visited(\"Farmer\") && !visited(\"Farmer.TakeRose\")>>\n        No I don't, sorry.\n        But I've seen one just east of here.\n        They're my least favourite flowers,\n        but the healing effect it has on some animals is amazing.\n    -> The Mother living in the village told me about a flower delivery <<if visited(\"Mother\") && !visited(\"Flowerperson.GiveFlowers\")>>\n        Yeah, I didn't have time to bring it to her,\n        this might sound rude,\n        but could you bring her the flowers in my place?\n        [[Flowerperson.GiveFlowers]]\n    -> Is there anything I can do to help? <<if !visited(\"Mother\") && !visited(\"Flowerperson.GiveFlowers\")>>\n        There actually is,\n        Have you met the mother living in the village?\n        She's still expecting a delivery of flowers,\n        if you could do that delivery in my place,\n        that would help me greatly.\n        [[Flowerperson.GiveFlowers]]\n<<else>>\n    The flower I just gave you,\n    a commom myth is that they have healing powers,\n    but like implied - it's just a myth.\n    I just think that's interresting...\n<<endif>>",
 		"position": {
 			"x": 536,
 			"y": 191
@@ -10,7 +10,7 @@
 		"colorID": 0
 	},
 	{
-		"title": "FlowerPerson.GiveFlowers",
+		"title": "Flowerperson.GiveFlowers",
 		"tags": "",
 		"body": "Here's the flowers.\nThe recipient lives in the east of the village.\nThank you again for taking care of this!",
 		"position": {

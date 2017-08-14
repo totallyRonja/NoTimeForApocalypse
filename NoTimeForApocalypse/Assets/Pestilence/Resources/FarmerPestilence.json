@@ -2,7 +2,7 @@
 	{
 		"title": "Farmer",
 		"tags": "",
-		"body": "Hello Nick!\nhow are you\n<<if visited(\"Farmer.GiveRose\")>>\nThank you so much for helping us earlier.\nBetty is already feeling way better.\nBless you for your deeds\n<<else>>\nI'm glad to see you but you found me in a bad time.\n<<if visited(\"Farmer\")>>\n    Like I told you previously.\n<<endif>>\nMy dearest Betty is sick.\nIt would be great if you could find some medicine.\nTheres a rare flower called \"Thornrose\",\nI'm sure if you could find that Betty's health would improve\n-> Where do I find the rose?\n    [[Farmer.RoseDirections]]\n-> Here you go! <<if $rose>>\n    [[Farmer.GiveRose]]\n-> I'll find it for you!\n    Thanks, dear.\n<<endif>>",
+		"body": "Hello Nick!\nhow are you\n<<if visited(\"Farmer.TakeRose\")>>\nThank you so much for helping us earlier.\nBetty is already feeling way better.\nBless you for your deeds\n<<else>>\nI'm glad to see you but you found me in a bad time.\n<<if visited(\"Farmer\")>>\n    Like I told you previously.\n<<endif>>\nMy dearest Betty is sick.\nIt would be great if you could find some medicine.\nTheres a rare flower called \"Thornrose\",\nI'm sure if you could find that Betty's health would improve\n-> Where do I find the rose?\n    [[Farmer.RoseDirections]]\n-> Here you go! <<if $rose>>\n    [[Farmer.TakeRose]]\n-> I'll find it for you!\n    Thanks, dear.\n<<endif>>",
 		"position": {
 			"x": 627,
 			"y": 228
@@ -10,7 +10,7 @@
 		"colorID": 0
 	},
 	{
-		"title": "Farmer.GiveRose",
+		"title": "Farmer.TakeRose",
 		"tags": "",
 		"body": "Thank you so much!\nYou are a true darling.\nBetty will feel better in no time.",
 		"position": {
