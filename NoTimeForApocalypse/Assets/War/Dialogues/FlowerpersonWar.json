@@ -2,7 +2,7 @@
 	{
 		"title": "Flowerperson",
 		"tags": "",
-		"body": "<<if !visited(\"Flowerperson\")>>\n\n<<else>>\n    Hello there mechanic pal\n    <<if visited(\"Postperson.GivePost\") && !visited(\"Flowerperson.TakePost\")>>\n        -> I have a letter for you here\n            [[Flowerperson.TakePost]]\n        -> How are you?\n            [[Flowerperson.Smalltalk]]\n    <<endif>>\n    <<if visited(\"Postperson.AllPostDelivered\") && !visited(\"Flowerperson.GiveSeeds\")>>\n        -> I need a few seeds for the carrier birds.\n            [[Flowerperson.GiveSeeds]]\n        -> How are you?\n            [[Flowerperson.Smalltalk]]\n    <<endif>>\n    <<if $BirdsAteSeeds && !visited(\"Flowerperson.AggressiveBirdReaction\")>>\n        How did the birds like the seeds?\n        -> They got very active and destroyed a gate\n            [[Flowerperson.AggressiveBirdReaction]]\n    <<endif>>\n    [[Flowerperson.Smalltalk]]\n<<endif>>",
+		"body": "\nHello there mechanic pal\n<<if visited(\"Postperson.GivePost\") && !visited(\"Flowerperson.TakePost\")>>\n    -> I have a letter for you here\n        [[Flowerperson.TakePost]]\n    -> How are you?\n        [[Flowerperson.Smalltalk]]\n<<endif>>\n<<if visited(\"Postperson.AllPostDelivered\") && !visited(\"Flowerperson.GiveSeeds\")>>\n    -> I need a few seeds for the carrier birds.\n        [[Flowerperson.GiveSeeds]]\n    -> How are you?\n        [[Flowerperson.Smalltalk]]\n<<endif>>\n<<if $BirdsAteSeeds && !visited(\"Flowerperson.AggressiveBirdReaction\")>>\n    How did the birds like the seeds?\n    -> They got very active and destroyed a gate\n        [[Flowerperson.AggressiveBirdReaction]]\n<<endif>>\n[[Flowerperson.Smalltalk]]\n",
 		"position": {
 			"x": -376,
 			"y": -180

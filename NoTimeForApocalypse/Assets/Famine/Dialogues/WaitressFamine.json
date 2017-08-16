@@ -2,7 +2,7 @@
 	{
 		"title": "Waitress",
 		"tags": "",
-		"body": "<<if !visited(\"Waitress.TakeGold\")>>\n    Excuse me?\n    Could you maybe run a small errand for me.\n    -> yes? \n        [[Waitress.AskForGold]]\n<<endif>>\n-> do you have any pie? <<if visited(\"Mother.AskForPie\") && !visited(\"Waitress.GivePie\")>>\n    [[Waitress.GetAskedForPie]]\n-> Your new Mailman is here! <<if visited(\"PostPerson.GivePost\") && !visited(\"Waitress.TakePost\")>>\n    [[Waitress.TakePost]]",
+		"body": "<<if !visited(\"Waitress.TakeGold\")>>\n    Excuse me?\n    Could you maybe run a small errand for me.\n<<endif>>\n-> yes? <<if !visited(\"Waitress.TakeGold\")>>\n    [[Waitress.AskForGold]]\n-> do you have any pie? <<if visited(\"Mother\") && !visited(\"Waitress.GivePie\")>>\n    [[Waitress.GetAskedForPie]]\n-> Your new Mailman is here! <<if visited(\"Postperson.AskForPost\") && !visited(\"Waitress.GivePost\")>>\n    [[Waitress.GivePost]]\nYes hello?\nYou don't seem to have the money or prestige to help me out.\nSo if you don't want anything you can go now.",
 		"position": {
 			"x": 682,
 			"y": 302
@@ -50,11 +50,11 @@
 		"colorID": 0
 	},
 	{
-		"title": "Waitress.TakePost",
+		"title": "Waitress.GivePost",
 		"tags": "",
-		"body": "Oh? How charming!\nYou do your new job so well.\nRecipies from my grandmother?\nAs if that's worth anything, I should write her soon.",
+		"body": "Oh? How charming!\nYou do your new job so well.\nTake this letter addressed to my grandmother.\nShe keeps sending me recipies as if that's worth anything today.\nGold is where it's at today.",
 		"position": {
-			"x": 412,
+			"x": 416,
 			"y": 296
 		},
 		"colorID": 0

@@ -12,7 +12,7 @@
 	{
 		"title": "Mother.TakeFruit",
 		"tags": "",
-		"body": "Thanksss....\nIt's spoiler... very much.\nI really can't eat this.\n<<if visited(\"Mother.TakePie\")>>\n    [[Mother.TookAllFood]]\n<<else>>\n    Can you try to get us something more edible?\n<<endif>>",
+		"body": "Thanksss....\nIt's spoiled... very much.\nI really can't eat this.\n<<if visited(\"Mother.TakePie\")>>\n    [[Mother.TookAllFood]]\n<<else>>\n    Can you try to get us something more edible?\n<<endif>>",
 		"position": {
 			"x": 373,
 			"y": 429
@@ -22,7 +22,7 @@
 	{
 		"title": "Mother.TakePie",
 		"tags": "",
-		"body": "This isn't bakery!\nThis is solif gold.\nDo you want us to starve?\n<<if visited(\"Mother.TakePie\")>>\n    [[Mother.TookAllFood]]\n<<else>>\n    Can you try to get us something more edible?\n<<endif>>",
+		"body": "This isn't bakery!\nThis is solid gold.\nDo you want us to starve?\n<<if visited(\"Mother.TakePie\")>>\n    [[Mother.TookAllFood]]\n<<else>>\n    Can you try to get us something more edible?\n<<endif>>",
 		"position": {
 			"x": 682,
 			"y": 427

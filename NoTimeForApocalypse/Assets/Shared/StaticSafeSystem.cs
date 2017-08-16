@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using System;
+using Yarn.Unity;
 
 public class StaticSafeSystem : MonoBehaviour {
 
@@ -23,8 +24,8 @@ public class StaticSafeSystem : MonoBehaviour {
 			completedQuest = new UnityEvent(); // event
 	}
 	void Start () {
-		if(TagTracker.current)
-			TagTracker.current.tagsChanged.AddListener(tagsChanged);
+		if(Yarn.Unity.DialogueRunner.current)
+			Yarn.Unity.DialogueRunner.current.SwitchNode.AddListener(tagsChanged);
 	}
 	
 	void Load(){ // load existing tags from file
@@ -47,15 +48,26 @@ public class StaticSafeSystem : MonoBehaviour {
         PlayerPrefs.SetInt("Upgrades", upgrades);
 		PlayerPrefs.SetInt("Levels", beatenLevels);
         PlayerPrefs.Save();
-		print("saved quests");
+		print("saved stats");
 	}
 	void tagsChanged () {
-		foreach(string tag in TagTracker.current.activeTags){
-			if(availableTags.Contains(tag) && !activeTags.Contains(tag)) {
-				activeTags.Add(tag);
-				Save();
-				completedQuest.Invoke();
-				break;
+		foreach(string checkTag in availableTags){
+			if(activeTags.Contains(checkTag))
+                continue;
+            if(checkTag.StartsWith("$")) {
+                if (ExampleVariableStorage.current.IsTag(checkTag)){
+                    activeTags.Add(checkTag);
+                    Save();
+                    completedQuest.Invoke();
+                    break;
+                }
+            } else {
+				if (DialogueRunner.current.visited(checkTag)){
+                    activeTags.Add(checkTag);
+                    Save();
+                    completedQuest.Invoke();
+                    break;
+                }
 			}
 		}
 	}
@@ -68,10 +80,16 @@ public class StaticSafeSystem : MonoBehaviour {
 	public bool hasUpgrade(int index){
         return ((upgrades >> index) & 1) == 1;
     }
+
 	public bool canBuyUpgrade(){
         return activeTags.Count - usedCoins >= 6;
     }
+
 	[Yarn.Unity.YarnCommand("buyUpgrade")]
+    public bool buyUpgrade(string index){
+        return buyUpgrade(Int32.Parse(index));
+    }
+
 	public bool buyUpgrade(int index){
         if(activeTags.Count - usedCoins < 6)
             throw new Exception("This cannot be bought with this amount of money, fix your dialogue");
@@ -81,6 +99,7 @@ public class StaticSafeSystem : MonoBehaviour {
         upgrades |= 1 << index;
         usedCoins += 6;
         Save();
+        completedQuest.Invoke();
         return true;
     }
 	public int getFreeCoins(){

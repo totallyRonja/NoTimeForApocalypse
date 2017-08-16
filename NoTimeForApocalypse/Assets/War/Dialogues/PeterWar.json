@@ -1,0 +1,32 @@
+[
+	{
+		"title": "Peter",
+		"tags": "",
+		"body": "<<if !visited(\"Peter\")>>\n    Hello Stranger!\n    You've found me in quite a strange time.\n    A literal rider of the apocalypse is hiding up north.\n    And it's the second one at that, can't they count?\n    Or did the first rider get lost in another timeline? heh.\n    The result of War being around is also quite unfortunate.\n    Many people seem to be quite aggressive.\n    If you knew me you'd know that that doesn't bother me much.\n    But it's surprisingly hard to get a good pie now...\n    So if you'd be able to get a pie for me somehow,\n    it'd help me a lot!\n<<else>>\n    <<if visited(\"Waitress.GivePie\")>>\n        [[Peter.TakePie]]\n    <<else>>\n        Hello Stranger\n        Do you see any pie?\n        Me neither so it'd be most joyful if you'd get some.\n        <<if !hasUpgrade(1)>>\n            But in the meantime do you maybe want a small upgrade?\n            [[Peter.SellDamage]]\n        <<endif>>\n    <<endif>>\n<<endif>>",
+		"position": {
+			"x": -633,
+			"y": 240
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Peter.TakePie",
+		"tags": "",
+		"body": "<<if !visited(\"Peter.TakePie\")>>\n    Aah thanks, this pie looks quite delicious.\n    Thank you very much.\n<<else>>\n    Thanks for that pie earlier.\n    If all catastrophes lead to pie I woudn't say to another 2 of them.\n    <<if !hasUpgrade(1)>>\n        Now what that's taken care of, can I interrest you in a upgrade?\n        [[Peter.SellDamage]]\n    <<endif>>\n<<endif>>",
+		"position": {
+			"x": -264,
+			"y": 241
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Peter.SellDamage",
+		"tags": "",
+		"body": "From what I've seem by looking at you it should be easy enough to overclock your electricity output.\nThat would about half the amout of time you need to dispatch your foes.\n<<if !canBuyUpgrade()>>\n    But from what I can see you're broke,\n    come back when you have 6 coins.\n    You earn them by doing small Tasks for the locals.\n<<else>>\n    And I'd like 6 of those coins you have on you, do we have a deal?\n    -> Yes\n        beautiful!\n        here you go!\n        <<buyUpgrade StaticSafeSystem 1>>\n        just pess your action key and you should be dashing away\n        have a great day, I know I will.\n    -> Nevermind, no.\n        Oh...\n        I didn't expect that, but I respect your choices.\n        Come back when you're wiser.\n<<endif>>",
+		"position": {
+			"x": -459,
+			"y": 586
+		},
+		"colorID": 0
+	}
+]

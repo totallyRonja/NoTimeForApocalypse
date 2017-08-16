@@ -76,7 +76,7 @@ public class NpcUi : MonoBehaviour {
 
     public void Apply() {
         
-        textComponent.text = "<size=" + captionSize + "><b>" + caption + "</b></size>"+((content != "" && caption!="")?("\n"):"")+"<b>" + content + "</b>";
+        textComponent.text = "<b>" + caption + "</b>"+((content != "" && caption!="")?("\n"):"")+"<b>" + content + "</b>";
         //print(textComponent.preferredHeight + 36);
         if (!showOptions) {
             //((RectTransform)transform.parent).sizeDelta = new Vector2(Mathf.Min(500, 36 + textComponent.preferredWidth), 36 + textComponent.preferredHeight);

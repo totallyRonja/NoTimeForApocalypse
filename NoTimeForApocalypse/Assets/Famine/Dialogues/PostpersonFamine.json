@@ -1,0 +1,42 @@
+[
+	{
+		"title": "Postperson",
+		"tags": "",
+		"body": "<<if !visited(\"Postperson.AskForPost\")>>\nOh it's terrible.\nAll my birds are too hungry to fly and collect the post of the residents.\n-> I could collect the mail.\n    [[Postperson.AskForPost]]\n<<endif>>\n<<if visited(\"Farmer.GivePost\") &&\n        visited(\"Waitress.GivePost\") &&\n        visited(\"Fashionista.GivePost\") &&\n        !visited(\"Postperson.TakePost\")>>\n    -> Here you go. I got all the mail.\n        [[Postperson.TakePost]]\n<<endif>>\n<<if visited(\"Postperson.TakePost\")>>\n    Thanks for bringing me those letters earlier.\n    I don't know what I would've done if you didn't come around.\n<<else>>\n    Did you find all of the people with letters?\n    [[Postperson.PostLocations]]\n<<endif>>",
+		"position": {
+			"x": 83,
+			"y": 42
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Postperson.AskForPost",
+		"tags": "",
+		"body": "You could??\nThat's great! I never had help with the postal services before.\nThank you so much!\n[[Postperson.PostLocations]]",
+		"position": {
+			"x": 362,
+			"y": 50
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Postperson.TakePost",
+		"tags": "",
+		"body": "Thats great!!\nYou're even faster than my birds usually are,\nbut don't tell them that.\nI'll transfer the letters to their respective destinations soon.",
+		"position": {
+			"x": 77,
+			"y": 319
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Postperson.PostLocations",
+		"tags": "",
+		"body": "You should get the letters...\n<<if !visited(\"Farmer.GivePost\")>>\n    ...by the Farmer or his cow, it's never obvious.\n    They live east of here...\n<<endif>>\n<<if !visited(\"Waitress.GivePost\")>>\n    ...by the Waitress, she lives in the west.\n    I should visit her again soon and ask for some of her pie...\n<<endif>>\n<<if !visited(\"Fashionista.GivePost\")>>\n    ...and by our local fashion queen.\n    She lives just south of here you can't have missed her...\n<<endif>>\n...and then bring them to me, okay?",
+		"position": {
+			"x": 370,
+			"y": 315
+		},
+		"colorID": 0
+	}
+]

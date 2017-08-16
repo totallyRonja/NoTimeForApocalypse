@@ -9,7 +9,7 @@ using Yarn.Unity;
 
 public class NPC : MonoBehaviour {
 
-    public string characterName = "";
+    //public string characterName = "";
 
     [FormerlySerializedAs("startNode")]
     public string talkToNode = "";
@@ -37,7 +37,7 @@ public class NPC : MonoBehaviour {
     void Update(){
         if(cooldown > 0)
             cooldown -= Time.deltaTime;
-        if (Input.GetButtonDown("Submit") && inRange != null && cooldown <= 0){
+        if (Input.GetButtonDown("Submit") && inRange != null && cooldown <= 0 && Time.timeScale > 0.5f){
             DialogueRunner.current.StartDialogue(talkToNode);
             cooldown = 0.5f;
         }

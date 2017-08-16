@@ -1,0 +1,22 @@
+[
+	{
+		"title": "Peter",
+		"tags": "",
+		"body": "Ah, glad to see you have made it this far.\nLucky you, I guess.\n<<if !hasUpgrade(2)>>\n    You still know I sell upgrades for the soul of the innocent, right?\n    Hah, just kidding.\n    It's just peoples trust in you that I use up.\n    This time I can offer you a splendid blocking ability.\n    Just be invulnerable while dashing around.\n    Sounds good? I thought so!\n    Only 6 tokens. You know the deal.\n<<endif>>\n-> I'd like to buy the shield. <<if !hasUpgrade(2)>>\n    [[Peter.BuyShield]]\n-> Anything you can tell me about this timeline?\n    Hm, it appears that Famine holds it's reign here.\n    You will see a lot of precious metals.\n    If we weren't so doomed I'd get every piece of gold I could put my hands on.\n    Oh, and food is kinda scarce but who cares about that, right?\n    -> You're weird\n        Don't forget heartless, my friend.\n        And selfish. You really should know me better by now.",
+		"position": {
+			"x": 409,
+			"y": 224
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Peter.BuyShield",
+		"tags": "",
+		"body": "<<if !canBuyUpgrade()>>\n    Sorry, but you're completely broke, come back when you have 6 coins.\n    You earn them by doing small Tasks for the locals.\n<<else>>\n    beautiful!\n    here you go!\n    <<buyUpgrade StaticSafeSystem 2>>\n    Just press your action key and you should be invulnerable for a short time.\n    That also applies while dashing with the same button!\n    Have a great day, I know I will.\n<<endif>>",
+		"position": {
+			"x": 674,
+			"y": 219
+		},
+		"colorID": 0
+	}
+]

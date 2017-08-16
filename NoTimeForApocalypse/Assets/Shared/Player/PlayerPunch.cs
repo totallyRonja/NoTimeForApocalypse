@@ -28,7 +28,9 @@ public class PlayerPunch : MonoBehaviour {
             GameObject closest = getClosestWithTag("Enemy");
             Vector2 direction = closest == null ? walk.direction : (Vector2)(closest.transform.position - hitOrigin.transform.position);
             GameObject newHit = Instantiate(hitPrefab, hitOrigin.transform.position, Quaternion.AngleAxis(Mathf.Atan2(-direction.x, direction.y) * Mathf.Rad2Deg, Vector3.forward));
-            newHit.GetComponent<HitParticle>().source = gameObject;
+            HitParticle hitComponent = newHit.GetComponent<HitParticle>();
+            hitComponent.source = gameObject;
+            hitComponent.damage = StaticSafeSystem.current.hasUpgrade(0)?2:1;
             canHit = false;
             StartCoroutine(Reactivate());
 

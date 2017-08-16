@@ -29,6 +29,7 @@ public class PlayerHP : Hitable {
 
 	public override void Hit(GameObject source, float damage = 0, Vector2 direction = new Vector2())
     {
+        if(!enabled) return;
         if (hp < 0) return;
         if (!(onCooldown || StaticSafeSystem.current.accessible))
         {

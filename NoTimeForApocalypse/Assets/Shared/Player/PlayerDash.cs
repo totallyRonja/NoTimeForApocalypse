@@ -15,11 +15,13 @@ public class PlayerDash : MonoBehaviour {
 
     private PlayerPhysics phys;
 	private PlayerWalk walk;
+    private PlayerHP health;
 
 	// Use this for initialization
 	void Awake(){
         phys = GetComponent<PlayerPhysics>();
         walk = GetComponent<PlayerWalk>();
+        health = GetComponent<PlayerHP>();
         //controller.dash = this;
     }
 
@@ -30,8 +32,13 @@ public class PlayerDash : MonoBehaviour {
 	// Update is called once per frame
 	public void Dash(){
         //upgrade 0 is dash
-        if (Input.GetButtonDown("Action") && Time.timeScale > 0 && StaticSafeSystem.current.hasUpgrade(0)){
-            StartCoroutine("DashAction");
+        if (Input.GetButtonDown("Action") && Time.timeScale > 0){
+            if(StaticSafeSystem.current.hasUpgrade(0)){
+                StartCoroutine(DashAction());
+            }
+            if(StaticSafeSystem.current.hasUpgrade(2)){
+                StartCoroutine(InvulnerabilityAction());
+            }
         }
     }
     private IEnumerator DashAction() {
@@ -49,5 +56,11 @@ public class PlayerDash : MonoBehaviour {
         phys.velocity = Vector2.zero;
         //walk.enabled = true;
         enabled = true;
+    }
+    private IEnumerator InvulnerabilityAction(){
+        if(!health) yield break;
+        health.enabled = false;
+        yield return new WaitForSeconds(duration);
+        health.enabled = true;
     }
 }

@@ -18,7 +18,7 @@ public class Famine : MonoBehaviour {
     void Start () {
         player = PlayerPhysics.current.transform;
         anim = transform.GetComponentInChildren<Animator>();
-        InvokeRepeating("CastAbility", 0, 5);
+        InvokeRepeating("CastAbility", 0, 2);
     }
 	
 	void CastAbility(){

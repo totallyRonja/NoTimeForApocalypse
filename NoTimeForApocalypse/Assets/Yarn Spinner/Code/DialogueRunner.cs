@@ -29,6 +29,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Events;
+using System.Linq;
 
 namespace Yarn.Unity
 {
@@ -233,8 +234,10 @@ namespace Yarn.Unity
 		}
 
 		public bool visited(string nodeName){
-			foreach(string node in dialogue.visitedNodes){
-				if(node.Equals(nodeName, StringComparison.InvariantCultureIgnoreCase)){
+            foreach(string node in dialogue.visitedNodes){
+				if(node == null)
+                    continue;
+                if(node.Equals(nodeName, StringComparison.InvariantCultureIgnoreCase)){
                     return true;
                 }
 			}

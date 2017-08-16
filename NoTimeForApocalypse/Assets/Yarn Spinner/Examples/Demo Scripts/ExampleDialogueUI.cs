@@ -174,7 +174,11 @@ namespace Yarn.Unity.Example {
 		public override IEnumerator RunCommand (Yarn.Command command)
 		{
 			// "Perform" the command
+			/*
 			Debug.Log ("Command: " + command.text);
+			if(command.text.StartsWith("StartDrawing")){
+                Drawing.current.StartDrawing("");
+			}*/
 
 			yield break;
 		}

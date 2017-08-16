@@ -46,6 +46,7 @@ public class CameraMagic : MonoBehaviour {
 
     public void PreCullAdjustFOV(Camera cam)
     {
+        m_originalFOV = cam.orthographicSize;
         if (cam == cameraForThis)
         {
             cam.orthographicSize = m_originalFOV * 1.2f;

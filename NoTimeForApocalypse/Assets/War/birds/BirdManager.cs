@@ -9,7 +9,7 @@ public class BirdManager : MonoBehaviour
 	public Transform attackTarget;
 
     private NpcUi ui;
-    private bool active = false;
+    [SerializeField]private bool active = false;
 
     // Use this for initialization
     void Start(){
@@ -18,7 +18,9 @@ public class BirdManager : MonoBehaviour
 
     // Update is called once per frame
     void Update(){
-        if (active && Input.GetButton("Submit") && !TagTracker.current.isTag(setTag)){
+        if (active && Input.GetButton("Submit") && Yarn.Unity.DialogueRunner.current.visited(requireNode)){
+            //ExampleVariableStorage.current.SetTag(setTag);
+            //Yarn.Unity.DialogueRunner.current.SwitchNode.Invoke();
             StartCoroutine(Peck());
             ui.SetActive(transform, false);
             active = false;
@@ -35,7 +37,7 @@ public class BirdManager : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision){
-        if (collision.CompareTag("Player") && Yarn.Unity.DialogueRunner.current.visited(requireNode) && !TagTracker.current.isTag(setTag))
+        if (collision.CompareTag("Player") && Yarn.Unity.DialogueRunner.current.visited(requireNode))
         {
             ui.Show("give seeds to birds", "");
             ui.SetActive(transform, true);

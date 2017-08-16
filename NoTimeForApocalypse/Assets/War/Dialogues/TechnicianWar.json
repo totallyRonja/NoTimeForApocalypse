@@ -1,0 +1,32 @@
+[
+	{
+		"title": "Technician",
+		"tags": "",
+		"body": "Hello, curious construction!\n<<if !visited(\"Technician\")>>\n    I thought I built the most advanced things on this island.\n    But a glance at you tells me otherwise.\n    <<if !$scrap>>\n        If you brought me a bit of scrap I could probably fix you up.\n        It'd be an absolute honor to look inside your inner workings.\n    <<else>>\n        I see you have some scrap on you, I can repair you if you give it to me.\n        As often as you'd like!\n        -> Yes, please.\n            Give me one second while I analyse your chassis.\n            Okay I think I have what it takes to fix you together.\n            [[Technician.Heal]]\n        -> No I like it for myself\n            You surely are a curious creature, but go ahead.\n            Tell me though, do you eat the metal?\n            I'm just curious...\n    <<endif>>\n    -> I actually have a letter for you. <<if visited(\"Postperson.GivePost\")>>\n        [[Technician.TakePost]]\n<<else>>\n    <<if !$scrap>>\n        like I told you previously,\n        if you brought me a bit of scrap I could probably fix you up.\n        It'd be an absolute honor to look at your inner workings.\n    <<else>>\n        <<if !visited(\"Technician.Heal\")>>\n            I see you have some scrap on you, I can repair you if you give it to me.\n            As often as you'd like!\n            -> Yes, please.\n                Okay, here we go.\n                [[Technician.Heal]]\n            -> No I like it for myself\n                You surely are a curious creature, but go ahead.\n                Tell me though, do you eat the metal?\n                I'm just curious...\n        <<else>>\n            Want me to heal you up again?\n            -> Yes, please.\n                [[Technician.Heal]]\n        <<endif>>\n        -> I actually have a letter for you. <<if visited(\"Postperson.GivePost\")>>\n            [[Technician.TakePost]]\n    <<endif>>\n<<endif>>\n\n",
+		"position": {
+			"x": -78,
+			"y": -47
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Technician.Heal",
+		"tags": "",
+		"body": "<<SetHP Player 7>>\nOkay, I removed all dents,\nyou should be good as new.\nThe systems in you are astounding,\ncome back any time.",
+		"position": {
+			"x": 234,
+			"y": -42
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Technician.TakePost",
+		"tags": "",
+		"body": "Oh, that's quite a heavy letter.\nProbably my new tools, thanks for bringing them.",
+		"position": {
+			"x": -97,
+			"y": 248
+		},
+		"colorID": 0
+	}
+]

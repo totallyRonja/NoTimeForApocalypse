@@ -1,0 +1,52 @@
+[
+	{
+		"title": "Technician",
+		"tags": "",
+		"body": "<<if !visited(\"Technician.GiveBook\")>>\n    [[Technician.GiveBook]]\n<<else>>\n    <<if !visited(\"Technician.PictureSuccess\")>>\n        Okay, last try didn't work out so well,\n        can we just try that again?\n        [[Technician.AskForPicture]]\n    <<else>>\n        Nice drawing we made there earlier!\n    <<endif>>\n<<endif>>",
+		"position": {
+			"x": 239,
+			"y": 224
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Technician.GiveBook",
+		"tags": "",
+		"body": "By the breath of James Watt! Just take this horrible book!\nI've never read anything so ridiculous in all of my life.\nA human person who turns into an insect?\nAnd don't get me started on the father issues.\nIt's the worst thing I have ever touched in my life.\n-> Okay I'll take it.\n    Thank you you dear soul!\n    You woudn't believe the pain you're saving me.\n-> Then I don't want it either.\n    I'm afraid you don't have a choice here,\n    take it, throw it away, whatever.\n    But I can't guarantee my personal wellbeing in proximity to this book.\nNow that this is done with, can I ask you for another favour?\nI'd absolutely love to draw a picture of you,\njust a reminder of the day I saw your intricate design.\n[[Technician.AskForPicture]]",
+		"position": {
+			"x": 520,
+			"y": 230
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Technician.AskForPicture",
+		"tags": "",
+		"body": "Just keep still like you are now.\nI should be able to sketch you in about 30 seconds.\nBut you can't move a single step, otherwise I have to start all over again.\n<<StartDrawing Technician>>\nI assume you know how drawing works.",
+		"position": {
+			"x": 361,
+			"y": 504
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Technician.PictureSuccess",
+		"tags": "",
+		"body": "YES!\nI made this beautiful picture of all your intricate designs.\nDoesn't it looks beautiful?",
+		"position": {
+			"x": 203,
+			"y": 749
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Technician.PictureFail",
+		"tags": "",
+		"body": "Oh no you moved!\nDo we want to try that again?",
+		"position": {
+			"x": 537,
+			"y": 750
+		},
+		"colorID": 0
+	}
+]

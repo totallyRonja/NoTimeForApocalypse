@@ -9,6 +9,7 @@ public class HitParticle : MonoBehaviour {
 	public AnimationCurve scale;
 	public float initLifetime = 1;
 	public float base_speed = 5;
+	public int damage = 1;
 	private Vector2 speed = Vector2.zero;
 
 	private float lifetime;
@@ -47,7 +48,7 @@ public class HitParticle : MonoBehaviour {
 		if (hp == null || punched.Contains(hp))
 			return;
 		punched.Add(hp);
-		hp.Hit(source, 1, transform.up);
+		hp.Hit(source, damage, transform.up);
         GetComponent<Collider2D>().enabled = false;
 	}
 

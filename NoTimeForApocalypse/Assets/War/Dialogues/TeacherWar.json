@@ -12,7 +12,7 @@
 	{
 		"title": "Teacher.Drama0",
 		"tags": "",
-		"body": "You might have met my daughter,\nshe lives just south of here in a splendid house.\nPoint being that she should really visit school.\nShe isn not obliged to, but she never finished her education\nand quite frankly, I am worried about her future.\nWhat is supposed to become of her.\nCould you go and talk to her about that?\nShe will not listen to me anymore.\n<<set $drama = 1>>",
+		"body": "You might have met my daughter,\nshe lives just south of here in a splendid house.\nPoint being that she should really visit school.\nShe is obviously not obliged to, but she never finished her education\nand quite frankly, I am worried about her future.\nWhat is supposed to become of her.\nCould you go and talk to her about that?\nShe just will not listen to me anymore.\n<<set $drama = 1>>",
 		"position": {
 			"x": 913,
 			"y": -118
