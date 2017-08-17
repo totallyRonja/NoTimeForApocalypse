@@ -11,3 +11,5 @@ Attack sound:
 	swoosh: http://www.freesfx.co.uk
 
 http://soundbible.com/2032-Water.html
+
+Yarn:	you know where

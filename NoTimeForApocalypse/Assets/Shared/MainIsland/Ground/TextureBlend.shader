@@ -5,8 +5,9 @@ Shader "2D/Texture Blend"
     Properties
     {
 		[PerRendererData]_MainTex ("Sprite Texture", 2D) = "white" {}
-		_TintMult("Tint Multiplier", Float) = 0
-		_TintTex ("Tint Texture", 2D) = "white" {}
+        _Tint ("Tint", Color) = (1,1,1,1)
+		//_TintMult("Tint Multiplier", Float) = 0
+		//_TintTex ("Tint Texture", 2D) = "white" {}
 		_SubTexR ("Sprite Texture", 2D) = "red" {}
 		_SubTexG ("Sprite Texture", 2D) = "green" {}
 		_SubTexB ("Sprite Texture", 2D) = "blue" {}
@@ -34,11 +35,11 @@ Shader "2D/Texture Blend"
             #pragma fragment frag
             #pragma multi_compile DUMMY PIXELSNAP_ON
 			 
-			float _TintMult;
+			//float _TintMult;
             int _HardTransition;
 
             sampler2D _MainTex;
-			sampler2D _TintTex;
+			//sampler2D _TintTex;
             sampler2D _SubTexR;
             sampler2D _SubTexG;
             sampler2D _SubTexB;
@@ -46,6 +47,8 @@ Shader "2D/Texture Blend"
             float4 _SubTexR_ST;
             float4 _SubTexG_ST;
             float4 _SubTexB_ST;
+
+            float4 _Tint;
  
             struct Vertex
             {
@@ -95,7 +98,8 @@ Shader "2D/Texture Blend"
                     if(map.a < 0.5)
                         discard;
                 }
-				o *=  float4(tex2D(_TintTex, IN.uv_MainTex).rgb, 1) * _TintMult;
+				o *=  _Tint;
+                //float4(tex2D(_TintTex, IN.uv_MainTex).rgb, 1) 
 				 
                 return o;
             }

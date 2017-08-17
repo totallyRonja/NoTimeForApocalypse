@@ -6,8 +6,6 @@ using Yarn.Unity;
 
 public class ItemDisplay : MonoBehaviour
 {
-
-
     public string[] tags;
     public string[] notTags;
     public bool global; //the static global safe stuff
@@ -17,7 +15,7 @@ public class ItemDisplay : MonoBehaviour
     void Start(){
         image = GetComponent<Image>();
         if(global)
-            DialogueRunner.current.SwitchNode.AddListener(UpdateStatus);
+            StaticSafeSystem.current.completedQuest.AddListener(UpdateStatus);
         else
             DialogueRunner.current.SwitchNode.AddListener(UpdateStatus);
         UpdateStatus();
@@ -25,41 +23,50 @@ public class ItemDisplay : MonoBehaviour
     public void UpdateStatus(){
         //List<string> trackerTags = global ? StaticSafeSystem.current.activeTags : TagTracker.current.activeTags;
         foreach (string tag in tags){
-            if (tag.StartsWith("$")){
-                //check if a variable is met
-                if (!DialogueRunner.current.variableStorage.GetValue(tag).AsBool){
-                    if (!global) gameObject.SetActive(false);
+            if(global){
+                if(!StaticSafeSystem.current.activeTags.Contains(tag)){
                     image.enabled = false;
                     return;
                 }
-            } else {
-                //check if the code has been visited
-                if(!DialogueRunner.current.visited(tag)){
-                    if (!global) gameObject.SetActive(false);
-                    image.enabled = false;
-                    return;
+            }else{
+                if (tag.StartsWith("$")){
+                    //check if a variable is met
+                    if (!DialogueRunner.current.variableStorage.GetValue(tag).AsBool){
+                        gameObject.SetActive(false);
+                        image.enabled = false;
+                        return;
+                    }
+                } else {
+                    //check if the code has been visited
+                    if(!DialogueRunner.current.visited(tag)){
+                        gameObject.SetActive(false);
+                        image.enabled = false;
+                        return;
+                    }
                 }
             }
         }
         foreach (string nTag in notTags){
-            if (tag.StartsWith("$"))
-            {
-                //check if a variable is met
-                if (DialogueRunner.current.variableStorage.GetValue(nTag).AsBool)
-                {
-                    if (!global) gameObject.SetActive(false);
+            if(global){
+                if(StaticSafeSystem.current.activeTags.Contains(nTag)){
                     image.enabled = false;
                     return;
                 }
-            }
-            else
-            {
-                //check if the code has been visited
-                if (DialogueRunner.current.visited(nTag))
-                {
-                    if (!global) gameObject.SetActive(false);
-                    image.enabled = false;
-                    return;
+            }else{
+                if (tag.StartsWith("$")){
+                    //check if a variable is met
+                    if (DialogueRunner.current.variableStorage.GetValue(nTag).AsBool){
+                        gameObject.SetActive(false);
+                        image.enabled = false;
+                        return;
+                    }
+                }else{
+                    //check if the code has been visited
+                    if (DialogueRunner.current.visited(nTag)){
+                        gameObject.SetActive(false);
+                        image.enabled = false;
+                        return;
+                    }
                 }
             }
         }

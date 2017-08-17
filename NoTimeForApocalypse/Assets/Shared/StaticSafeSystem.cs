@@ -23,6 +23,7 @@ public class StaticSafeSystem : MonoBehaviour {
 		if(completedQuest == null)
 			completedQuest = new UnityEvent(); // event
 	}
+    
 	void Start () {
 		if(Yarn.Unity.DialogueRunner.current)
 			Yarn.Unity.DialogueRunner.current.SwitchNode.AddListener(tagsChanged);
