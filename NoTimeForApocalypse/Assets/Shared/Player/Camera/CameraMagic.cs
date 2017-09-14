@@ -34,8 +34,8 @@ public class CameraMagic : MonoBehaviour {
     #region avoid frustum culling
     float m_originalFOV;
     Camera cameraForThis;
-    public Vector3 frustumRotation = new Vector3(0, 180, 0);
-    Vector3 m_oldRotation;
+    //public Vector3 frustumRotation = new Vector3(0, 180, 0);
+    //Vector3 m_oldRotation;
     public void PreRenderAdjustFOV(Camera cam)
     {
         if (cam == cameraForThis)

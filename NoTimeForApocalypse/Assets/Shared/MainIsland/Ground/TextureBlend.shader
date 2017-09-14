@@ -91,9 +91,9 @@ Shader "2D/Texture Blend"
                 } else {
                     if(map.r > map.g && map.r > map.b)
                         o = tex2D (_SubTexR, IN.uvr);
-                    if(map.g > map.r && map.g > map.b)
+                    else if(map.g > map.r && map.g > map.b)
                         o = tex2D (_SubTexG, IN.uvg);
-                    if(map.b > map.r && map.b > map.g)
+                    else
                         o = tex2D (_SubTexB, IN.uvb);
                     if(map.a < 0.5)
                         discard;

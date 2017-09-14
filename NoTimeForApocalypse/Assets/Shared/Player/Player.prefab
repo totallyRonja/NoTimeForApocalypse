@@ -277,7 +277,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 4.0065117
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -349,15 +349,15 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: c546c3fa07baec5428e12a5ea81cc98b, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5
-  m_Pitch: 1
+  m_Pitch: 1.1785773
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 2.4739838
+  MaxDistance: 5.569771
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -469,12 +469,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5ad3237f6f697654d97fca39fa380203, type: 3}
   idleSheet: {fileID: 0}
   mirror: 1
-  angle: 0
+  angle: -1.5707964
   idle: 0
   autoAngle: 0
   transitionTo: {fileID: 114979582453790718}
   spriteProperties: {x: 1, y: 8, z: 0, w: 0}
-  animProperties: {x: 0, y: 8, z: 20, w: 0}
+  animProperties: {x: 0, y: 8, z: 20, w: 5.281881}
 --- !u!114 &114108360098918006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -543,7 +543,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mode: 3
   axis: {x: 0, y: 1, z: 0}
-  frustumRotation: {x: 0, y: 180, z: 0}
 --- !u!114 &114533087586288700
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -743,6 +742,8 @@ SpriteRenderer:
   m_Size: {x: 0.81, y: 7.26}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!212 &212834215256372062
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -783,3 +784,5 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
