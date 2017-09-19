@@ -124,7 +124,7 @@ Shader "2D/Water"
             float4 frag(Fragment IN) : COLOR
             {
                 float value = tex2D (_MainTex, IN.uv_MainTex);
-                float highlight = (((_Time.y +  cnoise(IN.uv_MainTex * 5 + _Time.y * 0.1) * 3) * 0.5) % 1.3) - 0.1;
+                float highlight = (((_Time.y +  cnoise(IN.uv_MainTex * 7 + _Time.y * 0.1) * 3) * 0.5) % 1.3) - 0.1;
                 highlight = saturate(0.2 - abs(sqrt(value) - highlight)) * sqrt(1-value) * 2;
                 value = saturate(lerp(0, .5, value * value * value * value)) + highlight;
                 float4 deepCol = lerp(_DeepColor, _CoastColor, 

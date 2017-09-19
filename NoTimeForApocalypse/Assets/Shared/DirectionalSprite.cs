@@ -40,16 +40,19 @@ public class DirectionalSprite : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         if (transitionTo != null)
-            mat.SetVector("_Sprites", new Vector4(spriteProperties.x, spriteProperties.y, 0, Time.time));
+            mat.SetVector("_Sprites", new Vector4(spriteProperties.x, spriteProperties.y, 
+                    0, Time.time + 0.01f * Mathf.Sign(animProperties.z)));
         if (mirror) {
-            //print(Mathf.RoundToInt((spriteSheets.Length - 1) * (Mathf.Abs(angle) / Mathf.PI)));
-            if (idle)
+            if (idle && idleSheet != null)
                 render.sprite = idleSheet;
             else
                 render.sprite = spriteSheets[Mathf.RoundToInt((spriteSheets.Length-1) * (Mathf.Abs(angle)/Mathf.PI))];
             render.flipX = angle < 0;
         } else {
-            throw new NotImplementedException("360° animations aren't implemented yet, please do that now (or use 180°)");
+            if (idle && idleSheet != null)
+                render.sprite = idleSheet;
+            else
+                render.sprite = spriteSheets[Mathf.RoundToInt((spriteSheets.Length-1) * (Mathf.Abs(angle)/(Mathf.PI*2)))];
         }
 	}
 
@@ -59,19 +62,19 @@ public class DirectionalSprite : MonoBehaviour {
             if(d != this)
                 d.enabled = false;
         if (transitionTo != null) {
-            animProperties.w = Time.time;
+            animProperties.w = Time.time; 
             mat.SetVector("_FrameProperties", animProperties);
-            StartCoroutine(Transition((animProperties.y - animProperties.x) / animProperties.z));
+            StartCoroutine(Transition((animProperties.y - animProperties.x) / (Mathf.Abs(animProperties.z)+1)));
         } else {
             animProperties.w = 0;
             mat.SetVector("_FrameProperties", animProperties);
             spriteProperties.w = 0;
             mat.SetVector("_Sprites", spriteProperties);
         }
+        Update();
     }
     IEnumerator Transition(float waitTime){
         yield return new WaitForSeconds(waitTime);
-        enabled = false;
         transitionTo.enabled = true;
     }
 }
