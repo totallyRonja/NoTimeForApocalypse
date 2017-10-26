@@ -41,7 +41,7 @@ public class DirectionalSprite : MonoBehaviour {
     void Update () {
         if (transitionTo != null)
             mat.SetVector("_Sprites", new Vector4(spriteProperties.x, spriteProperties.y, 
-                    0, Time.time + 0.01f * Mathf.Sign(animProperties.z)));
+                    0, Time.time + 0.02f ));
         if (mirror) {
             if (idle && idleSheet != null)
                 render.sprite = idleSheet;

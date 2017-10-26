@@ -19,4 +19,7 @@ EditorBuildSettings:
     guid: db5d22f03f3305d48bcbc009216f54b4
   - enabled: 1
     path: Assets/Famine/FamineScene.unity
-    guid: 00000000000000000000000000000000
+    guid: 3d9e07c9fb1f8bc4a86965875c63a389
+  - enabled: 1
+    path: Assets/Death/DeathScene.unity
+    guid: 57018fcda97c675469ac0951634140ee

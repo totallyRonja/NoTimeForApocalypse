@@ -18,14 +18,14 @@ public class War : Hitable {
     private Rigidbody2D rigid;
     private Vector2 velocityGoal;
     private bool canThrow = true;
-    private AudioSource audio;
+    private AudioSource audioSource;
     private Material warMat;
 
     // Use this for initialization
     void Start(){
         player = GameObject.FindGameObjectWithTag("Player");
         rigid = GetComponent<Rigidbody2D>();
-        audio = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
         warMat = GetComponentInChildren<Renderer>().material;
         warMat.SetFloat("_Flashing", 0);
     }
@@ -58,7 +58,7 @@ public class War : Hitable {
         hpPool.Hit(gameObject, 2, -coll.contacts[0].normal);
     }
     public override void Hit(GameObject source, float damage = 0, Vector2 direction = new Vector2()){
-        audio.PlayOneShot(hurtSound);
+        audioSource.PlayOneShot(hurtSound);
         if (hp <= 0) return;
         direction.Normalize();
         rigid.velocity = rigid.velocity/2;
@@ -73,11 +73,11 @@ public class War : Hitable {
     IEnumerator throwHead(){
         canThrow = false;
         throwAnim.enabled = true;
-        audio.Stop();
+        audioSource.Stop();
         rigid.simulated = false;
         yield return new WaitForSeconds(0.7f);
         rigid.simulated = true;
-        audio.Play();
+        audioSource.Play();
         rigid.velocity = Vector2.zero;
         Instantiate(projectile, (projectileOffset?projectileOffset:transform).position, transform.rotation, transform.parent).SetActive(true);
         yield return new WaitForSeconds(1.3f);
@@ -85,10 +85,10 @@ public class War : Hitable {
     }
     IEnumerator dying(){
         HpDisplay.current.countDownScale = 0;
-        audio.Stop();
-        audio.pitch = 0.1f;
-        audio.volume = 5;
-        audio.PlayOneShot(hurtSound);
+        audioSource.Stop();
+        audioSource.pitch = 0.1f;
+        audioSource.volume = 5;
+        audioSource.PlayOneShot(hurtSound);
         float startTime = Time.time;
         while(Time.time < startTime+decayTime){
             float t = (Time.time - startTime) / decayTime;

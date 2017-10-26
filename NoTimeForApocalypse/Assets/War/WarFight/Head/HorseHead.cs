@@ -12,13 +12,13 @@ public class HorseHead : Hitable {
 
     private GameObject player;
     private Rigidbody2D rigid;
-    private AudioSource audio;
+    private AudioSource audioSource;
 
     // Use this for initialization
     void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
         rigid = GetComponent<Rigidbody2D>();
-        audio = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
     }
 	
 	void FixedUpdate () {
@@ -34,7 +34,7 @@ public class HorseHead : Hitable {
     }
 
     public override void Hit(GameObject source, float damage = 0, Vector2 direction = new Vector2()){
-        audio.PlayOneShot(hurtSound);
+        audioSource.PlayOneShot(hurtSound);
         if (hp > 0){
             hp -= Mathf.FloorToInt(damage);
             if (hp <= 0){

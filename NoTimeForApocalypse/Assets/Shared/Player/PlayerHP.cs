@@ -41,7 +41,7 @@ public class PlayerHP : Hitable {
         if (hp <= 0)
             Die();
         phys.velocity = direction.normalized * 20;
-        StartCoroutine(blink(0.5f));
+        StartCoroutine(Blink(0.5f));
     }
 
     [Yarn.Unity.YarnCommand("SetHP")]
@@ -68,7 +68,7 @@ public class PlayerHP : Hitable {
         onCooldown = false;
     }
 
-    IEnumerator blink(float length){
+    IEnumerator Blink(float length){
         foreach(Material m in playerMats)
             m.SetFloat("_Flashing", 1);
         yield return new WaitForSeconds(length);
